@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Highway"
-  s.version          = "0.9.0"
+  s.version          = "0.9.1"
   s.summary          = "Unidirectional Data Flow in Swift"
   s.description      = <<-DESC
                         Highway is a mix of Redux-like and The Elm Architecture implementation of the unidirectional data flow architecture in Swift.
@@ -20,12 +20,12 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target     = '13.0'
   s.osx.deployment_target     = '10.15'
-  s.tvos.deployment_target    = '9.0'
+  s.tvos.deployment_target    = '13.0'
   s.watchos.deployment_target = '2.0'
 
   s.test_spec "HighwayTests" do |ts|
     ts.ios.deployment_target = "13.0"
-    ts.osx.deployment_target = "10.10"
+    ts.osx.deployment_target = "10.15"
     ts.tvos.deployment_target = "13.0"
     ts.pod_target_xcconfig = { "ENABLE_BITCODE" => "NO" }
     ts.framework    = "XCTest"
