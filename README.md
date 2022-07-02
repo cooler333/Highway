@@ -11,15 +11,14 @@ If you were looking for a something like this:
 
 ...but on Swift. Then you have found it!
 
-Highway is implementation of TEA/MVU architecture pattern using Swift.
+Highway is implementation of Redux-like architecture pattern using Swift.
 
 ## Features
 
-- Cancellable side effects (cancel outdated network requests)
 - Do not use 3rd party libraries
-- use Combine
 - 100% business logic code coverage
-- Lightweight: 2 structs, 1 enum, 2 final classes; less than 200 lines of code
+- Lightweight
+- Multiple stores can share and mutate the same state to sync app state
 
 #### We're open to merge requests
 
@@ -58,7 +57,7 @@ Also you can integrate framework as SPM package
 
 ## Author
 
-Dmitrii Coolerov, coolerov333@gmail.com
+Dmitrii Cooler, coolerov333@gmail.com
 
 ## License
 
