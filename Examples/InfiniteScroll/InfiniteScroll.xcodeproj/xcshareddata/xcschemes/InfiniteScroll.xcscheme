@@ -37,6 +37,13 @@
             BlueprintName = "InfiniteScroll"
             ReferencedContainer = "container:InfiniteScroll.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0AF6AC84F2496C5483262E49CAA2522F"
+            BuildableName = "Highway.framework"
+            BlueprintName = "Highway"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
