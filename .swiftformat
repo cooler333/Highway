@@ -1,0 +1,5 @@
+--exclude "**/Pods","**/DerivedData","**/Tests","**/*.generated.swift"
+--indent 4
+--ifdef no-indent
+--disable unusedArguments
+--ranges no-space
