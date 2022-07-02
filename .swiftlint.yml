@@ -1,0 +1,19 @@
+disabled_rules:
+  - trailing_comma
+  - opening_brace
+vertical_whitespace:
+  max_empty_lines: 2
+excluded:
+  - "**/Pods"
+  - "**/DerivedData"
+  - "**/Tests"
+  - "**/*.generated.swift"
+type_name:
+  max_length:
+    warning: 50
+    error: 60
+nesting:
+  type_level:
+    warning: 2
+  function_level:
+    warning: 0

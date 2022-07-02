@@ -1,0 +1,35 @@
+PODS:
+  - Highway (0.9.0)
+  - Highway/HighwayTests (0.9.0)
+  - Sourcery/CLI-Only (1.8.1)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
+  - Swinject (2.8.1)
+
+DEPENDENCIES:
+  - Highway (from `../../`)
+  - Highway/HighwayTests (from `../../`)
+  - Sourcery/CLI-Only
+  - SwiftMessages
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - Sourcery
+    - SwiftMessages
+    - Swinject
+
+EXTERNAL SOURCES:
+  Highway:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Highway: 58d421686a096387e03b03bb800f69920d6faa09
+  Sourcery: 4d44d4ea26a682a4a9875ec7c1870a1e7b8e183f
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
+  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
+
+PODFILE CHECKSUM: b34283f41389abaf917a62f150d004047a15b803
+
+COCOAPODS: 1.11.3

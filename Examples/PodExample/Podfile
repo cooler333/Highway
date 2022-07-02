@@ -1,0 +1,16 @@
+use_frameworks!
+
+platform :ios, '13.0'
+
+target 'Highway_Example' do
+  pod 'SwiftLint'
+  pod 'SwiftFormat/CLI'
+
+  pod 'Highway', :path => '../../'#, testspecs: ["Tests"]
+
+  target 'Highway_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
