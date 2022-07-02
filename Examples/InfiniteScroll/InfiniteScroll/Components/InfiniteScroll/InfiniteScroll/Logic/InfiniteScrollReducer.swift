@@ -9,7 +9,6 @@ import Foundation
 import Highway
 
 extension InfiniteScrollFeature {
-    @inline(__always)
     static func getReducer() -> Reducer<InfiniteScrollState, InfiniteScrollAction> {
         let reducer: Reducer<InfiniteScrollState, InfiniteScrollAction> = { state, action in
             switch action {
