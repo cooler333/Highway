@@ -67,7 +67,7 @@ final class InfiniteScrollViewController: UIViewController {
 
     // MARK: Private properties
 
-    private let store: Store<InfiniteScrollState, InfiniteScrollAction>
+    private let store: Store<MailListState.List, InfiniteScrollAction>
 
     private var toastNotificationManager: ToastNotificationManagerProtocol
 
@@ -76,10 +76,10 @@ final class InfiniteScrollViewController: UIViewController {
 
     private var cancellable = Set<AnyCancellable>()
 
-    private let uiSubject = PassthroughSubject<InfiniteScrollState, Never>()
+    private let uiSubject = PassthroughSubject<MailListState.List, Never>()
 
     init(
-        store: Store<InfiniteScrollState, InfiniteScrollAction>,
+        store: Store<MailListState.List, InfiniteScrollAction>,
         toastNotificationManager: ToastNotificationManagerProtocol
     ) {
         self.store = store
@@ -243,9 +243,9 @@ final class InfiniteScrollViewController: UIViewController {
     }
 
     // swiftlint:disable:next cyclomatic_complexity
-    private func update(state: InfiniteScrollState) {
+    private func update(state: MailListState.List) {
         let contentState: LCEPagedState<[InfiniteScrollViewModel], InfiniteScrollAPIError> = {
-            let data: [InfiniteScrollViewModel] = state.list.data.map { model in
+            let data: [InfiniteScrollViewModel] = state.data.map { model in
                 InfiniteScrollViewModel(
                     title: model.title,
                     subtitle: model.subtitle,
@@ -253,7 +253,7 @@ final class InfiniteScrollViewController: UIViewController {
                     details: model.details
                 )
             }
-            switch state.list.loadingState {
+            switch state.loadingState {
             case .refresh:
                 return .loading(previousData: data, state: .refresh)
 
@@ -261,10 +261,10 @@ final class InfiniteScrollViewController: UIViewController {
                 return .loading(previousData: data, state: .nextPage)
 
             case .error:
-                return .error(previousData: data, isListEnded: state.list.isListEnded, error: .networkError)
+                return .error(previousData: data, isListEnded: state.isListEnded, error: .networkError)
 
             case .idle:
-                return .content(data: data, isListEnded: state.list.isListEnded)
+                return .content(data: data, isListEnded: state.isListEnded)
             }
         }()
 
@@ -394,8 +394,8 @@ final class InfiniteScrollViewController: UIViewController {
 extension InfiniteScrollViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let state = store.getState()
-        guard !state.list.isListEnded else { return }
-        guard state.list.loadingState != .nextPage else { return }
+        guard !state.isListEnded else { return }
+        guard state.loadingState != .nextPage else { return }
 
         let numberOfSections = dataSource.numberOfSections(in: tableView)
         if numberOfSections > 0, numberOfSections - 1 == indexPath.section {
@@ -450,7 +450,7 @@ extension InfiniteScrollViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         let state = store.getState()
-        if state.list.loadingState != .refresh {
+        if state.loadingState != .refresh {
             store.dispatch(.search(searchText: searchBar.text))
             store.dispatch(.fetchInitialPageInList)
         }

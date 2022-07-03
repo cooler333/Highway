@@ -12,7 +12,7 @@
 		1C6E520D28242F3900218661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6E520C28242F3900218661 /* Assets.xcassets */; };
 		1C6E521028242F3900218661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C6E520E28242F3900218661 /* LaunchScreen.storyboard */; };
 		1C6E521B28242F3900218661 /* InfiniteScrollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */; };
-		1C6E523C2824310E00218661 /* InfiniteScrollFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52342824310E00218661 /* InfiniteScrollFlowCoordinator.swift */; };
+		1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52342824310E00218661 /* ListFlowCoordinator.swift */; };
 		1C6E523D2824310E00218661 /* InfiniteScrollFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52362824310E00218661 /* InfiniteScrollFeature.swift */; };
 		1C6E523E2824310E00218661 /* InfiniteScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52382824310E00218661 /* InfiniteScrollViewController.swift */; };
 		1C6E523F2824310E00218661 /* InfiniteScrollModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */; };
@@ -30,6 +30,16 @@
 		1C6E526328244BE700218661 /* InfiniteScrollRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E526228244BE700218661 /* InfiniteScrollRepositoryMock.swift */; };
 		1CA17222286C2A070079262E /* InfiniteScrollReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17221286C2A070079262E /* InfiniteScrollReducer.swift */; };
 		1CA17224286C2A490079262E /* InfiniteScrollMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */; };
+		1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */; };
+		1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */; };
+		1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231828719CAD009FAE7A /* DetailsViewController.swift */; };
+		1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */; };
+		1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */; };
+		1CBE23212871A734009FAE7A /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */; };
+		1CBE23222871A734009FAE7A /* DetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */; };
+		1CBE23272871A887009FAE7A /* MenuFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE23262871A887009FAE7A /* MenuFlowCoordinator.swift */; };
+		1CBE23292871A890009FAE7A /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */; };
+		1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE232A2871A92B009FAE7A /* MailListState.swift */; };
 		1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA1282D971800A43E25 /* Mockable.swift */; };
 		1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */; };
 		7F679505DADA9EFEB27BC319 /* Pods_InfiniteScrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727DF77151C8B3D3F5AAF792 /* Pods_InfiniteScrollTests.framework */; };
@@ -59,7 +69,7 @@
 		1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollTests.swift; sourceTree = "<group>"; };
 		1C6E522428242F3900218661 /* InfiniteScrollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITests.swift; sourceTree = "<group>"; };
 		1C6E522628242F3900218661 /* InfiniteScrollUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1C6E52342824310E00218661 /* InfiniteScrollFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollFlowCoordinator.swift; sourceTree = "<group>"; };
+		1C6E52342824310E00218661 /* ListFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowCoordinator.swift; sourceTree = "<group>"; };
 		1C6E52362824310E00218661 /* InfiniteScrollFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollFeature.swift; sourceTree = "<group>"; };
 		1C6E52382824310E00218661 /* InfiniteScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollViewController.swift; sourceTree = "<group>"; };
 		1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollModuleBuilder.swift; sourceTree = "<group>"; };
@@ -77,6 +87,16 @@
 		1C6E526228244BE700218661 /* InfiniteScrollRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollRepositoryMock.swift; sourceTree = "<group>"; };
 		1CA17221286C2A070079262E /* InfiniteScrollReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollReducer.swift; sourceTree = "<group>"; };
 		1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollMiddleware.swift; sourceTree = "<group>"; };
+		1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBE231828719CAD009FAE7A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListModuleBuilder.swift; sourceTree = "<group>"; };
+		1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListModuleIO.swift; sourceTree = "<group>"; };
+		1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleBuilder.swift; sourceTree = "<group>"; };
+		1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
+		1CBE23262871A887009FAE7A /* MenuFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBE232A2871A92B009FAE7A /* MailListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListState.swift; sourceTree = "<group>"; };
 		1CCBEFA1282D971800A43E25 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		3473B49FEE2A549EF41607D1 /* Pods_InfiniteScroll_InfiniteScrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll_InfiniteScrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,9 +168,8 @@
 				1C6E520528242F3800218661 /* SceneDelegate.swift */,
 				1C6E520C28242F3900218661 /* Assets.xcassets */,
 				1C6E520E28242F3900218661 /* LaunchScreen.storyboard */,
-				1C6E52412824311300218661 /* Models */,
-				1C6E5242282437C200218661 /* Platform */,
-				1C6E5233282430FD00218661 /* Components */,
+				1C6E52412824311300218661 /* ModelLayer */,
+				1C6E5233282430FD00218661 /* UILayer */,
 			);
 			path = InfiniteScroll;
 			sourceTree = "<group>";
@@ -173,16 +192,16 @@
 			path = InfiniteScrollUITests;
 			sourceTree = "<group>";
 		};
-		1C6E5233282430FD00218661 /* Components */ = {
+		1C6E5233282430FD00218661 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E525F282442E100218661 /* InfiniteScroll */,
-				1C6E525E282442CE00218661 /* Notifications */,
+				1CBE230D2871980E009FAE7A /* Shared */,
+				1CBE230C287197EF009FAE7A /* Stories */,
 			);
-			path = Components;
+			path = UILayer;
 			sourceTree = "<group>";
 		};
-		1C6E52352824310E00218661 /* InfiniteScroll */ = {
+		1C6E52352824310E00218661 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */,
@@ -190,7 +209,7 @@
 				1CA17225286C2C5F0079262E /* Logic */,
 				1C6E52372824310E00218661 /* View */,
 			);
-			path = InfiniteScroll;
+			path = List;
 			sourceTree = "<group>";
 		};
 		1C6E52372824310E00218661 /* View */ = {
@@ -201,22 +220,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1C6E52412824311300218661 /* Models */ = {
+		1C6E52412824311300218661 /* ModelLayer */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E525D282442BD00218661 /* InfiniteScroll */,
-				1C6E525A2824428A00218661 /* Network */,
+				1CBE230F28719854009FAE7A /* Shared */,
+				1CBE230E2871984E009FAE7A /* Stories */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		1C6E5242282437C200218661 /* Platform */ = {
-			isa = PBXGroup;
-			children = (
-				1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */,
-				1C6E524728243E4700218661 /* LCEPagedState.swift */,
-			);
-			path = Platform;
+			path = ModelLayer;
 			sourceTree = "<group>";
 		};
 		1C6E525A2824428A00218661 /* Network */ = {
@@ -248,13 +258,13 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		1C6E525F282442E100218661 /* InfiniteScroll */ = {
+		1C6E525F282442E100218661 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E52342824310E00218661 /* InfiniteScrollFlowCoordinator.swift */,
-				1C6E52352824310E00218661 /* InfiniteScroll */,
+				1C6E52342824310E00218661 /* ListFlowCoordinator.swift */,
+				1C6E52352824310E00218661 /* List */,
 			);
-			path = InfiniteScroll;
+			path = List;
 			sourceTree = "<group>";
 		};
 		1CA17225286C2C5F0079262E /* Logic */ = {
@@ -265,6 +275,114 @@
 				1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		1CBE230C287197EF009FAE7A /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE232A2871A92B009FAE7A /* MailListState.swift */,
+				1CBE23232871A7DD009FAE7A /* Menu */,
+				1CBE23102871986E009FAE7A /* MailList */,
+				1CBE23252871A866009FAE7A /* Settings */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		1CBE230D2871980E009FAE7A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */,
+				1C6E524728243E4700218661 /* LCEPagedState.swift */,
+				1C6E525E282442CE00218661 /* Notifications */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1CBE230E2871984E009FAE7A /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				1C6E525D282442BD00218661 /* InfiniteScroll */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		1CBE230F28719854009FAE7A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1C6E525A2824428A00218661 /* Network */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1CBE23102871986E009FAE7A /* MailList */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */,
+				1CBE231E2871A6C1009FAE7A /* MailList */,
+				1CBE23242871A84D009FAE7A /* Scenes */,
+			);
+			path = MailList;
+			sourceTree = "<group>";
+		};
+		1CBE231128719887009FAE7A /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */,
+				1CBE231628719C84009FAE7A /* Details */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		1CBE231628719C84009FAE7A /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */,
+				1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */,
+				1CBE231728719C98009FAE7A /* View */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		1CBE231728719C98009FAE7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE231828719CAD009FAE7A /* DetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CBE231E2871A6C1009FAE7A /* MailList */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */,
+				1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */,
+			);
+			path = MailList;
+			sourceTree = "<group>";
+		};
+		1CBE23232871A7DD009FAE7A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE23262871A887009FAE7A /* MenuFlowCoordinator.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		1CBE23242871A84D009FAE7A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE231128719887009FAE7A /* Details */,
+				1C6E525F282442E100218661 /* List */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1CBE23252871A866009FAE7A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1CCBEFA4282D9B0F00A43E25 /* Autogenerated */ = {
@@ -483,20 +601,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */,
 				1C6E523F2824310E00218661 /* InfiniteScrollModuleBuilder.swift in Sources */,
+				1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */,
+				1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */,
 				1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */,
 				1C6E52402824310E00218661 /* InfiniteScrollModuleIO.swift in Sources */,
 				1C6E525128243F1B00218661 /* InfiniteScrollResponseData.swift in Sources */,
 				1C6E525C2824429300218661 /* NetworkServiceProtocol.swift in Sources */,
+				1CBE23212871A734009FAE7A /* DetailsModuleIO.swift in Sources */,
+				1CBE23222871A734009FAE7A /* DetailsModuleBuilder.swift in Sources */,
+				1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */,
+				1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */,
+				1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */,
+				1CBE23292871A890009FAE7A /* SettingsFlowCoordinator.swift in Sources */,
 				1C6E523D2824310E00218661 /* InfiniteScrollFeature.swift in Sources */,
 				1C6E526328244BE700218661 /* InfiniteScrollRepositoryMock.swift in Sources */,
 				1C6E52592824411600218661 /* RootContainer.swift in Sources */,
 				1C6E524F28243F0200218661 /* InfiniteScrollModelParser.swift in Sources */,
 				1C6E525328243FCB00218661 /* NetworkService.swift in Sources */,
 				1C6E520428242F3800218661 /* AppDelegate.swift in Sources */,
-				1C6E523C2824310E00218661 /* InfiniteScrollFlowCoordinator.swift in Sources */,
+				1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */,
 				1C6E523E2824310E00218661 /* InfiniteScrollViewController.swift in Sources */,
 				1C6E524B28243EC800218661 /* InfiniteScrollModel.swift in Sources */,
+				1CBE23272871A887009FAE7A /* MenuFlowCoordinator.swift in Sources */,
 				1C6E52442824381A00218661 /* FlowCoordinatorProtocol.swift in Sources */,
 				1C6E525528243FD300218661 /* ToastNotificationManager.swift in Sources */,
 				1CA17224286C2A490079262E /* InfiniteScrollMiddleware.swift in Sources */,

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol InfiniteScrollModuleOutput: AnyObject {
-    func infiniteScrollModuleWantsToOpenDetails(with id: String)
+protocol ListModuleOutput: AnyObject {
+    func listModuleWantsToOpenDetails(with id: String)
 }

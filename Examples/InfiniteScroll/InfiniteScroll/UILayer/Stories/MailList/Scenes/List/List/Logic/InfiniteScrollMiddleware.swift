@@ -12,7 +12,7 @@ import Highway
 extension InfiniteScrollFeature {
     static func getMiddlewares(
         environment: InfiniteScrollEnvironment
-    ) -> [Middleware<InfiniteScrollState, InfiniteScrollAction>] {
+    ) -> [Middleware<MailListState.List, InfiniteScrollAction>] {
         return [
             getPageLoadingMiddleware(environment: environment),
             getRouteMiddleware(environment: environment),
@@ -24,7 +24,7 @@ extension InfiniteScrollFeature {
 extension InfiniteScrollFeature {
     static func getPageLoadingMiddleware(
         environment: InfiniteScrollEnvironment
-    ) -> Middleware<InfiniteScrollState, InfiniteScrollAction> {
+    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
         var cancellable = Set<AnyCancellable>()
 
         return createMiddleware(
@@ -38,16 +38,16 @@ extension InfiniteScrollFeature {
 
                 let currentPage: Int
                 if action == .fetchInitialPageInList {
-                    currentPage = state.list.currentPage // or just 0
+                    currentPage = state.currentPage // or just 0
                 } else if action == .fetchNextPageInList {
-                    currentPage = state.list.currentPage + 1
+                    currentPage = state.currentPage + 1
                 } else {
                     fatalError("unexpected state")
                 }
 
                 environment.infiniteScrollRepository.getInfiniteScrolls(
                     with: currentPage,
-                    pageLength: state.list.pageLength,
+                    pageLength: state.pageLength,
                     searchText: state.searchText
                 )
                 .subscribe(on: environment.backgroundQueue)
@@ -88,16 +88,16 @@ extension InfiniteScrollFeature {
 extension InfiniteScrollFeature {
     static func getRouteMiddleware(
         environment: InfiniteScrollEnvironment
-    ) -> Middleware<InfiniteScrollState, InfiniteScrollAction> {
+    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
         createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
                 guard case let .selectInfiniteScrollAtIndex(index) = action else { return }
 
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
-                let item = getState().list.data[index]
+                let item = getState().data[index]
                 _ = Future<InfiniteScrollAction, Never> { promise in
-                    environment.moduleOutput?.infiniteScrollModuleWantsToOpenDetails(
+                    environment.moduleOutput?.listModuleWantsToOpenDetails(
                         with: item.id
                     )
                     promise(.success(.screenDidOpen))
@@ -128,10 +128,11 @@ class Check {
 extension InfiniteScrollFeature {
     static func getLoggerMiddleware(
         environment: InfiniteScrollEnvironment
-    ) -> Middleware<InfiniteScrollState, InfiniteScrollAction> {
+    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
         createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
+                let state = getState()
                 switch action {
                 case let .addNextPageInList(result):
                     switch result {
@@ -145,17 +146,17 @@ extension InfiniteScrollFeature {
                 case let .updateInitialPageInList(result):
                     switch result {
                     case let .success(data):
-                        print(Date(), "[updateInitialPageInList] count: \(data.count), searchText: \(getState().searchText ?? "nil")")
+                        print(Date(), "[updateInitialPageInList] count: \(data.count), searchText: \(state.searchText ?? "nil")")
 
                     case let .failure(error):
-                        print(Date(), "[updateInitialPageInList] error: \(error.localizedDescription), searchText: \(getState().searchText ?? "nil")")
+                        print(Date(), "[updateInitialPageInList] error: \(error.localizedDescription), searchText: \(state.searchText ?? "nil")")
                     }
 
                 case .fetchInitialPageInList:
-                    print(Date(), "[fetchInitialPageInList] page: \(getState().list.currentPage), searchText: \(getState().searchText ?? "nil")")
+                    print(Date(), "[fetchInitialPageInList] page: \(state.currentPage), searchText: \(state.searchText ?? "nil")")
 
                 case .fetchNextPageInList:
-                    print(Date(), "[fetchNextPageInList] page: \(getState().list.currentPage), searchText: \(getState().searchText ?? "nil")")
+                    print(Date(), "[fetchNextPageInList] page: \(state.currentPage), searchText: \(state.searchText ?? "nil")")
 
                 case let .search(searchText):
                     print(Date(), "[search] text: \(searchText ?? "nil")")

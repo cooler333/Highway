@@ -29,7 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.backgroundColor = .black
         self.window = window
 
-        flowCoordinator = InfiniteScrollFlowCoordinator(window: window, resolver: container.resolver)
+        // TODO: MailListFlowCoordinator -> Menu
+        flowCoordinator = MailListFlowCoordinator(window: window, resolver: container.resolver)
         window.makeKeyAndVisible()
 
         flowCoordinator.start()

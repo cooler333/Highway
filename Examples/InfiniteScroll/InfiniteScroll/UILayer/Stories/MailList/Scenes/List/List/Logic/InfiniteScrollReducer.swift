@@ -9,46 +9,46 @@ import Foundation
 import Highway
 
 extension InfiniteScrollFeature {
-    static func getReducer() -> Reducer<InfiniteScrollState, InfiniteScrollAction> {
-        let reducer: Reducer<InfiniteScrollState, InfiniteScrollAction> = { state, action in
+    static func getReducer() -> Reducer<MailListState.List, InfiniteScrollAction> {
+        let reducer: Reducer<MailListState.List, InfiniteScrollAction> = { state, action in
             switch action {
             case .fetchInitialPageInList:
                 var state = state
-                state.list.currentPage = 0
-                state.list.loadingState = .refresh
+                state.currentPage = 0
+                state.loadingState = .refresh
                 return state
 
             case .fetchNextPageInList:
-                if state.list.isListEnded {
+                if state.isListEnded {
                     return state
                 }
-                if state.list.loadingState == .nextPage {
+                if state.loadingState == .nextPage {
                     return state
                 }
                 var state = state
-                state.list.loadingState = .nextPage
+                state.loadingState = .nextPage
                 return state
 
             case let .updateInitialPageInList(result):
                 switch result {
                 case let .success(data):
                     var state = state
-                    state.list.loadingState = .idle
-                    state.list.isListEnded = data.count < state.list.pageLength
-                    state.list.currentPage += 1
-                    state.list.data = data
+                    state.loadingState = .idle
+                    state.isListEnded = data.count < state.pageLength
+                    state.currentPage += 1
+                    state.data = data
                     return state
 
                 case let .failure(error):
                     var state = state
-                    state.list.loadingState = .error(error)
+                    state.loadingState = .error(error)
                     return state
                 }
 
             case let .search(searchText):
                 var state = state
-                state.list.data = []
-                state.list.loadingState = .refresh
+                state.data = []
+                state.loadingState = .refresh
                 state.searchText = searchText
                 return state
 
@@ -59,20 +59,25 @@ extension InfiniteScrollFeature {
                 switch result {
                 case let .success(data):
                     var state = state
-                    state.list.loadingState = .idle
-                    state.list.isListEnded = data.count < state.list.pageLength
-                    state.list.currentPage += 1
-                    state.list.data += data
+                    state.loadingState = .idle
+                    state.isListEnded = data.count < state.pageLength
+                    state.currentPage += 1
+                    state.data += data
                     return state
 
                 case let .failure(error):
                     var state = state
-                    state.list.loadingState = .error(error)
+                    state.loadingState = .error(error)
                     return state
                 }
 
+            case let .selectInfiniteScrollAtIndex(index):
+                var state = state
+                let model = state.data[index]
+                state.selectedMailID = model.id
+                return state
+
             case .initial,
-                    .selectInfiniteScrollAtIndex,
                     .receiveCancelAllRequests,
                     .screenDidOpen:
                 return state
