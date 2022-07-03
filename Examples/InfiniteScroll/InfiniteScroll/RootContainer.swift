@@ -31,19 +31,19 @@ public final class RootAssembly: Assembly {
     }
 
     private func assembleStateless(container: Container) {
-        container.register(InfiniteScrollModelParserProtocol.self) { _ in
-            InfiniteScrollModelParser()
+        container.register(ListModelParserProtocol.self) { _ in
+            ListModelParser()
         }
 
-        container.register(InfiniteScrollRepositoryProtocol.self) { _ in
-            InfiniteScrollRepositoryMock()
+        container.register(ListRepositoryProtocol.self) { _ in
+            ListRepositoryMock()
 
             // if you want to use real api
             // uncomment next line and change url domain
 
-            // InfiniteScrollRepository(
+            // ListRepository(
             //     networkService: resolver.resolve(NetworkServiceProtocol.self)!,
-            //     infiniteScrollModelParser: resolver.resolve(InfiniteScrollModelParserProtocol.self)!
+            //     listModelParser: resolver.resolve(ListModelParserProtocol.self)!
             // )
         }
     }

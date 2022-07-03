@@ -10,7 +10,7 @@ import Foundation
 struct MailListState: Equatable {
     struct List: Equatable {
         enum LoadingState: Equatable {
-            case error(InfiniteScrollAPIError)
+            case error(ListAPIError)
             case refresh
             case nextPage
             case idle
@@ -20,7 +20,7 @@ struct MailListState: Equatable {
         var currentPage = 0
         var isListEnded = false
         var loadingState: LoadingState = .idle
-        var data: [InfiniteScrollModel] = []
+        var data: [ListModel] = []
         var searchText: String?
         var selectedMailID: String?
     }

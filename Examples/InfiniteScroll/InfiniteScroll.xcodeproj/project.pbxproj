@@ -13,23 +13,23 @@
 		1C6E521028242F3900218661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C6E520E28242F3900218661 /* LaunchScreen.storyboard */; };
 		1C6E521B28242F3900218661 /* InfiniteScrollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */; };
 		1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52342824310E00218661 /* ListFlowCoordinator.swift */; };
-		1C6E523D2824310E00218661 /* InfiniteScrollFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52362824310E00218661 /* InfiniteScrollFeature.swift */; };
-		1C6E523E2824310E00218661 /* InfiniteScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52382824310E00218661 /* InfiniteScrollViewController.swift */; };
-		1C6E523F2824310E00218661 /* InfiniteScrollModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */; };
-		1C6E52402824310E00218661 /* InfiniteScrollModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E523A2824310E00218661 /* InfiniteScrollModuleIO.swift */; };
+		1C6E523D2824310E00218661 /* ListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52362824310E00218661 /* ListFeature.swift */; };
+		1C6E523E2824310E00218661 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52382824310E00218661 /* ListViewController.swift */; };
+		1C6E523F2824310E00218661 /* ListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52392824310E00218661 /* ListModuleBuilder.swift */; };
+		1C6E52402824310E00218661 /* ListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E523A2824310E00218661 /* ListModuleIO.swift */; };
 		1C6E52442824381A00218661 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */; };
 		1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524728243E4700218661 /* LCEPagedState.swift */; };
-		1C6E524B28243EC800218661 /* InfiniteScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524A28243EC800218661 /* InfiniteScrollModel.swift */; };
-		1C6E524E28243F0200218661 /* InfiniteScrollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524C28243F0200218661 /* InfiniteScrollRepository.swift */; };
-		1C6E524F28243F0200218661 /* InfiniteScrollModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524D28243F0200218661 /* InfiniteScrollModelParser.swift */; };
-		1C6E525128243F1B00218661 /* InfiniteScrollResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E525028243F1B00218661 /* InfiniteScrollResponseData.swift */; };
+		1C6E524B28243EC800218661 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524A28243EC800218661 /* ListModel.swift */; };
+		1C6E524E28243F0200218661 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524C28243F0200218661 /* ListRepository.swift */; };
+		1C6E524F28243F0200218661 /* ListModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524D28243F0200218661 /* ListModelParser.swift */; };
+		1C6E525128243F1B00218661 /* ListResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E525028243F1B00218661 /* ListResponseData.swift */; };
 		1C6E525328243FCB00218661 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E525228243FCB00218661 /* NetworkService.swift */; };
 		1C6E525528243FD300218661 /* ToastNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E525428243FD300218661 /* ToastNotificationManager.swift */; };
 		1C6E52592824411600218661 /* RootContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52582824411600218661 /* RootContainer.swift */; };
 		1C6E525C2824429300218661 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E525B2824429300218661 /* NetworkServiceProtocol.swift */; };
-		1C6E526328244BE700218661 /* InfiniteScrollRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E526228244BE700218661 /* InfiniteScrollRepositoryMock.swift */; };
-		1CA17222286C2A070079262E /* InfiniteScrollReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17221286C2A070079262E /* InfiniteScrollReducer.swift */; };
-		1CA17224286C2A490079262E /* InfiniteScrollMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */; };
+		1C6E526328244BE700218661 /* ListRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E526228244BE700218661 /* ListRepositoryMock.swift */; };
+		1CA17222286C2A070079262E /* ListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17221286C2A070079262E /* ListReducer.swift */; };
+		1CA17224286C2A490079262E /* ListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17223286C2A490079262E /* ListMiddleware.swift */; };
 		1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */; };
 		1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */; };
 		1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231828719CAD009FAE7A /* DetailsViewController.swift */; };
@@ -70,23 +70,23 @@
 		1C6E522428242F3900218661 /* InfiniteScrollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITests.swift; sourceTree = "<group>"; };
 		1C6E522628242F3900218661 /* InfiniteScrollUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1C6E52342824310E00218661 /* ListFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowCoordinator.swift; sourceTree = "<group>"; };
-		1C6E52362824310E00218661 /* InfiniteScrollFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollFeature.swift; sourceTree = "<group>"; };
-		1C6E52382824310E00218661 /* InfiniteScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollViewController.swift; sourceTree = "<group>"; };
-		1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollModuleBuilder.swift; sourceTree = "<group>"; };
-		1C6E523A2824310E00218661 /* InfiniteScrollModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollModuleIO.swift; sourceTree = "<group>"; };
+		1C6E52362824310E00218661 /* ListFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFeature.swift; sourceTree = "<group>"; };
+		1C6E52382824310E00218661 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		1C6E52392824310E00218661 /* ListModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleBuilder.swift; sourceTree = "<group>"; };
+		1C6E523A2824310E00218661 /* ListModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleIO.swift; sourceTree = "<group>"; };
 		1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1C6E524728243E4700218661 /* LCEPagedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCEPagedState.swift; sourceTree = "<group>"; };
-		1C6E524A28243EC800218661 /* InfiniteScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollModel.swift; sourceTree = "<group>"; };
-		1C6E524C28243F0200218661 /* InfiniteScrollRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollRepository.swift; sourceTree = "<group>"; };
-		1C6E524D28243F0200218661 /* InfiniteScrollModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollModelParser.swift; sourceTree = "<group>"; };
-		1C6E525028243F1B00218661 /* InfiniteScrollResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollResponseData.swift; sourceTree = "<group>"; };
+		1C6E524A28243EC800218661 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		1C6E524C28243F0200218661 /* ListRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
+		1C6E524D28243F0200218661 /* ListModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModelParser.swift; sourceTree = "<group>"; };
+		1C6E525028243F1B00218661 /* ListResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListResponseData.swift; sourceTree = "<group>"; };
 		1C6E525228243FCB00218661 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1C6E525428243FD300218661 /* ToastNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastNotificationManager.swift; sourceTree = "<group>"; };
 		1C6E52582824411600218661 /* RootContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContainer.swift; sourceTree = "<group>"; };
 		1C6E525B2824429300218661 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
-		1C6E526228244BE700218661 /* InfiniteScrollRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollRepositoryMock.swift; sourceTree = "<group>"; };
-		1CA17221286C2A070079262E /* InfiniteScrollReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollReducer.swift; sourceTree = "<group>"; };
-		1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollMiddleware.swift; sourceTree = "<group>"; };
+		1C6E526228244BE700218661 /* ListRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoryMock.swift; sourceTree = "<group>"; };
+		1CA17221286C2A070079262E /* ListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReducer.swift; sourceTree = "<group>"; };
+		1CA17223286C2A490079262E /* ListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMiddleware.swift; sourceTree = "<group>"; };
 		1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE231828719CAD009FAE7A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 		1C6E52352824310E00218661 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E52392824310E00218661 /* InfiniteScrollModuleBuilder.swift */,
-				1C6E523A2824310E00218661 /* InfiniteScrollModuleIO.swift */,
+				1C6E52392824310E00218661 /* ListModuleBuilder.swift */,
+				1C6E523A2824310E00218661 /* ListModuleIO.swift */,
 				1CA17225286C2C5F0079262E /* Logic */,
 				1C6E52372824310E00218661 /* View */,
 			);
@@ -215,7 +215,7 @@
 		1C6E52372824310E00218661 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E52382824310E00218661 /* InfiniteScrollViewController.swift */,
+				1C6E52382824310E00218661 /* ListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,16 +238,16 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		1C6E525D282442BD00218661 /* InfiniteScroll */ = {
+		1C6E525D282442BD00218661 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E524A28243EC800218661 /* InfiniteScrollModel.swift */,
-				1C6E524D28243F0200218661 /* InfiniteScrollModelParser.swift */,
-				1C6E524C28243F0200218661 /* InfiniteScrollRepository.swift */,
-				1C6E525028243F1B00218661 /* InfiniteScrollResponseData.swift */,
-				1C6E526228244BE700218661 /* InfiniteScrollRepositoryMock.swift */,
+				1C6E524A28243EC800218661 /* ListModel.swift */,
+				1C6E524D28243F0200218661 /* ListModelParser.swift */,
+				1C6E524C28243F0200218661 /* ListRepository.swift */,
+				1C6E525028243F1B00218661 /* ListResponseData.swift */,
+				1C6E526228244BE700218661 /* ListRepositoryMock.swift */,
 			);
-			path = InfiniteScroll;
+			path = List;
 			sourceTree = "<group>";
 		};
 		1C6E525E282442CE00218661 /* Notifications */ = {
@@ -270,9 +270,9 @@
 		1CA17225286C2C5F0079262E /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E52362824310E00218661 /* InfiniteScrollFeature.swift */,
-				1CA17221286C2A070079262E /* InfiniteScrollReducer.swift */,
-				1CA17223286C2A490079262E /* InfiniteScrollMiddleware.swift */,
+				1C6E52362824310E00218661 /* ListFeature.swift */,
+				1CA17221286C2A070079262E /* ListReducer.swift */,
+				1CA17223286C2A490079262E /* ListMiddleware.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 		1CBE230E2871984E009FAE7A /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E525D282442BD00218661 /* InfiniteScroll */,
+				1C6E525D282442BD00218661 /* List */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -602,12 +602,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */,
-				1C6E523F2824310E00218661 /* InfiniteScrollModuleBuilder.swift in Sources */,
+				1C6E523F2824310E00218661 /* ListModuleBuilder.swift in Sources */,
 				1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */,
 				1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */,
 				1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */,
-				1C6E52402824310E00218661 /* InfiniteScrollModuleIO.swift in Sources */,
-				1C6E525128243F1B00218661 /* InfiniteScrollResponseData.swift in Sources */,
+				1C6E52402824310E00218661 /* ListModuleIO.swift in Sources */,
+				1C6E525128243F1B00218661 /* ListResponseData.swift in Sources */,
 				1C6E525C2824429300218661 /* NetworkServiceProtocol.swift in Sources */,
 				1CBE23212871A734009FAE7A /* DetailsModuleIO.swift in Sources */,
 				1CBE23222871A734009FAE7A /* DetailsModuleBuilder.swift in Sources */,
@@ -615,22 +615,22 @@
 				1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */,
 				1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */,
 				1CBE23292871A890009FAE7A /* SettingsFlowCoordinator.swift in Sources */,
-				1C6E523D2824310E00218661 /* InfiniteScrollFeature.swift in Sources */,
-				1C6E526328244BE700218661 /* InfiniteScrollRepositoryMock.swift in Sources */,
+				1C6E523D2824310E00218661 /* ListFeature.swift in Sources */,
+				1C6E526328244BE700218661 /* ListRepositoryMock.swift in Sources */,
 				1C6E52592824411600218661 /* RootContainer.swift in Sources */,
-				1C6E524F28243F0200218661 /* InfiniteScrollModelParser.swift in Sources */,
+				1C6E524F28243F0200218661 /* ListModelParser.swift in Sources */,
 				1C6E525328243FCB00218661 /* NetworkService.swift in Sources */,
 				1C6E520428242F3800218661 /* AppDelegate.swift in Sources */,
 				1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */,
-				1C6E523E2824310E00218661 /* InfiniteScrollViewController.swift in Sources */,
-				1C6E524B28243EC800218661 /* InfiniteScrollModel.swift in Sources */,
+				1C6E523E2824310E00218661 /* ListViewController.swift in Sources */,
+				1C6E524B28243EC800218661 /* ListModel.swift in Sources */,
 				1CBE23272871A887009FAE7A /* MenuFlowCoordinator.swift in Sources */,
 				1C6E52442824381A00218661 /* FlowCoordinatorProtocol.swift in Sources */,
 				1C6E525528243FD300218661 /* ToastNotificationManager.swift in Sources */,
-				1CA17224286C2A490079262E /* InfiniteScrollMiddleware.swift in Sources */,
-				1C6E524E28243F0200218661 /* InfiniteScrollRepository.swift in Sources */,
+				1CA17224286C2A490079262E /* ListMiddleware.swift in Sources */,
+				1C6E524E28243F0200218661 /* ListRepository.swift in Sources */,
 				1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */,
-				1CA17222286C2A070079262E /* InfiniteScrollReducer.swift in Sources */,
+				1CA17222286C2A070079262E /* ListReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,11 +35,11 @@ final class ListFlowCoordinator: FlowCoordinatorProtocol {
         }
         state = .started
 
-        let viewController = InfiniteScrollModuleBuilder(
+        let viewController = ListModuleBuilder(
             resolver: resolver,
             moduleOutput: self
         ).build()
-        viewController.title = "InfiniteScroll"
+        viewController.title = "List"
 
         let nvc = UINavigationController(rootViewController: viewController)
         rootViewController = nvc

@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollMiddleware.swift
+//  ListMiddleware.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 29.06.2022.
@@ -9,10 +9,10 @@ import Combine
 import Foundation
 import Highway
 
-extension InfiniteScrollFeature {
+extension ListFeature {
     static func getMiddlewares(
-        environment: InfiniteScrollEnvironment
-    ) -> [Middleware<MailListState.List, InfiniteScrollAction>] {
+        environment: ListEnvironment
+    ) -> [Middleware<MailListState.List, ListAction>] {
         return [
             getPageLoadingMiddleware(environment: environment),
             getRouteMiddleware(environment: environment),
@@ -21,10 +21,10 @@ extension InfiniteScrollFeature {
     }
 }
 
-extension InfiniteScrollFeature {
+extension ListFeature {
     static func getPageLoadingMiddleware(
-        environment: InfiniteScrollEnvironment
-    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
+        environment: ListEnvironment
+    ) -> Middleware<MailListState.List, ListAction> {
         var cancellable = Set<AnyCancellable>()
 
         return createMiddleware(
@@ -45,13 +45,13 @@ extension InfiniteScrollFeature {
                     fatalError("unexpected state")
                 }
 
-                environment.infiniteScrollRepository.getInfiniteScrolls(
+                environment.listRepository.getLists(
                     with: currentPage,
                     pageLength: state.pageLength,
                     searchText: state.searchText
                 )
                 .subscribe(on: environment.backgroundQueue)
-                .map { result -> InfiniteScrollAction in
+                .map { result -> ListAction in
                     if action == .fetchInitialPageInList {
                         return .updateInitialPageInList(data: .success(result))
                     } else if action == .fetchNextPageInList {
@@ -63,11 +63,11 @@ extension InfiniteScrollFeature {
                 .mapError { _ in
                     .networkError
                 }
-                .catch { (error: InfiniteScrollAPIError) -> AnyPublisher<InfiniteScrollAction, Never> in
+                .catch { (error: ListAPIError) -> AnyPublisher<ListAction, Never> in
                     if action == .fetchInitialPageInList {
-                        return Just<InfiniteScrollAction>(.updateInitialPageInList(data: .failure(error))).eraseToAnyPublisher()
+                        return Just<ListAction>(.updateInitialPageInList(data: .failure(error))).eraseToAnyPublisher()
                     } else if action == .fetchNextPageInList {
-                        return Just<InfiniteScrollAction>(.addNextPageInList(data: .failure(error))).eraseToAnyPublisher()
+                        return Just<ListAction>(.addNextPageInList(data: .failure(error))).eraseToAnyPublisher()
                     } else {
                         fatalError("unexpected state")
                     }
@@ -85,18 +85,18 @@ extension InfiniteScrollFeature {
     }
 }
 
-extension InfiniteScrollFeature {
+extension ListFeature {
     static func getRouteMiddleware(
-        environment: InfiniteScrollEnvironment
-    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
+        environment: ListEnvironment
+    ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
-                guard case let .selectInfiniteScrollAtIndex(index) = action else { return }
+                guard case let .selectListAtIndex(index) = action else { return }
 
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
                 let item = getState().data[index]
-                _ = Future<InfiniteScrollAction, Never> { promise in
+                _ = Future<ListAction, Never> { promise in
                     environment.moduleOutput?.listModuleWantsToOpenDetails(
                         with: item.id
                     )
@@ -125,10 +125,10 @@ class Check {
 }
 
 
-extension InfiniteScrollFeature {
+extension ListFeature {
     static func getLoggerMiddleware(
-        environment: InfiniteScrollEnvironment
-    ) -> Middleware<MailListState.List, InfiniteScrollAction> {
+        environment: ListEnvironment
+    ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
@@ -165,7 +165,7 @@ extension InfiniteScrollFeature {
                     print(Date(), "[getPageDidCancel] search text: \(searchText ?? "nil")")
 
                 case .initial,
-                     .selectInfiniteScrollAtIndex,
+                     .selectListAtIndex,
                      .receiveCancelAllRequests,
                      .screenDidOpen:
                     print(Date(), "[\(action)]")

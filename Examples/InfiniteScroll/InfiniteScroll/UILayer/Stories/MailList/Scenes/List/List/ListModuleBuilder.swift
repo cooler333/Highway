@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollModuleBuilder.swift
+//  ListModuleBuilder.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 23.03.2022.
@@ -11,9 +11,9 @@ import Highway
 import Swinject
 import UIKit
 
-enum InfiniteScrollFeature {}
+enum ListFeature {}
 
-final class InfiniteScrollModuleBuilder {
+final class ListModuleBuilder {
     private let resolver: Resolver
     private weak var moduleOutput: ListModuleOutput!
 
@@ -26,18 +26,18 @@ final class InfiniteScrollModuleBuilder {
     }
 
     func build() -> UIViewController {
-        let environment = InfiniteScrollEnvironment(
-            infiniteScrollRepository: resolver.resolve(InfiniteScrollRepositoryProtocol.self)!,
+        let environment = ListEnvironment(
+            listRepository: resolver.resolve(ListRepositoryProtocol.self)!,
             moduleOutput: moduleOutput
         )
-        let store = Store<MailListState.List, InfiniteScrollAction>(
-            reducer: InfiniteScrollFeature.getReducer(),
+        let store = Store<MailListState.List, ListAction>(
+            reducer: ListFeature.getReducer(),
             state: MailListState.List(),
             initialAction: .initial,
-            middleware: InfiniteScrollFeature.getMiddlewares(environment: environment)
+            middleware: ListFeature.getMiddlewares(environment: environment)
         )
 
-        let viewController = InfiniteScrollViewController(
+        let viewController = ListViewController(
             store: store,
             toastNotificationManager: resolver.resolve(ToastNotificationManagerProtocol.self)!
         )
