@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollViewController.swift
+//  ListViewController.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 17.03.2022.
@@ -10,7 +10,7 @@ import Foundation
 import Highway
 import UIKit
 
-struct InfiniteScrollViewModel: Equatable {
+struct ListViewModel: Equatable {
     let title: String
     let subtitle: String
     let id: String
@@ -18,8 +18,8 @@ struct InfiniteScrollViewModel: Equatable {
 }
 
 // swiftlint:disable:next type_body_length
-final class InfiniteScrollViewController: UIViewController {
-    struct InfiniteScrollDisplayData: Hashable {
+final class ListViewController: UIViewController {
+    struct ListDisplayData: Hashable {
         public let title: String
         public let subtitle: String
         public let id: String
@@ -67,7 +67,7 @@ final class InfiniteScrollViewController: UIViewController {
 
     // MARK: Private properties
 
-    private let store: Store<MailListState.List, InfiniteScrollAction>
+    private let store: Store<MailListState.List, ListAction>
 
     private var toastNotificationManager: ToastNotificationManagerProtocol
 
@@ -79,7 +79,7 @@ final class InfiniteScrollViewController: UIViewController {
     private let uiSubject = PassthroughSubject<MailListState.List, Never>()
 
     init(
-        store: Store<MailListState.List, InfiniteScrollAction>,
+        store: Store<MailListState.List, ListAction>,
         toastNotificationManager: ToastNotificationManagerProtocol
     ) {
         self.store = store
@@ -230,9 +230,9 @@ final class InfiniteScrollViewController: UIViewController {
         }
     }
 
-    private func toDisplayData(from viewModels: [InfiniteScrollViewModel]) -> [InfiniteScrollDisplayData] {
+    private func toDisplayData(from viewModels: [ListViewModel]) -> [ListDisplayData] {
         let displayData = viewModels.map { model in
-            InfiniteScrollDisplayData(
+            ListDisplayData(
                 title: model.title,
                 subtitle: model.subtitle,
                 id: model.id,
@@ -244,9 +244,9 @@ final class InfiniteScrollViewController: UIViewController {
 
     // swiftlint:disable:next cyclomatic_complexity
     private func update(state: MailListState.List) {
-        let contentState: LCEPagedState<[InfiniteScrollViewModel], InfiniteScrollAPIError> = {
-            let data: [InfiniteScrollViewModel] = state.data.map { model in
-                InfiniteScrollViewModel(
+        let contentState: LCEPagedState<[ListViewModel], ListAPIError> = {
+            let data: [ListViewModel] = state.data.map { model in
+                ListViewModel(
                     title: model.title,
                     subtitle: model.subtitle,
                     id: model.id,
@@ -354,7 +354,7 @@ final class InfiniteScrollViewController: UIViewController {
         }
     }
 
-    private func updateLoading(with displayData: [InfiniteScrollDisplayData], loadingState: LCEPagedLoadingState) {
+    private func updateLoading(with displayData: [ListDisplayData], loadingState: LCEPagedLoadingState) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
         snapshot.appendSections([0])
 
@@ -373,7 +373,7 @@ final class InfiniteScrollViewController: UIViewController {
         }
     }
 
-    private func updateContent(with displayData: [InfiniteScrollDisplayData], isListEnded: Bool) {
+    private func updateContent(with displayData: [ListDisplayData], isListEnded: Bool) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
         snapshot.appendSections([0])
 
@@ -391,7 +391,7 @@ final class InfiniteScrollViewController: UIViewController {
     }
 }
 
-extension InfiniteScrollViewController: UITableViewDelegate {
+extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let state = store.getState()
         guard !state.isListEnded else { return }
@@ -425,7 +425,7 @@ extension InfiniteScrollViewController: UITableViewDelegate {
             store.dispatch(.fetchInitialPageInList)
 
         case is TitleItem:
-            store.dispatch(.selectInfiniteScrollAtIndex(index: indexPath.row))
+            store.dispatch(.selectListAtIndex(index: indexPath.row))
 
         default:
             fatalError("Unexpected state")
@@ -434,7 +434,7 @@ extension InfiniteScrollViewController: UITableViewDelegate {
     // swiftlint:disable:next file_length
 }
 
-extension InfiniteScrollViewController: UISearchBarDelegate {
+extension ListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = nil

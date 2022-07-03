@@ -1,5 +1,5 @@
 //
-//  InfiniteScrollReducer.swift
+//  ListReducer.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 29.06.2022.
@@ -8,9 +8,9 @@
 import Foundation
 import Highway
 
-extension InfiniteScrollFeature {
-    static func getReducer() -> Reducer<MailListState.List, InfiniteScrollAction> {
-        let reducer: Reducer<MailListState.List, InfiniteScrollAction> = { state, action in
+extension ListFeature {
+    static func getReducer() -> Reducer<MailListState.List, ListAction> {
+        let reducer: Reducer<MailListState.List, ListAction> = { state, action in
             switch action {
             case .fetchInitialPageInList:
                 var state = state
@@ -71,7 +71,7 @@ extension InfiniteScrollFeature {
                     return state
                 }
 
-            case let .selectInfiniteScrollAtIndex(index):
+            case let .selectListAtIndex(index):
                 var state = state
                 let model = state.data[index]
                 state.selectedMailID = model.id
