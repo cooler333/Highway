@@ -280,7 +280,6 @@
 		1CBE230C287197EF009FAE7A /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				1CBE232A2871A92B009FAE7A /* MailListState.swift */,
 				1CBE23232871A7DD009FAE7A /* Menu */,
 				1CBE23102871986E009FAE7A /* MailList */,
 				1CBE23252871A866009FAE7A /* Settings */,
@@ -317,6 +316,7 @@
 		1CBE23102871986E009FAE7A /* MailList */ = {
 			isa = PBXGroup;
 			children = (
+				1CBE232A2871A92B009FAE7A /* MailListState.swift */,
 				1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */,
 				1CBE231E2871A6C1009FAE7A /* MailList */,
 				1CBE23242871A84D009FAE7A /* Scenes */,
