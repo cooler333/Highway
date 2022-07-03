@@ -15,11 +15,11 @@ enum InfiniteScrollFeature {}
 
 final class InfiniteScrollModuleBuilder {
     private let resolver: Resolver
-    private weak var moduleOutput: InfiniteScrollModuleOutput!
+    private weak var moduleOutput: ListModuleOutput!
 
     init(
         resolver: Resolver,
-        moduleOutput: InfiniteScrollModuleOutput
+        moduleOutput: ListModuleOutput
     ) {
         self.resolver = resolver
         self.moduleOutput = moduleOutput
@@ -30,9 +30,9 @@ final class InfiniteScrollModuleBuilder {
             infiniteScrollRepository: resolver.resolve(InfiniteScrollRepositoryProtocol.self)!,
             moduleOutput: moduleOutput
         )
-        let store = Store<InfiniteScrollState, InfiniteScrollAction>(
+        let store = Store<MailListState.List, InfiniteScrollAction>(
             reducer: InfiniteScrollFeature.getReducer(),
-            state: InfiniteScrollState(),
+            state: MailListState.List(),
             initialAction: .initial,
             middleware: InfiniteScrollFeature.getMiddlewares(environment: environment)
         )
