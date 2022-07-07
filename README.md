@@ -26,6 +26,8 @@ Highway is implementation of Redux-like architecture pattern using Swift.
 
 - [Infinite Scroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll)
 
+https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
+
 #### Other
 - [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
 - [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
@@ -64,6 +66,7 @@ Dmitrii Cooler, coolerov333@gmail.com
 The following people gave feedback on the library at its early stages and helped make the library what it is today:
 
 Special thanks to:
+
 - [Aleksey Alekseev](https://github.com/joyalex) who helped me to imporve library peformance
 - [Dmitii Bobrov](https://github.com/dimabobrov) with major feedback on early concepts 
 
