@@ -71,7 +71,7 @@ public final class RootAssembly: Assembly {
                 middleware: []
             )
             return store
-        }
+        }.inObjectScope(.weak)
 
         container.register(UIViewController.self, name: "Details") { r in
             let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!

@@ -36,12 +36,14 @@ class DetailsViewController: UIViewController {
         view.backgroundColor = .cyan
 
         let label = UILabel(frame: .zero)
+        label.font = .preferredFont(forTextStyle: .largeTitle)
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            label.topAnchor.constraint(equalTo: view.topAnchor),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         label.numberOfLines = 0
         self.label = label
@@ -63,6 +65,13 @@ class DetailsViewController: UIViewController {
     }
 
     private func render(state: MailListState.List) {
-        label.text = state.selectedMailID
+        label.text = """
+        currentPage: \(state.currentPage)
+        isListEnded: \(state.isListEnded)
+        loadingState: \(state.loadingState)
+        data(count): \(state.data.count)
+        searchText: \(state.searchText ?? "empty")
+        selectedMailID: \(state.selectedMailID ?? "no selection")
+        """
     }
 }
