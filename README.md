@@ -59,6 +59,14 @@ Also you can integrate framework as SPM package
 
 Dmitrii Cooler, coolerov333@gmail.com
 
+## Credits and thanks
+
+The following people gave feedback on the library at its early stages and helped make the library what it is today:
+
+Special thanks to:
+- [Aleksey Alekseev](https://github.com/joyalex) who helped me to imporve library peformance
+- [Dmitii Bobrov](https://github.com/dimabobrov) with major feedback on early concepts 
+
 ## License
 
 Highway is available under the MIT license. See the LICENSE file for more info.
