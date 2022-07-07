@@ -26,7 +26,7 @@ Highway is implementation of Redux-like architecture pattern using Swift.
 
 - [Infinite Scroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll)
 
-![Video](Resources/preview_low.mov)
+![Resources/preview_low.mov](https://github.com/cooler333/Highway/raw/main/Resources/preview_low.mov)
 
 
 #### Other
