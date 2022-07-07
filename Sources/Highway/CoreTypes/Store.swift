@@ -5,15 +5,31 @@
 //  Created by Dmitrii Cooler on 02.07.2022.
 //
 
+import Foundation
+
 public final class Store<State: Equatable, Action> {
 
-    private var state: State
+    private var stateGetter: (() -> State)!
+    private var stateSetter: ((State) -> Void)!
+
+    public var state: State {
+        get { stateGetter() }
+        set { stateSetter(newValue) }
+    }
+
+    var _state: State! {
+        didSet {
+            subscriptions.forEach { subscription in
+                subscription.listener(_state)
+            }
+        }
+    }
 
     private var reducer: Reducer<State, Action>
     private var subscriptions: [Subscription<State>] = []
     private var isDispatching = Synchronized<Bool>(false)
     private let middleware: [Middleware<State, Action>]
-    
+
     public required init(
         reducer: @escaping Reducer<State, Action>,
         state: State,
@@ -22,13 +38,32 @@ public final class Store<State: Equatable, Action> {
     ) {
         self.reducer = reducer
         self.middleware = middleware
-        self.state = state
+
+        self._state = state
+        self.stateGetter = { [unowned self] in
+            return self._state
+        }
+        self.stateSetter = { [unowned self] state in
+            self._state = state
+        }
 
         dispatch(initialAction)
     }
-    
-    public func getState() -> State {
-        state
+
+    private init(
+        reducer: @escaping Reducer<State, Action>,
+        stateGetter: @escaping () -> State,
+        stateSetter: @escaping (State) -> Void,
+        initialAction: Action,
+        middleware: [Middleware<State, Action>] = []
+    ) {
+        self.reducer = reducer
+        self.middleware = middleware
+
+        self.stateGetter = stateGetter
+        self.stateSetter = stateSetter
+
+        dispatch(initialAction)
     }
 
     @discardableResult
@@ -62,9 +97,6 @@ public final class Store<State: Equatable, Action> {
 
         if state != newState {
             state = newState
-            subscriptions.forEach {
-                $0.listener(state)
-            }
         }
     }
 
@@ -76,22 +108,26 @@ public final class Store<State: Equatable, Action> {
             middleware(dispatch, getState, action)
         }
     }
-    
-    public func createSubStore<SubState, SubAction>(
-        reducer: @escaping Reducer<SubState, SubAction>,
-        subState: WritableKeyPath<State, SubState>,
-        initialAction: SubAction,
-        middleware: [Middleware<SubState, SubAction>] = []
-    ) -> Store<SubState, SubAction> {
-        return Store<SubState, SubAction>(
-            reducer: { state, action in
-                let newState = reducer(state, action)
-                self.state[keyPath: subState] = newState
-                return newState
-            },
-            state: state[keyPath: subState],
+
+    public func createChildStore<ChildState, ChildAction>(
+        keyPath: WritableKeyPath<State, ChildState>,
+        reducer: @escaping Reducer<ChildState, ChildAction>,
+        initialAction: ChildAction,
+        middleware: [Middleware<ChildState, ChildAction>] = []
+    ) -> Store<ChildState, ChildAction> {
+        let childStore = Store<ChildState, ChildAction>(
+            reducer: reducer,
+            stateGetter: { self.state[keyPath: keyPath] },
+            stateSetter: { self.state[keyPath: keyPath] = $0 },
             initialAction: initialAction,
             middleware: middleware
         )
+        subscribe({ [weak childStore] state in
+            guard let childStore = childStore else { return }
+            childStore.subscriptions.forEach { subscription in
+                subscription.listener(state[keyPath: keyPath])
+            }
+        })
+        return childStore
     }
 }

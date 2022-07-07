@@ -35,10 +35,7 @@ final class ListFlowCoordinator: FlowCoordinatorProtocol {
         }
         state = .started
 
-        let viewController = ListModuleBuilder(
-            resolver: resolver,
-            moduleOutput: self
-        ).build()
+        let viewController = resolver.resolve(UIViewController.self, name: "List", argument: (self as ListModuleOutput))!
         viewController.title = "List"
 
         let nvc = UINavigationController(rootViewController: viewController)

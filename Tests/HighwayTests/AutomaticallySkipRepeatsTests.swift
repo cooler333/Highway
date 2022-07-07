@@ -66,8 +66,8 @@ enum ChangeAgeAction {
 
 private let initialState = State(age: 29, name: "Daniel")
 
-private func reducer(state: State?, action: ChangeAgeAction) -> State {
-    let defaultState = state ?? initialState
+private func reducer(state: State, action: ChangeAgeAction) -> State {
+    let defaultState = state
     switch action {
     case .changeAge(let newAge):
         return State(age: newAge, name: defaultState.name)

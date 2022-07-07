@@ -41,3 +41,5 @@ struct ListEnvironment {
     let listRepository: ListRepositoryProtocol
     weak var moduleOutput: ListModuleOutput?
 }
+
+enum ListFeature {}

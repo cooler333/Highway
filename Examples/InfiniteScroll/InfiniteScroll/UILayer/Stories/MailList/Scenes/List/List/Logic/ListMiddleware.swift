@@ -164,8 +164,10 @@ extension ListFeature {
                 case let .getPageDidCancel(searchText):
                     print(Date(), "[getPageDidCancel] search text: \(searchText ?? "nil")")
 
+                case .selectListAtIndex:
+                    print(Date(), "[selectListAtIndex] selected ID: \(state.selectedMailID ?? "nil")")
+
                 case .initial,
-                     .selectListAtIndex,
                      .receiveCancelAllRequests,
                      .screenDidOpen:
                     print(Date(), "[\(action)]")

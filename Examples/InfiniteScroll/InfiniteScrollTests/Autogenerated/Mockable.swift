@@ -11,7 +11,7 @@ import Foundation
 
 // sourcery:begin: AutoMockable
 
-extension InfiniteScrollRepositoryProtocol {}
+extension ListRepositoryProtocol {}
 extension ToastNotificationManagerProtocol {}
 
 // sourcery:end
