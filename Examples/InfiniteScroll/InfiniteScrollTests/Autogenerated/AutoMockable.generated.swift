@@ -27,27 +27,27 @@ import AppKit
 
 
 
-class InfiniteScrollRepositoryProtocolMock: InfiniteScrollRepositoryProtocol {
+class ListRepositoryProtocolMock: ListRepositoryProtocol {
 
-    // MARK: - getInfiniteScrolls
+    // MARK: - getLists
 
-    var getInfiniteScrollsWithPageLengthSearchTextCallsCount = 0
-    var getInfiniteScrollsWithPageLengthSearchTextCalled: Bool {
-        return getInfiniteScrollsWithPageLengthSearchTextCallsCount > 0
+    var getListsWithPageLengthSearchTextCallsCount = 0
+    var getListsWithPageLengthSearchTextCalled: Bool {
+        return getListsWithPageLengthSearchTextCallsCount > 0
     }
-    var getInfiniteScrollsWithPageLengthSearchTextReceivedArguments: (currentPage: Int, pageLength: Int, searchText: String?)?
-    var getInfiniteScrollsWithPageLengthSearchTextReceivedInvocations: [(currentPage: Int, pageLength: Int, searchText: String?)] = []
-    var getInfiniteScrollsWithPageLengthSearchTextReturnValue: AnyPublisher<[InfiniteScrollModel], Error>!
-    var getInfiniteScrollsWithPageLengthSearchTextClosure: ((Int, Int, String?) -> AnyPublisher<[InfiniteScrollModel], Error>)?
+    var getListsWithPageLengthSearchTextReceivedArguments: (currentPage: Int, pageLength: Int, searchText: String?)?
+    var getListsWithPageLengthSearchTextReceivedInvocations: [(currentPage: Int, pageLength: Int, searchText: String?)] = []
+    var getListsWithPageLengthSearchTextReturnValue: AnyPublisher<[ListModel], Error>!
+    var getListsWithPageLengthSearchTextClosure: ((Int, Int, String?) -> AnyPublisher<[ListModel], Error>)?
 
-    func getInfiniteScrolls(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[InfiniteScrollModel], Error> {
-        getInfiniteScrollsWithPageLengthSearchTextCallsCount += 1
-        getInfiniteScrollsWithPageLengthSearchTextReceivedArguments = (currentPage: currentPage, pageLength: pageLength, searchText: searchText)
-        getInfiniteScrollsWithPageLengthSearchTextReceivedInvocations.append((currentPage: currentPage, pageLength: pageLength, searchText: searchText))
-        if let getInfiniteScrollsWithPageLengthSearchTextClosure = getInfiniteScrollsWithPageLengthSearchTextClosure {
-            return getInfiniteScrollsWithPageLengthSearchTextClosure(currentPage, pageLength, searchText)
+    func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
+        getListsWithPageLengthSearchTextCallsCount += 1
+        getListsWithPageLengthSearchTextReceivedArguments = (currentPage: currentPage, pageLength: pageLength, searchText: searchText)
+        getListsWithPageLengthSearchTextReceivedInvocations.append((currentPage: currentPage, pageLength: pageLength, searchText: searchText))
+        if let getListsWithPageLengthSearchTextClosure = getListsWithPageLengthSearchTextClosure {
+            return getListsWithPageLengthSearchTextClosure(currentPage, pageLength, searchText)
         } else {
-            return getInfiniteScrollsWithPageLengthSearchTextReturnValue
+            return getListsWithPageLengthSearchTextReturnValue
         }
     }
 }

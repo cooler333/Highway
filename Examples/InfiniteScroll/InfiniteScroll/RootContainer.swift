@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Highway
 import Swinject
+import UIKit
 
 final class RootContainer {
     private let assembler: Assembler
@@ -58,5 +60,53 @@ public final class RootAssembly: Assembly {
             ToastNotificationManager()
         }
         .inObjectScope(.container)
+
+        container.register(Store<MailListState, ListAction>.self) { r in
+            let store = Store<MailListState, ListAction>(
+                reducer: { state, action in
+                    return state
+                },
+                state: .init(),
+                initialAction: .initial,
+                middleware: []
+            )
+            return store
+        }
+
+        container.register(UIViewController.self, name: "Details") { r in
+            let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
+            let store = mailListStore.createChildStore(
+                keyPath: \.list,
+                reducer: { state, _ in
+                    print(state)
+                    return state
+                },
+                initialAction: "",
+                middleware: []
+            )
+            let viewController = DetailsViewController(
+                store: store
+            )
+            return viewController
+        }
+
+        container.register(UIViewController.self, name: "List") { (r: Resolver, moduleOutput: ListModuleOutput) in
+            let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
+            let environment = ListEnvironment(
+                listRepository: r.resolve(ListRepositoryProtocol.self)!,
+                moduleOutput: moduleOutput
+            )
+            let store = mailListStore.createChildStore(
+                keyPath: \.list,
+                reducer: ListFeature.getReducer(),
+                initialAction: .initial,
+                middleware: ListFeature.getMiddlewares(environment: environment)
+            )
+            let viewController = ListViewController(
+                store: store,
+                toastNotificationManager: r.resolve(ToastNotificationManagerProtocol.self)!
+            )
+            return viewController
+        }
     }
 }

@@ -15,7 +15,6 @@
 		1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52342824310E00218661 /* ListFlowCoordinator.swift */; };
 		1C6E523D2824310E00218661 /* ListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52362824310E00218661 /* ListFeature.swift */; };
 		1C6E523E2824310E00218661 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52382824310E00218661 /* ListViewController.swift */; };
-		1C6E523F2824310E00218661 /* ListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52392824310E00218661 /* ListModuleBuilder.swift */; };
 		1C6E52402824310E00218661 /* ListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E523A2824310E00218661 /* ListModuleIO.swift */; };
 		1C6E52442824381A00218661 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */; };
 		1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E524728243E4700218661 /* LCEPagedState.swift */; };
@@ -72,7 +71,6 @@
 		1C6E52342824310E00218661 /* ListFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowCoordinator.swift; sourceTree = "<group>"; };
 		1C6E52362824310E00218661 /* ListFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFeature.swift; sourceTree = "<group>"; };
 		1C6E52382824310E00218661 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		1C6E52392824310E00218661 /* ListModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleBuilder.swift; sourceTree = "<group>"; };
 		1C6E523A2824310E00218661 /* ListModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleIO.swift; sourceTree = "<group>"; };
 		1C6E52432824381A00218661 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		1C6E524728243E4700218661 /* LCEPagedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCEPagedState.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		1C6E52352824310E00218661 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E52392824310E00218661 /* ListModuleBuilder.swift */,
 				1C6E523A2824310E00218661 /* ListModuleIO.swift */,
 				1CA17225286C2C5F0079262E /* Logic */,
 				1C6E52372824310E00218661 /* View */,
@@ -602,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */,
-				1C6E523F2824310E00218661 /* ListModuleBuilder.swift in Sources */,
 				1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */,
 				1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */,
 				1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */,

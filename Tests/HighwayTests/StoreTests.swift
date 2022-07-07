@@ -39,10 +39,10 @@ class MockReducer {
 
     var calledWithAction: [Action] = []
 
-    func handleAction(state: CounterState?, action: Action) -> CounterState {
+    func handleAction(state: CounterState, action: Action) -> CounterState {
         calledWithAction.append(action)
 
-        return state ?? CounterState()
+        return state
     }
 
 }

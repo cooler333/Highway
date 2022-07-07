@@ -393,7 +393,7 @@ final class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let state = store.getState()
+        let state = store.state
         guard !state.isListEnded else { return }
         guard state.loadingState != .nextPage else { return }
 
@@ -449,7 +449,7 @@ extension ListViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        let state = store.getState()
+        let state = store.state
         if state.loadingState != .refresh {
             store.dispatch(.search(searchText: searchBar.text))
             store.dispatch(.fetchInitialPageInList)
