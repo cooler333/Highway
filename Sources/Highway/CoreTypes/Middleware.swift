@@ -6,5 +6,5 @@
 //
 
 public typealias Middleware<State, ActionType> = (
-    @escaping Dispatch<ActionType>, @escaping () -> State, ActionType
+    @escaping Dispatch<ActionType>, State, ActionType
 ) -> Void
