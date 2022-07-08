@@ -9,7 +9,7 @@ import Foundation
 
 public struct Subscription<State>: Equatable {
     let listener: (State) -> Void
-    let uuid = UUID()
+    private let uuid = UUID()
 
     public static func == (lhs: Subscription, rhs: Subscription) -> Bool {
         lhs.uuid == rhs.uuid

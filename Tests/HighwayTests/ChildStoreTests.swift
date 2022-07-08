@@ -18,7 +18,7 @@ class SubstateTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testMutation() throws {
         struct State: Equatable {
             struct SubState: Equatable {
                 var subfoo: String = "start subfoo"
@@ -63,8 +63,7 @@ class SubstateTests: XCTestCase {
                 state.subbar -= 1
                 return state
             },
-            initialAction: .initial,
-            middleware: []
+            initialAction: .initial
         )
 
         store.dispatch(.bar)
@@ -85,7 +84,7 @@ class SubstateTests: XCTestCase {
         XCTAssertEqual(subStore.state, referenceState.substate)
     }
 
-    func testExample2() throws {
+    func testMutation2() throws {
         struct State: Equatable {
             struct SubState: Equatable {
                 var subfoo: String = "start subfoo"
@@ -129,8 +128,7 @@ class SubstateTests: XCTestCase {
                 state.subbar -= 1
                 return state
             },
-            initialAction: .initial,
-            middleware: []
+            initialAction: .initial
         )
 
         store.dispatch(.bar)
@@ -144,7 +142,7 @@ class SubstateTests: XCTestCase {
         XCTAssertEqual(childStore.state, referenceState)
     }
 
-    func testExample3() throws {
+    func testMutation3() throws {
         struct State: Equatable {
             struct SubState: Equatable {
                 var subfoo: String = "start subfoo"
@@ -194,8 +192,7 @@ class SubstateTests: XCTestCase {
                 state.subbar -= 1
                 return state
             },
-            initialAction: .initial,
-            middleware: []
+            initialAction: .initial
         )
 
         let childStore2: Store<State.SubState, SubAction2> = store.createChildStore(
@@ -205,8 +202,7 @@ class SubstateTests: XCTestCase {
                 state.subfoo += ", \(action)"
                 return state
             },
-            initialAction: .initial2,
-            middleware: []
+            initialAction: .initial2
         )
 
         store.dispatch(.bar)
@@ -225,5 +221,58 @@ class SubstateTests: XCTestCase {
         XCTAssertEqual(store.state.substate, referenceState.substate)
         XCTAssertEqual(childStore.state, referenceState.substate)
         XCTAssertEqual(childStore2.state, referenceState.substate)
+    }
+    
+    func testMutationNoKeypth() throws {
+        struct State: Equatable {
+            var foo = "start foo"
+            var bar = 0
+        }
+        
+        enum Action {
+            case initial
+            case syncAction
+            case foo
+            case bar
+        }
+        
+        enum SubAction {
+            case initial
+            case syncAction
+            case baz
+        }
+
+        let store = Store<State, Action>(
+            reducer: { state, action in
+                var state = state
+                state.foo += ", \(action)"
+                state.bar += 1
+                return state
+            },
+            state: .init(),
+            initialAction: .initial
+        )
+        store.dispatch(.foo)
+
+        let subStore: Store<State, SubAction> = store.createChildStore(
+            reducer: { state, action in
+                var state = state
+                state.foo += ", \(action)"
+                state.bar += 1
+                return state
+            },
+            initialAction: .initial
+        )
+
+        store.dispatch(.bar)
+        subStore.dispatch(.baz)
+        store.dispatch(.bar)
+        
+        let referenceState = State(
+            foo: "start foo, initial, foo, initial, bar, baz, bar",
+            bar: 6
+        )
+
+        XCTAssertEqual(store.state, referenceState)
     }
 }

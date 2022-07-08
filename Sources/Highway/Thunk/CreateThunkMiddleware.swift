@@ -9,10 +9,10 @@ import Foundation
 
 public func createThunkMiddleware<State, Action: Equatable, Environment>(
     thunk: Thunk<State, Action, Environment>,
-    action: Action
+    action thunkAction: Action
 ) -> Middleware<State, Action> {
     return { dispatch, state, action in
-        if action == action {
+        if action == thunkAction {
             thunk.body(dispatch, state, action, thunk.environment)
         }
     }

@@ -110,7 +110,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     // swiftlint:disable:next identifier_name
     public func _defaultDispatch(action: Action) {
         guard !self.isDispatching.value else {
-            raiseFatalError(
+            fatalError(
                 """
                 Action has been dispatched while a previous action is being processed.
                 A reducer is dispatching an action in a concurrent context (e.g. from multiple threads).
