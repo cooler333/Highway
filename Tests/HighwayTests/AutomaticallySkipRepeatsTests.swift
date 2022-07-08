@@ -32,14 +32,14 @@ class AutomaticallySkipRepeatsTests: XCTestCase {
     }
 
     func testInitialSubscriptionWithRegularSubstateSelection() {
-        store.subscribe({ [unowned self] _ in
+        store.subscribe(listener: { [unowned self] _ in
             self.subscriptionUpdates += 1
         })
         XCTAssertEqual(self.subscriptionUpdates, 0)
     }
 
     func testDispatchUnrelatedActionWithExplicitSkipRepeatsWithRegularSubstateSelection() {
-        store.subscribe({ [unowned self] _ in
+        store.subscribe(listener: { [unowned self] _ in
             self.subscriptionUpdates += 1
         })
         XCTAssertEqual(self.subscriptionUpdates, 0)

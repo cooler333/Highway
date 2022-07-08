@@ -137,7 +137,7 @@ extension ExpectThunk {
         createThunkMiddleware(
             thunk: thunk,
             action: initialAction
-        )(dispatch, getState, initialAction)
+        )(dispatch, getState(), initialAction)
         return self
     }
 

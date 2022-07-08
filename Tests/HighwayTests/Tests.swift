@@ -38,12 +38,12 @@ private func fakeReducer(state: FakeState?, action: ThunkAction) -> FakeState {
 class Tests: XCTestCase {
 
     func testExpectThunkWaits() {
-        let thunk = Thunk<FakeState, ThunkAction, Void>(environment: ()) { dispatch, getState, _, _ in
+        let thunk = Thunk<FakeState, ThunkAction, Void>(environment: ()) { dispatch, state, _, _ in
             dispatch(.fakeAction)
-            XCTAssertNotNil(getState())
+            XCTAssertNotNil(state)
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5) {
                 dispatch(.anotherFakeAction)
-                XCTAssertNotNil(getState())
+                XCTAssertNotNil(state)
             }
             dispatch(.fakeAction)
         }
@@ -56,7 +56,17 @@ class Tests: XCTestCase {
                     XCTFail("Unexpected action: \(action)")
                 }
             }
-            .getsState(FakeState())
+// TODO: getState() is need?
+/*
+    dispatch(.fakeAction)
+    XCTAssertNotNil(state)
+    DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5) {
+        dispatch(.anotherFakeAction)
+        XCTAssertNotNil(state)
+    }
+    dispatch(.fakeAction)
+*/
+//            .getsState(FakeState())
             .dispatches { action in
                 switch action {
                 case .fakeAction:
