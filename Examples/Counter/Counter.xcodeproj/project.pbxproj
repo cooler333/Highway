@@ -24,6 +24,9 @@
 		1C10117B28788EEB00A6FFC5 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10117A28788EEB00A6FFC5 /* CounterFeature.swift */; };
 		1C10117E28789C9600A6FFC5 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10117D28789C9600A6FFC5 /* RootFeature.swift */; };
 		1C1011812878A93700A6FFC5 /* StateStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1011802878A93700A6FFC5 /* StateStorage.swift */; };
+		1C3CDD8C2878CF1400A16089 /* MainAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3CDD8B2878CF1400A16089 /* MainAction.swift */; };
+		1C3CDD8E2878CF3E00A16089 /* MainReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3CDD8D2878CF3E00A16089 /* MainReducer.swift */; };
+		1C3CDD912878CF7100A16089 /* MainMiddlewares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3CDD902878CF7100A16089 /* MainMiddlewares.swift */; };
 		20C31F160BD3A044288C5DC6 /* Pods_Counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46613A1EA7D489A181423FAC /* Pods_Counter.framework */; };
 		6952149CB07A306E09FAADD6 /* Pods_CounterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49049C68A1BABFA2839F771C /* Pods_CounterTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,9 @@
 		1C10117C2878941D00A6FFC5 /* Counter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Counter.entitlements; sourceTree = "<group>"; };
 		1C10117D28789C9600A6FFC5 /* RootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
 		1C1011802878A93700A6FFC5 /* StateStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateStorage.swift; sourceTree = "<group>"; };
+		1C3CDD8B2878CF1400A16089 /* MainAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAction.swift; sourceTree = "<group>"; };
+		1C3CDD8D2878CF3E00A16089 /* MainReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainReducer.swift; sourceTree = "<group>"; };
+		1C3CDD902878CF7100A16089 /* MainMiddlewares.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMiddlewares.swift; sourceTree = "<group>"; };
 		28633D7084A6AE5F516278ED /* Pods-Counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Counter.debug.xcconfig"; path = "Target Support Files/Pods-Counter/Pods-Counter.debug.xcconfig"; sourceTree = "<group>"; };
 		46613A1EA7D489A181423FAC /* Pods_Counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4792A4C0DD0C3BE157599716 /* Pods-CounterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CounterTests.debug.xcconfig"; path = "Target Support Files/Pods-CounterTests/Pods-CounterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				1C101165287885D400A6FFC5 /* MainModuleBuilder.swift */,
-				1C10116E28788D6900A6FFC5 /* MainViewController.swift */,
-				1C10117828788E5D00A6FFC5 /* MainFeature.swift */,
+				1C3CDD932878CFA400A16089 /* View */,
+				1C3CDD922878CF9A00A16089 /* Logic */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -203,6 +209,25 @@
 				1C1011802878A93700A6FFC5 /* StateStorage.swift */,
 			);
 			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		1C3CDD922878CF9A00A16089 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1C10117828788E5D00A6FFC5 /* MainFeature.swift */,
+				1C3CDD8B2878CF1400A16089 /* MainAction.swift */,
+				1C3CDD8D2878CF3E00A16089 /* MainReducer.swift */,
+				1C3CDD902878CF7100A16089 /* MainMiddlewares.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1C3CDD932878CFA400A16089 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C10116E28788D6900A6FFC5 /* MainViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5000939657C08946A4B0105B /* Pods */ = {
@@ -397,10 +422,13 @@
 				1C101169287885FD00A6FFC5 /* CounterModuleBuilder.swift in Sources */,
 				1C10117128788D7200A6FFC5 /* CounterViewController.swift in Sources */,
 				1C10117B28788EEB00A6FFC5 /* CounterFeature.swift in Sources */,
+				1C3CDD912878CF7100A16089 /* MainMiddlewares.swift in Sources */,
 				1C10117528788D9700A6FFC5 /* AppState.swift in Sources */,
 				1C1011812878A93700A6FFC5 /* StateStorage.swift in Sources */,
 				1C10112F2878828900A6FFC5 /* SceneDelegate.swift in Sources */,
 				1C101166287885D400A6FFC5 /* MainModuleBuilder.swift in Sources */,
+				1C3CDD8C2878CF1400A16089 /* MainAction.swift in Sources */,
+				1C3CDD8E2878CF3E00A16089 /* MainReducer.swift in Sources */,
 				1C10117E28789C9600A6FFC5 /* RootFeature.swift in Sources */,
 				1C1011642878843500A6FFC5 /* RootModuleBuilder.swift in Sources */,
 				1C10116D2878868F00A6FFC5 /* UIViewController+child.swift in Sources */,
