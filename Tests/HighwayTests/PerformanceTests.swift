@@ -9,7 +9,8 @@ import XCTest
 @testable import Highway
 
 final class PerformanceTests: XCTestCase {
-    func testChildStores() {
+    
+    func testChildStoresStateMutation() {
         struct State: Equatable {
             struct Inner: Equatable {
                 struct Inner2: Equatable {
