@@ -1,0 +1,18 @@
+PODS:
+  - Highway (0.10.0)
+  - Highway/HighwayTests (0.10.0)
+
+DEPENDENCIES:
+  - Highway (from `../../`)
+  - Highway/HighwayTests (from `../../`)
+
+EXTERNAL SOURCES:
+  Highway:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Highway: 73fca8376f2ed4dc16b3579ed5af515b3360ded0
+
+PODFILE CHECKSUM: 015f4ee15206a06b3b230867a459c32545fb429c
+
+COCOAPODS: 1.11.3

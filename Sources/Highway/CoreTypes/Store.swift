@@ -7,7 +7,35 @@
 
 import Foundation
 
-public final class Store<State: Equatable, Action> {
+public protocol StoreCreator {
+    associatedtype State: Equatable
+
+    func createChildStore<ChildState: Equatable, ChildAction>(
+        keyPath: WritableKeyPath<State, ChildState>,
+        reducer: @escaping Reducer<ChildState, ChildAction>,
+        initialAction: ChildAction,
+        middleware: [Middleware<ChildState, ChildAction>]
+    ) -> Store<ChildState, ChildAction>
+
+    func createChildStore<ChildState: Equatable, ChildAction>(
+        keyPath: WritableKeyPath<State, ChildState>,
+        reducer: @escaping Reducer<ChildState, ChildAction>,
+        initialAction: ChildAction
+    ) -> Store<ChildState, ChildAction>
+
+    func createChildStore<ChildAction>(
+        reducer: @escaping Reducer<State, ChildAction>,
+        initialAction: ChildAction,
+        middleware: [Middleware<State, ChildAction>]
+    ) -> Store<State, ChildAction>
+
+    func createChildStore<ChildAction>(
+        reducer: @escaping Reducer<State, ChildAction>,
+        initialAction: ChildAction
+    ) -> Store<State, ChildAction>
+}
+
+public final class Store<State: Equatable, Action>: StoreCreator {
 
     private var stateGetter: (() -> State)!
     private var stateSetter: ((State) -> Void)!
@@ -67,7 +95,7 @@ public final class Store<State: Equatable, Action> {
     }
 
     @discardableResult
-    public func subscribe(_ listener: @escaping (State) -> Void) -> Subscription<State> {
+    public func subscribe(listener: @escaping (State) -> Void) -> Subscription<State> {
         let subscription = Subscription<State>(listener: listener)
         subscriptions.append(subscription)
         return subscription
@@ -103,9 +131,8 @@ public final class Store<State: Equatable, Action> {
     public func dispatch(_ action: Action) {
         _defaultDispatch(action: action)
         let dispatch: (Action) -> Void = { [unowned self] in self.dispatch($0) }
-        let getState: () -> State = { [unowned self] in self.state }
         middleware.forEach { middleware in
-            middleware(dispatch, getState, action)
+            middleware(dispatch, state, action)
         }
     }
 
@@ -113,7 +140,7 @@ public final class Store<State: Equatable, Action> {
         keyPath: WritableKeyPath<State, ChildState>,
         reducer: @escaping Reducer<ChildState, ChildAction>,
         initialAction: ChildAction,
-        middleware: [Middleware<ChildState, ChildAction>] = []
+        middleware: [Middleware<ChildState, ChildAction>]
     ) -> Store<ChildState, ChildAction> {
         let childStore = Store<ChildState, ChildAction>(
             reducer: reducer,
@@ -122,12 +149,57 @@ public final class Store<State: Equatable, Action> {
             initialAction: initialAction,
             middleware: middleware
         )
-        subscribe({ [weak childStore] state in
+        subscribe(listener: { [weak childStore] state in
             guard let childStore = childStore else { return }
             childStore.subscriptions.forEach { subscription in
                 subscription.listener(state[keyPath: keyPath])
             }
         })
         return childStore
+    }
+
+    public func createChildStore<ChildState, ChildAction>(
+        keyPath: WritableKeyPath<State, ChildState>,
+        reducer: @escaping Reducer<ChildState, ChildAction>,
+        initialAction: ChildAction
+    ) -> Store<ChildState, ChildAction> {
+        return createChildStore(
+            keyPath: keyPath,
+            reducer: reducer,
+            initialAction: initialAction,
+            middleware: []
+        )
+    }
+
+    public func createChildStore<ChildAction>(
+        reducer: @escaping Reducer<State, ChildAction>,
+        initialAction: ChildAction,
+        middleware: [Middleware<State, ChildAction>]
+    ) -> Store<State, ChildAction> {
+        let childStore = Store<State, ChildAction>(
+            reducer: reducer,
+            stateGetter: { self.state },
+            stateSetter: { self.state = $0 },
+            initialAction: initialAction,
+            middleware: middleware
+        )
+        subscribe(listener: { [weak childStore] state in
+            guard let childStore = childStore else { return }
+            childStore.subscriptions.forEach { subscription in
+                subscription.listener(state)
+            }
+        })
+        return childStore
+    }
+
+    public func createChildStore<ChildAction>(
+        reducer: @escaping Reducer<State, ChildAction>,
+        initialAction: ChildAction
+    ) -> Store<State, ChildAction> {
+        return createChildStore(
+            reducer: reducer,
+            initialAction: initialAction,
+            middleware: []
+        )
     }
 }

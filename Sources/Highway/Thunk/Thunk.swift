@@ -8,21 +8,21 @@
 import Foundation
 
 public struct Thunk<State, Action, Environment> {
-    let environment: Environment
+    let environment: Environment?
     let body: (
         _ dispatch: @escaping Dispatch<Action>,
-        _ getState: @escaping () -> State,
+        _ state: State,
         _ action: Action,
-        _ environment: Environment
+        _ environment: Environment?
     ) -> Void
     
     public init(
         environment: Environment,
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
-            _ getState: @escaping () -> State,
+            _ getState: State,
             _ action: Action,
-            _ environment: Environment
+            _ environment: Environment?
         ) -> Void
     ) {
         self.environment = environment
