@@ -10,10 +10,23 @@ import XCTest
 
 class StoreTests: XCTestCase {
 
-    /**
-     it dispatches an Init action when it doesn't receive an initial state
-     */
     func testInit() {
+        struct CounterState: Equatable {
+            var count: Int = 0
+        }
+        enum Action {
+            case initial
+            case other
+        }
+
+        class MockReducer {
+            var calledWithAction: [Action] = []
+            func handleAction(state: CounterState, action: Action) -> CounterState {
+                calledWithAction.append(action)
+                return state
+            }
+        }
+
         let reducer = MockReducer()
         _ = Store<CounterState, Action>(
             reducer: reducer.handleAction,
@@ -29,20 +42,4 @@ class StoreTests: XCTestCase {
             XCTFail("First action must be `.initial`")
         }
     }
-}
-
-struct CounterState: Equatable {
-    var count: Int = 0
-}
-
-class MockReducer {
-
-    var calledWithAction: [Action] = []
-
-    func handleAction(state: CounterState, action: Action) -> CounterState {
-        calledWithAction.append(action)
-
-        return state
-    }
-
 }
