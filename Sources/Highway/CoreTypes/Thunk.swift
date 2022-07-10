@@ -43,3 +43,25 @@ extension Thunk where Environment == Void {
         self.body = body
     }
 }
+
+public func createThunkMiddleware<State, Action: Equatable, Environment>(
+    thunk: Thunk<State, Action, Environment>,
+    action thunkAction: Action
+) -> Middleware<State, Action> {
+    return { dispatch, state, action in
+        if action == thunkAction {
+            thunk.body(dispatch, state, action, thunk.environment)
+        }
+    }
+}
+
+public func createThunkMiddleware<State, Action: Equatable, Environment>(
+    thunk: Thunk<State, Action, Environment>,
+    actions: [Action]
+) -> Middleware<State, Action> {
+    return { dispatch, state, action in
+        if actions.contains(action) {
+            thunk.body(dispatch, state, action, thunk.environment)
+        }
+    }
+}

@@ -10,7 +10,7 @@ import Highway
 
 extension ListFeature {
     static func getReducer() -> Reducer<MailListState.List, ListAction> {
-        let reducer: Reducer<MailListState.List, ListAction> = { state, action in
+        return Reducer<MailListState.List, ListAction> { state, action in
             switch action {
             case .fetchInitialPageInList:
                 var state = state
@@ -83,6 +83,5 @@ extension ListFeature {
                 return state
             }
         }
-        return reducer
     }
 }

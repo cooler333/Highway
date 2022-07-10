@@ -44,7 +44,7 @@ class SubstateTests: XCTestCase {
         }
 
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: Reducer<State, Action> { state, action in
                 var state = state
                 state.foo += ", \(action)"
                 state.bar += 1
@@ -57,7 +57,7 @@ class SubstateTests: XCTestCase {
 
         let subStore: Store<State.SubState, SubAction> = store.createChildStore(
             keyPath: \.substate,
-            reducer: { state, action in
+            reducer: Reducer<State.SubState, SubAction> { state, action in
                 var state = state
                 state.subfoo += ", \(action)"
                 state.subbar -= 1
@@ -109,7 +109,7 @@ class SubstateTests: XCTestCase {
         }
 
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: Reducer<State, Action> { state, action in
                 var state = state
                 state.foo += ", \(action)"
                 state.bar += 1
@@ -122,7 +122,7 @@ class SubstateTests: XCTestCase {
 
         let childStore: Store<State.SubState, SubAction> = store.createChildStore(
             keyPath: \.substate,
-            reducer: { state, action in
+            reducer: Reducer<State.SubState, SubAction> { state, action in
                 var state = state
                 state.subfoo += ", \(action)"
                 state.subbar -= 1
@@ -173,7 +173,7 @@ class SubstateTests: XCTestCase {
         }
 
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: .init { state, action in
                 var state = state
                 state.foo += ", \(action)"
                 state.bar += 1
@@ -186,7 +186,7 @@ class SubstateTests: XCTestCase {
 
         let childStore: Store<State.SubState, SubAction> = store.createChildStore(
             keyPath: \.substate,
-            reducer: { state, action in
+            reducer: Reducer<State.SubState, SubAction> { state, action in
                 var state = state
                 state.subfoo += ", \(action)"
                 state.subbar -= 1
@@ -197,7 +197,7 @@ class SubstateTests: XCTestCase {
 
         let childStore2: Store<State.SubState, SubAction2> = store.createChildStore(
             keyPath: \.substate,
-            reducer: { state, action in
+            reducer: Reducer<State.SubState, SubAction2> { state, action in
                 var state = state
                 state.subfoo += ", \(action)"
                 return state
@@ -243,7 +243,7 @@ class SubstateTests: XCTestCase {
         }
 
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: Reducer<State, Action> { state, action in
                 var state = state
                 state.foo += ", \(action)"
                 state.bar += 1
@@ -255,7 +255,7 @@ class SubstateTests: XCTestCase {
         store.dispatch(.foo)
 
         let subStore: Store<State, SubAction> = store.createChildStore(
-            reducer: { state, action in
+            reducer: Reducer<State, SubAction> { state, action in
                 var state = state
                 state.foo += ", \(action)"
                 state.bar += 1

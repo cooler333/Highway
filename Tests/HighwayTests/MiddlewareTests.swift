@@ -21,7 +21,7 @@ class MiddlewareTests: XCTestCase {
         }
 
         let store = Store<CounterState, Action>(
-            reducer: { state, action in
+            reducer: .init({ state, action in
                 switch action {
                 case .initial:
                     return state
@@ -34,7 +34,7 @@ class MiddlewareTests: XCTestCase {
                     state.count += 2
                     return state
                 }
-            },
+            }),
             state: CounterState(),
             initialAction: .initial,
             middleware: [
@@ -60,11 +60,11 @@ class MiddlewareTests: XCTestCase {
             case second
         }
 
-        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, getState, action, env in
+        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, state, action, env in
             dispatch(.second)
         }
         let store = Store<CounterState, Action>(
-            reducer: { state, action in
+            reducer: .init({ state, action in
                 switch action {
                 case .initial:
                     return state
@@ -77,7 +77,7 @@ class MiddlewareTests: XCTestCase {
                     state.count += 2
                     return state
                 }
-            },
+            }),
             state: CounterState(),
             initialAction: .initial,
             middleware: [

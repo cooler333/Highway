@@ -12,25 +12,25 @@ public protocol StoreCreator {
 
     func createChildStore<ChildState: Equatable, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
-        reducer: @escaping Reducer<ChildState, ChildAction>,
+        reducer: Reducer<ChildState, ChildAction>,
         initialAction: ChildAction,
         middleware: [Middleware<ChildState, ChildAction>]
     ) -> Store<ChildState, ChildAction>
 
     func createChildStore<ChildState: Equatable, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
-        reducer: @escaping Reducer<ChildState, ChildAction>,
+        reducer: Reducer<ChildState, ChildAction>,
         initialAction: ChildAction
     ) -> Store<ChildState, ChildAction>
 
     func createChildStore<ChildAction>(
-        reducer: @escaping Reducer<State, ChildAction>,
+        reducer: Reducer<State, ChildAction>,
         initialAction: ChildAction,
         middleware: [Middleware<State, ChildAction>]
     ) -> Store<State, ChildAction>
 
     func createChildStore<ChildAction>(
-        reducer: @escaping Reducer<State, ChildAction>,
+        reducer: Reducer<State, ChildAction>,
         initialAction: ChildAction
     ) -> Store<State, ChildAction>
 }
@@ -59,7 +59,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     private let middleware: [Middleware<State, Action>]
 
     public required init(
-        reducer: @escaping Reducer<State, Action>,
+        reducer: Reducer<State, Action>,
         state: State,
         initialAction: Action,
         middleware: [Middleware<State, Action>] = []
@@ -79,7 +79,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     private init(
-        reducer: @escaping Reducer<State, Action>,
+        reducer: Reducer<State, Action>,
         stateGetter: @escaping () -> State,
         stateSetter: @escaping (State) -> Void,
         initialAction: Action,
@@ -120,7 +120,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         }
 
         isDispatching.value { $0 = true }
-        let newState = reducer(state, action)
+        let newState = reducer.reduce(state, action)
         isDispatching.value { $0 = false }
 
         if state != newState {
@@ -138,7 +138,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     public func createChildStore<ChildState, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
-        reducer: @escaping Reducer<ChildState, ChildAction>,
+        reducer: Reducer<ChildState, ChildAction>,
         initialAction: ChildAction,
         middleware: [Middleware<ChildState, ChildAction>]
     ) -> Store<ChildState, ChildAction> {
@@ -160,7 +160,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     public func createChildStore<ChildState, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
-        reducer: @escaping Reducer<ChildState, ChildAction>,
+        reducer: Reducer<ChildState, ChildAction>,
         initialAction: ChildAction
     ) -> Store<ChildState, ChildAction> {
         return createChildStore(
@@ -172,7 +172,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     public func createChildStore<ChildAction>(
-        reducer: @escaping Reducer<State, ChildAction>,
+        reducer: Reducer<State, ChildAction>,
         initialAction: ChildAction,
         middleware: [Middleware<State, ChildAction>]
     ) -> Store<State, ChildAction> {
@@ -193,7 +193,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     public func createChildStore<ChildAction>(
-        reducer: @escaping Reducer<State, ChildAction>,
+        reducer: Reducer<State, ChildAction>,
         initialAction: ChildAction
     ) -> Store<State, ChildAction> {
         return createChildStore(

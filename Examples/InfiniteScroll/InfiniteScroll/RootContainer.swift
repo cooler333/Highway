@@ -63,7 +63,7 @@ public final class RootAssembly: Assembly {
 
         container.register(Store<MailListState, ListAction>.self) { r in
             let store = Store<MailListState, ListAction>(
-                reducer: { state, action in
+                reducer: .init { state, action in
                     return state
                 },
                 state: .init(),
@@ -77,7 +77,7 @@ public final class RootAssembly: Assembly {
             let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
             let store = mailListStore.createChildStore(
                 keyPath: \.list,
-                reducer: { state, _ in
+                reducer: Reducer<MailListState.List, String> { state, _ in
                     print(state)
                     return state
                 },
