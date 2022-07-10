@@ -30,9 +30,9 @@ class SubscriptionTests: XCTestCase {
         }
         
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: .init({ state, action in
                 return state
-            },
+            }),
             state: .init(),
             initialAction: .initial
         )
@@ -44,15 +44,15 @@ class SubscriptionTests: XCTestCase {
         
         let childStore = store.createChildStore(
             keyPath: \.inner,
-            reducer: { (state: State.Inner, action: Action) in
+            reducer: Reducer<State.Inner, Action>({ state, action in
                 return state
-            },
+            }),
             initialAction: .initial
         )
         
         let childStore2 = childStore.createChildStore(
             keyPath: \.inner2,
-            reducer: { (state: State.Inner.Inner2, action: Action) in
+            reducer: Reducer<State.Inner.Inner2, Action>({ state, action in
                 switch action {
                 case .initial:
                     return state
@@ -63,7 +63,7 @@ class SubscriptionTests: XCTestCase {
                     state.c = "hi"
                     return state
                 }
-            },
+            }),
             initialAction: .initial
         )
         
@@ -95,9 +95,9 @@ class SubscriptionTests: XCTestCase {
         }
         
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: .init({ state, action in
                 return state
-            },
+            }),
             state: .init(),
             initialAction: .initial
         )
@@ -108,14 +108,14 @@ class SubscriptionTests: XCTestCase {
         })
         
         let childStore = store.createChildStore(
-            reducer: { (state: State, action: Action) in
+            reducer: Reducer<State, Action>({ state, action in
                 return state
-            },
+            }),
             initialAction: .initial
         )
         
         let childStore2 = childStore.createChildStore(
-            reducer: { (state: State, action: Action) in
+            reducer: Reducer<State, Action>({ state, action in
                 switch action {
                 case .initial:
                     return state
@@ -126,7 +126,7 @@ class SubscriptionTests: XCTestCase {
                     state.inner.inner2.c = "hi"
                     return state
                 }
-            },
+            }),
             initialAction: .initial
         )
         
@@ -158,9 +158,9 @@ class SubscriptionTests: XCTestCase {
         }
         
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: Reducer<State, Action>({ state, action in
                 return state
-            },
+            }),
             state: .init(),
             initialAction: .initial
         )
@@ -172,7 +172,7 @@ class SubscriptionTests: XCTestCase {
         
         let childStore = store.createChildStore(
             keyPath: \.inner,
-            reducer: { (state: State.Inner, action: Action) in
+            reducer: Reducer<State.Inner, Action>({ state, action in
                 switch action {
                 case .initial:
                     return state
@@ -184,7 +184,7 @@ class SubscriptionTests: XCTestCase {
                     state.inner2.c = "hi"
                     return state
                 }
-            },
+            }),
             initialAction: .initial
         )
                 

@@ -18,7 +18,7 @@ enum CounterFeature {
     }
 
     static func reducer() -> Reducer<AppState, Action> {
-        return { state, action in
+        return .init { state, action in
             switch action {
             case .initial:
                 return state

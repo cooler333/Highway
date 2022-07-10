@@ -55,9 +55,9 @@ final class PerformanceTests: XCTestCase {
         }
         
         let store = Store<State, Action>(
-            reducer: { state, action in
+            reducer: .init({ state, action in
                 return state
-            },
+            }),
             state: .init(),
             initialAction: .initial
         )
@@ -65,7 +65,7 @@ final class PerformanceTests: XCTestCase {
         let stores = Array([0...1000]).map { _ in
             return store.createChildStore(
                 keyPath: \.inner,
-                reducer: { (state: State.Inner, action: Action) in
+                reducer: Reducer<State.Inner, Action> { state, action in
                     return state
                 },
                 initialAction: .initial
@@ -76,7 +76,7 @@ final class PerformanceTests: XCTestCase {
         let innerStores = Array([0...1000]).map { _ in
             return innerStore.createChildStore(
                 keyPath: \.inner2,
-                reducer: { (state: State.Inner.Inner2, action: Action) in
+                reducer: Reducer<State.Inner.Inner2, Action> { (state: State.Inner.Inner2, action: Action) in
                     switch action {
                     case .initial:
                         return state
@@ -106,7 +106,7 @@ final class PerformanceTests: XCTestCase {
 
         let subscribers: [(MockState) -> Void] = (0..<3000).map { _ in return { _ in } }
         let store = Store<MockState, MockAction>(
-            reducer: { state, _ in return state },
+            reducer: Reducer<MockState, MockAction> { state, _ in return state },
             state: MockState(),
             initialAction: .initial
         )
@@ -125,7 +125,7 @@ final class PerformanceTests: XCTestCase {
 
         let subscribers: [(MockState) -> Void] = (0..<3000).map { _ in return { _ in } }
         let store = Store<MockState, MockAction>(
-            reducer: { state, _ in return state },
+            reducer: Reducer<MockState, MockAction> { state, _ in return state },
             state: MockState(),
             initialAction: .initial
         )

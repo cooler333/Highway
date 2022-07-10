@@ -29,7 +29,7 @@ class StoreTests: XCTestCase {
 
         let reducer = MockReducer()
         _ = Store<CounterState, Action>(
-            reducer: reducer.handleAction,
+            reducer: Reducer<CounterState, Action>(reducer.handleAction),
             state: CounterState(),
             initialAction: .initial
         )

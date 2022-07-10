@@ -29,12 +29,10 @@ extension ListFeature {
 
         return createMiddleware(
             environment: environment,
-            { dispatch, getState, action, environment in
+            { dispatch, state, action, environment in
                 guard action == .fetchInitialPageInList || action == .fetchNextPageInList else { return }
 
                 cancellable.forEach { $0.cancel() }
-
-                let state = getState()
 
                 let currentPage: Int
                 if action == .fetchInitialPageInList {
@@ -91,11 +89,11 @@ extension ListFeature {
     ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
-            { dispatch, getState, action, environment in
+            { dispatch, state, action, environment in
                 guard case let .selectListAtIndex(index) = action else { return }
 
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
-                let item = getState().data[index]
+                let item = state.data[index]
                 _ = Future<ListAction, Never> { promise in
                     environment.moduleOutput?.listModuleWantsToOpenDetails(
                         with: item.id
@@ -131,8 +129,7 @@ extension ListFeature {
     ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
-            { dispatch, getState, action, environment in
-                let state = getState()
+            { dispatch, state, action, environment in
                 switch action {
                 case let .addNextPageInList(result):
                     switch result {
