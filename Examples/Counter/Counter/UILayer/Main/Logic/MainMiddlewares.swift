@@ -19,7 +19,7 @@ extension MainFeature {
     }
     
     private static func onChangeSaveMiddleware() -> Middleware<AppState, Action> {
-        createMiddleware({ dispatch, state, action in
+        createMiddleware({ dispatch, getState, action in
             switch action {
             case .increment, .decrement:
                 dispatch(.save)
@@ -34,8 +34,9 @@ extension MainFeature {
     ) -> Middleware<AppState, Action> {
         createMiddleware(
             environment: stateStorage,
-            { dispatch, state, action, environment in
+            { dispatch, getState, action, environment in
                 guard action == .save else { return }
+                let state = getState()
                 DispatchQueue.global(
                     qos: .background
                 ).asyncAfter(

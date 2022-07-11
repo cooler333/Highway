@@ -53,16 +53,18 @@ enum CounterFeature {
         return [
             createMiddleware(
                 environment: stateStorage,
-                { dispatch, state, action, environment in
-                    if action == .save {
-                        DispatchQueue.global(qos: .background).asyncAfter(
-                            deadline: .now() + 2,
-                            execute: {
-                                stateStorage.save(state)
-                                dispatch(.saved(success: true))
-                            }
-                        )
-                    }
+                { dispatch, getState, action, environment in
+                    guard action == .save else { return }
+                    let state = getState()
+                    DispatchQueue.global(
+                        qos: .background
+                    ).asyncAfter(
+                        deadline: .now() + 2,
+                        execute: {
+                            stateStorage.save(state)
+                            dispatch(.saved(success: true))
+                        }
+                    )
                 }
             )
         ]
