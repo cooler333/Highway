@@ -38,7 +38,7 @@ class MiddlewareTests: XCTestCase {
             state: CounterState(),
             initialAction: .initial,
             middleware: [
-                createMiddleware({ dispatch, state, action in
+                createMiddleware({ dispatch, getState, action in
                     if action == .first {
                         dispatch(.second)
                     }
@@ -49,7 +49,7 @@ class MiddlewareTests: XCTestCase {
 
         XCTAssertEqual(store.state.count, 3)
     }
-    
+
     func testExample2() throws {
         struct CounterState: Equatable {
             var count: Int = 0
@@ -60,7 +60,7 @@ class MiddlewareTests: XCTestCase {
             case second
         }
 
-        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, state, action, env in
+        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, getState, action, env in
             dispatch(.second)
         }
         let store = Store<CounterState, Action>(

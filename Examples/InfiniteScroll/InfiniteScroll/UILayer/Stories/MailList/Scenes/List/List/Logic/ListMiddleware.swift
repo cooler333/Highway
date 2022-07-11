@@ -29,11 +29,11 @@ extension ListFeature {
 
         return createMiddleware(
             environment: environment,
-            { dispatch, state, action, environment in
+            { dispatch, getState, action, environment in
                 guard action == .fetchInitialPageInList || action == .fetchNextPageInList else { return }
 
                 cancellable.forEach { $0.cancel() }
-
+                let state = getState()
                 let currentPage: Int
                 if action == .fetchInitialPageInList {
                     currentPage = state.currentPage // or just 0
@@ -89,8 +89,9 @@ extension ListFeature {
     ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
-            { dispatch, state, action, environment in
+            { dispatch, getState, action, environment in
                 guard case let .selectListAtIndex(index) = action else { return }
+                let state = getState()
 
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
                 let item = state.data[index]
@@ -129,7 +130,8 @@ extension ListFeature {
     ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
-            { dispatch, state, action, environment in
+            { dispatch, getState, action, environment in
+                let state = getState()
                 switch action {
                 case let .addNextPageInList(result):
                     switch result {

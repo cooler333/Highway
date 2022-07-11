@@ -11,7 +11,7 @@ public struct Thunk<State, Action, Environment> {
     let environment: Environment
     let body: (
         _ dispatch: @escaping Dispatch<Action>,
-        _ state: State,
+        _ getState: () -> State,
         _ action: Action,
         _ environment: Environment
     ) -> Void
@@ -20,7 +20,7 @@ public struct Thunk<State, Action, Environment> {
         environment: Environment,
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
-            _ state: State,
+            _ getState: () -> State,
             _ action: Action,
             _ environment: Environment
         ) -> Void
@@ -34,7 +34,7 @@ extension Thunk where Environment == Void {
     public init(
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
-            _ state: State,
+            _ getState: () -> State,
             _ action: Action,
             _ environment: Environment?
         ) -> Void
@@ -48,9 +48,9 @@ public func createThunkMiddleware<State, Action: Equatable, Environment>(
     thunk: Thunk<State, Action, Environment>,
     action thunkAction: Action
 ) -> Middleware<State, Action> {
-    return { dispatch, state, action in
+    return { dispatch, getState, action in
         if action == thunkAction {
-            thunk.body(dispatch, state, action, thunk.environment)
+            thunk.body(dispatch, getState, action, thunk.environment)
         }
     }
 }
@@ -59,9 +59,9 @@ public func createThunkMiddleware<State, Action: Equatable, Environment>(
     thunk: Thunk<State, Action, Environment>,
     actions: [Action]
 ) -> Middleware<State, Action> {
-    return { dispatch, state, action in
+    return { dispatch, getState, action in
         if actions.contains(action) {
-            thunk.body(dispatch, state, action, thunk.environment)
+            thunk.body(dispatch, getState, action, thunk.environment)
         }
     }
 }

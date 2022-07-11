@@ -131,8 +131,9 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     public func dispatch(_ action: Action) {
         _defaultDispatch(action: action)
         let dispatch: (Action) -> Void = { [unowned self] in self.dispatch($0) }
+        let getState: () -> State = { [unowned self] in self.state }
         middleware.forEach { middleware in
-            middleware(dispatch, state, action)
+            middleware(dispatch, getState, action)
         }
     }
 
