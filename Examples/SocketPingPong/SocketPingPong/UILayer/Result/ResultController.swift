@@ -41,7 +41,7 @@ final class ResultViewController: UIViewController {
     }
 
     private func render(state: AppState) {
-        statusLabel.text = "Side: \(state.sideType)\nStatus: \(state.playType)"
+        statusLabel.text = "\(state.sideType)\n\n\(state.playType)"
     }
 
     private func setupStatusLabel() {
