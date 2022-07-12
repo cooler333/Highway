@@ -121,7 +121,7 @@
 				1C10115C2878835E00A6FFC5 /* UILayer */,
 				1C10117F2878A92100A6FFC5 /* ModelLayer */,
 				1C10115E2878839200A6FFC5 /* Resources */,
-				1C10115F2878839D00A6FFC5 /* CoreDelegates */,
+				1C10115F2878839D00A6FFC5 /* Delegates */,
 				1C10113A2878828A00A6FFC5 /* Info.plist */,
 			);
 			path = Counter;
@@ -156,13 +156,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1C10115F2878839D00A6FFC5 /* CoreDelegates */ = {
+		1C10115F2878839D00A6FFC5 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				1C10112C2878828900A6FFC5 /* AppDelegate.swift */,
 				1C10112E2878828900A6FFC5 /* SceneDelegate.swift */,
 			);
-			path = CoreDelegates;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		1C101160287883D100A6FFC5 /* Root */ = {

@@ -1,0 +1,669 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C655A54287CBD5300529CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A53287CBD5300529CE8 /* AppDelegate.swift */; };
+		1C655A56287CBD5300529CE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A55287CBD5300529CE8 /* SceneDelegate.swift */; };
+		1C655A5D287CBD5400529CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C655A5C287CBD5400529CE8 /* Assets.xcassets */; };
+		1C655A60287CBD5400529CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C655A5E287CBD5400529CE8 /* LaunchScreen.storyboard */; };
+		1C655A6B287CBD5400529CE8 /* SocketPingPongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A6A287CBD5400529CE8 /* SocketPingPongTests.swift */; };
+		1C655A9E287CBFCC00529CE8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A8C287CBFCC00529CE8 /* RootViewController.swift */; };
+		1C655A9F287CBFCC00529CE8 /* RootModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A8D287CBFCC00529CE8 /* RootModuleBuilder.swift */; };
+		1C655AA0287CBFCC00529CE8 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A8E287CBFCC00529CE8 /* RootFeature.swift */; };
+		1C655AA1287CBFCC00529CE8 /* UIViewController+child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A90287CBFCC00529CE8 /* UIViewController+child.swift */; };
+		1C655AA8287CBFCC00529CE8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655A9A287CBFCC00529CE8 /* AppState.swift */; };
+		1C655ABC287CCDCE00529CE8 /* PingPongFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AB6287CCDCE00529CE8 /* PingPongFeature.swift */; };
+		1C655ABE287CCDCE00529CE8 /* PingPongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AB8287CCDCE00529CE8 /* PingPongController.swift */; };
+		1C655ABF287CCDCE00529CE8 /* PingPongModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AB9287CCDCE00529CE8 /* PingPongModuleBuilder.swift */; };
+		1C655AC0287CCE3E00529CE8 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AAB287CCDA400529CE8 /* ResultController.swift */; };
+		1C655AC1287CCE4100529CE8 /* ResultFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AAA287CCDA400529CE8 /* ResultFeature.swift */; };
+		1C655AC2287CCE4300529CE8 /* ResultModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C655AAC287CCDA400529CE8 /* ResultModuleBuilder.swift */; };
+		EE33166CD61881D0F9D493B2 /* Pods_SocketPingPong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56E860475A043A74562945D /* Pods_SocketPingPong.framework */; };
+		F690B48CB76B476C3B43BDF6 /* Pods_SocketPingPongTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4320392E3ABED9DC5FC375 /* Pods_SocketPingPongTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C655A67287CBD5400529CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C655A48287CBD5300529CE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C655A4F287CBD5300529CE8;
+			remoteInfo = SocketPingPong;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13FDDBCC5A50A9BBED29978B /* Pods-SocketPingPongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPingPongTests.debug.xcconfig"; path = "Target Support Files/Pods-SocketPingPongTests/Pods-SocketPingPongTests.debug.xcconfig"; sourceTree = "<group>"; };
+		158FA9873153A464A1BBD79D /* Pods-SocketPingPong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPingPong.release.xcconfig"; path = "Target Support Files/Pods-SocketPingPong/Pods-SocketPingPong.release.xcconfig"; sourceTree = "<group>"; };
+		164B00449686F868E2B76803 /* Pods-SocketPingPongTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPingPongTests.release.xcconfig"; path = "Target Support Files/Pods-SocketPingPongTests/Pods-SocketPingPongTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C655A50287CBD5300529CE8 /* SocketPingPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketPingPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C655A53287CBD5300529CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1C655A55287CBD5300529CE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1C655A5C287CBD5400529CE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C655A5F287CBD5400529CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1C655A61287CBD5400529CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C655A66287CBD5400529CE8 /* SocketPingPongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocketPingPongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C655A6A287CBD5400529CE8 /* SocketPingPongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketPingPongTests.swift; sourceTree = "<group>"; };
+		1C655A8C287CBFCC00529CE8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1C655A8D287CBFCC00529CE8 /* RootModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleBuilder.swift; sourceTree = "<group>"; };
+		1C655A8E287CBFCC00529CE8 /* RootFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
+		1C655A90287CBFCC00529CE8 /* UIViewController+child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+child.swift"; sourceTree = "<group>"; };
+		1C655A9A287CBFCC00529CE8 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1C655AAA287CCDA400529CE8 /* ResultFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultFeature.swift; sourceTree = "<group>"; };
+		1C655AAB287CCDA400529CE8 /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		1C655AAC287CCDA400529CE8 /* ResultModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModuleBuilder.swift; sourceTree = "<group>"; };
+		1C655AB6287CCDCE00529CE8 /* PingPongFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingPongFeature.swift; sourceTree = "<group>"; };
+		1C655AB8287CCDCE00529CE8 /* PingPongController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingPongController.swift; sourceTree = "<group>"; };
+		1C655AB9287CCDCE00529CE8 /* PingPongModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingPongModuleBuilder.swift; sourceTree = "<group>"; };
+		2E4320392E3ABED9DC5FC375 /* Pods_SocketPingPongTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketPingPongTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B56E860475A043A74562945D /* Pods_SocketPingPong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocketPingPong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8F6AD9BE26BB2D66610ADA6 /* Pods-SocketPingPong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocketPingPong.debug.xcconfig"; path = "Target Support Files/Pods-SocketPingPong/Pods-SocketPingPong.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C655A4D287CBD5300529CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE33166CD61881D0F9D493B2 /* Pods_SocketPingPong.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C655A63287CBD5400529CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F690B48CB76B476C3B43BDF6 /* Pods_SocketPingPongTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C655A47287CBD5300529CE8 = {
+			isa = PBXGroup;
+			children = (
+				1C655A52287CBD5300529CE8 /* SocketPingPong */,
+				1C655A69287CBD5400529CE8 /* SocketPingPongTests */,
+				1C655A51287CBD5300529CE8 /* Products */,
+				DFE288C242BF884EE8CEE9F5 /* Pods */,
+				F89C775B0FFD5BC3C469F217 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1C655A51287CBD5300529CE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A50287CBD5300529CE8 /* SocketPingPong.app */,
+				1C655A66287CBD5400529CE8 /* SocketPingPongTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C655A52287CBD5300529CE8 /* SocketPingPong */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A83287CBF3200529CE8 /* UILayer */,
+				1C655A85287CBF4400529CE8 /* Resources */,
+				1C655A86287CBF4B00529CE8 /* Delegates */,
+				1C655A61287CBD5400529CE8 /* Info.plist */,
+			);
+			path = SocketPingPong;
+			sourceTree = "<group>";
+		};
+		1C655A69287CBD5400529CE8 /* SocketPingPongTests */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A6A287CBD5400529CE8 /* SocketPingPongTests.swift */,
+			);
+			path = SocketPingPongTests;
+			sourceTree = "<group>";
+		};
+		1C655A83287CBF3200529CE8 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A9A287CBFCC00529CE8 /* AppState.swift */,
+				1C655AB3287CCDCD00529CE8 /* PingPong */,
+				1C655AA9287CCDA400529CE8 /* Result */,
+				1C655A8B287CBFCC00529CE8 /* Root */,
+				1C655A8F287CBFCC00529CE8 /* Extensions */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		1C655A85287CBF4400529CE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A5C287CBD5400529CE8 /* Assets.xcassets */,
+				1C655A5E287CBD5400529CE8 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1C655A86287CBF4B00529CE8 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A53287CBD5300529CE8 /* AppDelegate.swift */,
+				1C655A55287CBD5300529CE8 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		1C655A8B287CBFCC00529CE8 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A8C287CBFCC00529CE8 /* RootViewController.swift */,
+				1C655A8D287CBFCC00529CE8 /* RootModuleBuilder.swift */,
+				1C655A8E287CBFCC00529CE8 /* RootFeature.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1C655A8F287CBFCC00529CE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C655A90287CBFCC00529CE8 /* UIViewController+child.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1C655AA9287CCDA400529CE8 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				1C655AAC287CCDA400529CE8 /* ResultModuleBuilder.swift */,
+				1C655AAA287CCDA400529CE8 /* ResultFeature.swift */,
+				1C655AAB287CCDA400529CE8 /* ResultController.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		1C655AB3287CCDCD00529CE8 /* PingPong */ = {
+			isa = PBXGroup;
+			children = (
+				1C655AB9287CCDCE00529CE8 /* PingPongModuleBuilder.swift */,
+				1C655AB6287CCDCE00529CE8 /* PingPongFeature.swift */,
+				1C655AB8287CCDCE00529CE8 /* PingPongController.swift */,
+			);
+			path = PingPong;
+			sourceTree = "<group>";
+		};
+		DFE288C242BF884EE8CEE9F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8F6AD9BE26BB2D66610ADA6 /* Pods-SocketPingPong.debug.xcconfig */,
+				158FA9873153A464A1BBD79D /* Pods-SocketPingPong.release.xcconfig */,
+				13FDDBCC5A50A9BBED29978B /* Pods-SocketPingPongTests.debug.xcconfig */,
+				164B00449686F868E2B76803 /* Pods-SocketPingPongTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F89C775B0FFD5BC3C469F217 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B56E860475A043A74562945D /* Pods_SocketPingPong.framework */,
+				2E4320392E3ABED9DC5FC375 /* Pods_SocketPingPongTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C655A4F287CBD5300529CE8 /* SocketPingPong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C655A7A287CBD5400529CE8 /* Build configuration list for PBXNativeTarget "SocketPingPong" */;
+			buildPhases = (
+				BE9BFBAA758BB208E93A9426 /* [CP] Check Pods Manifest.lock */,
+				1C655A4C287CBD5300529CE8 /* Sources */,
+				1C655A4D287CBD5300529CE8 /* Frameworks */,
+				1C655A4E287CBD5300529CE8 /* Resources */,
+				F3873359D8E7E491F4C3800B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SocketPingPong;
+			productName = SocketPingPong;
+			productReference = 1C655A50287CBD5300529CE8 /* SocketPingPong.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C655A65287CBD5400529CE8 /* SocketPingPongTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C655A7D287CBD5400529CE8 /* Build configuration list for PBXNativeTarget "SocketPingPongTests" */;
+			buildPhases = (
+				FF19EF60363A252C23EF8BDB /* [CP] Check Pods Manifest.lock */,
+				1C655A62287CBD5400529CE8 /* Sources */,
+				1C655A63287CBD5400529CE8 /* Frameworks */,
+				1C655A64287CBD5400529CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C655A68287CBD5400529CE8 /* PBXTargetDependency */,
+			);
+			name = SocketPingPongTests;
+			productName = SocketPingPongTests;
+			productReference = 1C655A66287CBD5400529CE8 /* SocketPingPongTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C655A48287CBD5300529CE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					1C655A4F287CBD5300529CE8 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1C655A65287CBD5400529CE8 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1C655A4F287CBD5300529CE8;
+					};
+				};
+			};
+			buildConfigurationList = 1C655A4B287CBD5300529CE8 /* Build configuration list for PBXProject "SocketPingPong" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C655A47287CBD5300529CE8;
+			productRefGroup = 1C655A51287CBD5300529CE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C655A4F287CBD5300529CE8 /* SocketPingPong */,
+				1C655A65287CBD5400529CE8 /* SocketPingPongTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C655A4E287CBD5300529CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C655A60287CBD5400529CE8 /* LaunchScreen.storyboard in Resources */,
+				1C655A5D287CBD5400529CE8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C655A64287CBD5400529CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE9BFBAA758BB208E93A9426 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocketPingPong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3873359D8E7E491F4C3800B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocketPingPong/Pods-SocketPingPong-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SocketPingPong/Pods-SocketPingPong-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SocketPingPong/Pods-SocketPingPong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF19EF60363A252C23EF8BDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocketPingPongTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C655A4C287CBD5300529CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C655AA8287CBFCC00529CE8 /* AppState.swift in Sources */,
+				1C655A9F287CBFCC00529CE8 /* RootModuleBuilder.swift in Sources */,
+				1C655AA0287CBFCC00529CE8 /* RootFeature.swift in Sources */,
+				1C655ABF287CCDCE00529CE8 /* PingPongModuleBuilder.swift in Sources */,
+				1C655AC0287CCE3E00529CE8 /* ResultController.swift in Sources */,
+				1C655AC1287CCE4100529CE8 /* ResultFeature.swift in Sources */,
+				1C655A9E287CBFCC00529CE8 /* RootViewController.swift in Sources */,
+				1C655A54287CBD5300529CE8 /* AppDelegate.swift in Sources */,
+				1C655A56287CBD5300529CE8 /* SceneDelegate.swift in Sources */,
+				1C655ABC287CCDCE00529CE8 /* PingPongFeature.swift in Sources */,
+				1C655ABE287CCDCE00529CE8 /* PingPongController.swift in Sources */,
+				1C655AC2287CCE4300529CE8 /* ResultModuleBuilder.swift in Sources */,
+				1C655AA1287CBFCC00529CE8 /* UIViewController+child.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C655A62287CBD5400529CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C655A6B287CBD5400529CE8 /* SocketPingPongTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C655A68287CBD5400529CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C655A4F287CBD5300529CE8 /* SocketPingPong */;
+			targetProxy = 1C655A67287CBD5400529CE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C655A5E287CBD5400529CE8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C655A5F287CBD5400529CE8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C655A78287CBD5400529CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1C655A79287CBD5400529CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C655A7B287CBD5400529CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8F6AD9BE26BB2D66610ADA6 /* Pods-SocketPingPong.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocketPingPong/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.SocketPingPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C655A7C287CBD5400529CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 158FA9873153A464A1BBD79D /* Pods-SocketPingPong.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SocketPingPong/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.SocketPingPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1C655A7E287CBD5400529CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13FDDBCC5A50A9BBED29978B /* Pods-SocketPingPongTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.SocketPingPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocketPingPong.app/SocketPingPong";
+			};
+			name = Debug;
+		};
+		1C655A7F287CBD5400529CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 164B00449686F868E2B76803 /* Pods-SocketPingPongTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = en.cooler.SocketPingPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocketPingPong.app/SocketPingPong";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C655A4B287CBD5300529CE8 /* Build configuration list for PBXProject "SocketPingPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C655A78287CBD5400529CE8 /* Debug */,
+				1C655A79287CBD5400529CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C655A7A287CBD5400529CE8 /* Build configuration list for PBXNativeTarget "SocketPingPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C655A7B287CBD5400529CE8 /* Debug */,
+				1C655A7C287CBD5400529CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C655A7D287CBD5400529CE8 /* Build configuration list for PBXNativeTarget "SocketPingPongTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C655A7E287CBD5400529CE8 /* Debug */,
+				1C655A7F287CBD5400529CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C655A48287CBD5300529CE8 /* Project object */;
+}
