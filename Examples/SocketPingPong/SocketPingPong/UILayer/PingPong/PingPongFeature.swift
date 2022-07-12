@@ -56,21 +56,27 @@ enum PingPongFeature {
         return [
             createMiddleware({ dispatch, getState, action in
                 let state = getState()
-                switch state.playType {
-                case .readyToPlay:
-                    Timer.publish(every: 1, on: .main, in: .common)
-                        .autoconnect()
-                        .sink { _ in
+
+                if state.playType == .paused {
+                    environment.cancellable.forEach { $0.cancel() }
+                }
+
+                if state.playType == .readyToPlay {
+                    Timer.publish(
+                        every: 1,
+                        on: .main,
+                        in: .common
+                    )
+                    .autoconnect()
+                    .sink { _ in
+                        let state = getState()
+                        if state.playType == .paused {
+                            environment.cancellable.forEach { $0.cancel() }
+                        } else {
                             dispatch(.received)
                         }
-                        .store(in: &environment.cancellable)
-
-                case .playing:
-                    // do nothing
-                    break
-
-                case .paused:
-                    environment.cancellable.forEach { $0.cancel() }
+                    }
+                    .store(in: &environment.cancellable)
                 }
             })
         ]
