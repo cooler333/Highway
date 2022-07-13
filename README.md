@@ -1,5 +1,7 @@
 # Highway
 
+Highway is implementation of Redux-like architecture pattern using Swift.
+
 If you were looking for a something like this: 
 - TEA (The Elm Architecture)
 - MVU (Model-View-Update)
@@ -11,16 +13,13 @@ If you were looking for a something like this:
 
 ...but on Swift. Then you have found it!
 
-Highway is implementation of Redux-like architecture pattern using Swift.
-
 ## Features
 
-- Do not use 3rd party libraries
+- Multistore support (with state sharing)
+- Fast state change and sync
 - 100% business logic code coverage
 - Lightweight
-- Multiple stores can share and mutate the same state to sync app state
-
-#### We're open to merge requests
+- Do not use 3rd party libraries
 
 ## Examples
 
@@ -30,6 +29,10 @@ Highway is implementation of Redux-like architecture pattern using Swift.
 - [Infinite Scroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
 https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
+
+#### TODO:
+- Animations
+- SwiftUI
 
 #### Other
 - [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
