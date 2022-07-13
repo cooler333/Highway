@@ -13,25 +13,25 @@ public protocol StoreCreator {
     func createChildStore<ChildState: Equatable, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
         reducer: Reducer<ChildState, ChildAction>,
-        initialAction: ChildAction,
+        initialAction: ChildAction?,
         middleware: [Middleware<ChildState, ChildAction>]
     ) -> Store<ChildState, ChildAction>
 
     func createChildStore<ChildState: Equatable, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
         reducer: Reducer<ChildState, ChildAction>,
-        initialAction: ChildAction
+        initialAction: ChildAction?
     ) -> Store<ChildState, ChildAction>
 
     func createChildStore<ChildAction>(
         reducer: Reducer<State, ChildAction>,
-        initialAction: ChildAction,
+        initialAction: ChildAction?,
         middleware: [Middleware<State, ChildAction>]
     ) -> Store<State, ChildAction>
 
     func createChildStore<ChildAction>(
         reducer: Reducer<State, ChildAction>,
-        initialAction: ChildAction
+        initialAction: ChildAction?
     ) -> Store<State, ChildAction>
 }
 
@@ -61,7 +61,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     public required init(
         reducer: Reducer<State, Action>,
         state: State,
-        initialAction: Action,
+        initialAction: Action? = nil,
         middleware: [Middleware<State, Action>] = []
     ) {
         self.reducer = reducer
@@ -75,14 +75,16 @@ public final class Store<State: Equatable, Action>: StoreCreator {
             self._state = state
         }
 
-        dispatch(initialAction)
+        if let initialAction = initialAction {
+            dispatch(initialAction)
+        }
     }
 
     private init(
         reducer: Reducer<State, Action>,
         stateGetter: @escaping () -> State,
         stateSetter: @escaping (State) -> Void,
-        initialAction: Action,
+        initialAction: Action? = nil,
         middleware: [Middleware<State, Action>] = []
     ) {
         self.reducer = reducer
@@ -91,7 +93,9 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         self.stateGetter = stateGetter
         self.stateSetter = stateSetter
 
-        dispatch(initialAction)
+        if let initialAction = initialAction {
+            dispatch(initialAction)
+        }
     }
 
     @discardableResult
@@ -140,7 +144,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     public func createChildStore<ChildState, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
         reducer: Reducer<ChildState, ChildAction>,
-        initialAction: ChildAction,
+        initialAction: ChildAction? = nil,
         middleware: [Middleware<ChildState, ChildAction>]
     ) -> Store<ChildState, ChildAction> {
         let childStore = Store<ChildState, ChildAction>(
@@ -162,7 +166,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     public func createChildStore<ChildState, ChildAction>(
         keyPath: WritableKeyPath<State, ChildState>,
         reducer: Reducer<ChildState, ChildAction>,
-        initialAction: ChildAction
+        initialAction: ChildAction? = nil
     ) -> Store<ChildState, ChildAction> {
         return createChildStore(
             keyPath: keyPath,
@@ -174,7 +178,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     public func createChildStore<ChildAction>(
         reducer: Reducer<State, ChildAction>,
-        initialAction: ChildAction,
+        initialAction: ChildAction? = nil,
         middleware: [Middleware<State, ChildAction>]
     ) -> Store<State, ChildAction> {
         let childStore = Store<State, ChildAction>(
@@ -195,7 +199,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     public func createChildStore<ChildAction>(
         reducer: Reducer<State, ChildAction>,
-        initialAction: ChildAction
+        initialAction: ChildAction? = nil
     ) -> Store<State, ChildAction> {
         return createChildStore(
             reducer: reducer,

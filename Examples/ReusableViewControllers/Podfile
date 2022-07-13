@@ -1,0 +1,13 @@
+platform :ios, '13.0'
+
+target 'ReusableViewControllers' do
+  use_frameworks!
+
+  pod 'Highway', path: '../../', testspecs: ["HighwayTests"]
+
+  target 'ReusableViewControllersTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
