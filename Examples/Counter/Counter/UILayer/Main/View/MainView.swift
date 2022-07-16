@@ -24,8 +24,21 @@ struct MainView: View {
     var body: some View {
         VStack {
             Text(countString)
+                .padding()
+                .multilineTextAlignment(.center)
+            Button(action: {
+                store.dispatch(.increment)
+            }) {
+                Text("Increment")
+            }
+            .padding()
+            Button(action: {
+                store.dispatch(.decrement)
+            }) {
+                Text("Decrement")
+            }
+            .padding()
         }
-        .background(Color.gray)
         .onAppear {
             configure()
             store.subscribe { state in

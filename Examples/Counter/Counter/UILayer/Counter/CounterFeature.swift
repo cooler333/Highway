@@ -56,16 +56,17 @@ enum CounterFeature {
                 { dispatch, getState, action, environment in
                     guard action == .save else { return }
                     var state = getState()
-                    DispatchQueue.global(
-                        qos: .background
-                    ).asyncAfter(
-                        deadline: .now() + 2,
-                        execute: {
-                            state.isSaving = false
-                            stateStorage.save(state)
+                    state.isSaving = false
+                    stateStorage.save(state, completion: { result in
+                        switch result {
+                        case .success:
                             dispatch(.saved(success: true))
+
+                        case let .failure(error):
+                            print(error)
+                            dispatch(.saved(success: false))
                         }
-                    )
+                    })
                 }
             )
         ]
