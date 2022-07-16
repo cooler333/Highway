@@ -17,7 +17,7 @@
 		1C101166287885D400A6FFC5 /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C101165287885D400A6FFC5 /* MainModuleBuilder.swift */; };
 		1C101169287885FD00A6FFC5 /* CounterModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C101168287885FD00A6FFC5 /* CounterModuleBuilder.swift */; };
 		1C10116D2878868F00A6FFC5 /* UIViewController+child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10116C2878868F00A6FFC5 /* UIViewController+child.swift */; };
-		1C10116F28788D6900A6FFC5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10116E28788D6900A6FFC5 /* MainViewController.swift */; };
+		1C10116F28788D6900A6FFC5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10116E28788D6900A6FFC5 /* MainView.swift */; };
 		1C10117128788D7200A6FFC5 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10117028788D7200A6FFC5 /* CounterViewController.swift */; };
 		1C10117528788D9700A6FFC5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10117428788D9700A6FFC5 /* AppState.swift */; };
 		1C10117928788E5D00A6FFC5 /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C10117828788E5D00A6FFC5 /* MainFeature.swift */; };
@@ -55,7 +55,7 @@
 		1C101165287885D400A6FFC5 /* MainModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		1C101168287885FD00A6FFC5 /* CounterModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterModuleBuilder.swift; sourceTree = "<group>"; };
 		1C10116C2878868F00A6FFC5 /* UIViewController+child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+child.swift"; sourceTree = "<group>"; };
-		1C10116E28788D6900A6FFC5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		1C10116E28788D6900A6FFC5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1C10117028788D7200A6FFC5 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		1C10117428788D9700A6FFC5 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1C10117828788E5D00A6FFC5 /* MainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 		1C3CDD932878CFA400A16089 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C10116E28788D6900A6FFC5 /* MainViewController.swift */,
+				1C10116E28788D6900A6FFC5 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 				1C10117E28789C9600A6FFC5 /* RootFeature.swift in Sources */,
 				1C1011642878843500A6FFC5 /* RootModuleBuilder.swift in Sources */,
 				1C10116D2878868F00A6FFC5 /* UIViewController+child.swift in Sources */,
-				1C10116F28788D6900A6FFC5 /* MainViewController.swift in Sources */,
+				1C10116F28788D6900A6FFC5 /* MainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
