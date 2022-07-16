@@ -60,10 +60,17 @@ final class MainViewController: UIViewController {
             countLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         countLabelContstraints.forEach { $0.isActive = true }
+        countLabel.numberOfLines = 0
+        countLabel.textAlignment = .center
+
         self.countLabel = countLabel
     }
 
     private func render(state: AppState) {
-        countLabel.text = "\(state.count)"
+        var text = "\(state.count)"
+        if state.isSaving == true {
+            text += "\nSaving"
+        }
+        countLabel.text = text
     }
 }

@@ -28,10 +28,21 @@ final class CounterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .secondarySystemBackground
 
         setupStepper()
         setupSaveButton()
+
+        render(state: store.state)
+        store.subscribe { [weak self] state in
+            DispatchQueue.main.async { [weak self] in
+                self?.render(state: state)
+            }
+        }
+    }
+
+    private func render(state: AppState) {
+        stepper.value = Double(state.count)
     }
 
     private func setupStepper() {
@@ -49,8 +60,6 @@ final class CounterViewController: UIViewController {
         stepperContstraints.forEach { $0.isActive = true }
 
         stepper.addTarget(self, action: #selector(stepperDidChange), for: .valueChanged)
-
-        stepper.value = Double(store.state.count)
 
         self.stepper = stepper
     }
