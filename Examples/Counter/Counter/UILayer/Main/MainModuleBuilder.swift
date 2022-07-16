@@ -7,7 +7,7 @@
 
 import Foundation
 import Highway
-import UIKit
+import SwiftUI
 
 struct MainModuleBuilder {
     func build<S: StoreCreator>(
@@ -21,6 +21,6 @@ struct MainModuleBuilder {
                 stateStorage: stateStorage
             )
         )
-        return MainViewController(store: store)
+        return UIHostingController(rootView: MainView(store: store))
     }
 }
