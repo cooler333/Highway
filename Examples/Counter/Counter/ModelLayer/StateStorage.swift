@@ -8,18 +8,26 @@
 import Foundation
 
 protocol StateStorageProtocol {
-    func save(_ state: AppState)
+    func save(_ state: AppState, completion: @escaping (Result<Void, Error>) -> Void)
     func getState() -> AppState?
 }
 
 final class StateStorage: StateStorageProtocol {
-    func save(_ state: AppState) {
-        do {
-            let plist = try PropertyListEncoder().encode(state)
-            UserDefaults.standard.set(plist, forKey: "state")
-            UserDefaults.standard.synchronize()
-        } catch {
-            print(error)
+    private let saveQueue = DispatchQueue(label: "StateStorage.SaveQueue")
+
+    func save(_ state: AppState, completion: @escaping (Result<Void, Error>) -> Void) {
+        saveQueue.asyncAfter(
+            deadline: .now() + 3
+        ) {
+            do {
+                let plist = try PropertyListEncoder().encode(state)
+                UserDefaults.standard.set(plist, forKey: "state")
+                UserDefaults.standard.synchronize()
+                completion(.success(()))
+            } catch {
+                print(error)
+                completion(.failure(error))
+            }
         }
     }
 
@@ -28,7 +36,6 @@ final class StateStorage: StateStorageProtocol {
         do {
             return try PropertyListDecoder().decode(AppState.self, from: data)
         } catch {
-            print(error)
             return nil
         }
     }

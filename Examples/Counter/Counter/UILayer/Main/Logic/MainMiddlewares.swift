@@ -36,21 +36,18 @@ extension MainFeature {
             environment: stateStorage,
             { dispatch, getState, action, environment in
                 guard action == .save else { return }
-                let state = getState()
-                DispatchQueue.global(
-                    qos: .background
-                ).asyncAfter(
-                    deadline: .now() + 2,
-                    execute: {
-                        let isSuccess = Int.random(in: 0...2) != 0
-                        if isSuccess {
-                            stateStorage.save(state)
-                            dispatch(.saved(success: true))
-                        } else {
-                            dispatch(.saved(success: false))
-                        }
+                var state = getState()
+                state.isSaving = false
+                stateStorage.save(state, completion: { result in
+                    switch result {
+                    case .success:
+                        dispatch(.saved(success: true))
+
+                    case let .failure(error):
+                        print(error)
+                        dispatch(.saved(success: false))
                     }
-                )
+                })
             }
         )
     }
