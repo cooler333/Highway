@@ -7,7 +7,7 @@
 
 import Combine
 import Foundation
-import UIKit
+import SwiftUI
 import Highway
 
 final class MainViewController: UIViewController {
