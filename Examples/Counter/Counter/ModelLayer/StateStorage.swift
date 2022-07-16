@@ -17,6 +17,7 @@ final class StateStorage: StateStorageProtocol {
         do {
             let plist = try PropertyListEncoder().encode(state)
             UserDefaults.standard.set(plist, forKey: "state")
+            UserDefaults.standard.synchronize()
         } catch {
             print(error)
         }

@@ -15,6 +15,8 @@ class RootViewController: UIViewController {
     private let mainViewControllerFactory: () -> UIViewController
     private let counterViewControllerFactory: () -> UIViewController
 
+    private var stackView: UIStackView!
+
     init(
         store: Store<AppState, RootAction>,
         mainViewControllerFactory: @escaping () -> UIViewController,
@@ -38,6 +40,7 @@ class RootViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
 
+        createStackView()
         embedMainViewController()
         embedCounterViewController()
 
@@ -46,15 +49,31 @@ class RootViewController: UIViewController {
         }
     }
 
+    private func createStackView() {
+        let stackView = UIStackView()
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let stackViewConstraints = [
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        stackViewConstraints.forEach{ $0.isActive = true }
+
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 30
+
+        self.stackView = stackView
+    }
+
     private func embedMainViewController() {
         let mainContainerView = UIView()
-        view.addSubview(mainContainerView)
+        stackView.addArrangedSubview(mainContainerView)
         mainContainerView.translatesAutoresizingMaskIntoConstraints = false
         let mainContainerViewConstraints = [
-            mainContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            mainContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            mainContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainContainerView.bottomAnchor.constraint(equalTo: view.centerYAnchor)
+            mainContainerView.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ]
         mainContainerViewConstraints.forEach{ $0.isActive = true }
 
@@ -64,13 +83,10 @@ class RootViewController: UIViewController {
 
     private func embedCounterViewController() {
         let counterContainerView = UIView()
-        view.addSubview(counterContainerView)
+        stackView.addArrangedSubview(counterContainerView)
         counterContainerView.translatesAutoresizingMaskIntoConstraints = false
         let counterContainerViewConstraints = [
-            counterContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            counterContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            counterContainerView.topAnchor.constraint(equalTo: view.centerYAnchor),
-            counterContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            counterContainerView.widthAnchor.constraint(equalTo: stackView.widthAnchor)
         ]
         counterContainerViewConstraints.forEach{ $0.isActive = true }
 
