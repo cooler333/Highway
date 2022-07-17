@@ -15,7 +15,7 @@ If you were looking for a something like this:
 
 ## Features
 
-- Multistore support (with state sharing)
+- Multistore support (single state sharing)
 - Fast state change and sync
 - 100% business logic code coverage
 - Lightweight
