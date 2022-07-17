@@ -28,7 +28,7 @@ If you were looking for a something like this:
 - [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
 - [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style
-- TODO: Animations
+- [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): View animation triggered by state change
 - TODO: TableView with deletions/insertions
 - [Infinite Scroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
