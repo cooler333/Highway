@@ -20,7 +20,8 @@ If you were looking for a something like this:
 - 100% business logic code coverage
 - Lightweight
 - Do not use 3rd party libraries
-- can be used with SwiftUI
+- Can be used with SwiftUI
+- Support structs & classes for state (structs preferred)
 
 ## Examples
 
