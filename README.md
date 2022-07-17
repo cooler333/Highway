@@ -20,19 +20,19 @@ If you were looking for a something like this:
 - 100% business logic code coverage
 - Lightweight
 - Do not use 3rd party libraries
+- can be used with SwiftUI
 
 ## Examples
 
 - [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
+- [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
 - [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style
+- TODO: Animations
+- TODO: TableView with deletions/insertions
 - [Infinite Scroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
 https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
-
-#### TODO:
-- Animations
-- SwiftUI
 
 #### Other
 - [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8
 ## Requirements
 
 - iOS: 13.0
-- Swift: 5.5
+- Swift: 5.4
 
 ## Installation (Cocoapods / SPM)
 
