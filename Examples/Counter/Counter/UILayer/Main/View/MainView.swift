@@ -22,22 +22,25 @@ struct MainView: View {
     }
 
     var body: some View {
-        VStack {
-            Text(countString)
+        ZStack {
+            Color(UIColor.secondarySystemBackground)
+            VStack {
+                Text(countString)
+                    .padding()
+                    .multilineTextAlignment(.center)
+                Button(action: {
+                    store.dispatch(.increment)
+                }) {
+                    Text("Increment")
+                }
                 .padding()
-                .multilineTextAlignment(.center)
-            Button(action: {
-                store.dispatch(.increment)
-            }) {
-                Text("Increment")
+                Button(action: {
+                    store.dispatch(.decrement)
+                }) {
+                    Text("Decrement")
+                }
+                .padding()
             }
-            .padding()
-            Button(action: {
-                store.dispatch(.decrement)
-            }) {
-                Text("Decrement")
-            }
-            .padding()
         }
         .onAppear {
             configure()
