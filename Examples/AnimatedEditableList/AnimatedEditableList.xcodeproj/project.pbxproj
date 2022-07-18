@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C59D3B82885BE24003B5AFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3B72885BE24003B5AFF /* AppDelegate.swift */; };
+		1C59D3BA2885BE24003B5AFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3B92885BE24003B5AFF /* SceneDelegate.swift */; };
+		1C59D3C12885BE25003B5AFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D3C02885BE25003B5AFF /* Assets.xcassets */; };
+		1C59D3C42885BE25003B5AFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D3C22885BE25003B5AFF /* LaunchScreen.storyboard */; };
+		1C59D3CF2885BE26003B5AFF /* AnimatedEditableListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */; };
+		1C59D4032885BF0F003B5AFF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F12885BF0F003B5AFF /* RootViewController.swift */; };
+		1C59D4042885BF0F003B5AFF /* RootModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F22885BF0F003B5AFF /* RootModuleBuilder.swift */; };
+		1C59D4052885BF0F003B5AFF /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F32885BF0F003B5AFF /* RootFeature.swift */; };
+		1C59D4112885C64F003B5AFF /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4102885C64F003B5AFF /* TitleTableViewCell.swift */; };
+		1C59D4132885C657003B5AFF /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */; };
+		1C59D4152885C662003B5AFF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */; };
+		1C59D41C2885C6C6003B5AFF /* UITableView+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */; };
+		1C59D41E2885D148003B5AFF /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D41D2885D148003B5AFF /* Items.swift */; };
+		76036F974974E5421DA75B50 /* Pods_AnimatedEditableList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */; };
+		88251272835E3BFE9CF97BF1 /* Pods_AnimatedEditableListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C59D3CB2885BE26003B5AFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C59D3AC2885BE23003B5AFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C59D3B32885BE24003B5AFF;
+			remoteInfo = AnimatedEditableList;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableListTests.release.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableListTests/Pods-AnimatedEditableListTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedEditableList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C59D3B72885BE24003B5AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1C59D3B92885BE24003B5AFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1C59D3C02885BE25003B5AFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C59D3C32885BE25003B5AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1C59D3C52885BE25003B5AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedEditableListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedEditableListTests.swift; sourceTree = "<group>"; };
+		1C59D3F12885BF0F003B5AFF /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1C59D3F22885BF0F003B5AFF /* RootModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleBuilder.swift; sourceTree = "<group>"; };
+		1C59D3F32885BF0F003B5AFF /* RootFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
+		1C59D4102885C64F003B5AFF /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuse.swift"; sourceTree = "<group>"; };
+		1C59D41D2885D148003B5AFF /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedEditableListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableListTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableListTests/Pods-AnimatedEditableListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableList.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList.debug.xcconfig"; sourceTree = "<group>"; };
+		BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedEditableList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableList.release.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C59D3B12885BE24003B5AFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76036F974974E5421DA75B50 /* Pods_AnimatedEditableList.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C59D3C72885BE26003B5AFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88251272835E3BFE9CF97BF1 /* Pods_AnimatedEditableListTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C59D3AB2885BE23003B5AFF = {
+			isa = PBXGroup;
+			children = (
+				1C59D3B62885BE24003B5AFF /* AnimatedEditableList */,
+				1C59D3CD2885BE26003B5AFF /* AnimatedEditableListTests */,
+				1C59D3B52885BE24003B5AFF /* Products */,
+				760A8684DA099F861347D8B9 /* Pods */,
+				738BB56934ED6181DF2BC3C4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1C59D3B52885BE24003B5AFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */,
+				1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C59D3B62885BE24003B5AFF /* AnimatedEditableList */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3EC2885BF0F003B5AFF /* UILayer */,
+				1C59D3E72885BE9A003B5AFF /* Delegates */,
+				1C59D3E92885BEAD003B5AFF /* Resources */,
+				1C59D3C52885BE25003B5AFF /* Info.plist */,
+			);
+			path = AnimatedEditableList;
+			sourceTree = "<group>";
+		};
+		1C59D3CD2885BE26003B5AFF /* AnimatedEditableListTests */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */,
+			);
+			path = AnimatedEditableListTests;
+			sourceTree = "<group>";
+		};
+		1C59D3E72885BE9A003B5AFF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3B72885BE24003B5AFF /* AppDelegate.swift */,
+				1C59D3B92885BE24003B5AFF /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		1C59D3E92885BEAD003B5AFF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3C02885BE25003B5AFF /* Assets.xcassets */,
+				1C59D3C22885BE25003B5AFF /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1C59D3EC2885BF0F003B5AFF /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D41A2885C6B3003B5AFF /* Extensions */,
+				1C59D3F02885BF0F003B5AFF /* Root */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		1C59D3F02885BF0F003B5AFF /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3F22885BF0F003B5AFF /* RootModuleBuilder.swift */,
+				1C59D4182885C679003B5AFF /* Logic */,
+				1C59D40F2885C632003B5AFF /* View */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1C59D40F2885C632003B5AFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3F12885BF0F003B5AFF /* RootViewController.swift */,
+				1C59D4162885C667003B5AFF /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C59D4162885C667003B5AFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D4102885C64F003B5AFF /* TitleTableViewCell.swift */,
+				1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */,
+				1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1C59D4182885C679003B5AFF /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D3F32885BF0F003B5AFF /* RootFeature.swift */,
+				1C59D41D2885D148003B5AFF /* Items.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1C59D41A2885C6B3003B5AFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		738BB56934ED6181DF2BC3C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */,
+				2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		760A8684DA099F861347D8B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */,
+				E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */,
+				4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */,
+				036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C59D3B32885BE24003B5AFF /* AnimatedEditableList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableList" */;
+			buildPhases = (
+				AC7C603A7D008D2C8826F809 /* [CP] Check Pods Manifest.lock */,
+				1C59D3B02885BE24003B5AFF /* Sources */,
+				1C59D3B12885BE24003B5AFF /* Frameworks */,
+				1C59D3B22885BE24003B5AFF /* Resources */,
+				D313BE4E6F9123D9D0230330 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimatedEditableList;
+			productName = AnimatedEditableList;
+			productReference = 1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C59D3C92885BE26003B5AFF /* AnimatedEditableListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableListTests" */;
+			buildPhases = (
+				CFC8A9FE8570DBDA355BD892 /* [CP] Check Pods Manifest.lock */,
+				1C59D3C62885BE26003B5AFF /* Sources */,
+				1C59D3C72885BE26003B5AFF /* Frameworks */,
+				1C59D3C82885BE26003B5AFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C59D3CC2885BE26003B5AFF /* PBXTargetDependency */,
+			);
+			name = AnimatedEditableListTests;
+			productName = AnimatedEditableListTests;
+			productReference = 1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C59D3AC2885BE23003B5AFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					1C59D3B32885BE24003B5AFF = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					1C59D3C92885BE26003B5AFF = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 1C59D3B32885BE24003B5AFF;
+					};
+				};
+			};
+			buildConfigurationList = 1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "AnimatedEditableList" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C59D3AB2885BE23003B5AFF;
+			productRefGroup = 1C59D3B52885BE24003B5AFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C59D3B32885BE24003B5AFF /* AnimatedEditableList */,
+				1C59D3C92885BE26003B5AFF /* AnimatedEditableListTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C59D3B22885BE24003B5AFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C59D3C42885BE25003B5AFF /* LaunchScreen.storyboard in Resources */,
+				1C59D3C12885BE25003B5AFF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C59D3C82885BE26003B5AFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC7C603A7D008D2C8826F809 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnimatedEditableList-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFC8A9FE8570DBDA355BD892 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnimatedEditableListTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D313BE4E6F9123D9D0230330 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C59D3B02885BE24003B5AFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C59D4032885BF0F003B5AFF /* RootViewController.swift in Sources */,
+				1C59D4152885C662003B5AFF /* ImageTableViewCell.swift in Sources */,
+				1C59D41C2885C6C6003B5AFF /* UITableView+Reuse.swift in Sources */,
+				1C59D3B82885BE24003B5AFF /* AppDelegate.swift in Sources */,
+				1C59D4042885BF0F003B5AFF /* RootModuleBuilder.swift in Sources */,
+				1C59D3BA2885BE24003B5AFF /* SceneDelegate.swift in Sources */,
+				1C59D41E2885D148003B5AFF /* Items.swift in Sources */,
+				1C59D4112885C64F003B5AFF /* TitleTableViewCell.swift in Sources */,
+				1C59D4052885BF0F003B5AFF /* RootFeature.swift in Sources */,
+				1C59D4132885C657003B5AFF /* DetailsTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C59D3C62885BE26003B5AFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C59D3CF2885BE26003B5AFF /* AnimatedEditableListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C59D3CC2885BE26003B5AFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C59D3B32885BE24003B5AFF /* AnimatedEditableList */;
+			targetProxy = 1C59D3CB2885BE26003B5AFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C59D3C22885BE25003B5AFF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C59D3C32885BE25003B5AFF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C59D3DC2885BE26003B5AFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1C59D3DD2885BE26003B5AFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C59D3DF2885BE26003B5AFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimatedEditableList/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C59D3E02885BE26003B5AFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnimatedEditableList/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1C59D3E22885BE26003B5AFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedEditableList.app/AnimatedEditableList";
+			};
+			name = Debug;
+		};
+		1C59D3E32885BE26003B5AFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedEditableList.app/AnimatedEditableList";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "AnimatedEditableList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C59D3DC2885BE26003B5AFF /* Debug */,
+				1C59D3DD2885BE26003B5AFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C59D3DF2885BE26003B5AFF /* Debug */,
+				1C59D3E02885BE26003B5AFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C59D3E22885BE26003B5AFF /* Debug */,
+				1C59D3E32885BE26003B5AFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C59D3AC2885BE23003B5AFF /* Project object */;
+}
