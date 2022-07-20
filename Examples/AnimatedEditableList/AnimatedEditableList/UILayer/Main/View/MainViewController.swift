@@ -208,13 +208,13 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let itemIdentifier = dataSource.itemIdentifier(for: indexPath)
         switch itemIdentifier {
-        case let titleItem as Item.Title:
+        case is Item.Title:
             break
             
-        case let detailsItem as Item.Details:
+        case is Item.Details:
             break
             
-        case let imageItem as Item.Image:
+        case is Item.Image:
             store.dispatch(.updateRow(value: indexPath))
 
         default:
