@@ -9,11 +9,11 @@ import UIKit
 import Highway
 
 class RootViewController: UIViewController {
-
+    
     private let store: Store<RootFeature.State, RootFeature.Action>
 
     private var tableView: UITableView!
-    private var dataSource: UITableViewDiffableDataSource<RootFeature.State.Section, AnyHashable>!
+    private var dataSource: UITableViewDiffableDataSource<RootFeature.SectionItem, AnyHashable>!
     
     init(
         store: Store<RootFeature.State, RootFeature.Action>
@@ -67,7 +67,7 @@ class RootViewController: UIViewController {
     }
     
     private func createDataSource() {
-        let dataSource = UITableViewDiffableDataSource<RootFeature.State.Section, AnyHashable>(tableView: tableView) { tableView, indexPath, itemIdentifier in
+        let dataSource = UITableViewDiffableDataSource<RootFeature.SectionItem, AnyHashable>(tableView: tableView) { tableView, indexPath, itemIdentifier in
             self.getCell(for: tableView, indexPath: indexPath, itemIdentifier: itemIdentifier)
         }
         
@@ -80,7 +80,7 @@ class RootViewController: UIViewController {
         itemIdentifier: AnyHashable
     ) -> UITableViewCell? {
         switch itemIdentifier {
-        case let titleItem as TitleItem:
+        case let titleItem as RootFeature.TitleItem:
             let cell = tableView.dequeueReusableCell(TitleTableViewCell.self)
             cell.configure(
                 title: titleItem.value,
@@ -96,12 +96,12 @@ class RootViewController: UIViewController {
             )
             return cell
 
-        case let detailsItem as DetailsItem:
+        case let detailsItem as RootFeature.DetailsItem:
             let cell = tableView.dequeueReusableCell(DetailsTableViewCell.self)
             cell.configure(details: detailsItem.value)
             return cell
 
-        case let imageItem as ImageItem:
+        case let imageItem as RootFeature.ImageItem:
             let cell = tableView.dequeueReusableCell(ImageTableViewCell.self)
             cell.configure(imageURL: imageItem.value)
             return cell
@@ -114,12 +114,11 @@ class RootViewController: UIViewController {
     private func createSnapshot(from state: RootFeature.State) {
         print(state.data)
         
-        var snapshot = NSDiffableDataSourceSnapshot<RootFeature.State.Section, AnyHashable>()
-        state.data.forEach({ section in
-            snapshot.appendSections([section])
-            snapshot.appendItems(section.items, toSection: section)
-        })
+        var snapshot = NSDiffableDataSourceSnapshot<RootFeature.SectionItem, AnyHashable>()
+        let section = state.data.first!
+        snapshot.appendSections([section])
+        snapshot.appendItems(section.items, toSection: section)
 
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot)
     }
 }

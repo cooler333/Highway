@@ -12,12 +12,73 @@ enum RootFeature {}
 
 extension RootFeature {
     struct State: Equatable {
-        struct Section: Equatable, Hashable {
-            var identifier: Int
-            var items: [AnyHashable] = []
+        var data: [SectionItem] = []
+    }
+    
+    struct SectionItem: Hashable {
+        let id: Int
+        var items: [AnyHashable]
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+            items.forEach { anyHashable in
+                hasher.combine(anyHashable)
+            }
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.id == rhs.id
+        }
+    }
+
+    struct TitleItem: Hashable {
+        let id: UUID
+        let value: String
+        
+        init(id: UUID, value: String) {
+            self.id = id
+            self.value = value
         }
 
-        var data: [Section] = []
+        init(value: String) {
+            self.id = UUID()
+            self.value = value
+        }
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(value)
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.value == rhs.value
+        }
+    }
+
+    struct DetailsItem: Hashable {
+        let id = UUID()
+        let value: String
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(value)
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.value == rhs.value
+        }
+    }
+
+    struct ImageItem: Hashable {
+        let id = UUID()
+        
+        let value: URL
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(value)
+        }
+        
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            return lhs.value == rhs.value
+        }
     }
 }
 
@@ -40,8 +101,8 @@ extension RootFeature {
             case .initial:
                 var state = state
                 state.data = [
-                    RootFeature.State.Section(
-                        identifier: 0,
+                    SectionItem(
+                        id: 0,
                         items: [
                             TitleItem(value: "Foo"),
                             DetailsItem(
@@ -72,7 +133,18 @@ extension RootFeature {
             case let .updateSection(value):
                 return state
                 
-            case let .updateRow(value):
+            case let .updateRow(indexPath):
+                var state = state
+                let items = state.data[indexPath.section].items
+                let item = items[indexPath.row]
+                switch item {
+                case let titleItem as TitleItem:
+                    let value = titleItem.value + " " + titleItem.value
+                    state.data[indexPath.section].items[indexPath.row] = TitleItem(value: value)
+                    
+                default:
+                    break
+                }
                 return state
             }
         }
