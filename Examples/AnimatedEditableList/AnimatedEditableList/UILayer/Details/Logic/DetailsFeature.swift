@@ -63,7 +63,7 @@ extension DetailsFeature {
             case let .insertSection(index):
                 var state = state
                 let section = RootFeature.State.Section(
-                    id: 0,
+                    id: state.data.last!.id + 1,
                     items: [
                         RootFeature.State.Section.Title(
                             id: UUID().uuidString,
