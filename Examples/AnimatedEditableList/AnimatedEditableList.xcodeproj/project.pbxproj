@@ -19,7 +19,6 @@
 		1C59D4132885C657003B5AFF /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */; };
 		1C59D4152885C662003B5AFF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */; };
 		1C59D41C2885C6C6003B5AFF /* UITableView+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */; };
-		1C59D41E2885D148003B5AFF /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D41D2885D148003B5AFF /* Items.swift */; };
 		76036F974974E5421DA75B50 /* Pods_AnimatedEditableList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */; };
 		88251272835E3BFE9CF97BF1 /* Pods_AnimatedEditableListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuse.swift"; sourceTree = "<group>"; };
-		1C59D41D2885D148003B5AFF /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedEditableListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableListTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableListTests/Pods-AnimatedEditableListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableList.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				1C59D3F32885BF0F003B5AFF /* RootFeature.swift */,
-				1C59D41D2885D148003B5AFF /* Items.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 				1C59D3B82885BE24003B5AFF /* AppDelegate.swift in Sources */,
 				1C59D4042885BF0F003B5AFF /* RootModuleBuilder.swift in Sources */,
 				1C59D3BA2885BE24003B5AFF /* SceneDelegate.swift in Sources */,
-				1C59D41E2885D148003B5AFF /* Items.swift in Sources */,
 				1C59D4112885C64F003B5AFF /* TitleTableViewCell.swift in Sources */,
 				1C59D4052885BF0F003B5AFF /* RootFeature.swift in Sources */,
 				1C59D4132885C657003B5AFF /* DetailsTableViewCell.swift in Sources */,
