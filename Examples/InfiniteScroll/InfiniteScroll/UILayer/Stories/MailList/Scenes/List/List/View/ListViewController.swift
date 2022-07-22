@@ -67,7 +67,7 @@ final class ListViewController: UIViewController {
 
     // MARK: Private properties
 
-    private let store: Store<MailListState.List, ListAction>
+    private let store: ViewStore<MailListState.List, ListAction>
 
     private var toastNotificationManager: ToastNotificationManagerProtocol
 
@@ -79,7 +79,7 @@ final class ListViewController: UIViewController {
     private let uiSubject = PassthroughSubject<MailListState.List, Never>()
 
     init(
-        store: Store<MailListState.List, ListAction>,
+        store: ViewStore<MailListState.List, ListAction>,
         toastNotificationManager: ToastNotificationManagerProtocol
     ) {
         self.store = store

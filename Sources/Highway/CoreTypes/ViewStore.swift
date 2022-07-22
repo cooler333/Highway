@@ -7,39 +7,49 @@
 
 import Foundation
 
-// TODO: ViewStore
-/*
 public final class ViewStore<ViewState: Equatable, ViewAction> {
-    private let store: Store<State, Action>
-    private let stateMapper: (State) -> ViewState
-    private let actionMapper: (ViewAction) -> Action
-
-
+    private var subscriptions: [Subscription<ViewState>] = []
+    private var subscription: Any!
+    
     public var state: ViewState {
-        return store.state
+        stateGetter()
     }
+    private var stateGetter: (() -> ViewState)!
 
-    public init<State, Action>(
+    private var internalDispatch: ((ViewAction) -> Void)!
+    
+    public init<State: Equatable, Action>(
         store: Store<State, Action>,
         stateMapper: @escaping (State) -> ViewState,
         actionMapper: @escaping (ViewAction) -> Action
     ) {
-        self.store = store
-        self.stateMapper = stateMapper
-        self.actionMapper = actionMapper
+        stateGetter = {
+            stateMapper(store.state)
+        }
+        internalDispatch = { action in
+            store.dispatch(actionMapper(action))
+        }
+        
+        let subscription = store.subscribe { [weak self] (state: State) in
+            self?.subscriptions.forEach { $0.listener(stateMapper(state)) }
+        }
+        self.subscription = subscription
     }
 
     @discardableResult
     public func subscribe(listener: @escaping (ViewState) -> Void) -> Subscription<ViewState> {
-        store.subscribe(listener: listener)
+        let subscription = Subscription<ViewState>(listener: listener)
+        subscriptions.append(subscription)
+        return subscription
     }
 
     public func unsubscribe(_ subscription: Subscription<ViewState>) {
-        store.unsubscribe(subscription)
+        if let index = subscriptions.firstIndex(of: subscription) {
+            subscriptions.remove(at: index)
+        }
     }
 
     public func dispatch(_ action: ViewAction) {
-        store.dispatch(action)
+        internalDispatch(action)
     }
 }
-*/

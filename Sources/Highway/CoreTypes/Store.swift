@@ -40,12 +40,12 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     private var stateGetter: (() -> State)!
     private var stateSetter: ((State) -> Void)!
 
-    public var state: State {
+    public private(set) var state: State {
         get { stateGetter() }
         set { stateSetter(newValue) }
     }
 
-    var _state: State! {
+    private var _state: State! {
         didSet {
             subscriptions.forEach { subscription in
                 subscription.listener(_state)
