@@ -5,7 +5,6 @@
 //  Created by Dmitrii Coolerov on 05.05.2022.
 //
 
-/*
 import Combine
 import Swinject
 
@@ -541,4 +540,4 @@ class InfiniteScrollTests: XCTestCase {
         XCTAssertEqual(states, referenseStates)
     }
 }
-*/
+

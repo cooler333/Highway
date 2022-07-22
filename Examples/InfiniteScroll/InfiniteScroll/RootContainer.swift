@@ -102,8 +102,17 @@ public final class RootAssembly: Assembly {
                 initialAction: .initial,
                 middleware: ListFeature.getMiddlewares(environment: environment)
             )
-            let viewController = ListViewController(
+            let viewStore = ViewStore<MailListState.List, ListAction>(
                 store: store,
+                stateMapper: { state in
+                    return state
+                },
+                actionMapper: { action in
+                    return action
+                }
+            )
+            let viewController = ListViewController(
+                store: viewStore,
                 toastNotificationManager: r.resolve(ToastNotificationManagerProtocol.self)!
             )
             return viewController

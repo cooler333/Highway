@@ -36,7 +36,7 @@ extension Thunk where Environment == Void {
             _ dispatch: @escaping Dispatch<Action>,
             _ getState: () -> State,
             _ action: Action,
-            _ environment: Environment?
+            _ environment: Environment
         ) -> Void
     ) {
         self.environment = ()

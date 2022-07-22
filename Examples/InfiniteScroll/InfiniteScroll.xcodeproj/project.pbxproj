@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2C1550288B41190088ECE2 /* MailListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */; };
+		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
 		1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520528242F3800218661 /* SceneDelegate.swift */; };
 		1C6E520D28242F3900218661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6E520C28242F3900218661 /* Assets.xcassets */; };
@@ -33,10 +35,6 @@
 		1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */; };
 		1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231828719CAD009FAE7A /* DetailsViewController.swift */; };
 		1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */; };
-		1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */; };
-		1CBE23212871A734009FAE7A /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */; };
-		1CBE23222871A734009FAE7A /* DetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */; };
-		1CBE23292871A890009FAE7A /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */; };
 		1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE232A2871A92B009FAE7A /* MailListState.swift */; };
 		1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA1282D971800A43E25 /* Mockable.swift */; };
 		1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */; };
@@ -57,6 +55,8 @@
 /* Begin PBXFileReference section */
 		0265335806E7A48CC844298E /* Pods_InfiniteScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE9F86835E669A76901706 /* Pods-InfiniteScrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteScrollTests.release.xcconfig"; path = "Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailListModuleIO.swift; sourceTree = "<group>"; };
+		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E520328242F3800218661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C6E520528242F3800218661 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +65,6 @@
 		1C6E521128242F3900218661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C6E521628242F3900218661 /* InfiniteScrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteScrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollTests.swift; sourceTree = "<group>"; };
-		1C6E522428242F3900218661 /* InfiniteScrollUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITests.swift; sourceTree = "<group>"; };
-		1C6E522628242F3900218661 /* InfiniteScrollUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1C6E52342824310E00218661 /* ListFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowCoordinator.swift; sourceTree = "<group>"; };
 		1C6E52362824310E00218661 /* ListFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFeature.swift; sourceTree = "<group>"; };
 		1C6E52382824310E00218661 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -88,10 +86,6 @@
 		1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE231828719CAD009FAE7A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListModuleBuilder.swift; sourceTree = "<group>"; };
-		1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListModuleIO.swift; sourceTree = "<group>"; };
-		1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleBuilder.swift; sourceTree = "<group>"; };
-		1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
-		1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE232A2871A92B009FAE7A /* MailListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListState.swift; sourceTree = "<group>"; };
 		1CCBEFA1282D971800A43E25 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
@@ -139,7 +133,6 @@
 			children = (
 				1C6E520228242F3800218661 /* InfiniteScroll */,
 				1C6E521928242F3900218661 /* InfiniteScrollTests */,
-				1C6E522328242F3900218661 /* InfiniteScrollUITests */,
 				1C6E520128242F3800218661 /* Products */,
 				246517A08457862D0B02363A /* Pods */,
 				0E75AEFC9A011C124D6C6635 /* Frameworks */,
@@ -177,15 +170,6 @@
 				1CCBEFA7282DAC0A00A43E25 /* Components */,
 			);
 			path = InfiniteScrollTests;
-			sourceTree = "<group>";
-		};
-		1C6E522328242F3900218661 /* InfiniteScrollUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1C6E522428242F3900218661 /* InfiniteScrollUITests.swift */,
-				1C6E522628242F3900218661 /* InfiniteScrollUITestsLaunchTests.swift */,
-			);
-			path = InfiniteScrollUITests;
 			sourceTree = "<group>";
 		};
 		1C6E5233282430FD00218661 /* UILayer */ = {
@@ -276,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				1CBE23102871986E009FAE7A /* MailList */,
-				1CBE23252871A866009FAE7A /* Settings */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -330,8 +313,7 @@
 		1CBE231628719C84009FAE7A /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				1CBE231F2871A6CB009FAE7A /* DetailsModuleBuilder.swift */,
-				1CBE23202871A6CB009FAE7A /* DetailsModuleIO.swift */,
+				1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */,
 				1CBE231728719C98009FAE7A /* View */,
 			);
 			path = Details;
@@ -349,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */,
-				1CBE231C28719CF5009FAE7A /* MailListModuleIO.swift */,
+				1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */,
 			);
 			path = MailList;
 			sourceTree = "<group>";
@@ -361,14 +343,6 @@
 				1C6E525F282442E100218661 /* List */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		1CBE23252871A866009FAE7A /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				1CBE23282871A890009FAE7A /* SettingsFlowCoordinator.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		1CCBEFA4282D9B0F00A43E25 /* Autogenerated */ = {
@@ -589,17 +563,15 @@
 			files = (
 				1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */,
 				1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */,
-				1CBE231D28719CF5009FAE7A /* MailListModuleIO.swift in Sources */,
+				1C2C1550288B41190088ECE2 /* MailListModuleIO.swift in Sources */,
 				1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */,
 				1C6E52402824310E00218661 /* ListModuleIO.swift in Sources */,
 				1C6E525128243F1B00218661 /* ListResponseData.swift in Sources */,
 				1C6E525C2824429300218661 /* NetworkServiceProtocol.swift in Sources */,
-				1CBE23212871A734009FAE7A /* DetailsModuleIO.swift in Sources */,
-				1CBE23222871A734009FAE7A /* DetailsModuleBuilder.swift in Sources */,
 				1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */,
+				1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */,
 				1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */,
 				1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */,
-				1CBE23292871A890009FAE7A /* SettingsFlowCoordinator.swift in Sources */,
 				1C6E523D2824310E00218661 /* ListFeature.swift in Sources */,
 				1C6E526328244BE700218661 /* ListRepositoryMock.swift in Sources */,
 				1C6E52592824411600218661 /* RootContainer.swift in Sources */,
