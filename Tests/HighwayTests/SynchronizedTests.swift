@@ -68,7 +68,7 @@ extension SynchronizedTests {
         }
         enum Action {
             case initial
-            case other
+            case other(value: Int)
             case final
         }
 
@@ -80,9 +80,9 @@ extension SynchronizedTests {
                     case .initial:
                         return state
 
-                    case .other:
+                    case let .other(value):
                         var state = state
-                        state.count += 1
+                        state.count += value
                         return state
 
                     case .final:
@@ -92,21 +92,32 @@ extension SynchronizedTests {
                 state: CounterState(),
                 initialAction: .initial,
                 middleware: [createMiddleware({ dispatch, getState, action in
-                    if action == .final {
+                    switch action {
+                    case .initial,
+                         .other:
+                        break
+
+                    case .final:
                         finalExpectation.fulfill()
                     }
                 })]
             )
 
             DispatchQueue.concurrentPerform(iterations: iterations) { iteration in
-                store.dispatch(.other)
+                store.dispatch(.other(value: iteration))
                 if iteration == iterations - 1 {
                     print("OOOOPS", iteration)
                     store.dispatch(.final)
                 }
             }
             wait(for: [finalExpectation], timeout: 1)
-            XCTAssertEqual(store.state.count, iterations)
+            XCTAssertEqual(store.state.count, sumAll(number: iterations - 1))
+        }
+
+        func sumAll(number: Int) -> Int {
+            Range(0...number).reduce(0) { partialResult, next in
+                partialResult + next
+            }
         }
     }
 }
