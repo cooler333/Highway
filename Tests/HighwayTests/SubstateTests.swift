@@ -24,24 +24,27 @@ class SubstateTests: XCTestCase {
                 var subfoo: String = "start subfoo"
                 var subbar: Int = 1000
             }
-            
+
             var foo: String = "start foo"
             var bar: Int = 0
             var substate: SubState = .init()
         }
-        
+
         enum Action {
             case initial
             case syncAction
             case foo
             case bar
+            case final
         }
-        
+
         enum SubAction {
             case initial
             case syncAction
             case baz
         }
+
+        let finalExpectation = expectation(description: "final")
 
         let store = Store<State, Action>(
             reducer: Reducer<State, Action> { state, action in
@@ -51,7 +54,12 @@ class SubstateTests: XCTestCase {
                 return state
             },
             state: .init(),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .final {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
         store.dispatch(.foo)
 
@@ -69,10 +77,13 @@ class SubstateTests: XCTestCase {
         store.dispatch(.bar)
         subStore.dispatch(.baz)
         store.dispatch(.bar)
-        
+
+        store.dispatch(.final)
+        wait(for: [finalExpectation], timeout: 1)
+
         let referenceState = State(
-            foo: "start foo, initial, foo, bar, bar",
-            bar: 4,
+            foo: "start foo, initial, foo, bar, bar, final",
+            bar: 5,
             substate: .init(
                 subfoo: "start subfoo, initial, baz",
                 subbar: (1000 - 2) // 998
@@ -100,6 +111,7 @@ class SubstateTests: XCTestCase {
             case initial
             case foo
             case bar
+            case final
         }
 
         enum SubAction {
@@ -107,6 +119,8 @@ class SubstateTests: XCTestCase {
             case syncAction
             case baz
         }
+
+        let finalExpectation = expectation(description: "final")
 
         let store = Store<State, Action>(
             reducer: Reducer<State, Action> { state, action in
@@ -116,7 +130,12 @@ class SubstateTests: XCTestCase {
                 return state
             },
             state: .init(),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .final {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
         store.dispatch(.foo)
 
@@ -134,6 +153,10 @@ class SubstateTests: XCTestCase {
         store.dispatch(.bar)
         childStore.dispatch(.baz)
         store.dispatch(.bar)
+
+        store.dispatch(.final)
+
+        wait(for: [finalExpectation], timeout: 1)
 
         let referenceState = State.SubState(
             subfoo: "start subfoo, initial, baz",
@@ -158,19 +181,24 @@ class SubstateTests: XCTestCase {
             case initial
             case foo
             case bar
+            case final
         }
 
         enum SubAction {
             case initial
             case syncAction
             case baz
+            case final
         }
 
         enum SubAction2 {
             case initial2
             case syncAction2
             case baz2
+            case final
         }
+
+        let finalExpectation = expectation(description: "final")
 
         let store = Store<State, Action>(
             reducer: .init { state, action in
@@ -180,7 +208,12 @@ class SubstateTests: XCTestCase {
                 return state
             },
             state: .init(),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .final {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
         store.dispatch(.foo)
 
@@ -209,39 +242,45 @@ class SubstateTests: XCTestCase {
         childStore.dispatch(.baz)
         store.dispatch(.bar)
 
+        store.dispatch(.final)
+
         let referenceState = State(
-            foo: "start foo, initial, foo, bar, bar",
+            foo: "start foo, initial, foo, bar, bar, final",
             bar: 4,
             substate: .init(
                 subfoo: "start subfoo, initial, initial2, baz",
                 subbar: (1000 - 2) // 998
             )
         )
-        
+
+        wait(for: [finalExpectation], timeout: 1)
+
         XCTAssertEqual(store.state.substate, referenceState.substate)
         XCTAssertEqual(childStore.state, referenceState.substate)
         XCTAssertEqual(childStore2.state, referenceState.substate)
     }
-    
+
     func testMutationNoKeypth() throws {
         struct State: Equatable {
             var foo = "start foo"
             var bar = 0
         }
-        
+
         enum Action {
             case initial
             case syncAction
             case foo
             case bar
+            case final
         }
-        
+
         enum SubAction {
             case initial
             case syncAction
             case baz
         }
 
+        let finalExpectation = expectation(description: "final")
         let store = Store<State, Action>(
             reducer: Reducer<State, Action> { state, action in
                 var state = state
@@ -250,7 +289,12 @@ class SubstateTests: XCTestCase {
                 return state
             },
             state: .init(),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .final {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
         store.dispatch(.foo)
 
@@ -267,10 +311,14 @@ class SubstateTests: XCTestCase {
         store.dispatch(.bar)
         subStore.dispatch(.baz)
         store.dispatch(.bar)
-        
+
+        store.dispatch(.final)
+
+        wait(for: [finalExpectation], timeout: 1)
+
         let referenceState = State(
-            foo: "start foo, initial, foo, initial, bar, baz, bar",
-            bar: 6
+            foo: "start foo, initial, foo, initial, bar, baz, bar, final",
+            bar: 7
         )
 
         XCTAssertEqual(store.state, referenceState)

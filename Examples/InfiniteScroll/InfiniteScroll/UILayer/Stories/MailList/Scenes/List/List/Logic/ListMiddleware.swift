@@ -117,7 +117,7 @@ class Check {
         self.foo = foo
         print("INIT: \(foo)")
     }
-    
+
     deinit {
         print("DEINIT: \(foo)")
     }

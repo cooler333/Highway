@@ -27,12 +27,22 @@ class StoreTests: XCTestCase {
             }
         }
 
+        let finalExpectation = expectation(description: "final")
+
         let reducer = MockReducer()
-        _ = Store<CounterState, Action>(
+        let store = Store<CounterState, Action>(
             reducer: Reducer<CounterState, Action>(reducer.handleAction),
             state: CounterState(),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .initial {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
+        _ = store.state
+
+        wait(for: [finalExpectation], timeout: 3)
 
         let firstAction = reducer.calledWithAction[0]
         switch firstAction {

@@ -22,13 +22,13 @@ class SubscriptionTests: XCTestCase {
             var a = ""
             var inner = Inner()
         }
-        
+
         enum Action {
             case initial
             case mutate
             case noOperation
         }
-        
+
         let store = Store<State, Action>(
             reducer: .init({ state, action in
                 return state
@@ -36,12 +36,12 @@ class SubscriptionTests: XCTestCase {
             state: .init(),
             initialAction: .initial
         )
-        
+
         var callCount = 0
         store.subscribe(listener: { _ in
             callCount += 1
         })
-        
+
         let childStore = store.createChildStore(
             keyPath: \.inner,
             reducer: Reducer<State.Inner, Action>({ state, action in
@@ -49,7 +49,9 @@ class SubscriptionTests: XCTestCase {
             }),
             initialAction: .initial
         )
-        
+
+        let finalExpectation = expectation(description: "final")
+
         let childStore2 = childStore.createChildStore(
             keyPath: \.inner2,
             reducer: Reducer<State.Inner.Inner2, Action>({ state, action in
@@ -64,13 +66,20 @@ class SubscriptionTests: XCTestCase {
                     return state
                 }
             }),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .noOperation {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
-        
+
         childStore2.dispatch(.initial)
         childStore2.dispatch(.mutate)
         childStore2.dispatch(.noOperation)
-        
+
+        wait(for: [finalExpectation], timeout: 1)
+
         XCTAssertEqual(store.state.inner.inner2.c, "hi")
         XCTAssertEqual(callCount, 1)
     }
@@ -87,13 +96,13 @@ class SubscriptionTests: XCTestCase {
             var a = ""
             var inner = Inner()
         }
-        
+
         enum Action {
             case initial
             case mutate
             case noOperation
         }
-        
+
         let store = Store<State, Action>(
             reducer: .init({ state, action in
                 return state
@@ -101,19 +110,21 @@ class SubscriptionTests: XCTestCase {
             state: .init(),
             initialAction: .initial
         )
-        
+
         var callCount = 0
         store.subscribe(listener: { _ in
             callCount += 1
         })
-        
+
         let childStore = store.createChildStore(
             reducer: Reducer<State, Action>({ state, action in
                 return state
             }),
             initialAction: .initial
         )
-        
+
+        let finalExpectation = expectation(description: "final")
+
         let childStore2 = childStore.createChildStore(
             reducer: Reducer<State, Action>({ state, action in
                 switch action {
@@ -127,13 +138,20 @@ class SubscriptionTests: XCTestCase {
                     return state
                 }
             }),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .noOperation {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
-        
+
         childStore2.dispatch(.initial)
         childStore2.dispatch(.mutate)
         childStore2.dispatch(.noOperation)
-        
+
+        wait(for: [finalExpectation], timeout: 1)
+
         XCTAssertEqual(store.state.inner.inner2.c, "hi")
         XCTAssertEqual(callCount, 1)
     }
@@ -150,13 +168,15 @@ class SubscriptionTests: XCTestCase {
             var a = ""
             var inner = Inner()
         }
-        
+
         enum Action {
             case initial
             case mutate
             case noOperation
         }
-        
+
+        let finalExpectation = expectation(description: "final")
+
         let store = Store<State, Action>(
             reducer: Reducer<State, Action>({ state, action in
                 return state
@@ -164,12 +184,12 @@ class SubscriptionTests: XCTestCase {
             state: .init(),
             initialAction: .initial
         )
-        
+
         var callCount = 0
         let subscription = store.subscribe(listener: { _ in
             callCount += 1
         })
-        
+
         let childStore = store.createChildStore(
             keyPath: \.inner,
             reducer: Reducer<State.Inner, Action>({ state, action in
@@ -178,32 +198,39 @@ class SubscriptionTests: XCTestCase {
                     return state
                 case .noOperation:
                     return state
-                    
+
                 case .mutate:
                     var state = state
                     state.inner2.c = "hi"
                     return state
                 }
             }),
-            initialAction: .initial
+            initialAction: .initial,
+            middleware: [createMiddleware({ dispatch, getState, action in
+                if action == .noOperation {
+                    finalExpectation.fulfill()
+                }
+            })]
         )
-                
+
         store.unsubscribe(subscription)
-        
+
         childStore.dispatch(.initial)
         childStore.dispatch(.mutate)
         childStore.dispatch(.noOperation)
-        
+
+        wait(for: [finalExpectation], timeout: 1)
+
         XCTAssertEqual(store.state.inner.inner2.c, "hi")
         XCTAssertEqual(callCount, 0)
     }
 
     func testEquitable() throws {
         struct State {}
-        
+
         let sub1 = Subscription<State> { _ in }
         let sub2 = Subscription<State> { _ in }
-        
+
         XCTAssertNotEqual(sub1, sub2)
     }
 }
