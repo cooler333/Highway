@@ -15,7 +15,7 @@ public struct Thunk<State, Action, Environment> {
         _ action: Action,
         _ environment: Environment
     ) -> Void
-    
+
     public init(
         environment: Environment,
         body: @escaping (
@@ -41,6 +41,14 @@ extension Thunk where Environment == Void {
     ) {
         self.environment = ()
         self.body = body
+    }
+}
+
+public func createThunkMiddleware<State, Action: Equatable, Environment>(
+    thunk: Thunk<State, Action, Environment>
+) -> Middleware<State, Action> {
+    return { dispatch, getState, action in
+        thunk.body(dispatch, getState, action, thunk.environment)
     }
 }
 

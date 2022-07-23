@@ -9,7 +9,7 @@ import XCTest
 @testable import Highway
 
 final class PerformanceTests: XCTestCase {
-    
+
     func testChildStoresStateMutation() {
         struct State: Equatable {
             struct Inner: Equatable {
@@ -33,7 +33,7 @@ final class PerformanceTests: XCTestCase {
                 var g = ""
                 var h = ""
                 var i = ""
-                
+
                 var inner2 = Inner2()
             }
             var a = ""
@@ -45,15 +45,15 @@ final class PerformanceTests: XCTestCase {
             var g = ""
             var h = ""
             var i = ""
-            
+
             var inner = Inner()
         }
-        
+
         enum Action {
             case initial
             case mutate
         }
-        
+
         let store = Store<State, Action>(
             reducer: .init({ state, action in
                 return state
@@ -61,7 +61,7 @@ final class PerformanceTests: XCTestCase {
             state: .init(),
             initialAction: .initial
         )
-        
+
         let stores = Array([0...1000]).map { _ in
             return store.createChildStore(
                 keyPath: \.inner,
@@ -72,7 +72,7 @@ final class PerformanceTests: XCTestCase {
             )
         }
         let innerStore = stores.last!
-        
+
         let innerStores = Array([0...1000]).map { _ in
             return innerStore.createChildStore(
                 keyPath: \.inner2,
@@ -93,10 +93,10 @@ final class PerformanceTests: XCTestCase {
         measure {
             innerStores.last!.dispatch(.mutate)
         }
-        
+
         XCTAssertEqual(store.state.inner.inner2.i, "hi")
     }
-    
+
     func testNotify() {
         struct MockState: Equatable {}
         enum MockAction {

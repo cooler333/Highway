@@ -58,12 +58,15 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     private var isDispatching = Synchronized<Bool>(false)
     private let middleware: [Middleware<State, Action>]
 
+    private let internalQueue: DispatchQueue
+
     public required init(
         reducer: Reducer<State, Action>,
         state: State,
         initialAction: Action? = nil,
         middleware: [Middleware<State, Action>] = []
     ) {
+        self.internalQueue = DispatchQueue(label: "Highway.internalQueue")
         self.reducer = reducer
         self.middleware = middleware
 
@@ -85,8 +88,10 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         stateGetter: @escaping () -> State,
         stateSetter: @escaping (State) -> Void,
         initialAction: Action? = nil,
-        middleware: [Middleware<State, Action>] = []
+        middleware: [Middleware<State, Action>] = [],
+        internalQueue: DispatchQueue
     ) {
+        self.internalQueue = internalQueue
         self.reducer = reducer
         self.middleware = middleware
 
@@ -133,11 +138,14 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     public func dispatch(_ action: Action) {
-        _defaultDispatch(action: action)
-        let dispatch: (Action) -> Void = { [unowned self] in self.dispatch($0) }
-        let getState: () -> State = { [unowned self] in self.state }
-        middleware.forEach { middleware in
-            middleware(dispatch, getState, action)
+        internalQueue.async { [weak self] in
+            guard let self = self else { return }
+            self._defaultDispatch(action: action)
+            let dispatch: (Action) -> Void = { [unowned self] in self.dispatch($0) }
+            let getState: () -> State = { [unowned self] in self.state }
+            self.middleware.forEach { middleware in
+                middleware(dispatch, getState, action)
+            }
         }
     }
 
@@ -152,7 +160,8 @@ public final class Store<State: Equatable, Action>: StoreCreator {
             stateGetter: { self.state[keyPath: keyPath] },
             stateSetter: { self.state[keyPath: keyPath] = $0 },
             initialAction: initialAction,
-            middleware: middleware
+            middleware: middleware,
+            internalQueue: internalQueue
         )
         subscribe(listener: { [weak childStore] state in
             guard let childStore = childStore else { return }
@@ -186,7 +195,8 @@ public final class Store<State: Equatable, Action>: StoreCreator {
             stateGetter: { self.state },
             stateSetter: { self.state = $0 },
             initialAction: initialAction,
-            middleware: middleware
+            middleware: middleware,
+            internalQueue: internalQueue
         )
         subscribe(listener: { [weak childStore] state in
             guard let childStore = childStore else { return }

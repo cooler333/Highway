@@ -60,3 +60,53 @@ extension SynchronizedTests {
         }
     }
 }
+
+extension SynchronizedTests {
+    func testActionPerformance() {
+        struct CounterState: Equatable {
+            var count: Int = 0
+        }
+        enum Action {
+            case initial
+            case other
+            case final
+        }
+
+        measure {
+            let finalExpectation = expectation(description: "final")
+            let store = Store<CounterState, Action>(
+                reducer: .init({ state, action in
+                    switch action {
+                    case .initial:
+                        return state
+
+                    case .other:
+                        var state = state
+                        state.count += 1
+                        return state
+
+                    case .final:
+                        return state
+                    }
+                }),
+                state: CounterState(),
+                initialAction: .initial,
+                middleware: [createMiddleware({ dispatch, getState, action in
+                    if action == .final {
+                        finalExpectation.fulfill()
+                    }
+                })]
+            )
+
+            DispatchQueue.concurrentPerform(iterations: iterations) { iteration in
+                store.dispatch(.other)
+                if iteration == iterations - 1 {
+                    print("OOOOPS", iteration)
+                    store.dispatch(.final)
+                }
+            }
+            wait(for: [finalExpectation], timeout: 1)
+            XCTAssertEqual(store.state.count, iterations)
+        }
+    }
+}

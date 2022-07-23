@@ -10,14 +10,14 @@ import Foundation
 public final class ViewStore<ViewState: Equatable, ViewAction> {
     private var subscriptions: [Subscription<ViewState>] = []
     private var subscription: Any!
-    
+
     public var state: ViewState {
         stateGetter()
     }
     private var stateGetter: (() -> ViewState)!
 
     private var internalDispatch: ((ViewAction) -> Void)!
-    
+
     public init<State: Equatable, Action>(
         store: Store<State, Action>,
         stateMapper: @escaping (State) -> ViewState,
@@ -29,7 +29,7 @@ public final class ViewStore<ViewState: Equatable, ViewAction> {
         internalDispatch = { action in
             store.dispatch(actionMapper(action))
         }
-        
+
         let subscription = store.subscribe { [weak self] (state: State) in
             self?.subscriptions.forEach { $0.listener(stateMapper(state)) }
         }

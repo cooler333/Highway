@@ -11,13 +11,13 @@ import Foundation
 struct Synchronized<Value> {
     private let mutex = DispatchQueue(label: "com.highway.synchronized", attributes: .concurrent)
     private var _value: Value
-    
+
     init(_ value: Value) {
         self._value = value
     }
-    
+
     var value: Value { return mutex.sync { return _value } }
-    
+
     mutating func value<T>(execute task: (inout Value) throws -> T) rethrows -> T {
         return try mutex.sync(flags: .barrier) { return try task(&_value) }
     }

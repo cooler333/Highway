@@ -57,5 +57,5 @@ final class DetailsFlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension DetailsFlowCoordinator: DetailsModuleOutput {
-    
+
 }
