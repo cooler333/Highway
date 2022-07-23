@@ -64,6 +64,14 @@ Also you can integrate framework as SPM package
 - [SwiftRex](https://github.com/SwiftRex/SwiftRex)
 - [More](https://github.com/onmyway133/awesome-ios-architecture#unidirectional-data-flow)
 
+## TODO:
+
+- App tests examples (E2E, Unit)
+- Update UIStack to UITableView in Animation example
+- Reusable views with ViewStore
+- UIView modules
+- Collapsable UITableView
+
 ## Author
 
 Dmitrii Cooler, coolerov333@gmail.com
