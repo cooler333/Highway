@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Highway"
-  s.version          = "0.14.0"
+  s.version          = "0.15.0"
   s.summary          = "Unidirectional Data Flow in Swift"
   s.description      = <<-DESC
                         Highway is a mix of Redux-like and The Elm Architecture implementation of the unidirectional data flow architecture in Swift.
