@@ -66,6 +66,7 @@ Also you can integrate framework as SPM package
 
 ## TODO:
 
+- Visual Scheme
 - App tests examples (E2E, Unit)
 - Update UIStack to UITableView in Animation example
 - Reusable views with ViewStore
