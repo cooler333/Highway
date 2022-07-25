@@ -1,6 +1,6 @@
 PODS:
-  - Highway (0.14.0)
-  - Highway/HighwayTests (0.14.0)
+  - Highway (0.15.0)
+  - Highway/HighwayTests (0.15.0)
   - Kingfisher (7.3.0)
 
 DEPENDENCIES:
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: b1d79580e9c6cb50c037e6b1ae207bb4ddbb164c
+  Highway: 391f8f58895d5a47599a0119f60f349e432c0287
   Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
 
 PODFILE CHECKSUM: 8e111f02111e8e86238ba258916ab4b7428c0d25
