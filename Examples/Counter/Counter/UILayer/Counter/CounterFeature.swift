@@ -57,7 +57,7 @@ enum CounterFeature {
                     guard action == .save else { return }
                     var state = getState()
                     state.isSaving = false
-                    environment.stateStorage.save(state, completion: { result in
+                    environment.save(state, completion: { result in
                         switch result {
                         case .success:
                             dispatch(.saved(success: true))

@@ -74,8 +74,8 @@ public final class RootAssembly: Assembly {
             return store
         }.inObjectScope(.weak)
 
-        container.register(UIViewController.self, name: "Details") { _ in
-            let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
+        container.register(UIViewController.self, name: "Details") { resolver in
+            let mailListStore = resolver.resolve(Store<MailListState, ListAction>.self)!
             let store = mailListStore.createChildStore(
                 keyPath: \.list,
                 reducer: Reducer<MailListState.List, String> { state, _ in
@@ -93,10 +93,10 @@ public final class RootAssembly: Assembly {
 
         container.register(
             UIViewController.self, name: "List"
-        ) { (_, moduleOutput: ListModuleOutput) in
-            let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
+        ) { (resolver, moduleOutput: ListModuleOutput) in
+            let mailListStore = resolver.resolve(Store<MailListState, ListAction>.self)!
             let environment = ListEnvironment(
-                listRepository: r.resolve(ListRepositoryProtocol.self)!,
+                listRepository: resolver.resolve(ListRepositoryProtocol.self)!,
                 moduleOutput: moduleOutput
             )
             let store = mailListStore.createChildStore(
@@ -116,7 +116,7 @@ public final class RootAssembly: Assembly {
             )
             let viewController = ListViewController(
                 store: viewStore,
-                toastNotificationManager: r.resolve(ToastNotificationManagerProtocol.self)!
+                toastNotificationManager: resolver.resolve(ToastNotificationManagerProtocol.self)!
             )
             return viewController
         }
