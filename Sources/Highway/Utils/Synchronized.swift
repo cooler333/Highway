@@ -13,7 +13,7 @@ struct Synchronized<Value> {
     private var _value: Value
 
     init(_ value: Value) {
-        self._value = value
+        _value = value
     }
 
     var value: Value { return mutex.sync { return _value } }

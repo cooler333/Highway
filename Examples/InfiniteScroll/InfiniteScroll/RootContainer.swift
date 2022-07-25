@@ -50,6 +50,7 @@ public final class RootAssembly: Assembly {
         }
     }
 
+    // swiftlint:disable:next function_body_length
     private func assembleStatefull(container: Container) {
         container.register(NetworkServiceProtocol.self) { _ in
             NetworkService()
@@ -61,10 +62,10 @@ public final class RootAssembly: Assembly {
         }
         .inObjectScope(.container)
 
-        container.register(Store<MailListState, ListAction>.self) { r in
+        container.register(Store<MailListState, ListAction>.self) { _ in
             let store = Store<MailListState, ListAction>(
-                reducer: .init { state, action in
-                    return state
+                reducer: .init { state, _ in
+                    state
                 },
                 state: .init(),
                 initialAction: .initial,
@@ -73,7 +74,7 @@ public final class RootAssembly: Assembly {
             return store
         }.inObjectScope(.weak)
 
-        container.register(UIViewController.self, name: "Details") { r in
+        container.register(UIViewController.self, name: "Details") { _ in
             let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
             let store = mailListStore.createChildStore(
                 keyPath: \.list,
@@ -90,7 +91,9 @@ public final class RootAssembly: Assembly {
             return viewController
         }
 
-        container.register(UIViewController.self, name: "List") { (r: Resolver, moduleOutput: ListModuleOutput) in
+        container.register(
+            UIViewController.self, name: "List"
+        ) { (_, moduleOutput: ListModuleOutput) in
             let mailListStore = r.resolve(Store<MailListState, ListAction>.self)!
             let environment = ListEnvironment(
                 listRepository: r.resolve(ListRepositoryProtocol.self)!,
@@ -105,10 +108,10 @@ public final class RootAssembly: Assembly {
             let viewStore = ViewStore<MailListState.List, ListAction>(
                 store: store,
                 stateMapper: { state in
-                    return state
+                    state
                 },
                 actionMapper: { action in
-                    return action
+                    action
                 }
             )
             let viewController = ListViewController(

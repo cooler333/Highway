@@ -14,6 +14,7 @@ public final class ViewStore<ViewState: Equatable, ViewAction> {
     public var state: ViewState {
         stateGetter()
     }
+
     private var stateGetter: (() -> ViewState)!
 
     private var internalDispatch: ((ViewAction) -> Void)!

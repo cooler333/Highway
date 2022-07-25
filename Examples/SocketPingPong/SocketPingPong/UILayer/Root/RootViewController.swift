@@ -5,11 +5,10 @@
 //  Created by Dmitrii Coolerov on 08.07.2022.
 //
 
-import UIKit
 import Highway
+import UIKit
 
 class RootViewController: UIViewController {
-
     private let store: Store<AppState, RootAction>
 
     private let resultViewControllerFactory: () -> UIViewController
@@ -54,9 +53,9 @@ class RootViewController: UIViewController {
             resultContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             resultContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             resultContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            resultContainerView.bottomAnchor.constraint(equalTo: view.centerYAnchor)
+            resultContainerView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
         ]
-        resultContainerViewConstraints.forEach{ $0.isActive = true }
+        resultContainerViewConstraints.forEach { $0.isActive = true }
 
         let resultViewController = resultViewControllerFactory()
         addChild(resultViewController, to: resultContainerView)
@@ -70,9 +69,9 @@ class RootViewController: UIViewController {
             pingPongContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             pingPongContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             pingPongContainerView.topAnchor.constraint(equalTo: view.centerYAnchor),
-            pingPongContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            pingPongContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ]
-        counterContainerViewConstraints.forEach{ $0.isActive = true }
+        counterContainerViewConstraints.forEach { $0.isActive = true }
 
         let pingPongViewController = pingPongViewControllerFactory()
         addChild(pingPongViewController, to: pingPongContainerView)

@@ -5,11 +5,10 @@
 //  Created by Dmitrii Coolerov on 08.07.2022.
 //
 
-import UIKit
 import Highway
+import UIKit
 
 class RootViewController: UIViewController {
-
     private let store: Store<AppState, RootAction>
 
     private var stackView: UIStackView!
@@ -126,9 +125,9 @@ class RootViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ]
-        stackViewConstraints.forEach{ $0.isActive = true }
+        stackViewConstraints.forEach { $0.isActive = true }
 
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing

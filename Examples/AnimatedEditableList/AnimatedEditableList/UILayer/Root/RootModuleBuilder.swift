@@ -12,9 +12,9 @@ import UIKit
 struct RootModuleBuilder {
     func build() -> UIViewController {
         let store = Store<RootFeature.State, RootFeature.Action>(
-            reducer: .init({ state, _ in
-                return state
-            }),
+            reducer: .init { state, _ in
+                state
+            },
             state: .init(),
             initialAction: .initial
         )

@@ -8,9 +8,8 @@
 import UIKit
 
 class TitleTableViewCell: UITableViewCell {
-    
     private var titleLabel: UILabel!
-    
+
     private var leftButton: UIButton!
     private var leftButtonAction: (() -> Void)!
 
@@ -19,13 +18,12 @@ class TitleTableViewCell: UITableViewCell {
 
     private var rightButton: UIButton!
     private var rightButtonAction: (() -> Void)!
-    
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         selectionStyle = .none
-        
+
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
@@ -33,23 +31,23 @@ class TitleTableViewCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ]
-        stackViewConstraints.forEach{ $0.isActive = true }
+        stackViewConstraints.forEach { $0.isActive = true }
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
-        
+
         let titleLabel = UILabel()
         self.titleLabel = titleLabel
         stackView.addArrangedSubview(titleLabel)
-        
+
         let buttonStackView = UIStackView()
         buttonStackView.backgroundColor = .secondarySystemBackground
         buttonStackView.axis = .horizontal
         buttonStackView.alignment = .fill
         buttonStackView.distribution = .fillProportionally
-        
+
         let leftButton = UIButton(type: .system)
         leftButton.addTarget(self, action: #selector(leftButtonDidTap), for: .touchUpInside)
         leftButton.setTitle("Remove", for: .normal)
@@ -68,15 +66,15 @@ class TitleTableViewCell: UITableViewCell {
         rightButton.setTitle("Insert", for: .normal)
         self.rightButton = rightButton
         buttonStackView.addArrangedSubview(rightButton)
-        
+
         stackView.addArrangedSubview(buttonStackView)
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure(
         title: String,
         deleteButtonAction: @escaping () -> Void,
@@ -84,12 +82,12 @@ class TitleTableViewCell: UITableViewCell {
         insertButtonAction: @escaping () -> Void
     ) {
         titleLabel.text = title
-        
-        self.leftButtonAction = deleteButtonAction
-        self.centerButtonAction = updateButtonAction
-        self.rightButtonAction = insertButtonAction
+
+        leftButtonAction = deleteButtonAction
+        centerButtonAction = updateButtonAction
+        rightButtonAction = insertButtonAction
     }
-    
+
     @IBAction
     private func leftButtonDidTap() {
         leftButtonAction()

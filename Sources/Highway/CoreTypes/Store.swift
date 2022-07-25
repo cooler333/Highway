@@ -36,7 +36,6 @@ public protocol StoreCreator {
 }
 
 public final class Store<State: Equatable, Action>: StoreCreator {
-
     private var stateGetter: (() -> State)!
     private var stateSetter: ((State) -> Void)!
 
@@ -66,15 +65,15 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         initialAction: Action? = nil,
         middleware: [Middleware<State, Action>] = []
     ) {
-        self.internalQueue = DispatchQueue(label: "Highway.internalQueue")
+        internalQueue = DispatchQueue(label: "Highway.internalQueue")
         self.reducer = reducer
         self.middleware = middleware
 
-        self._state = state
-        self.stateGetter = { [unowned self] in
-            return self._state
+        _state = state
+        stateGetter = { [unowned self] in
+            self._state
         }
-        self.stateSetter = { [unowned self] state in
+        stateSetter = { [unowned self] state in
             self._state = state
         }
 
@@ -118,7 +117,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     // swiftlint:disable:next identifier_name
     public func _defaultDispatch(action: Action) {
-        guard !self.isDispatching.value else {
+        guard !isDispatching.value else {
             fatalError(
                 """
                 Action has been dispatched while a previous action is being processed.

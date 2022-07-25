@@ -13,11 +13,13 @@ struct AppState: Equatable {
         case playing
         case paused
     }
+
     enum SideType: Equatable {
         case ping
         case pong
         case unknown
     }
+
     var playType: PlayType = .paused
     var sideType: SideType = .unknown
 }

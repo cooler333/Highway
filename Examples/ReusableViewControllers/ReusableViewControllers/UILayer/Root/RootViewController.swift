@@ -5,11 +5,10 @@
 //  Created by Dmitrii Coolerov on 08.07.2022.
 //
 
-import UIKit
 import Highway
+import UIKit
 
 class RootViewController: UIViewController {
-
     private let store: Store<AppState, RootAction>
 
     private let topViewControllerFactory: () -> UIViewController
@@ -62,9 +61,9 @@ class RootViewController: UIViewController {
             topContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             topContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             topContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            topContainerView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -30)
+            topContainerView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -30),
         ]
-        topContainerViewConstraints.forEach{ $0.isActive = true }
+        topContainerViewConstraints.forEach { $0.isActive = true }
 
         let topViewController = topViewControllerFactory()
         addChild(topViewController, to: topContainerView)
@@ -78,9 +77,9 @@ class RootViewController: UIViewController {
             bottomContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomContainerView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 30),
-            bottomContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            bottomContainerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ]
-        bottomContainerViewConstraints.forEach{ $0.isActive = true }
+        bottomContainerViewConstraints.forEach { $0.isActive = true }
 
         let bottomViewController = bottomViewControllerFactory()
         addChild(bottomViewController, to: bottomContainerView)

@@ -16,13 +16,13 @@ struct ListModelParser: ListModelParserProtocol {
         responseData: [ListResponseData]
     ) -> [ListModel] {
         return responseData.map { responseData in
-            let ListModel = ListModel(
+            let listModel = ListModel(
                 title: responseData.title,
                 subtitle: responseData.subtitle,
                 id: responseData.id,
                 details: responseData.details
             )
-            return ListModel
+            return listModel
         }
     }
 }

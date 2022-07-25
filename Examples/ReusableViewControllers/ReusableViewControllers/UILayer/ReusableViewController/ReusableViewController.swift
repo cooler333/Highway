@@ -15,7 +15,6 @@ protocol ReusableViewOutput: AnyObject {
 }
 
 final class ReusableViewController: UIViewController {
-
     private let output: ReusableViewOutput
     init(output: ReusableViewOutput) {
         self.output = output
@@ -43,7 +42,7 @@ final class ReusableViewController: UIViewController {
         decrementButton.translatesAutoresizingMaskIntoConstraints = false
         let decrementButtonContstraints = [
             decrementButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            decrementButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -20)
+            decrementButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -20),
         ]
         decrementButtonContstraints.forEach { $0.isActive = true }
 
@@ -62,7 +61,7 @@ final class ReusableViewController: UIViewController {
         incrementButton.translatesAutoresizingMaskIntoConstraints = false
         let incrementButtonContstraints = [
             incrementButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            incrementButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 20)
+            incrementButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 20),
         ]
         incrementButtonContstraints.forEach { $0.isActive = true }
 

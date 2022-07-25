@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 import Highway
+import UIKit
 
 final class CounterViewController: UIViewController {
-
     private let store: Store<AppState, CounterFeature.Action>
 
     private var stepper: UIStepper!
@@ -55,7 +54,7 @@ final class CounterViewController: UIViewController {
         stepper.translatesAutoresizingMaskIntoConstraints = false
         let stepperContstraints = [
             stepper.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stepper.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            stepper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ]
         stepperContstraints.forEach { $0.isActive = true }
 
@@ -79,7 +78,7 @@ final class CounterViewController: UIViewController {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         let saveButtonContstraints = [
             saveButton.topAnchor.constraint(equalTo: stepper.bottomAnchor, constant: 10),
-            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ]
         saveButtonContstraints.forEach { $0.isActive = true }
 
@@ -90,5 +89,4 @@ final class CounterViewController: UIViewController {
     @IBAction private func saveButtonDidTap() {
         store.dispatch(.save)
     }
-
 }

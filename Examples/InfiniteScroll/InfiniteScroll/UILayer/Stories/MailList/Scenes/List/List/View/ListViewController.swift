@@ -92,6 +92,7 @@ final class ListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -242,7 +243,7 @@ final class ListViewController: UIViewController {
         return displayData
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     private func update(state: MailListState.List) {
         let contentState: LCEPagedState<[ListViewModel], ListAPIError> = {
             let data: [ListViewModel] = state.data.map { model in
@@ -431,7 +432,6 @@ extension ListViewController: UITableViewDelegate {
             fatalError("Unexpected state")
         }
     }
-    // swiftlint:disable:next file_length
 }
 
 extension ListViewController: UISearchBarDelegate {
@@ -455,4 +455,5 @@ extension ListViewController: UISearchBarDelegate {
             store.dispatch(.fetchInitialPageInList)
         }
     }
+    // swiftlint:disable:next file_length
 }
