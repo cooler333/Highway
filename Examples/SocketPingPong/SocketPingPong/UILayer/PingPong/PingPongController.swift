@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 import Highway
+import UIKit
 
 final class PingPongViewController: UIViewController {
-
     private let store: Store<AppState, PingPongFeature.Action>
 
     private var playButton: UIButton!
@@ -57,7 +56,7 @@ final class PingPongViewController: UIViewController {
         playButton.translatesAutoresizingMaskIntoConstraints = false
         let playButtonContstraints = [
             playButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ]
         playButtonContstraints.forEach { $0.isActive = true }
         self.playButton = playButton
@@ -75,5 +74,4 @@ final class PingPongViewController: UIViewController {
             store.dispatch(.play)
         }
     }
-
 }

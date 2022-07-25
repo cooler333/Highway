@@ -7,8 +7,8 @@
 
 import Combine
 import Foundation
-import SwiftUI
 import Highway
+import SwiftUI
 
 struct MainView: View {
     private let store: Store<AppState, MainFeature.Action>
@@ -30,21 +30,21 @@ struct MainView: View {
                     .multilineTextAlignment(.center)
                 Button(action: {
                     store.dispatch(.increment)
-                }) {
+                }, label: {
                     Text("Increment")
-                }
+                })
                 .padding()
                 Button(action: {
                     store.dispatch(.decrement)
-                }) {
+                }, label: {
                     Text("Decrement")
-                }
+                })
                 .padding()
             }
         }
         .onAppear {
             configure()
-            store.subscribe { state in
+            store.subscribe { _ in
                 DispatchQueue.main.async {
                     configure()
                 }
@@ -65,11 +65,11 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         let view = MainView(
             store: .init(
-                reducer: .init({ state, action in
-                    return state
-                }),
+                reducer: .init { state, _ in
+                    state
+                },
                 state: .init(
-                    count: 12313112312,
+                    count: 12_313_112_312,
                     isSaving: true,
                     saved: true
                 )

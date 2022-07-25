@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 import Highway
+import UIKit
 
 final class ResultViewController: UIViewController {
-
     private let store: Store<AppState, ResultFeature.Action>
 
     private var statusLabel: UILabel!
@@ -50,12 +49,11 @@ final class ResultViewController: UIViewController {
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         let statusLabelContstraints = [
             statusLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ]
         statusLabelContstraints.forEach { $0.isActive = true }
         statusLabel.numberOfLines = 0
         statusLabel.textAlignment = .center
         self.statusLabel = statusLabel
-        
     }
 }

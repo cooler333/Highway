@@ -33,7 +33,7 @@ extension ListRepository: ListRepositoryProtocol {
 
         var body = [
             "start": String(currentPage * pageLength),
-            "length": String(pageLength)
+            "length": String(pageLength),
         ]
         if let searchText = searchText {
             body["searchText"] = searchText

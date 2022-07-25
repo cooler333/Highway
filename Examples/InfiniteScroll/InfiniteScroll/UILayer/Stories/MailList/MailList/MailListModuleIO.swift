@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol MailListModuleOutput: AnyObject {
-
-}
+protocol MailListModuleOutput: AnyObject {}

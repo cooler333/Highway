@@ -14,9 +14,9 @@ struct ResultModuleBuilder {
         storeCreator: S
     ) -> UIViewController where S.State == AppState {
         let store = storeCreator.createChildStore(
-            reducer: .init({ state, action in
-                return state
-            }),
+            reducer: .init { state, _ in
+                state
+            },
             initialAction: ResultFeature.Action.initial
         )
         return ResultViewController(store: store)

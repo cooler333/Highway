@@ -18,9 +18,9 @@ extension UIViewController {
             childView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             childView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             childView.topAnchor.constraint(equalTo: view.topAnchor),
-            childView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            childView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ]
-        childViewConstraints.forEach{ $0.isActive = true }
+        childViewConstraints.forEach { $0.isActive = true }
 
         addChild(child)
         child.didMove(toParent: self)

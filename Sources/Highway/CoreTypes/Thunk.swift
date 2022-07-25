@@ -30,8 +30,8 @@ public struct Thunk<State, Action, Environment> {
     }
 }
 
-extension Thunk where Environment == Void {
-    public init(
+public extension Thunk where Environment == Void {
+    init(
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
             _ getState: () -> State,
@@ -39,7 +39,7 @@ extension Thunk where Environment == Void {
             _ environment: Environment
         ) -> Void
     ) {
-        self.environment = ()
+        environment = ()
         self.body = body
     }
 }

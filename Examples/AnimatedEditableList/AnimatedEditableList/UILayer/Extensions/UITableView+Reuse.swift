@@ -14,6 +14,7 @@ extension UITableView {
     }
 
     open func dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type) -> T {
+        // swiftlint:disable:next force_cast
         dequeueReusableCell(withIdentifier: String(describing: cellClass)) as! T
     }
 }

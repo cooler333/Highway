@@ -12,7 +12,7 @@ import UIKit
 struct RootModuleBuilder {
     func build() -> UIViewController {
         let store = Store<AppState, RootAction>(
-            reducer: .init({ state, action in
+            reducer: .init { state, action in
                 switch action {
                 case .initial:
                     return state
@@ -37,7 +37,7 @@ struct RootModuleBuilder {
                     state.shouldReset = false
                     return state
                 }
-            }),
+            },
             state: .init(),
             initialAction: .initial
         )

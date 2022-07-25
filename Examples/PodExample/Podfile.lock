@@ -1,5 +1,5 @@
 PODS:
-  - Highway (0.14.0)
+  - Highway (0.15.0)
   - SwiftFormat/CLI (0.49.10)
   - SwiftLint (0.47.1)
 
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: b1d79580e9c6cb50c037e6b1ae207bb4ddbb164c
+  Highway: 391f8f58895d5a47599a0119f60f349e432c0287
   SwiftFormat: 7e7b810d61b0518ea30d3753051ebde546ae4c0b
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 

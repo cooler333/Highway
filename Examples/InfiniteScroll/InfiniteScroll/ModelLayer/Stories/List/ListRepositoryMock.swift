@@ -13,7 +13,7 @@ final class ListRepositoryMock {}
 extension ListRepositoryMock: ListRepositoryProtocol {
     func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
         let pageLengthRandom = Int.random(in: 0...4)
-        let _pageLength = pageLengthRandom != 0 ? pageLength : Int(round(Double(pageLength / 2)))
+        let internalPageLength = pageLengthRandom != 0 ? pageLength : Int(round(Double(pageLength / 2)))
 
         if currentPage == 0 {
             let refreshRandom = Int.random(in: 0...5)
@@ -24,7 +24,10 @@ extension ListRepositoryMock: ListRepositoryProtocol {
                     if refreshError {
                         promise(.failure(URLError(.notConnectedToInternet)))
                     } else {
-                        promise(.success(self.generateModels(count: _pageLength, searchText: searchText)))
+                        promise(.success(self.generateModels(
+                            count: internalPageLength,
+                            searchText: searchText
+                        )))
                     }
                 }
             }.eraseToAnyPublisher()
@@ -37,7 +40,7 @@ extension ListRepositoryMock: ListRepositoryProtocol {
                     if nextPageError {
                         promise(.failure(URLError(.notConnectedToInternet)))
                     } else {
-                        promise(.success(self.generateModels(count: _pageLength, searchText: searchText)))
+                        promise(.success(self.generateModels(count: internalPageLength, searchText: searchText)))
                     }
                 }
             }.eraseToAnyPublisher()

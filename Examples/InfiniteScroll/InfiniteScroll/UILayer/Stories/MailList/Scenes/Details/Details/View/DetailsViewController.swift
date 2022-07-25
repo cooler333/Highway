@@ -10,7 +10,6 @@ import Highway
 import UIKit
 
 class DetailsViewController: UIViewController {
-
     private let store: Store<MailListState.List, String>
 
     private var cancellable = Set<AnyCancellable>()

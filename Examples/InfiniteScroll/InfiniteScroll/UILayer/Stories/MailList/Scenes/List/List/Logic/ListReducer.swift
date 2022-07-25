@@ -9,6 +9,7 @@ import Foundation
 import Highway
 
 extension ListFeature {
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     static func getReducer() -> Reducer<MailListState.List, ListAction> {
         return Reducer<MailListState.List, ListAction> { state, action in
             switch action {
@@ -78,8 +79,8 @@ extension ListFeature {
                 return state
 
             case .initial,
-                    .receiveCancelAllRequests,
-                    .screenDidOpen:
+                 .receiveCancelAllRequests,
+                 .screenDidOpen:
                 return state
             }
         }

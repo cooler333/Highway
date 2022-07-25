@@ -54,7 +54,7 @@ enum PingPongFeature {
 
     static func middlewares(environment: Environment) -> [Middleware<AppState, Action>] {
         return [
-            createMiddleware({ dispatch, getState, action in
+            createMiddleware { dispatch, getState, _ in
                 let state = getState()
 
                 if state.playType == .paused {
@@ -78,7 +78,7 @@ enum PingPongFeature {
                     }
                     .store(in: &environment.cancellable)
                 }
-            })
+            },
         ]
     }
 }

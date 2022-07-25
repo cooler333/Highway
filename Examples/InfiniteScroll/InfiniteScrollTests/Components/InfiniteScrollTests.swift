@@ -12,6 +12,7 @@ import XCTest
 
 @testable import InfiniteScroll
 
+// swiftlint:disable:next type_body_length
 class InfiniteScrollTests: XCTestCase {
     var infiniteScrollRepository: InfiniteScrollRepositoryProtocolMock!
 
@@ -73,6 +74,7 @@ class InfiniteScrollTests: XCTestCase {
         // unused
     }
 
+    // swiftlint:disable:next function_body_length
     func testNextPage() throws {
         // Arrange
         let finalExpectation = expectation(description: "final")
@@ -84,6 +86,7 @@ class InfiniteScrollTests: XCTestCase {
                 },
                 isListEnded: false
             ) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     let data = (15...15).map { index in
                         InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -112,6 +115,7 @@ class InfiniteScrollTests: XCTestCase {
         }.store(in: &cancellable)
 
         // Act
+        // swiftlint:disable:next line_length
         infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
             let data = (0...14).map { index in
                 InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -164,6 +168,7 @@ class InfiniteScrollTests: XCTestCase {
         XCTAssertEqual(states, referenseStates)
     }
 
+    // swiftlint:disable:next function_body_length
     func testRefresh() throws {
         // Arrange
         let finalExpectation = expectation(description: "final")
@@ -175,6 +180,7 @@ class InfiniteScrollTests: XCTestCase {
                 },
                 isListEnded: false
             ) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     let data = (15...20).map { index in
                         InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -203,6 +209,7 @@ class InfiniteScrollTests: XCTestCase {
         }.store(in: &cancellable)
 
         // Act
+        // swiftlint:disable:next line_length
         infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
             let data = (0...14).map { index in
                 InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -255,6 +262,7 @@ class InfiniteScrollTests: XCTestCase {
         XCTAssertEqual(states, referenseStates)
     }
 
+    // swiftlint:disable:next function_body_length
     func testNextPageError() throws {
         // Arrange
         let finalExpectation = expectation(description: "final")
@@ -266,6 +274,7 @@ class InfiniteScrollTests: XCTestCase {
                 },
                 isListEnded: false
             ) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     promise(.failure(URLError(.notConnectedToInternet)))
                 }).eraseToAnyPublisher()
@@ -292,6 +301,7 @@ class InfiniteScrollTests: XCTestCase {
         }.store(in: &cancellable)
 
         // Act
+        // swiftlint:disable:next line_length
         infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
             let data = (0...14).map { index in
                 InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -345,6 +355,7 @@ class InfiniteScrollTests: XCTestCase {
         XCTAssertEqual(states, referenseStates)
     }
 
+    // swiftlint:disable:next function_body_length
     func testRefreshError() throws {
         // Arrange
         let finalExpectation = expectation(description: "final")
@@ -356,6 +367,7 @@ class InfiniteScrollTests: XCTestCase {
                 },
                 isListEnded: false
             ) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     promise(.failure(URLError(.notConnectedToInternet)))
                 }).eraseToAnyPublisher()
@@ -382,6 +394,7 @@ class InfiniteScrollTests: XCTestCase {
         }.store(in: &cancellable)
 
         // Act
+        // swiftlint:disable:next line_length
         infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
             let data = (0...14).map { index in
                 InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -435,6 +448,7 @@ class InfiniteScrollTests: XCTestCase {
         XCTAssertEqual(states, referenseStates)
     }
 
+    // swiftlint:disable:next function_body_length
     func testRetryLoadNextPageOnError() throws {
         // Arrange
         let finalExpectation = expectation(description: "final")
@@ -446,6 +460,7 @@ class InfiniteScrollTests: XCTestCase {
                 },
                 isListEnded: false
             ) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     promise(.failure(URLError(.notConnectedToInternet)))
                 }).eraseToAnyPublisher()
@@ -453,6 +468,7 @@ class InfiniteScrollTests: XCTestCase {
             }
 
             if event == .updateDataWithError(error: .networkError) {
+                // swiftlint:disable:next line_length
                 self.infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
                     let data = (15...20).map { index in
                         InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -481,6 +497,7 @@ class InfiniteScrollTests: XCTestCase {
         }.store(in: &cancellable)
 
         // Act
+        // swiftlint:disable:next line_length
         infiniteScrollRepository.getInfiniteScrollsWithPageLengthReturnValue = Future<[InfiniteScrollModel], Error>({ promise in
             let data = (0...14).map { index in
                 InfiniteScrollModel(title: "\(index)", subtitle: "", id: "", details: "")
@@ -494,7 +511,10 @@ class InfiniteScrollTests: XCTestCase {
 
         let referenseStates: [InfiniteScrollViewState] = [
             InfiniteScrollViewState(contentState: .content(data: [], isListEnded: false)),
-            InfiniteScrollViewState(contentState: .loading(previousData: [], state: InfiniteScroll.LCEPagedLoadingState.refresh)),
+            InfiniteScrollViewState(contentState: .loading(
+                previousData: [],
+                state: InfiniteScroll.LCEPagedLoadingState.refresh
+            )),
             InfiniteScrollViewState(
                 contentState: .content(
                     data: (0...14).map { index in
@@ -539,5 +559,5 @@ class InfiniteScrollTests: XCTestCase {
         ]
         XCTAssertEqual(states, referenseStates)
     }
+    // swiftlint:disable:next file_length
 }
-

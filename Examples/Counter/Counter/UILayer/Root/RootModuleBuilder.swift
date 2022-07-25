@@ -12,9 +12,9 @@ import UIKit
 struct RootModuleBuilder {
     func build(stateStorage: StateStorageProtocol) -> UIViewController {
         let store = Store<AppState, RootAction>(
-            reducer: .init({ state, action in
-                return state
-            }),
+            reducer: .init { state, _ in
+                state
+            },
             state: stateStorage.getState() ?? .init(),
             initialAction: .initial
         )

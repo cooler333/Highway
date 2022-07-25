@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol DetailsModuleOutput: AnyObject {
-
-}
+protocol DetailsModuleOutput: AnyObject {}

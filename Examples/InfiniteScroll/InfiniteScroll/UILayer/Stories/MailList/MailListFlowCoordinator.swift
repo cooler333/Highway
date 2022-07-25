@@ -69,6 +69,4 @@ final class MailListFlowCoordinator: FlowCoordinatorProtocol {
     }
 }
 
-extension MailListFlowCoordinator: MailListModuleOutput {
-
-}
+extension MailListFlowCoordinator: MailListModuleOutput {}

@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import UIKit
 import Highway
+import UIKit
 
 final class RootViewController: UISplitViewController {
-
     private let store: Store<RootFeature.State, RootFeature.Action>
     private let mainViewControllerFactory: () -> UIViewController
     private let detailsViewControllerFactory: () -> UIViewController
@@ -23,7 +22,7 @@ final class RootViewController: UISplitViewController {
         self.store = store
         self.mainViewControllerFactory = mainViewControllerFactory
         self.detailsViewControllerFactory = detailsViewControllerFactory
-        
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,10 +30,10 @@ final class RootViewController: UISplitViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewControllers = [mainViewControllerFactory(), detailsViewControllerFactory()]
     }
 }

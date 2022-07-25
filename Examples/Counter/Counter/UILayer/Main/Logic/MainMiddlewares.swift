@@ -14,27 +14,27 @@ extension MainFeature {
     ) -> [Middleware<AppState, Action>] {
         return [
             onChangeSaveMiddleware(),
-            saveMiddleware(stateStorage: stateStorage)
+            saveMiddleware(stateStorage: stateStorage),
         ]
     }
-    
+
     private static func onChangeSaveMiddleware() -> Middleware<AppState, Action> {
-        createMiddleware({ dispatch, getState, action in
+        createMiddleware { dispatch, _, action in
             switch action {
             case .increment, .decrement:
                 dispatch(.save)
             default:
                 break
             }
-        })
+        }
     }
-    
+
     private static func saveMiddleware(
         stateStorage: StateStorageProtocol
     ) -> Middleware<AppState, Action> {
         createMiddleware(
             environment: stateStorage,
-            { dispatch, getState, action, environment in
+            { dispatch, getState, action, _ in
                 guard action == .save else { return }
                 var state = getState()
                 state.isSaving = false

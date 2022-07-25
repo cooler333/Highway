@@ -22,6 +22,7 @@ extension ListFeature {
 }
 
 extension ListFeature {
+    // swiftlint:disable:next function_body_length
     static func getPageLoadingMiddleware(
         environment: ListEnvironment
     ) -> Middleware<MailListState.List, ListAction> {
@@ -123,14 +124,14 @@ class Check {
     }
 }
 
-
 extension ListFeature {
+    // swiftlint:disable:next cyclomatic_complexity
     static func getLoggerMiddleware(
         environment: ListEnvironment
     ) -> Middleware<MailListState.List, ListAction> {
         createMiddleware(
             environment: environment,
-            { dispatch, getState, action, environment in
+            { _, getState, action, _ in
                 let state = getState()
                 switch action {
                 case let .addNextPageInList(result):
@@ -145,16 +146,20 @@ extension ListFeature {
                 case let .updateInitialPageInList(result):
                     switch result {
                     case let .success(data):
+                        // swiftlint:disable:next line_length
                         print(Date(), "[updateInitialPageInList] count: \(data.count), searchText: \(state.searchText ?? "nil")")
 
                     case let .failure(error):
+                        // swiftlint:disable:next line_length
                         print(Date(), "[updateInitialPageInList] error: \(error.localizedDescription), searchText: \(state.searchText ?? "nil")")
                     }
 
                 case .fetchInitialPageInList:
+                    // swiftlint:disable:next line_length
                     print(Date(), "[fetchInitialPageInList] page: \(state.currentPage), searchText: \(state.searchText ?? "nil")")
 
                 case .fetchNextPageInList:
+                    // swiftlint:disable:next line_length
                     print(Date(), "[fetchNextPageInList] page: \(state.currentPage), searchText: \(state.searchText ?? "nil")")
 
                 case let .search(searchText):
