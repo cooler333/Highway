@@ -35,6 +35,10 @@ If you were looking for a something like this:
 
 https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
 
+## Scheme
+
+![Scheme](Resources/ChildStoreScheme.png)
+
 #### Other
 - [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
 - [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
