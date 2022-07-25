@@ -1,10 +1,12 @@
 PODS:
   - Highway (0.15.0)
+  - Highway/HighwayTests (0.15.0)
   - SwiftFormat/CLI (0.49.10)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
   - Highway (from `../../`)
+  - Highway/HighwayTests (from `../../`)
   - SwiftFormat/CLI
   - SwiftLint
 
@@ -22,6 +24,6 @@ SPEC CHECKSUMS:
   SwiftFormat: 7e7b810d61b0518ea30d3753051ebde546ae4c0b
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 4b2fd789a291fff7d9398fd46f62fd3944a581a9
+PODFILE CHECKSUM: d23771fdb60fa9a8daba2f13c2b8fa64c869130e
 
 COCOAPODS: 1.11.3

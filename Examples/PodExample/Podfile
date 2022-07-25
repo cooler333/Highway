@@ -6,7 +6,7 @@ target 'Highway_Example' do
   pod 'SwiftLint'
   pod 'SwiftFormat/CLI'
 
-  pod 'Highway', :path => '../../'#, testspecs: ["Tests"]
+  pod 'Highway', :path => '../../', testspecs: ["HighwayTests"]
 
   target 'Highway_Tests' do
     inherit! :search_paths
