@@ -8,7 +8,32 @@
 import Foundation
 
 struct AppState {
-    var isOn = false
+    enum State {
+        case normal
+        case highlighted
+        case disabled
+    }
+    
+    struct BoolData: Equatable {
+        var id: String
+        var isOn: Bool
+        var state: State
+    }
+
+    struct SegmentData: Equatable {
+        var id: String
+        var segments: [String]
+        var selectedIndex: Int
+        var state: State
+    }
+
+    enum DataType: Equatable {
+        case boolData(BoolData)
+        case segmentData(SegmentData)
+    }
+
+    var data: [DataType] = []
+
     var shouldReset = false
 }
 

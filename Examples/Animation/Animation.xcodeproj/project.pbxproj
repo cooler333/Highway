@@ -16,6 +16,8 @@
 		1C17520328848D350002DAB3 /* RootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C17520128848D350002DAB3 /* RootFeature.swift */; };
 		1C17520428848D350002DAB3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C17520228848D350002DAB3 /* RootViewController.swift */; };
 		1C17520628848D520002DAB3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C17520528848D520002DAB3 /* AppState.swift */; };
+		1CAB14F8288F363B00953265 /* SegmentedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CAB14F7288F363B00953265 /* SegmentedTableViewCell.swift */; };
+		1CDCF6262895C98800AA7596 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCF6252895C98800AA7596 /* SwitchTableViewCell.swift */; };
 		6EC9055043ED8B5109722B72 /* Pods_Animation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77E6834FA7456F988E4D1E1 /* Pods_Animation.framework */; };
 		FF0C1C8256D4A18BBA07A5E1 /* Pods_AnimationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17763729A0FF64E79C47308D /* Pods_AnimationTests.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,8 @@
 		1C17520128848D350002DAB3 /* RootFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
 		1C17520228848D350002DAB3 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		1C17520528848D520002DAB3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		1CAB14F7288F363B00953265 /* SegmentedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedTableViewCell.swift; sourceTree = "<group>"; };
+		1CDCF6252895C98800AA7596 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		A6D7CA1B2456DCDA0F7C2C37 /* Pods-Animation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Animation.release.xcconfig"; path = "Target Support Files/Pods-Animation/Pods-Animation.release.xcconfig"; sourceTree = "<group>"; };
 		BD60ECA6E303B7C82A1BFFA3 /* Pods-Animation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Animation.debug.xcconfig"; path = "Target Support Files/Pods-Animation/Pods-Animation.debug.xcconfig"; sourceTree = "<group>"; };
 		C42E3DCB7421923A21E26990 /* Pods-AnimationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimationTests/Pods-AnimationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				1C1751FF28848D0C0002DAB3 /* RootModuleBuilder.swift */,
 				1C17520228848D350002DAB3 /* RootViewController.swift */,
 				1C17520128848D350002DAB3 /* RootFeature.swift */,
+				1CDCF6252895C98800AA7596 /* SwitchTableViewCell.swift */,
+				1CAB14F7288F363B00953265 /* SegmentedTableViewCell.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -335,10 +341,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C17520428848D350002DAB3 /* RootViewController.swift in Sources */,
+				1CDCF6262895C98800AA7596 /* SwitchTableViewCell.swift in Sources */,
 				1C17520328848D350002DAB3 /* RootFeature.swift in Sources */,
 				1C1751CD28848C3D0002DAB3 /* AppDelegate.swift in Sources */,
 				1C17520628848D520002DAB3 /* AppState.swift in Sources */,
 				1C1751CF28848C3D0002DAB3 /* SceneDelegate.swift in Sources */,
+				1CAB14F8288F363B00953265 /* SegmentedTableViewCell.swift in Sources */,
 				1C17520028848D0C0002DAB3 /* RootModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
