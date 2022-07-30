@@ -1,22 +1,11 @@
 # Highway
 
-Highway is implementation of Redux-like architecture pattern using Swift.
-
-If you were looking for a something like this: 
-- TEA (The Elm Architecture)
-- MVU (Model-View-Update)
-- MVI (Model-View-Intent)
-- Redux-like
-- Flux-like
-- UDF (Unidirectional Data Flow)
-- e.t.c
-
-...but on Swift. Then you have found it!
+Highway is an implementation of Redux-like architecture pattern using Swift.
 
 ## Features
 
-- Multistore support (single state sharing)
-- Fast state change and sync
+- Child stores
+- Fast state updates
 - 100% business logic code coverage
 - Lightweight
 - Do not use 3rd party libraries
@@ -66,13 +55,13 @@ Also you can integrate framework as SPM package
 - [Swift Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture)
 - [Tea In Swift](https://github.com/chriseidhof/tea-in-swift)
 - [SwiftRex](https://github.com/SwiftRex/SwiftRex)
+- [Katana](https://github.com/BendingSpoons/katana-swift)
+- [ReactorKit](https://github.com/ReactorKit/ReactorKit)
 - [More](https://github.com/onmyway133/awesome-ios-architecture#unidirectional-data-flow)
 
 ## TODO:
 
-- Visual Scheme
 - App tests examples (E2E, Unit)
-- Update UIStack to UITableView in Animation example
 - Reusable views with ViewStore
 - UIView modules
 - Collapsable UITableView
