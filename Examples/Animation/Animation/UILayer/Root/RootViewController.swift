@@ -8,14 +8,111 @@
 import Highway
 import UIKit
 
-class RootViewController: UIViewController {
-    private let store: Store<AppState, RootAction>
+protocol ContentHashable {
+    func contentHash(into hasher: inout Hasher)
+}
 
-    private var stackView: UIStackView!
+class RootViewController: UIViewController {
+    enum ItemType: Hashable, ContentHashable {
+        case switchItem(SwitchItem)
+        case segmentItem(SegmentItem)
+
+        func hash(into hasher: inout Hasher) {
+            switch self {
+            case let .switchItem(item):
+                item.hash(into: &hasher)
+
+            case let .segmentItem(item):
+                item.hash(into: &hasher)
+            }
+        }
+
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            switch (lhs, rhs) {
+            case (let .switchItem(lhsItem), let .switchItem(rhsItem)):
+                return lhsItem == rhsItem
+
+            case (let .segmentItem(lhsItem), let .segmentItem(rhsItem)):
+                return lhsItem == rhsItem
+
+            default:
+                return false
+            }
+        }
+
+        func contentHash(into hasher: inout Hasher) {
+            switch self {
+            case let .switchItem(item):
+                item.contentHash(into: &hasher)
+
+            case let .segmentItem(item):
+                item.contentHash(into: &hasher)
+            }
+        }
+    }
+
+    struct SwitchItem: Hashable, ContentHashable {
+        enum Size {
+            case normal
+            case small
+            case large
+        }
+
+        let id: String
+        let isOn: Bool
+        let size: Size
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.id == rhs.id
+        }
+
+        func contentHash(into hasher: inout Hasher) {
+            hasher.combine(id)
+            hasher.combine(isOn)
+            hasher.combine(size)
+        }
+    }
+
+    struct SegmentItem: Hashable, ContentHashable {
+        enum Size {
+            case normal
+            case small
+            case large
+        }
+
+        let id: String
+        let segments: [String]
+        let selectedIndex: Int
+        let size: Size
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.id == rhs.id
+        }
+
+        func contentHash(into hasher: inout Hasher) {
+            hasher.combine(id)
+            hasher.combine(segments)
+            hasher.combine(selectedIndex)
+            hasher.combine(size)
+        }
+    }
+
+    private let store: Store<AppState, RootFeature.Action>
+
+    private var tableView: UITableView!
+    private var dataSource: UITableViewDiffableDataSource<Int, ItemType>!
     private var switches: [UISwitch] = []
 
     init(
-        store: Store<AppState, RootAction>
+        store: Store<AppState, RootFeature.Action>
     ) {
         self.store = store
 
@@ -32,14 +129,8 @@ class RootViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
 
-        createStackView()
-        addSwitch()
-        addSwitch()
-        addSwitch()
-        addSwitch()
-        addSwitch()
-        addSwitch()
-        addReset()
+        createTableView()
+        createDataSource()
 
         render(state: store.state)
         store.subscribe { [weak self] state in
@@ -50,118 +141,142 @@ class RootViewController: UIViewController {
     }
 
     private func render(state: AppState) {
-        if state.shouldReset {
-            switches.forEach { uiswitch in
-                playResetSizeAnimation(uiswitch: uiswitch)
-            }
-            store.dispatch(.resetted)
-        } else {
-            switches.forEach { uiswitch in
-                if uiswitch.isOn != state.isOn {
-                    uiswitch.setOn(state.isOn, animated: true)
+        var snapshot = NSDiffableDataSourceSnapshot<Int, ItemType>()
+        snapshot.appendSections([0])
+        let newData = state.data.map({ element -> ItemType in
+            switch element {
+            case let .boolData(boolData):
+                let item = SwitchItem(
+                    id: boolData.id,
+                    isOn: boolData.isOn,
+                    size: {
+                        switch boolData.state {
+                        case .highlighted:
+                            return .large
+                        case .normal:
+                            return .normal
+                        case .disabled:
+                            return .small
+                        }
+                    }()
+                )
+                return ItemType.switchItem(item)
 
-                    if state.isOn {
-                        playSwitchOnAnimation(uiswitch: uiswitch)
-                    } else {
-                        playSwitchOffAnimation(uiswitch: uiswitch)
+            case let .segmentData(segmentData):
+                let item = SegmentItem(
+                    id: segmentData.id,
+                    segments: segmentData.segments,
+                    selectedIndex: segmentData.selectedIndex,
+                    size: {
+                        switch segmentData.state {
+                        case .highlighted:
+                            return .large
+                        case .normal:
+                            return .normal
+                        case .disabled:
+                            return .small
+                        }
+                    }()
+                )
+                return ItemType.segmentItem(item)
+            }
+        })
+        snapshot.appendItems(newData)
+
+        let previousSnapshot = dataSource.snapshot()
+        previousSnapshot.sectionIdentifiers.forEach { sectionIdentifier in
+            if snapshot.sectionIdentifiers.contains(sectionIdentifier) {
+                if let foundItem = snapshot.itemIdentifiers(inSection: sectionIdentifier).first(where: { itemIdentifier in
+                    newData.contains(itemIdentifier)
+                }) {
+                    var foundItemHasher = Hasher()
+                    foundItem.contentHash(into: &foundItemHasher)
+                    let foundItemHash = foundItemHasher.finalize()
+
+                    let foundItemType = newData.first { itemType in
+                        itemType == foundItem
+                    }!
+
+                    var foundItemTypeHasher = Hasher()
+                    foundItemType.contentHash(into: &foundItemTypeHasher)
+                    let foundItemTypeHash = foundItemTypeHasher.finalize()
+
+                    if foundItemHash != foundItemTypeHash {
+                        if #available(iOS 15.0, *) {
+                            snapshot.reconfigureItems([foundItem])
+                        } else {
+                            // Fallback on earlier versions
+                        }
                     }
-                } else {
-                    playResetSizeAnimation(uiswitch: uiswitch)
                 }
+
             }
         }
+        dataSource.apply(snapshot)
     }
 
-    private func playSwitchOnAnimation(uiswitch: UISwitch) {
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            options: [.allowUserInteraction],
-            animations: {
-                uiswitch.transform = CGAffineTransform(scaleX: 2, y: 2)
-            }, completion: { completed in
-                if !completed {
-                    uiswitch.transform = .identity
-                }
-            }
-        )
-    }
-
-    private func playSwitchOffAnimation(uiswitch: UISwitch) {
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            options: [.allowUserInteraction],
-            animations: {
-                uiswitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            }, completion: { completed in
-                if !completed {
-                    uiswitch.transform = CGAffineTransform.identity
-                }
-            }
-        )
-    }
-
-    private func playResetSizeAnimation(uiswitch: UISwitch) {
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            options: [.allowUserInteraction],
-            animations: {
-                uiswitch.transform = .identity
-            }, completion: { completed in
-                if !completed {
-                    uiswitch.transform = CGAffineTransform.identity
-                }
-            }
-        )
-    }
-
-    private func createStackView() {
-        let stackView = UIStackView()
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        let stackViewConstraints = [
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+    private func createTableView() {
+        let tableView = UITableView()
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        let tableViewConstraints = [
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ]
-        stackViewConstraints.forEach { $0.isActive = true }
+        tableViewConstraints.forEach { $0.isActive = true }
 
-        stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 20
-        stackView.alignment = .center
+        self.tableView = tableView
 
-        self.stackView = stackView
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "SwitchTableViewCell")
+        tableView.register(SegmentedTableViewCell.self, forCellReuseIdentifier: "SegmentedTableViewCell")
     }
 
-    private func addSwitch() {
-        let uiswitch = UISwitch()
-        stackView.addArrangedSubview(uiswitch)
-        uiswitch.addTarget(self, action: #selector(switchDidTap), for: .valueChanged)
-        switches.append(uiswitch)
+    private func createDataSource() {
+        let dataSource = UITableViewDiffableDataSource<Int, ItemType>(
+            tableView: tableView,
+            cellProvider: { [unowned self] tableView, indexPath, itemIdentifier in
+                self.getCell(for: tableView, indexPath: indexPath, itemIdentifier: itemIdentifier)
+            }
+        )
+        dataSource.defaultRowAnimation = .right
+
+        self.dataSource = dataSource
     }
 
-    @IBAction
-    private func switchDidTap(_ uiswitch: UISwitch) {
-        if uiswitch.isOn {
-            store.dispatch(.setOn)
-        } else {
-            store.dispatch(.setOff)
+    private func getCell(for tableView: UITableView, indexPath: IndexPath, itemIdentifier: ItemType) -> UITableViewCell {
+        switch itemIdentifier {
+        case .switchItem(let item):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "SwitchTableViewCell",
+                for: indexPath
+            ) as! SwitchTableViewCell
+            let id = item.id
+            cell.configure(isOn: item.isOn, switchDidChange: { [weak self, id] isOn in
+                guard let self = self else { return }
+                if isOn {
+                    self.store.dispatch(.setOn(id: id))
+                } else {
+                    self.store.dispatch(.setOff(id: id))
+                }
+            })
+            return cell
+
+        case let .segmentItem(item):
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "SegmentedTableViewCell",
+                for: indexPath
+            ) as! SegmentedTableViewCell
+            let id = item.id
+            cell.configure(
+                segments: item.segments,
+                selectedIndex: item.selectedIndex,
+                segmentDidChange: { [weak self] selectedIndex in
+                    print(selectedIndex)
+                }
+            )
+            return cell
         }
-    }
-
-    private func addReset() {
-        let resetButton = UIButton(type: .system)
-        stackView.addArrangedSubview(resetButton)
-        resetButton.addTarget(self, action: #selector(resetButtonDidTap), for: .touchUpInside)
-        resetButton.setTitle("Reset", for: .normal)
-    }
-
-    @IBAction
-    private func resetButtonDidTap() {
-        store.dispatch(.reset)
     }
 }
