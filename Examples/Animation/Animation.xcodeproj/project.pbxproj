@@ -148,7 +148,6 @@
 		1C17520728848D630002DAB3 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				1CDCF62A2896BC9F00AA7596 /* Helpers */,
 				1C1751FF28848D0C0002DAB3 /* RootModuleBuilder.swift */,
 				1C17520128848D350002DAB3 /* RootFeature.swift */,
 				1CDCF6282896B67F00AA7596 /* View */,
@@ -170,6 +169,7 @@
 			children = (
 				1C17520228848D350002DAB3 /* RootViewController.swift */,
 				1CDCF6272896B67800AA7596 /* Cells */,
+				1CDCF62A2896BC9F00AA7596 /* Helpers */,
 			);
 			path = View;
 			sourceTree = "<group>";
