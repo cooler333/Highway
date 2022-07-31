@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SwitchTableViewCell: UITableViewCell {
+final class SwitchTableViewCell: UITableViewCell {
 
     private var uiSwitch: UISwitch!
     private var switchDidChange: ((Bool) -> Void)!
@@ -46,41 +46,57 @@ class SwitchTableViewCell: UITableViewCell {
         if #available(iOS 15, *) {
             if uiSwitch.isOn != isOn {
                 uiSwitch.setOn(isOn, animated: true)
+                if isOn {
+                    self.playSwitchOnAnimation(uiSwitch: self.uiSwitch)
+                } else {
+                    self.playSwitchOffAnimation(uiSwitch: self.uiSwitch)
+                }
             }
         } else {
             self.uiSwitch.setOn(!isOn, animated: false)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if !isOn {
+                self.uiSwitch.transform = CGAffineTransform(scaleX: 2, y: 2)
+            } else {
+                self.uiSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            }
+
+            DispatchQueue.main.async {
                 self.uiSwitch.setOn(isOn, animated: true)
+                if isOn {
+                    self.playSwitchOnAnimation(uiSwitch: self.uiSwitch)
+                } else {
+                    self.playSwitchOffAnimation(uiSwitch: self.uiSwitch)
+                }
             }
         }
         self.switchDidChange = switchDidChange
     }
 
-    private func playSwitchOnAnimation(uiswitch: UISwitch) {
+    private func playSwitchOnAnimation(uiSwitch: UISwitch) {
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.25,
             delay: 0,
             options: [.allowUserInteraction],
             animations: {
-                uiswitch.transform = CGAffineTransform(scaleX: 2, y: 2)
+                uiSwitch.transform = CGAffineTransform(scaleX: 2, y: 2)
             }, completion: { completed in
                 if !completed {
-                    uiswitch.transform = .identity
+                    uiSwitch.transform = .identity
                 }
             }
         )
     }
 
-    private func playSwitchOffAnimation(uiswitch: UISwitch) {
+    private func playSwitchOffAnimation(uiSwitch: UISwitch) {
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.25,
             delay: 0,
             options: [.allowUserInteraction],
             animations: {
-                uiswitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                uiSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             }, completion: { completed in
                 if !completed {
-                    uiswitch.transform = CGAffineTransform.identity
+                    uiSwitch.transform = CGAffineTransform.identity
                 }
             }
         )
