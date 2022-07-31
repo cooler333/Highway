@@ -69,6 +69,7 @@ Also you can integrate framework as SPM package
 - Collapsable UITableView
 - Modern CollectionView
 - Add pros and cons to alternatives
+- SwiftUI list with animations
 
 ## Author
 
