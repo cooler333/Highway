@@ -19,8 +19,8 @@ Highway is an implementation of Redux-like architecture pattern using Swift.
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
 - [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
 - [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside cell in TableView using DiffableDataSource
-- [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/AnimatedEditableList): TableView with animations (deletions/insertions) and syncronisation (run on iPad)
-- [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.) (run on iPad)
+- [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/AnimatedEditableList): TableView with animations (deletions/insertions) and syncronisation
+- [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
 https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
 
@@ -68,7 +68,6 @@ Also you can integrate framework as SPM package
 - UIView modules (separated frameworks)
 - Collapsable UITableView
 - Modern CollectionView
-- Remove iPhone from iPad preffered examples
 - Add pros and cons to alternatives
 
 ## Author
