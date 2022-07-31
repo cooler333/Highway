@@ -8,7 +8,7 @@
 import Highway
 import UIKit
 
-class RootViewController: UIViewController {
+final class RootViewController: UIViewController {
     private let store: Store<AppState, RootFeature.Action>
 
     private var tableView: UITableView!
@@ -171,7 +171,7 @@ extension RootViewController: UITableViewDelegate {
     }
 }
 
-extension RootViewController {
+private extension RootViewController {
     /// [apple reference example](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/updating_collection_views_using_diffable_data_sources)
     func reconfigure(
         previousSnapshot: NSDiffableDataSourceSnapshot<ContentSectionIdentifier, ContentIdentifier>,
@@ -215,9 +215,9 @@ extension RootViewController {
                         }
                         if contentIdentifier.contentHashValue != previousContentIdentifier.contentHashValue {
                             if #available(iOS 15.0, *) {
-                                newSnapshot.reconfigureItems([previousContentIdentifier])
+                                newSnapshot.reconfigureItems([contentIdentifier])
                             } else {
-                                newSnapshot.reloadItems([previousContentIdentifier])
+                                newSnapshot.reloadItems([contentIdentifier])
                             }
                         }
                     }

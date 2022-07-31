@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SegmentedTableViewCell: UITableViewCell {
+final class SegmentedTableViewCell: UITableViewCell {
 
     private var segmentedControl: UISegmentedControl!
     private var segmentDidChange: ((Int) -> Void)!
