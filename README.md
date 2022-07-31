@@ -1,6 +1,7 @@
-# Highway
 
-Highway is an implementation of Redux-like architecture pattern using Swift.
+# Highway - create more product value in less time
+
+Highway is an Redux-like architecture pattern implementation with Swift.
 
 ## Features
 
@@ -70,6 +71,7 @@ Also you can integrate framework as SPM package
 - Modern CollectionView
 - Add pros and cons to alternatives
 - SwiftUI list with animations
+- Update description
 
 ## Author
 

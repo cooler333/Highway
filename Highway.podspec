@@ -1,10 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = "Highway"
-  s.version          = "0.15.0"
-  s.summary          = "Unidirectional Data Flow in Swift"
+  s.version          = "0.16.0"
+  s.summary          = "Fast Multi-store Redux-like architecture framework for iOS/OSX applications"
   s.description      = <<-DESC
-                        Highway is a mix of Redux-like and The Elm Architecture implementation of the unidirectional data flow architecture in Swift.
-                        It brings best of them to iOS Development.
+                        Fast Multi-store Redux-like architecture framework for iOS/OSX applications.
+                        You can easily maintain your app/screen/view state. Forgot about multithread state mutation problem or complex state changes.
+                        Make more product value in less time.
                         DESC
   s.homepage         = "https://github.com/cooler333/Highway"
   s.license          = { :type => "MIT", :file => "LICENSE.md" }
