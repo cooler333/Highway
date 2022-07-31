@@ -8,6 +8,6 @@
 import Foundation
 import Highway
 
-enum RootAction {
+enum ImperativeRootAction {
     case initial
 }

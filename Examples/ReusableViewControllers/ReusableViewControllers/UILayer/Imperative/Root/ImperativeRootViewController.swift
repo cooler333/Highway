@@ -8,8 +8,8 @@
 import Highway
 import UIKit
 
-class RootViewController: UIViewController {
-    private let store: Store<AppState, RootAction>
+class ImperativeRootViewController: UIViewController {
+    private let store: Store<AppState, ImperativeRootAction>
 
     private let topViewControllerFactory: () -> UIViewController
     private let bottomViewControllerFactory: () -> UIViewController
@@ -17,7 +17,7 @@ class RootViewController: UIViewController {
     private var label: UILabel!
 
     init(
-        store: Store<AppState, RootAction>,
+        store: Store<AppState, ImperativeRootAction>,
         topViewControllerFactory: @escaping () -> UIViewController,
         bottomViewControllerFactory: @escaping () -> UIViewController
     ) {
@@ -39,13 +39,15 @@ class RootViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
 
-        embedMainViewController()
-        embedCounterViewController()
+        embedTopViewController()
+        embedBottomViewController()
         setupLabel()
 
         render(state: store.state)
         store.subscribe { [weak self] state in
-            self?.render(state: state)
+            DispatchQueue.main.async { [weak self] in
+                self?.render(state: state)
+            }
         }
     }
 
@@ -53,7 +55,7 @@ class RootViewController: UIViewController {
         label.text = "\(state.count)"
     }
 
-    private func embedMainViewController() {
+    private func embedTopViewController() {
         let topContainerView = UIView()
         view.addSubview(topContainerView)
         topContainerView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +71,7 @@ class RootViewController: UIViewController {
         addChild(topViewController, to: topContainerView)
     }
 
-    private func embedCounterViewController() {
+    private func embedBottomViewController() {
         let bottomContainerView = UIView()
         view.addSubview(bottomContainerView)
         bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
