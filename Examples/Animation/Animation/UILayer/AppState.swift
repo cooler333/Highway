@@ -27,12 +27,25 @@ struct AppState {
         var state: State
     }
 
+    struct HeaderData: Equatable {
+        var id: String
+        var title: String
+    }
+
     enum DataType: Equatable {
         case boolData(BoolData)
         case segmentData(SegmentData)
+        case headerData(HeaderData)
     }
 
-    var data: [DataType] = []
+
+    struct Section: Equatable {
+        var id: String
+        var value: String
+        var data: [DataType] = []
+    }
+
+    var data: [Section] = []
 
     var shouldReset = false
 }
