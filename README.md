@@ -17,7 +17,7 @@ Highway is an implementation of Redux-like architecture pattern using Swift.
 - [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
 - [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
-- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style
+- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
 - [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside cell in TableView using DiffableDataSource
 - [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/AnimatedEditableList): TableView with animations (deletions/insertions) and syncronisation (run on iPad)
 - [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.) (run on iPad)
@@ -65,7 +65,6 @@ Also you can integrate framework as SPM package
 
 - Add Animated scheme (including middleware)
 - App tests examples (E2E, Unit)
-- Reusable views with ViewStore
 - UIView modules (separated frameworks)
 - Collapsable UITableView
 - Modern CollectionView

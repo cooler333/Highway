@@ -9,9 +9,9 @@ import Foundation
 import Highway
 import UIKit
 
-struct RootModuleBuilder {
+struct ViewStoreRootModuleBuilder {
     func build() -> UIViewController {
-        let store = Store<AppState, RootAction>(
+        let store = Store<AppState, ViewStoreRootAction>(
             reducer: .init { state, _ in
                 state
             },
@@ -19,15 +19,15 @@ struct RootModuleBuilder {
             initialAction: .initial
         )
 
-        return RootViewController(
+        return ViewStoreRootViewController(
             store: store,
             topViewControllerFactory: {
-                TopModuleBuilder().build(
+                ViewStoreTopModuleBuilder().build(
                     storeCreator: store
                 )
             },
             bottomViewControllerFactory: {
-                BottomModuleBuilder().build(
+                ViewStoreBottomModuleBuilder().build(
                     storeCreator: store
                 )
             }

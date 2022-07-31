@@ -1,23 +1,30 @@
 //
-//  ReusableViewController.swift
+//  ViewStoreReusableViewController.swift
 //  ReusableViewControllers
 //
 //  Created by Dmitrii Coolerov on 13.07.2022.
 //
 
 import Foundation
+import Highway
 import UIKit
 
-protocol ReusableViewOutput: AnyObject {
-    func decrement()
-    func increment()
-    func getValue() -> Int
-}
+final class ViewStoreReusableViewController: UIViewController {
+    struct State: Equatable {
+        let value: String
+    }
 
-final class ReusableViewController: UIViewController {
-    private let output: ReusableViewOutput
-    init(output: ReusableViewOutput) {
-        self.output = output
+    enum Action {
+        case increment
+        case decrement
+    }
+
+    private let viewStore: ViewStore<State, Action>
+
+    private var currentValueLabel: UILabel!
+
+    init(viewStore: ViewStore<State, Action>) {
+        self.viewStore = viewStore
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,10 +36,22 @@ final class ReusableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .purple
 
         setupDecrementButton()
         setupIncrementButton()
+        setupCurrentValueLabel()
+
+        render(state: viewStore.state)
+        viewStore.subscribe { [weak self] state in
+            DispatchQueue.main.async { [weak self] in
+                self?.render(state: state)
+            }
+        }
+    }
+
+    private func render(state: State) {
+        self.currentValueLabel.text = state.value
     }
 
     private func setupDecrementButton() {
@@ -51,7 +70,7 @@ final class ReusableViewController: UIViewController {
     }
 
     @IBAction private func decrement() {
-        output.decrement()
+        viewStore.dispatch(.decrement)
     }
 
     private func setupIncrementButton() {
@@ -70,6 +89,21 @@ final class ReusableViewController: UIViewController {
     }
 
     @IBAction private func increment() {
-        output.increment()
+        viewStore.dispatch(.increment)
+    }
+
+    private func setupCurrentValueLabel() {
+        let currentValueLabel = UILabel()
+        view.addSubview(currentValueLabel)
+        currentValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        let currentValueLabelContstraints = [
+            currentValueLabel.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 30),
+            currentValueLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ]
+        currentValueLabelContstraints.forEach { $0.isActive = true }
+
+        self.currentValueLabel = currentValueLabel
+
+        currentValueLabel.textColor = .white
     }
 }

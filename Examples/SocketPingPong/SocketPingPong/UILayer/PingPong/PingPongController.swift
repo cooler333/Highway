@@ -33,7 +33,9 @@ final class PingPongViewController: UIViewController {
 
         render(state: store.state)
         store.subscribe { [weak self] state in
-            self?.render(state: state)
+            DispatchQueue.main.async { [weak self] in
+                self?.render(state: state)
+            }
         }
     }
 

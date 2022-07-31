@@ -1,5 +1,5 @@
 //
-//  BottomFeature.swift
+//  TopFeature.swift
 //  Counter
 //
 //  Created by Dmitrii Coolerov on 08.07.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import Highway
 
-enum BottomFeature {
+enum ImperativeTopFeature {
     enum Action: Equatable {
         case initial
         case increment

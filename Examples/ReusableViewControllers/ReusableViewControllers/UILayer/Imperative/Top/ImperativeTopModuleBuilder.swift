@@ -9,15 +9,15 @@ import Foundation
 import Highway
 import UIKit
 
-struct TopModuleBuilder {
+struct ImperativeTopModuleBuilder {
     func build<S: StoreCreator>(
         storeCreator: S
     ) -> UIViewController where S.State == AppState {
         let store = storeCreator.createChildStore(
-            reducer: TopFeature.reducer(),
+            reducer: ImperativeTopFeature.reducer(),
             initialAction: .initial
         )
-        let proxy = TopProxy(store: store)
-        return ReusableViewController(output: proxy)
+        let proxy = ImperativeTopProxy(store: store)
+        return ImperativeReusableViewController(output: proxy)
     }
 }
