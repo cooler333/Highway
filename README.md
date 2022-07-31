@@ -57,6 +57,7 @@ Also you can integrate framework as SPM package
 - [SwiftRex](https://github.com/SwiftRex/SwiftRex)
 - [Katana](https://github.com/BendingSpoons/katana-swift)
 - [ReactorKit](https://github.com/ReactorKit/ReactorKit)
+- [Tempura](https://github.com/BendingSpoons/tempura-swift)
 - [More](https://github.com/onmyway133/awesome-ios-architecture#unidirectional-data-flow)
 
 ## TODO:
