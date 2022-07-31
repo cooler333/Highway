@@ -43,7 +43,16 @@ class SwitchTableViewCell: UITableViewCell {
     }
 
     func configure(isOn: Bool, switchDidChange: @escaping (Bool) -> Void) {
-        uiSwitch.setOn(isOn, animated: false)
+        if #available(iOS 15, *) {
+            if uiSwitch.isOn != isOn {
+                uiSwitch.setOn(isOn, animated: true)
+            }
+        } else {
+            self.uiSwitch.setOn(!isOn, animated: false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.uiSwitch.setOn(isOn, animated: true)
+            }
+        }
         self.switchDidChange = switchDidChange
     }
 
