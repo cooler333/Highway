@@ -61,12 +61,14 @@ Also you can integrate framework as SPM package
 
 ## TODO:
 
+- Add Animated scheme (including middleware)
 - App tests examples (E2E, Unit)
 - Reusable views with ViewStore
 - UIView modules (separated frameworks)
 - Collapsable UITableView
 - Modern CollectionView
 - Remove iPhone from iPad preffered examples
+- Add pros and cons to alternatives
 
 ## Author
 
