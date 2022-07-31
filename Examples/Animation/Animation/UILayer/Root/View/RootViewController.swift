@@ -172,6 +172,7 @@ extension RootViewController: UITableViewDelegate {
 }
 
 extension RootViewController {
+    /// [apple reference example](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/updating_collection_views_using_diffable_data_sources)
     func reconfigure(
         previousSnapshot: NSDiffableDataSourceSnapshot<ContentSectionIdentifier, ContentIdentifier>,
         newSnapshot: NSDiffableDataSourceSnapshot<ContentSectionIdentifier, ContentIdentifier>
