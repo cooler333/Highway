@@ -1,12 +1,12 @@
 platform :ios, '13.0'
 
-target 'AnimatedEditableList' do
+target 'TableViewsSync' do
   use_frameworks!
 
   pod 'Highway', path: '../../', testspecs: ["HighwayTests"]
   pod 'Kingfisher', '~> 7.0'
   
-  target 'AnimatedEditableListTests' do
+  target 'TableViewsSyncTests' do
     inherit! :search_paths
     # Pods for testing
   end

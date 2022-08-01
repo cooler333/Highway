@@ -1,6 +1,6 @@
 //
 //  RootViewController.swift
-//  AnimatedEditableList
+//  TableViewsSync
 //
 //  Created by Dmitrii Cooler on 20.07.2022.
 //

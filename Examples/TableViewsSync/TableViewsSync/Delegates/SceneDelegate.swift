@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  AnimatedEditableList
+//  TableViewsSync
 //
 //  Created by Dmitrii Cooler on 18.07.2022.
 //

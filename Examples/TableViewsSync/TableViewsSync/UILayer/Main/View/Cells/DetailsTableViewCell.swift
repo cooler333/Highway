@@ -1,13 +1,13 @@
 //
-//  TitleTableViewCell.swift
-//  AnimatedEditableList
+//  DetailsTableViewCell.swift
+//  TableViewsSync
 //
 //  Created by Dmitrii Cooler on 18.07.2022.
 //
 
 import UIKit
 
-class TitleTableViewCell: UITableViewCell {
+class DetailsTableViewCell: UITableViewCell {
     private var titleLabel: UILabel!
 
     private var leftButton: UIButton!
@@ -19,6 +19,7 @@ class TitleTableViewCell: UITableViewCell {
     private var rightButton: UIButton!
     private var rightButtonAction: (() -> Void)!
 
+    // swiftlint:disable:next function_body_length
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -40,6 +41,8 @@ class TitleTableViewCell: UITableViewCell {
 
         let titleLabel = UILabel()
         self.titleLabel = titleLabel
+        titleLabel.font = .preferredFont(forTextStyle: .subheadline)
+        titleLabel.numberOfLines = 0
         stackView.addArrangedSubview(titleLabel)
 
         let buttonStackView = UIStackView()
