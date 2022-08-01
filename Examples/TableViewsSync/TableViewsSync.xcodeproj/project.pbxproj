@@ -17,7 +17,7 @@
 		1C59D3BA2885BE24003B5AFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3B92885BE24003B5AFF /* SceneDelegate.swift */; };
 		1C59D3C12885BE25003B5AFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D3C02885BE25003B5AFF /* Assets.xcassets */; };
 		1C59D3C42885BE25003B5AFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D3C22885BE25003B5AFF /* LaunchScreen.storyboard */; };
-		1C59D3CF2885BE26003B5AFF /* AnimatedEditableListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */; };
+		1C59D3CF2885BE26003B5AFF /* TableViewsSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3CE2885BE26003B5AFF /* TableViewsSyncTests.swift */; };
 		1C59D4032885BF0F003B5AFF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F12885BF0F003B5AFF /* MainViewController.swift */; };
 		1C59D4042885BF0F003B5AFF /* MainModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F22885BF0F003B5AFF /* MainModuleBuilder.swift */; };
 		1C59D4052885BF0F003B5AFF /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D3F32885BF0F003B5AFF /* MainFeature.swift */; };
@@ -25,8 +25,8 @@
 		1C59D4132885C657003B5AFF /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */; };
 		1C59D4152885C662003B5AFF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */; };
 		1C59D41C2885C6C6003B5AFF /* UITableView+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */; };
-		76036F974974E5421DA75B50 /* Pods_AnimatedEditableList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */; };
-		88251272835E3BFE9CF97BF1 /* Pods_AnimatedEditableListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */; };
+		76036F974974E5421DA75B50 /* Pods_TableViewsSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B4B03632841688A22F02E /* Pods_TableViewsSync.framework */; };
+		88251272835E3BFE9CF97BF1 /* Pods_TableViewsSyncTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F21383DD8BD957B43498CA1 /* Pods_TableViewsSyncTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,26 +35,26 @@
 			containerPortal = 1C59D3AC2885BE23003B5AFF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1C59D3B32885BE24003B5AFF;
-			remoteInfo = AnimatedEditableList;
+			remoteInfo = TableViewsSync;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableListTests.release.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableListTests/Pods-AnimatedEditableListTests.release.xcconfig"; sourceTree = "<group>"; };
+		036F233C7F27CA05091DFC4E /* Pods-TableViewsSyncTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewsSyncTests.release.xcconfig"; path = "Target Support Files/Pods-TableViewsSyncTests/Pods-TableViewsSyncTests.release.xcconfig"; sourceTree = "<group>"; };
 		1C2352A4288880EB006F56FA /* DetailsFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsFeature.swift; sourceTree = "<group>"; };
 		1C2352A5288880EB006F56FA /* DetailsModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleBuilder.swift; sourceTree = "<group>"; };
 		1C2352AB288880EB006F56FA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1C2352B22888815E006F56FA /* RootModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleBuilder.swift; sourceTree = "<group>"; };
 		1C2352B3288881B9006F56FA /* RootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFeature.swift; sourceTree = "<group>"; };
 		1C2352B6288882F9006F56FA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedEditableList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C59D3B42885BE24003B5AFF /* TableViewsSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewsSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C59D3B72885BE24003B5AFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C59D3B92885BE24003B5AFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1C59D3C02885BE25003B5AFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C59D3C32885BE25003B5AFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C59D3C52885BE25003B5AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedEditableListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedEditableListTests.swift; sourceTree = "<group>"; };
+		1C59D3CA2885BE26003B5AFF /* TableViewsSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewsSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C59D3CE2885BE26003B5AFF /* TableViewsSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewsSyncTests.swift; sourceTree = "<group>"; };
 		1C59D3F12885BF0F003B5AFF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1C59D3F22885BF0F003B5AFF /* MainModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModuleBuilder.swift; sourceTree = "<group>"; };
 		1C59D3F32885BF0F003B5AFF /* MainFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
@@ -62,11 +62,11 @@
 		1C59D4122885C657003B5AFF /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		1C59D4142885C662003B5AFF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		1C59D41B2885C6C6003B5AFF /* UITableView+Reuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuse.swift"; sourceTree = "<group>"; };
-		2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedEditableListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableListTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableListTests/Pods-AnimatedEditableListTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableList.debug.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList.debug.xcconfig"; sourceTree = "<group>"; };
-		BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimatedEditableList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimatedEditableList.release.xcconfig"; path = "Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList.release.xcconfig"; sourceTree = "<group>"; };
+		2F21383DD8BD957B43498CA1 /* Pods_TableViewsSyncTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewsSyncTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B7873D957ACF49FA9A0AF87 /* Pods-TableViewsSyncTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewsSyncTests.debug.xcconfig"; path = "Target Support Files/Pods-TableViewsSyncTests/Pods-TableViewsSyncTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4ED6E930E1455B031C1E7E58 /* Pods-TableViewsSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewsSync.debug.xcconfig"; path = "Target Support Files/Pods-TableViewsSync/Pods-TableViewsSync.debug.xcconfig"; sourceTree = "<group>"; };
+		BE3B4B03632841688A22F02E /* Pods_TableViewsSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewsSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0708626FD99DEA75FCE59C2 /* Pods-TableViewsSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewsSync.release.xcconfig"; path = "Target Support Files/Pods-TableViewsSync/Pods-TableViewsSync.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76036F974974E5421DA75B50 /* Pods_AnimatedEditableList.framework in Frameworks */,
+				76036F974974E5421DA75B50 /* Pods_TableViewsSync.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88251272835E3BFE9CF97BF1 /* Pods_AnimatedEditableListTests.framework in Frameworks */,
+				88251272835E3BFE9CF97BF1 /* Pods_TableViewsSyncTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,8 +128,8 @@
 		1C59D3AB2885BE23003B5AFF = {
 			isa = PBXGroup;
 			children = (
-				1C59D3B62885BE24003B5AFF /* AnimatedEditableList */,
-				1C59D3CD2885BE26003B5AFF /* AnimatedEditableListTests */,
+				1C59D3B62885BE24003B5AFF /* TableViewsSync */,
+				1C59D3CD2885BE26003B5AFF /* TableViewsSyncTests */,
 				1C59D3B52885BE24003B5AFF /* Products */,
 				760A8684DA099F861347D8B9 /* Pods */,
 				738BB56934ED6181DF2BC3C4 /* Frameworks */,
@@ -139,13 +139,13 @@
 		1C59D3B52885BE24003B5AFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */,
-				1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */,
+				1C59D3B42885BE24003B5AFF /* TableViewsSync.app */,
+				1C59D3CA2885BE26003B5AFF /* TableViewsSyncTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1C59D3B62885BE24003B5AFF /* AnimatedEditableList */ = {
+		1C59D3B62885BE24003B5AFF /* TableViewsSync */ = {
 			isa = PBXGroup;
 			children = (
 				1C59D3EC2885BF0F003B5AFF /* UILayer */,
@@ -153,15 +153,15 @@
 				1C59D3E92885BEAD003B5AFF /* Resources */,
 				1C59D3C52885BE25003B5AFF /* Info.plist */,
 			);
-			path = AnimatedEditableList;
+			path = TableViewsSync;
 			sourceTree = "<group>";
 		};
-		1C59D3CD2885BE26003B5AFF /* AnimatedEditableListTests */ = {
+		1C59D3CD2885BE26003B5AFF /* TableViewsSyncTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C59D3CE2885BE26003B5AFF /* AnimatedEditableListTests.swift */,
+				1C59D3CE2885BE26003B5AFF /* TableViewsSyncTests.swift */,
 			);
-			path = AnimatedEditableListTests;
+			path = TableViewsSyncTests;
 			sourceTree = "<group>";
 		};
 		1C59D3E72885BE9A003B5AFF /* Delegates */ = {
@@ -241,8 +241,8 @@
 		738BB56934ED6181DF2BC3C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE3B4B03632841688A22F02E /* Pods_AnimatedEditableList.framework */,
-				2F21383DD8BD957B43498CA1 /* Pods_AnimatedEditableListTests.framework */,
+				BE3B4B03632841688A22F02E /* Pods_TableViewsSync.framework */,
+				2F21383DD8BD957B43498CA1 /* Pods_TableViewsSyncTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,10 +250,10 @@
 		760A8684DA099F861347D8B9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */,
-				E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */,
-				4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */,
-				036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */,
+				4ED6E930E1455B031C1E7E58 /* Pods-TableViewsSync.debug.xcconfig */,
+				E0708626FD99DEA75FCE59C2 /* Pods-TableViewsSync.release.xcconfig */,
+				4B7873D957ACF49FA9A0AF87 /* Pods-TableViewsSyncTests.debug.xcconfig */,
+				036F233C7F27CA05091DFC4E /* Pods-TableViewsSyncTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -261,9 +261,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1C59D3B32885BE24003B5AFF /* AnimatedEditableList */ = {
+		1C59D3B32885BE24003B5AFF /* TableViewsSync */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableList" */;
+			buildConfigurationList = 1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "TableViewsSync" */;
 			buildPhases = (
 				AC7C603A7D008D2C8826F809 /* [CP] Check Pods Manifest.lock */,
 				1C59D3B02885BE24003B5AFF /* Sources */,
@@ -275,14 +275,14 @@
 			);
 			dependencies = (
 			);
-			name = AnimatedEditableList;
-			productName = AnimatedEditableList;
-			productReference = 1C59D3B42885BE24003B5AFF /* AnimatedEditableList.app */;
+			name = TableViewsSync;
+			productName = TableViewsSync;
+			productReference = 1C59D3B42885BE24003B5AFF /* TableViewsSync.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1C59D3C92885BE26003B5AFF /* AnimatedEditableListTests */ = {
+		1C59D3C92885BE26003B5AFF /* TableViewsSyncTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableListTests" */;
+			buildConfigurationList = 1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "TableViewsSyncTests" */;
 			buildPhases = (
 				CFC8A9FE8570DBDA355BD892 /* [CP] Check Pods Manifest.lock */,
 				1C59D3C62885BE26003B5AFF /* Sources */,
@@ -294,9 +294,9 @@
 			dependencies = (
 				1C59D3CC2885BE26003B5AFF /* PBXTargetDependency */,
 			);
-			name = AnimatedEditableListTests;
-			productName = AnimatedEditableListTests;
-			productReference = 1C59D3CA2885BE26003B5AFF /* AnimatedEditableListTests.xctest */;
+			name = TableViewsSyncTests;
+			productName = TableViewsSyncTests;
+			productReference = 1C59D3CA2885BE26003B5AFF /* TableViewsSyncTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -318,7 +318,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "AnimatedEditableList" */;
+			buildConfigurationList = 1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "TableViewsSync" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -331,8 +331,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1C59D3B32885BE24003B5AFF /* AnimatedEditableList */,
-				1C59D3C92885BE26003B5AFF /* AnimatedEditableListTests */,
+				1C59D3B32885BE24003B5AFF /* TableViewsSync */,
+				1C59D3C92885BE26003B5AFF /* TableViewsSyncTests */,
 			);
 		};
 /* End PBXProject section */
@@ -372,7 +372,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnimatedEditableList-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TableViewsSync-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -394,7 +394,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AnimatedEditableListTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TableViewsSyncTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -407,15 +407,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TableViewsSync/Pods-TableViewsSync-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TableViewsSync/Pods-TableViewsSync-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AnimatedEditableList/Pods-AnimatedEditableList-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TableViewsSync/Pods-TableViewsSync-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -447,7 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C59D3CF2885BE26003B5AFF /* AnimatedEditableListTests.swift in Sources */,
+				1C59D3CF2885BE26003B5AFF /* TableViewsSyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +456,7 @@
 /* Begin PBXTargetDependency section */
 		1C59D3CC2885BE26003B5AFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1C59D3B32885BE24003B5AFF /* AnimatedEditableList */;
+			target = 1C59D3B32885BE24003B5AFF /* TableViewsSync */;
 			targetProxy = 1C59D3CB2885BE26003B5AFF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -589,14 +589,14 @@
 		};
 		1C59D3DF2885BE26003B5AFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4ED6E930E1455B031C1E7E58 /* Pods-AnimatedEditableList.debug.xcconfig */;
+			baseConfigurationReference = 4ED6E930E1455B031C1E7E58 /* Pods-TableViewsSync.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimatedEditableList/Info.plist;
+				INFOPLIST_FILE = TableViewsSync/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -606,7 +606,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.TableViewsSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -616,14 +616,14 @@
 		};
 		1C59D3E02885BE26003B5AFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0708626FD99DEA75FCE59C2 /* Pods-AnimatedEditableList.release.xcconfig */;
+			baseConfigurationReference = E0708626FD99DEA75FCE59C2 /* Pods-TableViewsSync.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnimatedEditableList/Info.plist;
+				INFOPLIST_FILE = TableViewsSync/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -633,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.TableViewsSync;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -643,7 +643,7 @@
 		};
 		1C59D3E22885BE26003B5AFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B7873D957ACF49FA9A0AF87 /* Pods-AnimatedEditableListTests.debug.xcconfig */;
+			baseConfigurationReference = 4B7873D957ACF49FA9A0AF87 /* Pods-TableViewsSyncTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -652,18 +652,18 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableListTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.TableViewsSyncTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedEditableList.app/AnimatedEditableList";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewsSync.app/TableViewsSync";
 			};
 			name = Debug;
 		};
 		1C59D3E32885BE26003B5AFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 036F233C7F27CA05091DFC4E /* Pods-AnimatedEditableListTests.release.xcconfig */;
+			baseConfigurationReference = 036F233C7F27CA05091DFC4E /* Pods-TableViewsSyncTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -672,19 +672,19 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.AnimatedEditableListTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooler.TableViewsSyncTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedEditableList.app/AnimatedEditableList";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewsSync.app/TableViewsSync";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "AnimatedEditableList" */ = {
+		1C59D3AF2885BE23003B5AFF /* Build configuration list for PBXProject "TableViewsSync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C59D3DC2885BE26003B5AFF /* Debug */,
@@ -693,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableList" */ = {
+		1C59D3DE2885BE26003B5AFF /* Build configuration list for PBXNativeTarget "TableViewsSync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C59D3DF2885BE26003B5AFF /* Debug */,
@@ -702,7 +702,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "AnimatedEditableListTests" */ = {
+		1C59D3E12885BE26003B5AFF /* Build configuration list for PBXNativeTarget "TableViewsSyncTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C59D3E22885BE26003B5AFF /* Debug */,

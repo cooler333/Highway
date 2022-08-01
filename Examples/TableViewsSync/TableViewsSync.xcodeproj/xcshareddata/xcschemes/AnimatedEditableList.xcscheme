@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1C59D3B32885BE24003B5AFF"
-               BuildableName = "AnimatedEditableList.app"
-               BlueprintName = "AnimatedEditableList"
-               ReferencedContainer = "container:AnimatedEditableList.xcodeproj">
+               BuildableName = "TableViewsSync.app"
+               BlueprintName = "TableViewsSync"
+               ReferencedContainer = "container:TableViewsSync.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1C59D3C92885BE26003B5AFF"
-               BuildableName = "AnimatedEditableListTests.xctest"
-               BlueprintName = "AnimatedEditableListTests"
-               ReferencedContainer = "container:AnimatedEditableList.xcodeproj">
+               BuildableName = "TableViewsSyncTests.xctest"
+               BlueprintName = "TableViewsSyncTests"
+               ReferencedContainer = "container:TableViewsSync.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1C59D3B32885BE24003B5AFF"
-            BuildableName = "AnimatedEditableList.app"
-            BlueprintName = "AnimatedEditableList"
-            ReferencedContainer = "container:AnimatedEditableList.xcodeproj">
+            BuildableName = "TableViewsSync.app"
+            BlueprintName = "TableViewsSync"
+            ReferencedContainer = "container:TableViewsSync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1C59D3B32885BE24003B5AFF"
-            BuildableName = "AnimatedEditableList.app"
-            BlueprintName = "AnimatedEditableList"
-            ReferencedContainer = "container:AnimatedEditableList.xcodeproj">
+            BuildableName = "TableViewsSync.app"
+            BlueprintName = "TableViewsSync"
+            ReferencedContainer = "container:TableViewsSync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
