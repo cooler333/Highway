@@ -3,6 +3,8 @@
 
 Highway is an Redux-like architecture pattern implementation with Swift.
 
+<img src="Resources/jared-murray-NSuufgf-BME-unsplash.jpg" alt="Highway" width="400"/>
+
 ## Features
 
 - Child stores
