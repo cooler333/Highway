@@ -19,7 +19,7 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
 - [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
-- [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside cell in TableView using DiffableDataSource
+- [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside TableView cells using DiffableDataSource & SwiftUI List views(items)
 - [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/TableViewsSync): TableView with animations (deletions/insertions) and syncronisation
 - [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
@@ -67,11 +67,10 @@ Also you can integrate framework as SPM package
 - Add Animated scheme (including middleware)
 - App tests examples (E2E, Unit)
 - UIView modules (separated frameworks)
-- Collapsable UITableView
-- Modern CollectionView
+- Collapsable UITableView (?)
+- Modern CollectionView (?)
 - Add pros and cons to alternatives
-- SwiftUI list with animations
-- Update description
+- Improve readme
 
 ## Author
 
