@@ -52,6 +52,7 @@ pod 'Highway'
 Also you can integrate framework as SPM package
 
 ## Alternatives
+
 - [Mobius.swift](https://github.com/spotify/Mobius.swift)
 - [ReSwift](https://github.com/ReSwift/ReSwift)
 - [ReCombine](https://github.com/ReCombine/ReCombine)
@@ -64,7 +65,13 @@ Also you can integrate framework as SPM package
 - [RxFeedback](https://github.com/NoTests/RxFeedback.swift)
 - [More](https://github.com/onmyway133/awesome-ios-architecture#unidirectional-data-flow)
 
-## TODO:
+## Tools used in project
+
+- [Git LFS](https://git-lfs.github.com): An open source Git extension for versioning large files (quote from git-lfs web page)
+- [rbenv](https://github.com/rbenv/rbenv): Manage your app's Ruby environment (quote from rbenv github web page)
+- [Bundler](https://bundler.io): The best way to manage a Ruby application's gems (quote form Bundler web page)
+
+## TODO
 
 - Add Animated scheme (including middleware)
 - App tests examples (E2E, Unit)
