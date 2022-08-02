@@ -67,9 +67,9 @@ Also you can integrate framework as SPM package
 
 ## Tools used in project
 
-- [Git LFS](https://git-lfs.github.com): An open source Git extension for versioning large files (quote from git-lfs web page)
 - [rbenv](https://github.com/rbenv/rbenv): Manage your app's Ruby environment (quote from rbenv github web page)
 - [Bundler](https://bundler.io): The best way to manage a Ruby application's gems (quote form Bundler web page)
+- [Git LFS](https://git-lfs.github.com): An open source Git extension for versioning large files (quote from git-lfs web page)
 
 ## TODO
 
