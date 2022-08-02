@@ -22,6 +22,9 @@
 		1CB6D42828985346002F1577 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D42728985346002F1577 /* RootView.swift */; };
 		1CB6D42B289866FB002F1577 /* View+OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D42A289866FB002F1577 /* View+OnChange.swift */; };
 		1CB6D42D2898677B002F1577 /* String+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D42C2898677B002F1577 /* String+Identifiable.swift */; };
+		1CB6D4302899B76A002F1577 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D42F2899B76A002F1577 /* HeaderView.swift */; };
+		1CB6D4322899B778002F1577 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D4312899B778002F1577 /* SegmentView.swift */; };
+		1CB6D4342899B789002F1577 /* BoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6D4332899B789002F1577 /* BoolView.swift */; };
 		1CDCF6262895C98800AA7596 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCF6252895C98800AA7596 /* SwitchTableViewCell.swift */; };
 		1CDCF62C2896BCAD00AA7596 /* ContentHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCF62B2896BCAD00AA7596 /* ContentHashable.swift */; };
 		1CDCF62E2896BCDC00AA7596 /* Models+ContentHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCF62D2896BCDC00AA7596 /* Models+ContentHashable.swift */; };
@@ -60,6 +63,9 @@
 		1CB6D42728985346002F1577 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1CB6D42A289866FB002F1577 /* View+OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChange.swift"; sourceTree = "<group>"; };
 		1CB6D42C2898677B002F1577 /* String+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Identifiable.swift"; sourceTree = "<group>"; };
+		1CB6D42F2899B76A002F1577 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1CB6D4312899B778002F1577 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		1CB6D4332899B789002F1577 /* BoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolView.swift; sourceTree = "<group>"; };
 		1CDCF6252895C98800AA7596 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		1CDCF62B2896BCAD00AA7596 /* ContentHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHashable.swift; sourceTree = "<group>"; };
 		1CDCF62D2896BCDC00AA7596 /* Models+ContentHashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+ContentHashable.swift"; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				1CB6D42728985346002F1577 /* RootView.swift */,
+				1CB6D42E2899B750002F1577 /* Views */,
 				1CB6D429289866E8002F1577 /* Helpers */,
 			);
 			path = SwiftUIView;
@@ -192,6 +199,16 @@
 				1CB6D42C2898677B002F1577 /* String+Identifiable.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1CB6D42E2899B750002F1577 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CB6D42F2899B76A002F1577 /* HeaderView.swift */,
+				1CB6D4312899B778002F1577 /* SegmentView.swift */,
+				1CB6D4332899B789002F1577 /* BoolView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		1CDCF6272896B67800AA7596 /* Cells */ = {
@@ -420,10 +437,13 @@
 				1C1751CF28848C3D0002DAB3 /* SceneDelegate.swift in Sources */,
 				1CAB14F8288F363B00953265 /* SegmentedTableViewCell.swift in Sources */,
 				1CB6D42828985346002F1577 /* RootView.swift in Sources */,
+				1CB6D4322899B778002F1577 /* SegmentView.swift in Sources */,
 				1C17520028848D0C0002DAB3 /* RootUIKitModuleBuilder.swift in Sources */,
 				1CB6D42B289866FB002F1577 /* View+OnChange.swift in Sources */,
 				1CB6D425289852BC002F1577 /* RootSwiftUIModuleBuilder.swift in Sources */,
 				1CDCF62C2896BCAD00AA7596 /* ContentHashable.swift in Sources */,
+				1CB6D4342899B789002F1577 /* BoolView.swift in Sources */,
+				1CB6D4302899B76A002F1577 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
