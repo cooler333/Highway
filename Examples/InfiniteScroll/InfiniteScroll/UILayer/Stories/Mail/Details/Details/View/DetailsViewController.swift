@@ -10,15 +10,15 @@ import Highway
 import UIKit
 
 class DetailsViewController: UIViewController {
-    private let store: Store<MailListState.List, String>
+    private let store: Store<MailState.List, String>
 
     private var cancellable = Set<AnyCancellable>()
-    private let uiSubject = PassthroughSubject<MailListState.List, Never>()
+    private let uiSubject = PassthroughSubject<MailState.List, Never>()
 
     private var label: UILabel!
 
     init(
-        store: Store<MailListState.List, String>
+        store: Store<MailState.List, String>
     ) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
@@ -63,7 +63,7 @@ class DetailsViewController: UIViewController {
         .store(in: &cancellable)
     }
 
-    private func render(state: MailListState.List) {
+    private func render(state: MailState.List) {
         label.text = """
         currentPage: \(state.currentPage)
         isListEnded: \(state.isListEnded)

@@ -12,7 +12,7 @@ import Highway
 extension ListFeature {
     static func getMiddlewares(
         environment: ListEnvironment
-    ) -> [Middleware<MailListState.List, ListAction>] {
+    ) -> [Middleware<MailState.List, ListAction>] {
         return [
             getPageLoadingMiddleware(environment: environment),
             getRouteMiddleware(environment: environment),
@@ -25,7 +25,7 @@ extension ListFeature {
     // swiftlint:disable:next function_body_length
     static func getPageLoadingMiddleware(
         environment: ListEnvironment
-    ) -> Middleware<MailListState.List, ListAction> {
+    ) -> Middleware<MailState.List, ListAction> {
         var cancellable = Set<AnyCancellable>()
 
         return createMiddleware(
@@ -87,7 +87,7 @@ extension ListFeature {
 extension ListFeature {
     static func getRouteMiddleware(
         environment: ListEnvironment
-    ) -> Middleware<MailListState.List, ListAction> {
+    ) -> Middleware<MailState.List, ListAction> {
         createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
@@ -128,7 +128,7 @@ extension ListFeature {
     // swiftlint:disable:next cyclomatic_complexity
     static func getLoggerMiddleware(
         environment: ListEnvironment
-    ) -> Middleware<MailListState.List, ListAction> {
+    ) -> Middleware<MailState.List, ListAction> {
         createMiddleware(
             environment: environment,
             { _, getState, action, _ in

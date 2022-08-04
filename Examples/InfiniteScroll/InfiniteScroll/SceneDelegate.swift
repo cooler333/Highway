@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         // TODO: MailListFlowCoordinator -> Menu
-        flowCoordinator = MailListFlowCoordinator(window: window, resolver: container.resolver)
+        flowCoordinator = MailFlowCoordinator(window: window, resolver: container.resolver)
         window.makeKeyAndVisible()
 
         flowCoordinator.start()

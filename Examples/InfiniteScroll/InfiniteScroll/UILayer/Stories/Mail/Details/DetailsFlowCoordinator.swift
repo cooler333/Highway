@@ -31,7 +31,10 @@ final class DetailsFlowCoordinator: FlowCoordinatorProtocol {
         }
         state = .started
 
-        let viewController = resolver.resolve(UIViewController.self, name: "Details")!
+        let viewController = resolver.resolve(
+            UIViewController.self,
+            name: "Details"
+        )!
         viewController.title = "Details" // FIXME: Show ID
 
         let nvc = UINavigationController(rootViewController: viewController)

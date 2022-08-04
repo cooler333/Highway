@@ -13,5 +13,6 @@ import Foundation
 
 extension ListRepositoryProtocol {}
 extension ToastNotificationManagerProtocol {}
+extension ListModuleOutput {}
 
 // sourcery:end

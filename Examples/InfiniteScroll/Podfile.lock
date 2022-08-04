@@ -1,6 +1,7 @@
 PODS:
-  - Highway (0.15.0)
-  - Highway/HighwayTests (0.15.0)
+  - Highway (0.16.0)
+  - Highway/HighwayTests (0.16.0)
+  - SnapshotTesting (1.9.0)
   - Sourcery/CLI-Only (1.8.1)
   - SwiftMessages (9.0.6):
     - SwiftMessages/App (= 9.0.6)
@@ -10,12 +11,14 @@ PODS:
 DEPENDENCIES:
   - Highway (from `../../`)
   - Highway/HighwayTests (from `../../`)
+  - SnapshotTesting
   - Sourcery/CLI-Only
   - SwiftMessages
   - Swinject
 
 SPEC REPOS:
   trunk:
+    - SnapshotTesting
     - Sourcery
     - SwiftMessages
     - Swinject
@@ -25,11 +28,12 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: 391f8f58895d5a47599a0119f60f349e432c0287
+  Highway: 140ad6805e4c1208096c77c56f0931a133217141
+  SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Sourcery: 4d44d4ea26a682a4a9875ec7c1870a1e7b8e183f
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
 
-PODFILE CHECKSUM: b34283f41389abaf917a62f150d004047a15b803
+PODFILE CHECKSUM: f7a930dffcba985f12b9ebc712cc4e310d4e515c
 
 COCOAPODS: 1.11.3

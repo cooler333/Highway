@@ -67,7 +67,7 @@ final class ListViewController: UIViewController {
 
     // MARK: Private properties
 
-    private let store: ViewStore<MailListState.List, ListAction>
+    private let store: ViewStore<MailState.List, ListAction>
 
     private var toastNotificationManager: ToastNotificationManagerProtocol
 
@@ -76,10 +76,10 @@ final class ListViewController: UIViewController {
 
     private var cancellable = Set<AnyCancellable>()
 
-    private let uiSubject = PassthroughSubject<MailListState.List, Never>()
+    private let uiSubject = PassthroughSubject<MailState.List, Never>()
 
     init(
-        store: ViewStore<MailListState.List, ListAction>,
+        store: ViewStore<MailState.List, ListAction>,
         toastNotificationManager: ToastNotificationManagerProtocol
     ) {
         self.store = store
@@ -244,7 +244,7 @@ final class ListViewController: UIViewController {
     }
 
     // swiftlint:disable:next cyclomatic_complexity function_body_length
-    private func update(state: MailListState.List) {
+    private func update(state: MailState.List) {
         let contentState: LCEPagedState<[ListViewModel], ListAPIError> = {
             let data: [ListViewModel] = state.data.map { model in
                 ListViewModel(

@@ -12,6 +12,7 @@ target 'InfiniteScroll' do
     inherit! :search_paths
     # Pods for testing
     pod 'Sourcery', :subspecs => ['CLI-Only']
+    pod 'SnapshotTesting'
   end
 end
 

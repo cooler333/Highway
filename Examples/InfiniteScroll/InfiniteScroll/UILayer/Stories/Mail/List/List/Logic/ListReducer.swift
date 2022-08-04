@@ -10,8 +10,8 @@ import Highway
 
 extension ListFeature {
     // swiftlint:disable:next cyclomatic_complexity function_body_length
-    static func getReducer() -> Reducer<MailListState.List, ListAction> {
-        return Reducer<MailListState.List, ListAction> { state, action in
+    static func getReducer() -> Reducer<MailState.List, ListAction> {
+        return Reducer<MailState.List, ListAction> { state, action in
             switch action {
             case .fetchInitialPageInList:
                 var state = state

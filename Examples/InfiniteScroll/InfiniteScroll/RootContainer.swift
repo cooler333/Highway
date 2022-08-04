@@ -62,8 +62,8 @@ public final class RootAssembly: Assembly {
         }
         .inObjectScope(.container)
 
-        container.register(Store<MailListState, ListAction>.self) { _ in
-            let store = Store<MailListState, ListAction>(
+        container.register(Store<MailState, ListAction>.self) { _ in
+            let store = Store<MailState, ListAction>(
                 reducer: .init { state, _ in
                     state
                 },
@@ -75,10 +75,10 @@ public final class RootAssembly: Assembly {
         }.inObjectScope(.weak)
 
         container.register(UIViewController.self, name: "Details") { resolver in
-            let mailListStore = resolver.resolve(Store<MailListState, ListAction>.self)!
+            let mailListStore = resolver.resolve(Store<MailState, ListAction>.self)!
             let store = mailListStore.createChildStore(
                 keyPath: \.list,
-                reducer: Reducer<MailListState.List, String> { state, _ in
+                reducer: Reducer<MailState.List, String> { state, _ in
                     print(state)
                     return state
                 },
@@ -94,7 +94,7 @@ public final class RootAssembly: Assembly {
         container.register(
             UIViewController.self, name: "List"
         ) { (resolver, moduleOutput: ListModuleOutput) in
-            let mailListStore = resolver.resolve(Store<MailListState, ListAction>.self)!
+            let mailListStore = resolver.resolve(Store<MailState, ListAction>.self)!
             let environment = ListEnvironment(
                 listRepository: resolver.resolve(ListRepositoryProtocol.self)!,
                 moduleOutput: moduleOutput
@@ -105,7 +105,7 @@ public final class RootAssembly: Assembly {
                 initialAction: .initial,
                 middleware: ListFeature.getMiddlewares(environment: environment)
             )
-            let viewStore = ViewStore<MailListState.List, ListAction>(
+            let viewStore = ViewStore<MailState.List, ListAction>(
                 store: store,
                 stateMapper: { state in
                     state

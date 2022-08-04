@@ -1,5 +1,5 @@
 //
-//  MailListState.swift
+//  MailState.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 03.07.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MailListState: Equatable {
+struct MailState: Equatable {
     struct List: Equatable {
         enum LoadingState: Equatable {
             case error(ListAPIError)

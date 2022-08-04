@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C2C1550288B41190088ECE2 /* MailListModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */; };
+		1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* RootModuleIO.swift */; };
 		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
 		1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520528242F3800218661 /* SceneDelegate.swift */; };
@@ -31,11 +31,12 @@
 		1C6E526328244BE700218661 /* ListRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E526228244BE700218661 /* ListRepositoryMock.swift */; };
 		1CA17222286C2A070079262E /* ListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17221286C2A070079262E /* ListReducer.swift */; };
 		1CA17224286C2A490079262E /* ListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17223286C2A490079262E /* ListMiddleware.swift */; };
+		1CA44726289C65F8009EEE42 /* ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA44725289C65F8009EEE42 /* ListTests.swift */; };
 		1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */; };
-		1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */; };
+		1CBE2315287198AE009FAE7A /* MailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailFlowCoordinator.swift */; };
 		1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231828719CAD009FAE7A /* DetailsViewController.swift */; };
-		1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */; };
-		1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE232A2871A92B009FAE7A /* MailListState.swift */; };
+		1CBE231B28719CE4009FAE7A /* RootModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231A28719CE4009FAE7A /* RootModuleBuilder.swift */; };
+		1CBE232B2871A92B009FAE7A /* MailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE232A2871A92B009FAE7A /* MailState.swift */; };
 		1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA1282D971800A43E25 /* Mockable.swift */; };
 		1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */; };
 		7F679505DADA9EFEB27BC319 /* Pods_InfiniteScrollTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727DF77151C8B3D3F5AAF792 /* Pods_InfiniteScrollTests.framework */; };
@@ -55,7 +56,7 @@
 /* Begin PBXFileReference section */
 		0265335806E7A48CC844298E /* Pods_InfiniteScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE9F86835E669A76901706 /* Pods-InfiniteScrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteScrollTests.release.xcconfig"; path = "Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests.release.xcconfig"; sourceTree = "<group>"; };
-		1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailListModuleIO.swift; sourceTree = "<group>"; };
+		1C2C154F288B41190088ECE2 /* RootModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleIO.swift; sourceTree = "<group>"; };
 		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E520328242F3800218661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,11 +83,12 @@
 		1C6E526228244BE700218661 /* ListRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepositoryMock.swift; sourceTree = "<group>"; };
 		1CA17221286C2A070079262E /* ListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReducer.swift; sourceTree = "<group>"; };
 		1CA17223286C2A490079262E /* ListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMiddleware.swift; sourceTree = "<group>"; };
+		1CA44725289C65F8009EEE42 /* ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTests.swift; sourceTree = "<group>"; };
 		1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFlowCoordinator.swift; sourceTree = "<group>"; };
-		1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListFlowCoordinator.swift; sourceTree = "<group>"; };
+		1CBE2314287198AE009FAE7A /* MailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE231828719CAD009FAE7A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListModuleBuilder.swift; sourceTree = "<group>"; };
-		1CBE232A2871A92B009FAE7A /* MailListState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListState.swift; sourceTree = "<group>"; };
+		1CBE231A28719CE4009FAE7A /* RootModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleBuilder.swift; sourceTree = "<group>"; };
+		1CBE232A2871A92B009FAE7A /* MailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailState.swift; sourceTree = "<group>"; };
 		1CCBEFA1282D971800A43E25 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		1CCBEFA5282D9B0F00A43E25 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		3473B49FEE2A549EF41607D1 /* Pods_InfiniteScroll_InfiniteScrollUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll_InfiniteScrollUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +168,9 @@
 		1C6E521928242F3900218661 /* InfiniteScrollTests */ = {
 			isa = PBXGroup;
 			children = (
+				1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */,
 				1CCBEFA4282D9B0F00A43E25 /* Autogenerated */,
-				1CCBEFA7282DAC0A00A43E25 /* Components */,
+				1CCBEFA7282DAC0A00A43E25 /* Stories */,
 			);
 			path = InfiniteScrollTests;
 			sourceTree = "<group>";
@@ -256,10 +259,18 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
+		1CA44724289C6549009EEE42 /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				1CA44725289C65F8009EEE42 /* ListTests.swift */,
+			);
+			path = Mail;
+			sourceTree = "<group>";
+		};
 		1CBE230C287197EF009FAE7A /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				1CBE23102871986E009FAE7A /* MailList */,
+				1CBE23102871986E009FAE7A /* Mail */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -290,15 +301,16 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		1CBE23102871986E009FAE7A /* MailList */ = {
+		1CBE23102871986E009FAE7A /* Mail */ = {
 			isa = PBXGroup;
 			children = (
-				1CBE232A2871A92B009FAE7A /* MailListState.swift */,
-				1CBE2314287198AE009FAE7A /* MailListFlowCoordinator.swift */,
-				1CBE231E2871A6C1009FAE7A /* MailList */,
-				1CBE23242871A84D009FAE7A /* Scenes */,
+				1CBE232A2871A92B009FAE7A /* MailState.swift */,
+				1CBE2314287198AE009FAE7A /* MailFlowCoordinator.swift */,
+				1CBE231E2871A6C1009FAE7A /* Root */,
+				1CBE231128719887009FAE7A /* Details */,
+				1C6E525F282442E100218661 /* List */,
 			);
-			path = MailList;
+			path = Mail;
 			sourceTree = "<group>";
 		};
 		1CBE231128719887009FAE7A /* Details */ = {
@@ -327,22 +339,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1CBE231E2871A6C1009FAE7A /* MailList */ = {
+		1CBE231E2871A6C1009FAE7A /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				1CBE231A28719CE4009FAE7A /* MailListModuleBuilder.swift */,
-				1C2C154F288B41190088ECE2 /* MailListModuleIO.swift */,
+				1CBE231A28719CE4009FAE7A /* RootModuleBuilder.swift */,
+				1C2C154F288B41190088ECE2 /* RootModuleIO.swift */,
 			);
-			path = MailList;
-			sourceTree = "<group>";
-		};
-		1CBE23242871A84D009FAE7A /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				1CBE231128719887009FAE7A /* Details */,
-				1C6E525F282442E100218661 /* List */,
-			);
-			path = Scenes;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		1CCBEFA4282D9B0F00A43E25 /* Autogenerated */ = {
@@ -354,12 +357,12 @@
 			path = Autogenerated;
 			sourceTree = "<group>";
 		};
-		1CCBEFA7282DAC0A00A43E25 /* Components */ = {
+		1CCBEFA7282DAC0A00A43E25 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
-				1C6E521A28242F3900218661 /* InfiniteScrollTests.swift */,
+				1CA44724289C6549009EEE42 /* Mail */,
 			);
-			path = Components;
+			path = Stories;
 			sourceTree = "<group>";
 		};
 		246517A08457862D0B02363A /* Pods */ = {
@@ -406,6 +409,7 @@
 				1C6E521228242F3900218661 /* Sources */,
 				1C6E521328242F3900218661 /* Frameworks */,
 				1C6E521428242F3900218661 /* Resources */,
+				E8B96E7854510AB5B061B82E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,7 +428,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					1C6E51FF28242F3800218661 = {
@@ -554,6 +558,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E8B96E7854510AB5B061B82E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -561,17 +582,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBE231B28719CE4009FAE7A /* MailListModuleBuilder.swift in Sources */,
+				1CBE231B28719CE4009FAE7A /* RootModuleBuilder.swift in Sources */,
 				1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */,
-				1C2C1550288B41190088ECE2 /* MailListModuleIO.swift in Sources */,
+				1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */,
 				1C6E524828243E4700218661 /* LCEPagedState.swift in Sources */,
 				1C6E52402824310E00218661 /* ListModuleIO.swift in Sources */,
 				1C6E525128243F1B00218661 /* ListResponseData.swift in Sources */,
 				1C6E525C2824429300218661 /* NetworkServiceProtocol.swift in Sources */,
-				1CBE2315287198AE009FAE7A /* MailListFlowCoordinator.swift in Sources */,
+				1CBE2315287198AE009FAE7A /* MailFlowCoordinator.swift in Sources */,
 				1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */,
 				1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */,
-				1CBE232B2871A92B009FAE7A /* MailListState.swift in Sources */,
+				1CBE232B2871A92B009FAE7A /* MailState.swift in Sources */,
 				1C6E523D2824310E00218661 /* ListFeature.swift in Sources */,
 				1C6E526328244BE700218661 /* ListRepositoryMock.swift in Sources */,
 				1C6E52592824411600218661 /* RootContainer.swift in Sources */,
@@ -595,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */,
+				1CA44726289C65F8009EEE42 /* ListTests.swift in Sources */,
 				1C6E521B28242F3900218661 /* InfiniteScrollTests.swift in Sources */,
 				1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */,
 			);
@@ -794,7 +816,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FED62D2847A8980F74E4EE4 /* Pods-InfiniteScrollTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -814,7 +835,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19DE9F86835E669A76901706 /* Pods-InfiniteScrollTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

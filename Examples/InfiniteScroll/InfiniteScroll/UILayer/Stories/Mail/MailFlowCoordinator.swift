@@ -1,5 +1,5 @@
 //
-//  MailListFlowCoordinator.swift
+//  MailFlowCoordinator.swift
 //  InfiniteScroll
 //
 //  Created by Dmitrii Coolerov on 03.07.2022.
@@ -9,7 +9,7 @@ import Foundation
 import Swinject
 import UIKit
 
-final class MailListFlowCoordinator: FlowCoordinatorProtocol {
+final class MailFlowCoordinator: FlowCoordinatorProtocol {
     private weak var window: UIWindow!
     private weak var rootViewController: UIViewController!
     private let resolver: Resolver
@@ -31,7 +31,7 @@ final class MailListFlowCoordinator: FlowCoordinatorProtocol {
         }
         state = .started
 
-        let rootViewController = MailListModuleBuilder(
+        let rootViewController = RootModuleBuilder(
             resolver: resolver,
             moduleOutput: self
         ).build()
@@ -69,4 +69,4 @@ final class MailListFlowCoordinator: FlowCoordinatorProtocol {
     }
 }
 
-extension MailListFlowCoordinator: MailListModuleOutput {}
+extension MailFlowCoordinator: RootModuleOutput {}

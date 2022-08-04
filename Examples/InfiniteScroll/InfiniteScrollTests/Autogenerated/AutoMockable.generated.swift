@@ -4,14 +4,16 @@
 // swiftlint:disable variable_name
 
 import Foundation
-import InfiniteScroll
-import Combine
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 #elseif os(OSX)
 import AppKit
 #endif
 
+import InfiniteScroll
+import Combine
+
+@testable import InfiniteScroll
 
 
 
@@ -26,6 +28,28 @@ import AppKit
 
 
 
+
+
+
+class ListModuleOutputMock: ListModuleOutput {
+
+    // MARK: - listModuleWantsToOpenDetails
+
+    var listModuleWantsToOpenDetailsWithCallsCount = 0
+    var listModuleWantsToOpenDetailsWithCalled: Bool {
+        return listModuleWantsToOpenDetailsWithCallsCount > 0
+    }
+    var listModuleWantsToOpenDetailsWithReceivedId: String?
+    var listModuleWantsToOpenDetailsWithReceivedInvocations: [String] = []
+    var listModuleWantsToOpenDetailsWithClosure: ((String) -> Void)?
+
+    func listModuleWantsToOpenDetails(with id: String) {
+        listModuleWantsToOpenDetailsWithCallsCount += 1
+        listModuleWantsToOpenDetailsWithReceivedId = id
+        listModuleWantsToOpenDetailsWithReceivedInvocations.append(id)
+        listModuleWantsToOpenDetailsWithClosure?(id)
+    }
+}
 
 class ListRepositoryProtocolMock: ListRepositoryProtocol {
 
@@ -51,6 +75,7 @@ class ListRepositoryProtocolMock: ListRepositoryProtocol {
         }
     }
 }
+
 class ToastNotificationManagerProtocolMock: ToastNotificationManagerProtocol {
 
     // MARK: - showNotification
