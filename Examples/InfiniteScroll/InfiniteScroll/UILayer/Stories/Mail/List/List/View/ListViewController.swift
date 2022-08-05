@@ -142,6 +142,8 @@ final class ListViewController: UIViewController {
             self.uiSubject.send(state)
         }
 
+        update(state: store.state)
+        
         uiSubject.throttle(
             for: 0.25,
             scheduler: DispatchQueue.main,

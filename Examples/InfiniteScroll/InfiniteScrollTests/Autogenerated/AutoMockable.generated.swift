@@ -47,7 +47,7 @@ class ListModuleOutputMock: ListModuleOutput {
         listModuleWantsToOpenDetailsWithCallsCount += 1
         listModuleWantsToOpenDetailsWithReceivedId = id
         listModuleWantsToOpenDetailsWithReceivedInvocations.append(id)
-        listModuleWantsToOpenDetailsWithClosure?(id)
+        listModuleWantsToOpenDetailsWithClosure!(id)
     }
 }
 
@@ -92,6 +92,6 @@ class ToastNotificationManagerProtocolMock: ToastNotificationManagerProtocol {
         showNotificationWithCallsCount += 1
         showNotificationWithReceivedType = type
         showNotificationWithReceivedInvocations.append(type)
-        showNotificationWithClosure?(type)
+        showNotificationWithClosure!(type)
     }
 }

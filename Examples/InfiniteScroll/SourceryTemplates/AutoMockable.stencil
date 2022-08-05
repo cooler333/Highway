@@ -97,7 +97,7 @@ import {{ import }}
         {% call swiftifyMethodName method.selectorName %}CallsCount += 1
         {% call methodReceivedParameters method %}
         {% if method.returnTypeName.isVoid %}
-        {% if method.throws %}try {% endif %}{% if method.isAsync %}await {% endif %}{% call methodClosureName method %}?({% call methodClosureCallParameters method %})
+        {% if method.throws %}try {% endif %}{% if method.isAsync %}await {% endif %}{% call methodClosureName method %}!({% call methodClosureCallParameters method %})
         {% else %}
         if let {% call methodClosureName method %} = {% call methodClosureName method %} {
             return {{ 'try ' if method.throws }}{{ 'await ' if method.isAsync }}{% call methodClosureName method %}({% call methodClosureCallParameters method %})
