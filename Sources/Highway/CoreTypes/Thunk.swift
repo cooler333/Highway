@@ -11,7 +11,7 @@ public struct Thunk<State, Action, Environment> {
     let environment: Environment
     let body: (
         _ dispatch: @escaping Dispatch<Action>,
-        _ getState: () -> State,
+        _ getState: () -> State?,
         _ action: Action,
         _ environment: Environment
     ) -> Void
@@ -20,7 +20,7 @@ public struct Thunk<State, Action, Environment> {
         environment: Environment,
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
-            _ getState: () -> State,
+            _ getState: () -> State?,
             _ action: Action,
             _ environment: Environment
         ) -> Void
@@ -34,7 +34,7 @@ public extension Thunk where Environment == Void {
     init(
         body: @escaping (
             _ dispatch: @escaping Dispatch<Action>,
-            _ getState: () -> State,
+            _ getState: () -> State?,
             _ action: Action,
             _ environment: Environment
         ) -> Void

@@ -56,16 +56,6 @@
                ReferencedContainer = "container:InfiniteScroll.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE46171B9EE6EE81105AE5E20293FD1C"
-               BuildableName = "Highway-Unit-HighwayTests.xctest"
-               BlueprintName = "Highway-Unit-HighwayTests"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

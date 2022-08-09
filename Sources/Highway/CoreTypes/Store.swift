@@ -116,7 +116,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     // swiftlint:disable:next identifier_name
-    public func _defaultDispatch(action: Action) {
+    public func innerDispatch(action: Action) {
         guard !isDispatching.value else {
             fatalError(
                 """
@@ -139,11 +139,23 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     public func dispatch(_ action: Action) {
         internalQueue.async { [weak self] in
             guard let self = self else { return }
-            self._defaultDispatch(action: action)
-            let dispatch: (Action) -> Void = { [unowned self] in self.dispatch($0) }
-            let getState: () -> State = { [unowned self] in self.state }
+            self.innerDispatch(action: action)
+            let middlewareDispatch: (Action) -> Void = { [weak self] in
+                guard let self = self else {
+                    debugPrint("dispatch() called after Store deinit")
+                    return
+                }
+                self.dispatch($0)
+            }
+            let getState: () -> State? = { [weak self] in
+                guard let self = self else {
+                    debugPrint("getState() called after Store deinit")
+                    return nil
+                }
+                return self.state
+            }
             self.middleware.forEach { middleware in
-                middleware(dispatch, getState, action)
+                middleware(middlewareDispatch, getState, action)
             }
         }
     }

@@ -3,7 +3,7 @@ platform :ios, '13.0'
 target 'InfiniteScroll' do
   use_frameworks!
 
-  pod 'Highway', path: '../../', testspecs: ["HighwayTests"]
+  pod 'Highway', path: '../../'
 
   pod 'Swinject'
   pod 'SwiftMessages', :inhibit_warnings => true
@@ -12,7 +12,7 @@ target 'InfiniteScroll' do
     inherit! :search_paths
     # Pods for testing
     pod 'Sourcery', :subspecs => ['CLI-Only']
-    pod 'SnapshotTesting'
+    pod 'SnapshotTesting', :inhibit_warnings => true
   end
 end
 
