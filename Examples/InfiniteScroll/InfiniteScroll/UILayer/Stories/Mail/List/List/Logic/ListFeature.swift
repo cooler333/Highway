@@ -34,12 +34,21 @@ enum ListAPIError: Error, Equatable {
     case networkError
 }
 
-struct ListEnvironment {
+final class ListEnvironment {
     let mainQueue: DispatchQueue = .main
     let backgroundQueue: DispatchQueue = .global(qos: .background)
+    var cancellable = Set<AnyCancellable>()
 
     let listRepository: ListRepositoryProtocol
     weak var moduleOutput: ListModuleOutput?
+
+    init(
+        listRepository: ListRepositoryProtocol,
+        moduleOutput: ListModuleOutput
+    ) {
+        self.listRepository = listRepository
+        self.moduleOutput = moduleOutput
+    }
 }
 
 enum ListFeature {}

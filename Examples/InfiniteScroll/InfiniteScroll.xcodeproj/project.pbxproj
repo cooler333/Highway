@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C169DC7289D979300C2E105 /* MiddlewareListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */; };
 		1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* RootModuleIO.swift */; };
 		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		0265335806E7A48CC844298E /* Pods_InfiniteScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE9F86835E669A76901706 /* Pods-InfiniteScrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteScrollTests.release.xcconfig"; path = "Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddlewareListTests.swift; sourceTree = "<group>"; };
 		1C2C154F288B41190088ECE2 /* RootModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleIO.swift; sourceTree = "<group>"; };
 		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				1CA44725289C65F8009EEE42 /* SnapshotListTests.swift */,
+				1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */,
 			);
 			path = Mail;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				1CA44726289C65F8009EEE42 /* SnapshotListTests.swift in Sources */,
 				1C6E521B28242F3900218661 /* InfiniteScrollTests.swift in Sources */,
 				1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */,
+				1C169DC7289D979300C2E105 /* MiddlewareListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

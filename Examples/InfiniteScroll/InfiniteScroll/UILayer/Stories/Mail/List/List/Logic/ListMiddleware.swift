@@ -26,15 +26,13 @@ extension ListFeature {
     static func getPageLoadingMiddleware(
         environment: ListEnvironment
     ) -> Middleware<MailState.List, ListAction> {
-        var cancellable = Set<AnyCancellable>()
-
         return createMiddleware(
             environment: environment,
             { dispatch, getState, action, environment in
                 guard action == .fetchInitialPageInList || action == .fetchNextPageInList else { return }
 
-                cancellable.forEach { $0.cancel() }
-                let state = getState()
+                environment.cancellable.forEach { $0.cancel() }
+                guard let state = getState() else { return }
                 let currentPage: Int
                 if action == .fetchInitialPageInList {
                     currentPage = state.currentPage // or just 0
@@ -74,11 +72,13 @@ extension ListFeature {
                 .eraseToAnyPublisher()
                 .receive(on: environment.mainQueue)
                 .handleEvents(receiveCancel: {
+                    let a = getState()
+                    print(a)
                     dispatch(.getPageDidCancel(searchText: state.searchText))
                 })
                 .sink { action in
                     dispatch(action)
-                }.store(in: &cancellable)
+                }.store(in: &environment.cancellable)
             }
         )
     }
@@ -92,7 +92,7 @@ extension ListFeature {
             environment: environment,
             { dispatch, getState, action, environment in
                 guard case let .selectListAtIndex(index) = action else { return }
-                let state = getState()
+                guard let state = getState() else { return }
 
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
                 let item = state.data[index]
@@ -112,18 +112,6 @@ extension ListFeature {
     }
 }
 
-class Check {
-    let foo: String
-    init(foo: String) {
-        self.foo = foo
-        print("INIT: \(foo)")
-    }
-
-    deinit {
-        print("DEINIT: \(foo)")
-    }
-}
-
 extension ListFeature {
     // swiftlint:disable:next cyclomatic_complexity
     static func getLoggerMiddleware(
@@ -132,7 +120,7 @@ extension ListFeature {
         createMiddleware(
             environment: environment,
             { _, getState, action, _ in
-                let state = getState()
+                guard let state = getState() else { return }
                 switch action {
                 case let .addNextPageInList(result):
                     switch result {

@@ -6,14 +6,14 @@
 //
 
 public typealias Middleware<State, ActionType> = (
-    @escaping Dispatch<ActionType>, @escaping () -> State, ActionType
+    @escaping Dispatch<ActionType>, @escaping () -> State?, ActionType
 ) -> Void
 
 public func createMiddleware<State, Action, Environment>(
     environment: Environment,
     _ body: @escaping (
         _ dispatch: @escaping Dispatch<Action>,
-        _ getState: @escaping () -> State,
+        _ getState: @escaping () -> State?,
         _ action: Action,
         _ environment: Environment
     ) -> Void
@@ -26,7 +26,7 @@ public func createMiddleware<State, Action, Environment>(
 public func createMiddleware<State, Action>(
     _ body: @escaping (
         _ dispatch: @escaping Dispatch<Action>,
-        _ getState: @escaping () -> State,
+        _ getState: @escaping () -> State?,
         _ action: Action
     ) -> Void
 ) -> Middleware<State, Action> {
