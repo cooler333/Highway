@@ -1,7 +1,7 @@
 PODS:
   - Highway (0.16.0)
   - Highway/HighwayTests (0.16.0)
-  - Kingfisher (7.3.0)
+  - Kingfisher (7.3.2)
 
 DEPENDENCIES:
   - Highway (from `../../`)
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Highway: 140ad6805e4c1208096c77c56f0931a133217141
-  Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
+  Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
 
 PODFILE CHECKSUM: afd653a71803a8a30ff4701f402312d82a38bb0d
 

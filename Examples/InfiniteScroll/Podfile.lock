@@ -1,11 +1,11 @@
 PODS:
   - Highway (0.16.0)
   - SnapshotTesting (1.9.0)
-  - Sourcery/CLI-Only (1.8.1)
+  - Sourcery/CLI-Only (1.8.2)
   - SwiftMessages (9.0.6):
     - SwiftMessages/App (= 9.0.6)
   - SwiftMessages/App (9.0.6)
-  - Swinject (2.8.1)
+  - Swinject (2.8.2)
 
 DEPENDENCIES:
   - Highway (from `../../`)
@@ -28,9 +28,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Highway: 140ad6805e4c1208096c77c56f0931a133217141
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
-  Sourcery: 4d44d4ea26a682a4a9875ec7c1870a1e7b8e183f
+  Sourcery: ad4aba88367fbaf0c1ae6ec4ba3282db1b571624
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
-  Swinject: 97112918bd7e0785dc2df7036213f3c8cbba6586
+  Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
 PODFILE CHECKSUM: 19cece704f7b21ab28ece38e250e37289da4ef00
 

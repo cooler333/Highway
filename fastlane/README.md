@@ -13,13 +13,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### update_pods
+### update_dependencies_inside_example_projects
 
 ```sh
-[bundle exec] fastlane update_pods
+[bundle exec] fastlane update_dependencies_inside_example_projects
 ```
 
-Description of what the lane does
+
 
 ----
 

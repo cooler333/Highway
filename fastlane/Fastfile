@@ -1,7 +1,8 @@
 lane :update_dependencies_inside_example_projects do
   sh "bundle exec pod repo update"
 
-  Dir.foreach('../Examples') do |dir|
+  examples_dir = "../Examples"
+  Dir.foreach(examples_dir) do |dir|
     if dir == ".."
       next
     end
@@ -9,11 +10,14 @@ lane :update_dependencies_inside_example_projects do
       next
     end
 
-    full_dir = "../Examples/" + dir
+    full_dir = examples_dir + "/" + dir
     is_dir = File.directory?(full_dir)
 
     if is_dir
-      print full_dir
+      if not File.exists?(full_dir + "/" + "Podfile")
+        next
+      end
+
       sh "cd #{full_dir}; bundle exec pod update"
     end
   end

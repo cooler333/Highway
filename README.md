@@ -30,9 +30,29 @@ https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8
 - [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
 - [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
 
-## Scheme
+## Schemes
 
-<img src="Resources/ChildStoreScheme.png" alt="Scheme" width="400"/>
+#### Simple unidirectional data flow
+
+<img src="Resources/arch_animation.gif" alt="General" width="600"/>
+
+1. UI generate Action
+1. Action goes to Store
+1. Store mutate State (if needed)
+1. new State goes to UI
+1. Action goes to Middleware
+1. Middleware generate new action (if needed)
+1. new Action from Middleware goes to Store
+1. Store mutate State (if needed)
+1. new State goes to UI
+
+#### Single shared state
+
+<img src="Resources/ChildStoreScheme.png" alt="Child" width="400"/>
+
+- Multiple Stores share single State
+- State not copied for each new SubStore
+- State mutation goes down to parent store
 
 ## Requirements
 
