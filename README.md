@@ -5,6 +5,18 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 
 <img src="Resources/jared-murray-NSuufgf-BME-unsplash.jpg" alt="Highway" width="400"/>
 
+## Table of contents
+
+- [Features](#features)
+- [Schemes](#schemes)
+- [Examples](#examples)
+- [Requirements](#requirements)
+- [Installation (Cocoapods / SPM)](#installation-cocoapods--spm)
+- [Alternatives](#alternatives)
+- [Tools used in project](#tools-used-in-project)
+- [Author](#author)
+- [Credits and thanks](#credits-and-thanks)
+
 ## Features
 
 - Child stores
@@ -14,21 +26,6 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - Do not use 3rd party libraries
 - Can be used with SwiftUI
 - Support structs & classes for state (structs preferred)
-
-## Examples
-
-- [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
-- [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
-- [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
-- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
-- [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside TableView cells using DiffableDataSource & SwiftUI List views(items)
-- [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/TableViewsSync): TableView with animations (deletions/insertions) and syncronisation
-- [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
-
-https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
-
-- [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
-- [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
 
 ## Schemes
 
@@ -53,6 +50,21 @@ https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8
 - Multiple Stores share single State
 - State not copied for each new SubStore
 - State mutation goes down to parent store
+
+## Examples
+
+- [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
+- [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
+- [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
+- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
+- [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside TableView cells using DiffableDataSource & SwiftUI List views(items)
+- [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/TableViewsSync): TableView with animations (deletions/insertions) and syncronisation
+- [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
+
+https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
+
+- [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
+- [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
 
 ## Requirements
 
