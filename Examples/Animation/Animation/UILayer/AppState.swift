@@ -13,7 +13,7 @@ struct AppState {
         case highlighted
         case disabled
     }
-    
+
     struct BoolData: Equatable {
         var id: String
         var isOn: Bool
@@ -37,7 +37,6 @@ struct AppState {
         case segmentData(SegmentData)
         case headerData(HeaderData)
     }
-
 
     struct Section: Equatable {
         var id: String

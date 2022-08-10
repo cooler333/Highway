@@ -14,7 +14,6 @@ import XCTest
 @testable import InfiniteScroll
 
 class SnapshotListTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -43,7 +42,7 @@ class SnapshotListTests: XCTestCase {
                     subtitle: "Bar",
                     id: "202cb962ac59075b964b07152d234b70",
                     details: "Lorem ipsum"
-                )
+                ),
             ],
             searchText: nil,
             selectedMailID: nil
@@ -102,7 +101,7 @@ class SnapshotListTests: XCTestCase {
                     subtitle: "Bar",
                     id: "202cb962ac59075b964b07152d234b70",
                     details: "Lorem ipsum"
-                )
+                ),
             ],
             searchText: nil,
             selectedMailID: nil
@@ -161,7 +160,7 @@ class SnapshotListTests: XCTestCase {
                     subtitle: "Bar",
                     id: "202cb962ac59075b964b07152d234b70",
                     details: "Lorem ipsum"
-                )
+                ),
             ],
             searchText: nil,
             selectedMailID: nil
@@ -194,7 +193,7 @@ class SnapshotListTests: XCTestCase {
                     subtitle: "Bar",
                     id: "202cb962ac59075b964b07152d234b70",
                     details: "Lorem ipsum"
-                )
+                ),
             ],
             searchText: nil,
             selectedMailID: nil
@@ -227,7 +226,7 @@ class SnapshotListTests: XCTestCase {
                     subtitle: "Bar",
                     id: "202cb962ac59075b964b07152d234b70",
                     details: "Lorem ipsum"
-                )
+                ),
             ],
             searchText: nil,
             selectedMailID: nil
@@ -297,9 +296,9 @@ class SnapshotListTests: XCTestCase {
 extension SnapshotListTests {
     func configure(state: MailState.List, resolver: Resolver) -> UIViewController {
         let store = Store<MailState.List, ListAction>(
-            reducer: .init({ state, _ in
-                return state
-            }),
+            reducer: .init { state, _ in
+                state
+            },
             state: state
         )
         let viewStore = ViewStore<MailState.List, ListAction>(

@@ -7,8 +7,8 @@
 
 import Foundation
 import Highway
-import UIKit
 import SwiftUI
+import UIKit
 
 struct RootSwiftUIModuleBuilder {
     func build() -> UIViewController {

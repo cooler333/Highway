@@ -143,7 +143,7 @@ final class ListViewController: UIViewController {
         }
 
         update(state: store.state)
-        
+
         uiSubject.throttle(
             for: 0.25,
             scheduler: DispatchQueue.main,

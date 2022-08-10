@@ -72,8 +72,6 @@ extension ListFeature {
                 .eraseToAnyPublisher()
                 .receive(on: environment.mainQueue)
                 .handleEvents(receiveCancel: {
-                    let a = getState()
-                    print(a)
                     dispatch(.getPageDidCancel(searchText: state.searchText))
                 })
                 .sink { action in

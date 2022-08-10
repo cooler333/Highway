@@ -36,7 +36,7 @@ extension MainFeature {
             environment: stateStorage,
             { dispatch, getState, action, _ in
                 guard action == .save else { return }
-                var state = getState()
+                guard var state = getState() else { return }
                 state.isSaving = false
                 stateStorage.save(state, completion: { result in
                     switch result {

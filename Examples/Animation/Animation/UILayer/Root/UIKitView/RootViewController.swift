@@ -49,9 +49,9 @@ final class RootViewController: UIViewController {
             let sectionItem = ContentSectionIdentifier(id: section.id, contentHashValue: section.contentHashValue)
             snapshot.appendSections([sectionItem])
 
-            let items = section.data.map({ dataType -> ContentIdentifier in
+            let items = section.data.map { dataType -> ContentIdentifier in
                 ContentIdentifier(id: dataType.id, contentHashValue: dataType.contentHashValue)
-            })
+            }
             snapshot.appendItems(items)
         }
 
@@ -123,6 +123,7 @@ final class RootViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "SwitchTableViewCell",
                 for: indexPath
+                // swiftlint:disable:next force_cast
             ) as! SwitchTableViewCell
             let id = boolData.id
             cell.configure(isOn: boolData.isOn, switchDidChange: { [weak self, id] isOn in
@@ -139,6 +140,7 @@ final class RootViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "SegmentedTableViewCell",
                 for: indexPath
+                // swiftlint:disable:next force_cast
             ) as! SegmentedTableViewCell
             let id = segmentData.id
             cell.configure(
@@ -183,7 +185,9 @@ private extension RootViewController {
             // find section in data
             if previousSnapshot.sectionIdentifiers.contains(contentSectionIdentifier) {
                 // update previous section
-                guard let previousSectionIdentifier = previousSnapshot.sectionIdentifiers.first(where: { $0.id == contentSectionIdentifier.id }) else {
+                guard let previousSectionIdentifier = previousSnapshot.sectionIdentifiers.first(
+                    where: { $0.id == contentSectionIdentifier.id }
+                ) else {
                     fatalError("unexpected state")
                 }
                 if contentSectionIdentifier.contentHashValue != previousSectionIdentifier.contentHashValue {
@@ -209,8 +213,12 @@ private extension RootViewController {
                 }
 
                 newSnapshot.itemIdentifiers(inSection: contentSectionIdentifier).forEach { contentIdentifier in
-                    if previousSnapshot.itemIdentifiers(inSection: contentSectionIdentifier).contains(contentIdentifier) {
-                        guard let previousContentIdentifier = previousSnapshot.itemIdentifiers(inSection: contentSectionIdentifier).first(where: { $0.id == contentIdentifier.id }) else {
+                    if previousSnapshot.itemIdentifiers(
+                        inSection: contentSectionIdentifier
+                    ).contains(contentIdentifier) {
+                        guard let previousContentIdentifier = previousSnapshot.itemIdentifiers(
+                            inSection: contentSectionIdentifier
+                        ).first(where: { $0.id == contentIdentifier.id }) else {
                             fatalError("unexpected state")
                         }
                         if contentIdentifier.contentHashValue != previousContentIdentifier.contentHashValue {

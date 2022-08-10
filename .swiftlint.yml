@@ -1,6 +1,7 @@
 disabled_rules:
   - trailing_comma
   - opening_brace
+  - unused_closure_parameter
 vertical_whitespace:
   max_empty_lines: 2
 excluded:
