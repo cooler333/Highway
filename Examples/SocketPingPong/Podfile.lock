@@ -1,6 +1,6 @@
 PODS:
-  - Highway (0.16.0)
-  - Highway/HighwayTests (0.16.0)
+  - Highway (0.17.0)
+  - Highway/HighwayTests (0.17.0)
 
 DEPENDENCIES:
   - Highway (from `../../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: 140ad6805e4c1208096c77c56f0931a133217141
+  Highway: a50af30994a79e20f4e9ec719413b6013927758b
 
 PODFILE CHECKSUM: 1256a366c83df064b76362f29a1c1d61d5b597b3
 

@@ -1,5 +1,5 @@
 PODS:
-  - Highway (0.16.0)
+  - Highway (0.17.0)
   - SnapshotTesting (1.9.0)
   - Sourcery/CLI-Only (1.8.2)
   - SwiftMessages (9.0.6):
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: 140ad6805e4c1208096c77c56f0931a133217141
+  Highway: a50af30994a79e20f4e9ec719413b6013927758b
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Sourcery: ad4aba88367fbaf0c1ae6ec4ba3282db1b571624
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
