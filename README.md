@@ -104,13 +104,12 @@ Also you can integrate framework as SPM package
 
 ## TODO
 
-- Add Animated scheme (including middleware)
-- App tests examples (E2E, Unit)
-- UIView modules (separated frameworks)
-- Collapsable UITableView (?)
-- Modern CollectionView (?)
-- Add pros and cons to alternatives
-- Improve readme
+1. App tests examples (E2E, Unit)
+1. UIView modules (separated frameworks)
+1. Add pros and cons to alternatives
+1. Improve readme
+1. Collapsable UITableView (?)
+1. Modern CollectionView (?)
 
 ## Author
 
