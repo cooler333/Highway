@@ -115,7 +115,6 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         }
     }
 
-    // swiftlint:disable:next identifier_name
     public func innerDispatch(action: Action) {
         guard !isDispatching.value else {
             fatalError(

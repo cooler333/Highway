@@ -55,7 +55,7 @@ enum PingPongFeature {
     static func middlewares(environment: Environment) -> [Middleware<AppState, Action>] {
         return [
             createMiddleware { dispatch, getState, _ in
-                let state = getState()
+                guard let state = getState() else { return }
 
                 if state.playType == .paused {
                     environment.cancellable.forEach { $0.cancel() }
@@ -69,7 +69,7 @@ enum PingPongFeature {
                     )
                     .autoconnect()
                     .sink { _ in
-                        let state = getState()
+                        guard let state = getState() else { return }
                         if state.playType == .paused {
                             environment.cancellable.forEach { $0.cancel() }
                         } else {

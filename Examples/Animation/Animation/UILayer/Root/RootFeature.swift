@@ -9,7 +9,6 @@ import Foundation
 import Highway
 
 enum RootFeature {
-
     enum Action {
         case initial
         case setOn(id: String)
@@ -19,6 +18,7 @@ enum RootFeature {
         case resetted
     }
 
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     static func getReducer() -> Reducer<AppState, Action> {
         .init { state, action in
             switch action {
@@ -30,7 +30,13 @@ enum RootFeature {
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
-                        .segmentData(.init(id: UUID().uuidString, segments: ["foo", "bar", "baz"], selectedIndex: 0, state: .normal)),
+                        .segmentData(
+                            .init(
+                                id: UUID().uuidString,
+                                segments: ["foo", "bar", "baz"],
+                                selectedIndex: 0, state: .normal
+                            )
+                        ),
                     ]),
                     .init(id: UUID().uuidString, value: "Second", data: [
                         .headerData(.init(id: UUID().uuidString, title: "Second")),

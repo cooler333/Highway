@@ -35,7 +35,7 @@ struct RootView: View {
                     }
                 }
             }
-        }.onAppear() {
+        }.onAppear {
             self.data = store.state.data
             store.subscribe { state in
                 DispatchQueue.main.async {
@@ -50,9 +50,9 @@ struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView(
             store: .init(
-                reducer: .init({ state, action in
-                    return state
-                }),
+                reducer: .init { state, action in
+                    state
+                },
                 state: .init(
                     data: [
                         .init(
@@ -61,9 +61,9 @@ struct RootView_Previews: PreviewProvider {
                             data: [
                                 .headerData(.init(id: "foo", title: "foo")),
                                 .segmentData(.init(id: "bar", segments: ["foo", "bar"], selectedIndex: 0, state: .normal)),
-                                .boolData(.init(id: "baz", isOn: true, state: .normal))
+                                .boolData(.init(id: "baz", isOn: true, state: .normal)),
                             ]
-                        )
+                        ),
                     ]
                 )
             )

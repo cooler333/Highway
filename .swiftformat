@@ -3,3 +3,4 @@
 --ifdef no-indent
 --disable unusedArguments
 --ranges no-space
+--typeblanklines preserve

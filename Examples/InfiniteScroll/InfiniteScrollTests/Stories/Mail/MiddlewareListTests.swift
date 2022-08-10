@@ -12,7 +12,6 @@ import XCTest
 @testable import InfiniteScroll
 
 class MiddlewareListTests: XCTestCase {
-
     private var store: Store<MailState.List, ListAction>!
 
     override func setUpWithError() throws {
@@ -25,7 +24,6 @@ class MiddlewareListTests: XCTestCase {
     }
 
     func testExample() throws {
-
         // Arrange
 
         let listRepository = ListRepositoryProtocolMock()
@@ -41,7 +39,7 @@ class MiddlewareListTests: XCTestCase {
         )
 
         let expectData: [ListModel] = [
-            .init(title: "Foo", subtitle: "Bar", id: "foobar", details: "barfoo")
+            .init(title: "Foo", subtitle: "Bar", id: "foobar", details: "barfoo"),
         ]
         var resultData: [ListModel]!
 
@@ -79,14 +77,13 @@ class MiddlewareListTests: XCTestCase {
         // Act
 
         store.dispatch(.fetchInitialPageInList)
-        listRepository.getListsWithPageLengthSearchTextClosure = { (currentPage, pageLength, searchText) in
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
             Future<[ListModel], Error> { promise in
                 promise(.success(expectData))
             }.eraseToAnyPublisher()
         }
 
         // Assert
-
 
         wait(for: [waitExpectation], timeout: 1)
         XCTAssertEqual(expectData, resultData)

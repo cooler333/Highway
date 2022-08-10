@@ -8,7 +8,6 @@
 import UIKit
 
 final class SegmentedTableViewCell: UITableViewCell {
-
     private var segmentedControl: UISegmentedControl!
     private var segmentDidChange: ((Int) -> Void)!
 
@@ -55,4 +54,3 @@ final class SegmentedTableViewCell: UITableViewCell {
         self.segmentDidChange = segmentDidChange
     }
 }
-

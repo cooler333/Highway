@@ -51,7 +51,7 @@ final class ViewStoreReusableViewController: UIViewController {
     }
 
     private func render(state: State) {
-        self.currentValueLabel.text = state.value
+        currentValueLabel.text = state.value
     }
 
     private func setupDecrementButton() {

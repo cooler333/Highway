@@ -47,17 +47,17 @@ final class SwitchTableViewCell: UITableViewCell {
             if uiSwitch.isOn != isOn {
                 uiSwitch.setOn(isOn, animated: true)
                 if isOn {
-                    self.playSwitchOnAnimation(uiSwitch: self.uiSwitch)
+                    playSwitchOnAnimation(uiSwitch: self.uiSwitch)
                 } else {
-                    self.playSwitchOffAnimation(uiSwitch: self.uiSwitch)
+                    playSwitchOffAnimation(uiSwitch: self.uiSwitch)
                 }
             }
         } else {
-            self.uiSwitch.setOn(!isOn, animated: false)
+            uiSwitch.setOn(!isOn, animated: false)
             if !isOn {
-                self.uiSwitch.transform = CGAffineTransform(scaleX: 2, y: 2)
+                uiSwitch.transform = CGAffineTransform(scaleX: 2, y: 2)
             } else {
-                self.uiSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                uiSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             }
 
             DispatchQueue.main.async {
@@ -102,4 +102,3 @@ final class SwitchTableViewCell: UITableViewCell {
         )
     }
 }
-

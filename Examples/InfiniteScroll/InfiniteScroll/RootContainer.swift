@@ -79,7 +79,7 @@ public final class RootAssembly: Assembly {
             let store = mailListStore.createChildStore(
                 keyPath: \.list,
                 reducer: Reducer<MailState.List, String> { state, _ in
-                    return state
+                    state
                 },
                 initialAction: "",
                 middleware: []
