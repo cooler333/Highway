@@ -10,6 +10,8 @@
 		1C169DC7289D979300C2E105 /* MiddlewareListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */; };
 		1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* RootModuleIO.swift */; };
 		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
+		1C6CC4ED28A441DE0096A676 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */; };
+		1C6CC4EF28A4450A0096A676 /* ListViewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
 		1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520528242F3800218661 /* SceneDelegate.swift */; };
 		1C6E520D28242F3900218661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6E520C28242F3900218661 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddlewareListTests.swift; sourceTree = "<group>"; };
 		1C2C154F288B41190088ECE2 /* RootModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleIO.swift; sourceTree = "<group>"; };
 		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
+		1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewMapper.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E520328242F3800218661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C6E520528242F3800218661 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				1C6E52362824310E00218661 /* ListFeature.swift */,
 				1CA17221286C2A070079262E /* ListReducer.swift */,
 				1CA17223286C2A490079262E /* ListMiddleware.swift */,
+				1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			children = (
 				1CA44725289C65F8009EEE42 /* SnapshotListTests.swift */,
 				1C169DC6289D979300C2E105 /* MiddlewareListTests.swift */,
+				1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */,
 			);
 			path = Mail;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				1C6E525328243FCB00218661 /* NetworkService.swift in Sources */,
 				1C6E520428242F3800218661 /* AppDelegate.swift in Sources */,
 				1C6E523C2824310E00218661 /* ListFlowCoordinator.swift in Sources */,
+				1C6CC4EF28A4450A0096A676 /* ListViewMapper.swift in Sources */,
 				1C6E523E2824310E00218661 /* ListViewController.swift in Sources */,
 				1C6E524B28243EC800218661 /* ListModel.swift in Sources */,
 				1C6E52442824381A00218661 /* FlowCoordinatorProtocol.swift in Sources */,
@@ -627,6 +634,7 @@
 			files = (
 				1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */,
 				1CBAE2F2289D87CB00775C26 /* ErrorType.swift in Sources */,
+				1C6CC4ED28A441DE0096A676 /* IntegrationTests.swift in Sources */,
 				1CA44726289C65F8009EEE42 /* SnapshotListTests.swift in Sources */,
 				1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */,
 				1C169DC7289D979300C2E105 /* MiddlewareListTests.swift in Sources */,

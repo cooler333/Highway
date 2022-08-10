@@ -106,12 +106,8 @@ public final class RootAssembly: Assembly {
             )
             let viewStore = ViewStore<MailState.List, ListAction>(
                 store: store,
-                stateMapper: { state in
-                    state
-                },
-                actionMapper: { action in
-                    action
-                }
+                stateMapper: ListFeature.getStateMapper,
+                actionMapper: ListFeature.getActionMapper
             )
             let viewController = ListViewController(
                 store: viewStore,
