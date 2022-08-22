@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C169DC7289D979300C2E105 /* IntegrationListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C169DC6289D979300C2E105 /* IntegrationListTests.swift */; };
+		1C169DC7289D979300C2E105 /* LogicListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C169DC6289D979300C2E105 /* LogicListTests.swift */; };
 		1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* RootModuleIO.swift */; };
 		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
-		1C6CC4ED28A441DE0096A676 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */; };
 		1C6CC4EF28A4450A0096A676 /* ListViewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
 		1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520528242F3800218661 /* SceneDelegate.swift */; };
@@ -59,10 +58,9 @@
 /* Begin PBXFileReference section */
 		0265335806E7A48CC844298E /* Pods_InfiniteScroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InfiniteScroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE9F86835E669A76901706 /* Pods-InfiniteScrollTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InfiniteScrollTests.release.xcconfig"; path = "Target Support Files/Pods-InfiniteScrollTests/Pods-InfiniteScrollTests.release.xcconfig"; sourceTree = "<group>"; };
-		1C169DC6289D979300C2E105 /* IntegrationListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationListTests.swift; sourceTree = "<group>"; };
+		1C169DC6289D979300C2E105 /* LogicListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicListTests.swift; sourceTree = "<group>"; };
 		1C2C154F288B41190088ECE2 /* RootModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleIO.swift; sourceTree = "<group>"; };
 		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
-		1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
 		1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewMapper.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E520328242F3800218661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -270,8 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				1CA44725289C65F8009EEE42 /* SnapshotListTests.swift */,
-				1C169DC6289D979300C2E105 /* IntegrationListTests.swift */,
-				1C6CC4EC28A441DE0096A676 /* IntegrationTests.swift */,
+				1C169DC6289D979300C2E105 /* LogicListTests.swift */,
 			);
 			path = Mail;
 			sourceTree = "<group>";
@@ -634,10 +631,9 @@
 			files = (
 				1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */,
 				1CBAE2F2289D87CB00775C26 /* ErrorType.swift in Sources */,
-				1C6CC4ED28A441DE0096A676 /* IntegrationTests.swift in Sources */,
 				1CA44726289C65F8009EEE42 /* SnapshotListTests.swift in Sources */,
 				1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */,
-				1C169DC7289D979300C2E105 /* IntegrationListTests.swift in Sources */,
+				1C169DC7289D979300C2E105 /* LogicListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

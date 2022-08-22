@@ -21,9 +21,11 @@ extension ListFeature {
 
             case .fetchNextPageInList:
                 if state.isListEnded {
+                    assertionFailure("unexpected state")
                     return state
                 }
                 if state.loadingState == .nextPage {
+                    assertionFailure("unexpected state")
                     return state
                 }
                 var state = state

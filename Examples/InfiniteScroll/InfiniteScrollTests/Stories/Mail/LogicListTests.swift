@@ -49,7 +49,74 @@ class IntegrationListTests: XCTestCase {
             }
         )
 
+        let waitExpectation = expectation(description: "wait")
+
+        actionHandler = { state, action in
+            switch action {
+            case .updateInitialPageInList:
+                waitExpectation.fulfill()
+
+            case .fetchInitialPageInList:
+                break
+
+            default:
+                XCTFail("unexpected action")
+            }
+        }
+
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
+            Future<[ListModel], Error> { promise in
+                promise(.success([]))
+            }.eraseToAnyPublisher()
+        }
+
         // Act
+
+        store.dispatch(.fetchInitialPageInList)
+        wait(for: [waitExpectation], timeout: 1)
+
+        // Assert
+
+        let expectedState: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: true,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
+    }
+
+    func testNoDataError() throws {
+        // Arrange
+
+        let listRepository = ListRepositoryProtocolMock()
+        let listModuleOutput = ListModuleOutputMock()
+
+        let state: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: false,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+
+        let environment: ListEnvironment = .init(
+            listRepository: listRepository,
+            moduleOutput: listModuleOutput
+        )
+        var actionHandler: ((MailState.List, ListAction) -> Void)!
+
+        let store = configure(
+            state: state,
+            middleware: ListFeature.getPageLoadingMiddleware(environment: environment),
+            actionHandler: { state, action in
+                actionHandler(state, action)
+            }
+        )
 
         let waitExpectation = expectation(description: "wait")
 
@@ -68,22 +135,21 @@ class IntegrationListTests: XCTestCase {
 
         listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
             Future<[ListModel], Error> { promise in
-                promise(.success(
-                    []
-                ))
+                promise(.failure(URLError.init(.timedOut)))
             }.eraseToAnyPublisher()
         }
 
+        // Act
+
         store.dispatch(.fetchInitialPageInList)
+        wait(for: [waitExpectation], timeout: 1)
 
         // Assert
 
-        wait(for: [waitExpectation], timeout: 1)
-
         let expectedState: MailState.List = .init(
             currentPage: 0,
-            isListEnded: true,
-            loadingState: .idle,
+            isListEnded: false,
+            loadingState: .error(.networkError),
             data: [],
             searchText: nil,
             selectedMailID: nil
@@ -121,8 +187,6 @@ class IntegrationListTests: XCTestCase {
             }
         )
 
-        // Act
-
         let waitExpectation = expectation(description: "wait")
 
         actionHandler = { state, action in
@@ -148,11 +212,12 @@ class IntegrationListTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
 
+        // Act
+
         store.dispatch(.fetchInitialPageInList)
+        wait(for: [waitExpectation], timeout: 1)
 
         // Assert
-
-        wait(for: [waitExpectation], timeout: 1)
 
         let expectedState: MailState.List = .init(
             currentPage: 0,
@@ -197,8 +262,6 @@ class IntegrationListTests: XCTestCase {
             }
         )
 
-        // Act
-
         let waitExpectation = expectation(description: "wait")
 
         actionHandler = { state, action in
@@ -224,11 +287,12 @@ class IntegrationListTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
 
+        // Act
+
         store.dispatch(.fetchInitialPageInList)
+        wait(for: [waitExpectation], timeout: 1)
 
         // Assert
-
-        wait(for: [waitExpectation], timeout: 10)
 
         let expectedState: MailState.List = .init(
             currentPage: 1,
@@ -273,8 +337,6 @@ class IntegrationListTests: XCTestCase {
             }
         )
 
-        // Act
-
         let firstPageExpectation = expectation(description: "finishPage")
         let finishExpectation = expectation(description: "finish")
 
@@ -313,8 +375,9 @@ class IntegrationListTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
 
-        store.dispatch(.fetchInitialPageInList)
+        // Act
 
+        store.dispatch(.fetchInitialPageInList)
         wait(for: [firstPageExpectation], timeout: 1)
 
         wait(forPrecondition: {
@@ -326,16 +389,111 @@ class IntegrationListTests: XCTestCase {
                 XCTFail("Expectation is unfillfulled")
             }
         })
+        wait(for: [finishExpectation], timeout: 1)
 
         // Assert
-
-        wait(for: [finishExpectation], timeout: 1)
 
         let expectedState: MailState.List = .init(
             currentPage: 1,
             isListEnded: true,
             loadingState: .idle,
             data: (0..<environment.pageLength * 2 - 1).map { index in
+                .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+            },
+            searchText: nil,
+            selectedMailID: nil
+        )
+        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
+    }
+
+    func testNextPageErrro() throws {
+        // Arrange
+
+        let listRepository = ListRepositoryProtocolMock()
+        let listModuleOutput = ListModuleOutputMock()
+
+        let state: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: false,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+
+        let environment: ListEnvironment = .init(
+            listRepository: listRepository,
+            moduleOutput: listModuleOutput
+        )
+        var actionHandler: ((MailState.List, ListAction) -> Void)!
+
+        let store = configure(
+            state: state,
+            middleware: ListFeature.getPageLoadingMiddleware(environment: environment),
+            actionHandler: { state, action in
+                actionHandler(state, action)
+            }
+        )
+
+        let firstPageExpectation = expectation(description: "finishPage")
+        let finishExpectation = expectation(description: "finish")
+
+        actionHandler = { state, action in
+            switch action {
+            case .updateInitialPageInList:
+                firstPageExpectation.fulfill()
+
+            case .addNextPageInList:
+                finishExpectation.fulfill()
+
+            case .fetchInitialPageInList,
+                 .fetchNextPageInList:
+                break
+
+            default:
+                XCTFail("unexpected action: \(action)")
+            }
+        }
+
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
+            Future<[ListModel], Error> { promise in
+                if currentPage == 0 {
+                    let startIndex = currentPage * pageLength
+                    let count = pageLength
+                    let data: [ListModel] = (startIndex..<startIndex + count).map { index in
+                        .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                    }
+                    promise(.success(data))
+                } else {
+                    promise(.failure(URLError.init(.timedOut)))
+                }
+            }.eraseToAnyPublisher()
+        }
+
+        // Act
+
+        store.dispatch(.fetchInitialPageInList)
+        wait(for: [firstPageExpectation], timeout: 1)
+
+        wait(forPrecondition: {
+            environment.cancellable.isEmpty
+        }, completion: { success in
+            if success {
+                store.dispatch(.fetchNextPageInList)
+            } else {
+                XCTFail("Expectation is unfillfulled")
+            }
+        })
+        wait(for: [finishExpectation], timeout: 1)
+
+        // Assert
+
+        let expectedState: MailState.List = .init(
+            currentPage: 1,
+            isListEnded: false,
+            loadingState: .error(.networkError),
+            data: (0..<environment.pageLength * 1).map { index in
                 .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
             },
             searchText: nil,
@@ -379,8 +537,6 @@ class IntegrationListTests: XCTestCase {
             states.append(state)
         }
 
-        // Act
-
         let firstPageExpectation = expectation(description: "finishPage")
         let finishExpectation = expectation(description: "finish")
 
@@ -412,10 +568,10 @@ class IntegrationListTests: XCTestCase {
             }.eraseToAnyPublisher()
         }
 
+        // Act
+
         store.dispatch(.fetchInitialPageInList)
-
-        wait(for: [firstPageExpectation], timeout: 10)
-
+        wait(for: [firstPageExpectation], timeout: 1)
 
         wait(forPrecondition: {
             environment.cancellable.isEmpty
@@ -426,10 +582,9 @@ class IntegrationListTests: XCTestCase {
                 XCTFail("Expectation is unfillfulled")
             }
         })
+        wait(for: [finishExpectation], timeout: 1)
 
         // Assert
-
-        wait(for: [finishExpectation], timeout: 10)
 
         let expectedStates: [MailState.List] = [
             .init(currentPage: 0, isListEnded: false, loadingState: .idle, data: [], searchText: nil, selectedMailID: nil),
@@ -470,7 +625,11 @@ class IntegrationListTests: XCTestCase {
     }
 
     func testRefresh() throws {
-        // FIXME: Impl
+        XCTFail("Impl")
+    }
+
+    func testSearch() throws {
+        XCTFail("Impl")
     }
 }
 
@@ -495,13 +654,20 @@ extension IntegrationListTests {
     }
 
     private func wait(forPrecondition precondition: @escaping () -> Bool, completion: @escaping (Bool) -> Void) {
-        wait(forPrecondition: precondition, iteration: 0, maxIterations: 100, completion: completion)
+        wait(
+            forPrecondition: precondition,
+            iteration: 0,
+            maxIterations: 100,
+            completionQueue: .main,
+            completion: completion
+        )
     }
 
     private func wait(
         forPrecondition precondition: @escaping () -> Bool,
         iteration: Int,
         maxIterations: Int,
+        completionQueue: DispatchQueue,
         completion: @escaping (Bool) -> Void
     ) {
         let result = precondition()
@@ -515,8 +681,14 @@ extension IntegrationListTests {
             return
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
-            self.wait(forPrecondition: precondition, iteration: iteration + 1, maxIterations: maxIterations, completion: completion)
+        completionQueue.asyncAfter(deadline: .now() + 0.01, execute: {
+            self.wait(
+                forPrecondition: precondition,
+                iteration: iteration + 1,
+                maxIterations: maxIterations,
+                completionQueue: completionQueue,
+                completion: completion
+            )
         })
     }
 }
