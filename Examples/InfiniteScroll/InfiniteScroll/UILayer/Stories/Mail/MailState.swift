@@ -16,7 +16,6 @@ struct MailState: Equatable {
             case idle
         }
 
-        let pageLength = 15
         var currentPage = 0
         var isListEnded = false
         var loadingState: LoadingState = .idle

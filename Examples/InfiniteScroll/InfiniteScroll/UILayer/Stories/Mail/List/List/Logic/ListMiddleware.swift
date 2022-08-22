@@ -32,27 +32,25 @@ extension ListFeature {
                 guard action == .fetchInitialPageInList || action == .fetchNextPageInList else { return }
 
                 environment.cancellable.forEach { $0.cancel() }
-                guard let state = getState() else { return }
-                let currentPage: Int
-                if action == .fetchInitialPageInList {
-                    currentPage = state.currentPage // or just 0
-                } else if action == .fetchNextPageInList {
-                    currentPage = state.currentPage + 1
-                } else {
-                    fatalError("unexpected state")
-                }
 
-                environment.listRepository.getLists(
-                    with: currentPage,
-                    pageLength: state.pageLength,
+                guard let state = getState() else { return }
+
+                var cancellableToken: AnyCancellable!
+                cancellableToken = environment.listRepository.getLists(
+                    with: state.currentPage,
+                    pageLength: environment.pageLength,
                     searchText: state.searchText
                 )
                 .subscribe(on: environment.backgroundQueue)
                 .map { result -> ListAction in
                     if action == .fetchInitialPageInList {
-                        return .updateInitialPageInList(data: .success(result))
+                        return .updateInitialPageInList(data: .success(
+                            .init(data: result, isListEnded: result.count < environment.pageLength)
+                        ))
                     } else if action == .fetchNextPageInList {
-                        return .addNextPageInList(data: .success(result))
+                        return .addNextPageInList(data: .success(
+                            .init(data: result, isListEnded: result.count < environment.pageLength)
+                        ))
                     } else {
                         fatalError("unexpected state")
                     }
@@ -74,9 +72,18 @@ extension ListFeature {
                 .handleEvents(receiveCancel: {
                     dispatch(.getPageDidCancel(searchText: state.searchText))
                 })
-                .sink { action in
-                    dispatch(action)
-                }.store(in: &environment.cancellable)
+                .sink(
+                    receiveCompletion: { completion in
+                        switch completion {
+                        case .finished, .failure:
+                            environment.cancellable.remove(cancellableToken)
+                        }
+                    },
+                    receiveValue: { action in
+                        dispatch(action)
+                    }
+                )
+                cancellableToken.store(in: &environment.cancellable)
             }
         )
     }
@@ -123,7 +130,7 @@ extension ListFeature {
                 case let .addNextPageInList(result):
                     switch result {
                     case let .success(data):
-                        print(Date(), "[addNextPageInList] count: \(data.count)")
+                        print(Date(), "[addNextPageInList] count: \(data.data.count), isListEnded: \(data.isListEnded)")
 
                     case let .failure(error):
                         print(Date(), "[addNextPageInList] error: \(error.localizedDescription)")
@@ -133,7 +140,7 @@ extension ListFeature {
                     switch result {
                     case let .success(data):
                         // swiftlint:disable:next line_length
-                        print(Date(), "[updateInitialPageInList] count: \(data.count), searchText: \(state.searchText ?? "nil")")
+                        print(Date(), "[updateInitialPageInList] count: \(data.data.count), isListEnded: \(data.isListEnded), searchText: \(state.searchText ?? "nil")")
 
                     case let .failure(error):
                         // swiftlint:disable:next line_length

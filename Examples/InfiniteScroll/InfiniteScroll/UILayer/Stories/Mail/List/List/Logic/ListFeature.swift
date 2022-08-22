@@ -15,8 +15,13 @@ enum ListAction: Equatable {
     // List
     case fetchInitialPageInList
     case fetchNextPageInList
-    case updateInitialPageInList(data: Result<[ListModel], ListAPIError>)
-    case addNextPageInList(data: Result<[ListModel], ListAPIError>)
+
+    struct ListData: Equatable {
+        let data: [ListModel]
+        let isListEnded: Bool
+    }
+    case updateInitialPageInList(data: Result<ListData, ListAPIError>)
+    case addNextPageInList(data: Result<ListData, ListAPIError>)
 
     case search(searchText: String?)
     case getPageDidCancel(searchText: String?)
@@ -37,6 +42,8 @@ enum ListAPIError: Error, Equatable {
 final class ListEnvironment {
     let mainQueue: DispatchQueue = .main
     let backgroundQueue: DispatchQueue = .global(qos: .background)
+    let pageLength = 15
+
     var cancellable = Set<AnyCancellable>()
 
     let listRepository: ListRepositoryProtocol

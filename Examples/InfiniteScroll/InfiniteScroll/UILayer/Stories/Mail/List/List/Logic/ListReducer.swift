@@ -35,9 +35,11 @@ extension ListFeature {
                 case let .success(data):
                     var state = state
                     state.loadingState = .idle
-                    state.isListEnded = data.count < state.pageLength
-                    state.currentPage += 1
-                    state.data = data
+                    state.isListEnded = data.isListEnded
+                    if !data.isListEnded {
+                        state.currentPage += 1
+                    }
+                    state.data = data.data
                     return state
 
                 case let .failure(error):
@@ -61,9 +63,11 @@ extension ListFeature {
                 case let .success(data):
                     var state = state
                     state.loadingState = .idle
-                    state.isListEnded = data.count < state.pageLength
-                    state.currentPage += 1
-                    state.data += data
+                    state.isListEnded = data.isListEnded
+                    if !data.isListEnded {
+                        state.currentPage += 1
+                    }
+                    state.data += data.data
                     return state
 
                 case let .failure(error):
