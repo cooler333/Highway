@@ -20,8 +20,8 @@ enum ListAction: Equatable {
         let data: [ListModel]
         let isListEnded: Bool
     }
-    case updateInitialPageInList(data: Result<ListData, ListAPIError>)
-    case addNextPageInList(data: Result<ListData, ListAPIError>)
+    case updateInitialPageInList(result: Result<ListData, ListAPIError>)
+    case addNextPageInList(result: Result<ListData, ListAPIError>)
 
     case search(searchText: String?)
     case getPageDidCancel(searchText: String?)

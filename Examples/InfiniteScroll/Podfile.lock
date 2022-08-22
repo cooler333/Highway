@@ -1,4 +1,5 @@
 PODS:
+  - Difference (1.0.0)
   - Highway (0.17.0)
   - SnapshotTesting (1.9.0)
   - Sourcery/CLI-Only (1.8.2)
@@ -8,6 +9,7 @@ PODS:
   - Swinject (2.8.2)
 
 DEPENDENCIES:
+  - Difference
   - Highway (from `../../`)
   - SnapshotTesting
   - Sourcery/CLI-Only
@@ -16,6 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Difference
     - SnapshotTesting
     - Sourcery
     - SwiftMessages
@@ -26,12 +29,13 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
+  Difference: 2f1f5040078df5cd5077cff308834510261ad7ad
   Highway: a50af30994a79e20f4e9ec719413b6013927758b
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Sourcery: ad4aba88367fbaf0c1ae6ec4ba3282db1b571624
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
 
-PODFILE CHECKSUM: 19cece704f7b21ab28ece38e250e37289da4ef00
+PODFILE CHECKSUM: 1d7454b228c42a6411330888c5bd3d0bb14735b7
 
 COCOAPODS: 1.11.3

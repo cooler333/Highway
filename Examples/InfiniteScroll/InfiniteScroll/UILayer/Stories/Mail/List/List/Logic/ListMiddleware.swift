@@ -44,11 +44,11 @@ extension ListFeature {
                 .subscribe(on: environment.backgroundQueue)
                 .map { result -> ListAction in
                     if action == .fetchInitialPageInList {
-                        return .updateInitialPageInList(data: .success(
+                        return .updateInitialPageInList(result: .success(
                             .init(data: result, isListEnded: result.count < environment.pageLength)
                         ))
                     } else if action == .fetchNextPageInList {
-                        return .addNextPageInList(data: .success(
+                        return .addNextPageInList(result: .success(
                             .init(data: result, isListEnded: result.count < environment.pageLength)
                         ))
                     } else {
@@ -60,9 +60,9 @@ extension ListFeature {
                 }
                 .catch { (error: ListAPIError) -> AnyPublisher<ListAction, Never> in
                     if action == .fetchInitialPageInList {
-                        return Just<ListAction>(.updateInitialPageInList(data: .failure(error))).eraseToAnyPublisher()
+                        return Just<ListAction>(.updateInitialPageInList(result: .failure(error))).eraseToAnyPublisher()
                     } else if action == .fetchNextPageInList {
-                        return Just<ListAction>(.addNextPageInList(data: .failure(error))).eraseToAnyPublisher()
+                        return Just<ListAction>(.addNextPageInList(result: .failure(error))).eraseToAnyPublisher()
                     } else {
                         fatalError("unexpected state")
                     }

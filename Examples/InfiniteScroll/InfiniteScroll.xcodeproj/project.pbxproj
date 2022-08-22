@@ -10,6 +10,8 @@
 		1C169DC7289D979300C2E105 /* LogicListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C169DC6289D979300C2E105 /* LogicListTests.swift */; };
 		1C2C1550288B41190088ECE2 /* RootModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C154F288B41190088ECE2 /* RootModuleIO.swift */; };
 		1C2C1552288B413D0088ECE2 /* DetailsModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */; };
+		1C55242328B3EE91000A3464 /* XCTAssertEqual+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55242228B3EE91000A3464 /* XCTAssertEqual+Diff.swift */; };
+		1C55242528B3EFF4000A3464 /* XCTest+WaitForPrecondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C55242428B3EFF4000A3464 /* XCTest+WaitForPrecondition.swift */; };
 		1C6CC4EF28A4450A0096A676 /* ListViewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */; };
 		1C6E520428242F3800218661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520328242F3800218661 /* AppDelegate.swift */; };
 		1C6E520628242F3800218661 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E520528242F3800218661 /* SceneDelegate.swift */; };
@@ -33,7 +35,6 @@
 		1CA17222286C2A070079262E /* ListReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17221286C2A070079262E /* ListReducer.swift */; };
 		1CA17224286C2A490079262E /* ListMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17223286C2A490079262E /* ListMiddleware.swift */; };
 		1CA44726289C65F8009EEE42 /* SnapshotListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA44725289C65F8009EEE42 /* SnapshotListTests.swift */; };
-		1CBAE2F2289D87CB00775C26 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBAE2F1289D87CB00775C26 /* ErrorType.swift */; };
 		1CBE2313287198A5009FAE7A /* DetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */; };
 		1CBE2315287198AE009FAE7A /* MailFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE2314287198AE009FAE7A /* MailFlowCoordinator.swift */; };
 		1CBE231928719CAD009FAE7A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE231828719CAD009FAE7A /* DetailsViewController.swift */; };
@@ -61,6 +62,8 @@
 		1C169DC6289D979300C2E105 /* LogicListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicListTests.swift; sourceTree = "<group>"; };
 		1C2C154F288B41190088ECE2 /* RootModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootModuleIO.swift; sourceTree = "<group>"; };
 		1C2C1551288B413D0088ECE2 /* DetailsModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsModuleIO.swift; sourceTree = "<group>"; };
+		1C55242228B3EE91000A3464 /* XCTAssertEqual+Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTAssertEqual+Diff.swift"; sourceTree = "<group>"; };
+		1C55242428B3EFF4000A3464 /* XCTest+WaitForPrecondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+WaitForPrecondition.swift"; sourceTree = "<group>"; };
 		1C6CC4EE28A4450A0096A676 /* ListViewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewMapper.swift; sourceTree = "<group>"; };
 		1C6E520028242F3800218661 /* InfiniteScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfiniteScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C6E520328242F3800218661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +90,6 @@
 		1CA17221286C2A070079262E /* ListReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReducer.swift; sourceTree = "<group>"; };
 		1CA17223286C2A490079262E /* ListMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMiddleware.swift; sourceTree = "<group>"; };
 		1CA44725289C65F8009EEE42 /* SnapshotListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotListTests.swift; sourceTree = "<group>"; };
-		1CBAE2F1289D87CB00775C26 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		1CBE2312287198A5009FAE7A /* DetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE2314287198AE009FAE7A /* MailFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailFlowCoordinator.swift; sourceTree = "<group>"; };
 		1CBE231828719CAD009FAE7A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1C55242128B3EE91000A3464 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1C55242228B3EE91000A3464 /* XCTAssertEqual+Diff.swift */,
+				1C55242428B3EFF4000A3464 /* XCTest+WaitForPrecondition.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1C6E51F728242F3800218661 = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +183,7 @@
 		1C6E521928242F3900218661 /* InfiniteScrollTests */ = {
 			isa = PBXGroup;
 			children = (
-				1CBAE2F0289D87B200775C26 /* Helpers */,
+				1C55242128B3EE91000A3464 /* Helpers */,
 				1CCBEFA4282D9B0F00A43E25 /* Autogenerated */,
 				1CCBEFA7282DAC0A00A43E25 /* Stories */,
 			);
@@ -271,14 +282,6 @@
 				1C169DC6289D979300C2E105 /* LogicListTests.swift */,
 			);
 			path = Mail;
-			sourceTree = "<group>";
-		};
-		1CBAE2F0289D87B200775C26 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				1CBAE2F1289D87CB00775C26 /* ErrorType.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		1CBE230C287197EF009FAE7A /* Stories */ = {
@@ -630,10 +633,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCBEFA2282D971800A43E25 /* Mockable.swift in Sources */,
-				1CBAE2F2289D87CB00775C26 /* ErrorType.swift in Sources */,
 				1CA44726289C65F8009EEE42 /* SnapshotListTests.swift in Sources */,
+				1C55242528B3EFF4000A3464 /* XCTest+WaitForPrecondition.swift in Sources */,
 				1CCBEFA6282D9B0F00A43E25 /* AutoMockable.generated.swift in Sources */,
 				1C169DC7289D979300C2E105 /* LogicListTests.swift in Sources */,
+				1C55242328B3EE91000A3464 /* XCTAssertEqual+Diff.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

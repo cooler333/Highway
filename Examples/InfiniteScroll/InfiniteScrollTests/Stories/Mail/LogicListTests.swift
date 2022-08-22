@@ -85,7 +85,7 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
@@ -154,7 +154,7 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
@@ -229,7 +229,7 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
@@ -304,7 +304,7 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
@@ -382,12 +382,8 @@ class IntegrationListTests: XCTestCase {
 
         wait(forPrecondition: {
             environment.cancellable.isEmpty
-        }, completion: { success in
-            if success {
-                store.dispatch(.fetchNextPageInList)
-            } else {
-                XCTFail("Expectation is unfillfulled")
-            }
+        }, completion: {
+            store.dispatch(.fetchNextPageInList)
         })
         wait(for: [finishExpectation], timeout: 1)
 
@@ -403,11 +399,11 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
-    func testNextPageErrro() throws {
+    func testNextPageError() throws {
         // Arrange
 
         let listRepository = ListRepositoryProtocolMock()
@@ -458,9 +454,10 @@ class IntegrationListTests: XCTestCase {
 
         listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
             Future<[ListModel], Error> { promise in
+                let startIndex = currentPage * pageLength
+                let count = pageLength
+
                 if currentPage == 0 {
-                    let startIndex = currentPage * pageLength
-                    let count = pageLength
                     let data: [ListModel] = (startIndex..<startIndex + count).map { index in
                         .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
                     }
@@ -478,12 +475,8 @@ class IntegrationListTests: XCTestCase {
 
         wait(forPrecondition: {
             environment.cancellable.isEmpty
-        }, completion: { success in
-            if success {
-                store.dispatch(.fetchNextPageInList)
-            } else {
-                XCTFail("Expectation is unfillfulled")
-            }
+        }, completion: {
+            store.dispatch(.fetchNextPageInList)
         })
         wait(for: [finishExpectation], timeout: 1)
 
@@ -499,7 +492,7 @@ class IntegrationListTests: XCTestCase {
             searchText: nil,
             selectedMailID: nil
         )
-        XCTAssertEqual(store.state, expectedState)
+        XCTAssertEqualWithDiff(store.state, expectedState)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
@@ -561,6 +554,7 @@ class IntegrationListTests: XCTestCase {
             Future<[ListModel], Error> { promise in
                 let startIndex = currentPage * pageLength
                 let count = pageLength
+
                 let data: [ListModel] = (startIndex..<startIndex + count).map { index in
                     .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
                 }
@@ -575,12 +569,8 @@ class IntegrationListTests: XCTestCase {
 
         wait(forPrecondition: {
             environment.cancellable.isEmpty
-        }, completion: { success in
-            if success {
-                store.dispatch(.fetchNextPageInList)
-            } else {
-                XCTFail("Expectation is unfillfulled")
-            }
+        }, completion: {
+            store.dispatch(.fetchNextPageInList)
         })
         wait(for: [finishExpectation], timeout: 1)
 
@@ -620,12 +610,177 @@ class IntegrationListTests: XCTestCase {
 
             )
         ]
-        XCTAssertEqual(states, expectedStates)
+        XCTAssertEqualWithDiff(states, expectedStates)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
-    func testRefresh() throws {
-        XCTFail("Impl")
+    func testNextPageErrorAndSuccessRefresh() throws {
+        // Arrange
+
+        let listRepository = ListRepositoryProtocolMock()
+        let listModuleOutput = ListModuleOutputMock()
+
+        let state: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: false,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+
+        let environment: ListEnvironment = .init(
+            listRepository: listRepository,
+            moduleOutput: listModuleOutput
+        )
+        var actionHandler: ((MailState.List, ListAction) -> Void)!
+
+        let store = configure(
+            state: state,
+            middleware: ListFeature.getPageLoadingMiddleware(environment: environment),
+            actionHandler: { state, action in
+                actionHandler(state, action)
+            }
+        )
+        var states: [MailState.List] = []
+        states.append(store.state)
+        store.subscribe { state in
+            states.append(state)
+        }
+
+        let firstPageExpectation = expectation(description: "finishPage")
+        let errorExpectation = expectation(description: "error")
+        let finishExpectation = expectation(description: "finish")
+
+        actionHandler = { state, action in
+            switch action {
+            case .updateInitialPageInList:
+                firstPageExpectation.fulfill()
+
+            case let .addNextPageInList(result):
+                switch result {
+                case .failure:
+                    errorExpectation.fulfill()
+
+                case .success:
+                    finishExpectation.fulfill()
+                }
+
+            case .fetchInitialPageInList,
+                 .fetchNextPageInList:
+                break
+
+            default:
+                XCTFail("unexpected action: \(action)")
+            }
+        }
+
+        var isError = false
+
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
+            Future<[ListModel], Error> { promise in
+                let startIndex = currentPage * pageLength
+                let count = pageLength
+
+                if currentPage == 0 {
+                    let data: [ListModel] = (startIndex..<startIndex + count).map { index in
+                        .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                    }
+                    promise(.success(data))
+                } else {
+                    if isError {
+                        promise(.failure(URLError.init(.timedOut)))
+                    } else {
+                        let data: [ListModel] = (startIndex..<startIndex + count).map { index in
+                            .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                        }
+                        promise(.success(data))
+                    }
+                }
+            }.eraseToAnyPublisher()
+        }
+
+        // Act
+
+        store.dispatch(.fetchInitialPageInList)
+        wait(for: [firstPageExpectation], timeout: 1)
+
+        isError = true
+
+        wait(forPrecondition: {
+            environment.cancellable.isEmpty
+        }, completion: {
+            store.dispatch(.fetchNextPageInList)
+        })
+        wait(for: [errorExpectation], timeout: 1)
+
+        isError = false
+
+        wait(forPrecondition: {
+            environment.cancellable.isEmpty
+        }, completion: {
+            store.dispatch(.fetchNextPageInList)
+        })
+
+        wait(for: [finishExpectation], timeout: 10)
+
+        // Assert
+
+        let expectedStates: [MailState.List] = [
+            .init(currentPage: 0, isListEnded: false, loadingState: .idle, data: [], searchText: nil, selectedMailID: nil),
+            .init(currentPage: 0, isListEnded: false, loadingState: .refresh, data: [], searchText: nil, selectedMailID: nil),
+            .init(
+                currentPage: 1,
+                isListEnded: false,
+                loadingState: .idle,
+                data: (0..<environment.pageLength).map { index in
+                    .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                },
+                searchText: nil, selectedMailID: nil
+            ),
+            .init(
+                currentPage: 1,
+                isListEnded: false,
+                loadingState: .nextPage,
+                data: (0..<environment.pageLength).map { index in
+                    .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                },
+                searchText: nil,
+                selectedMailID: nil
+            ),
+            .init(
+                currentPage: 1,
+                isListEnded: false,
+                loadingState: .error(.networkError),
+                data: (0..<environment.pageLength).map { index in
+                    .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                },
+                searchText: nil,
+                selectedMailID: nil
+            ),
+            .init(
+                currentPage: 1,
+                isListEnded: false,
+                loadingState: .nextPage,
+                data: (0..<environment.pageLength).map { index in
+                    .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                },
+                searchText: nil,
+                selectedMailID: nil
+            ),
+            .init(
+                currentPage: 2,
+                isListEnded: false,
+                loadingState: .idle,
+                data: (0..<environment.pageLength * 2).map { index in
+                    .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                },
+                searchText: nil,
+                selectedMailID: nil
+            )
+        ]
+        XCTAssertEqualWithDiff(states, expectedStates)
+        XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 3)
     }
 
     func testSearch() throws {
@@ -652,44 +807,4 @@ extension IntegrationListTests {
 
         return store
     }
-
-    private func wait(forPrecondition precondition: @escaping () -> Bool, completion: @escaping (Bool) -> Void) {
-        wait(
-            forPrecondition: precondition,
-            iteration: 0,
-            maxIterations: 100,
-            completionQueue: .main,
-            completion: completion
-        )
-    }
-
-    private func wait(
-        forPrecondition precondition: @escaping () -> Bool,
-        iteration: Int,
-        maxIterations: Int,
-        completionQueue: DispatchQueue,
-        completion: @escaping (Bool) -> Void
-    ) {
-        let result = precondition()
-        if result == true {
-            completion(true)
-            return
-        }
-
-        if iteration + 1 == maxIterations {
-            completion(false)
-            return
-        }
-
-        completionQueue.asyncAfter(deadline: .now() + 0.01, execute: {
-            self.wait(
-                forPrecondition: precondition,
-                iteration: iteration + 1,
-                maxIterations: maxIterations,
-                completionQueue: completionQueue,
-                completion: completion
-            )
-        })
-    }
 }
-
