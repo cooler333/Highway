@@ -26,6 +26,7 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - Do not use 3rd party libraries
 - Can be used with SwiftUI
 - Support structs & classes for state (structs preferred)
+- Thread safe
 
 ## Schemes
 
