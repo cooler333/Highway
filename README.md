@@ -58,7 +58,8 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
 
 #### Swift UI
-- [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
+- [SimpleView](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
+- [ListWithAimations](https://github.com/cooler333/Highway/blob/main/Examples/Animation/Animation/UILayer/Root/SwiftUIView/RootView.swift): Data Driven UI using SwiftUI List 
 
 #### Tests
 - [Snapshot testing](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll/InfiniteScrollTests/Stories/Mail/SnapshotListTests.swift): Snapshot tests based on fast unit tests
