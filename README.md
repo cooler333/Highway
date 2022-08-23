@@ -53,18 +53,28 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 
 ## Examples
 
-- [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
+#### Integration
+- [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
+- [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
+
+#### Swift UI
 - [SwiftUI](https://github.com/cooler333/Highway/blob/main/Examples/Counter/Counter/UILayer/Main/View/MainView.swift): SwiftUI View with updates
+
+#### Tests
+- [Snapshot testing](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll/InfiniteScrollTests/Stories/Mail/SnapshotListTests.swift): Snapshot tests based on fast unit tests
+- [Unit testing business logic](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll/InfiniteScrollTests/Stories/Mail/LogicListTests.swift): Custom logic tests / Integration tests for Model Layer
+
+#### Light/Small Apps
+- [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
 - [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
 - [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside TableView cells using DiffableDataSource & SwiftUI List views(items)
 - [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/TableViewsSync): TableView with animations (deletions/insertions) and syncronisation
+
+#### Heavy Apps
 - [InfiniteScroll](https://github.com/cooler333/Highway/tree/main/Examples/InfiniteScroll): Enterprise solution app (with Dependency Injection, Flow Coordinator e.t.c.)
 
 https://user-images.githubusercontent.com/2772537/177874199-1ba154f8-7982-4016-8618-dc59f76a5d6f.mov
-
-- [Cocoapods integration](https://github.com/cooler333/Highway/tree/main/Examples/PodExample)
-- [Swift Package Manager integration](https://github.com/cooler333/Highway/tree/main/Examples/SPMExample)
 
 ## Requirements
 
@@ -104,7 +114,7 @@ Also you can integrate framework as SPM package
 
 ## TODO
 
-1. App tests examples (E2E, Unit)
+1. App tests examples (UI test using KIF)
 1. UIView modules (separated frameworks)
 1. Add pros and cons to alternatives
 1. Improve readme
