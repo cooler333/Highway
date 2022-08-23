@@ -30,10 +30,11 @@ extension ListFeature {
             environment: environment,
             { dispatch, getState, action, environment in
                 guard action == .fetchInitialPageInList || action == .fetchNextPageInList else { return }
-
-                environment.cancellable.forEach { $0.cancel() }
-
                 guard let state = getState() else { return }
+
+                environment.cancellable.forEach {
+                    $0.cancel()
+                }
 
                 var cancellableToken: AnyCancellable!
                 cancellableToken = environment.listRepository.getLists(

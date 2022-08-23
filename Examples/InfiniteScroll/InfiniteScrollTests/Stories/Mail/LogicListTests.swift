@@ -12,7 +12,9 @@ import XCTest
 @testable import InfiniteScroll
 
 class IntegrationListTests: XCTestCase {
+
     override func setUpWithError() throws {
+        continueAfterFailure = false
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -60,7 +62,7 @@ class IntegrationListTests: XCTestCase {
                 break
 
             default:
-                XCTFail("unexpected action")
+                XCTFail("unexpected action: \(action)")
             }
         }
 
@@ -129,7 +131,7 @@ class IntegrationListTests: XCTestCase {
                 break
 
             default:
-                XCTFail("unexpected action")
+                XCTFail("unexpected action: \(action)")
             }
         }
 
@@ -198,7 +200,7 @@ class IntegrationListTests: XCTestCase {
                 break
 
             default:
-                XCTFail("unexpected action")
+                XCTFail("unexpected action: \(action)")
             }
         }
 
@@ -273,7 +275,7 @@ class IntegrationListTests: XCTestCase {
                 break
 
             default:
-                XCTFail("unexpected action")
+                XCTFail("unexpected action: \(action)")
             }
         }
 
@@ -784,7 +786,168 @@ class IntegrationListTests: XCTestCase {
     }
 
     func testSearch() throws {
-        XCTFail("Impl")
+        // Arrange
+
+        let listRepository = ListRepositoryProtocolMock()
+        let listModuleOutput = ListModuleOutputMock()
+
+        let state: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: false,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+
+        let environment: ListEnvironment = .init(
+            listRepository: listRepository,
+            moduleOutput: listModuleOutput
+        )
+        var actionHandler: ((MailState.List, ListAction) -> Void)!
+
+        let store = configure(
+            state: state,
+            middleware: ListFeature.getPageLoadingMiddleware(environment: environment),
+            actionHandler: { state, action in
+                actionHandler(state, action)
+            }
+        )
+
+        let waitExpectation = expectation(description: "wait")
+
+        actionHandler = { state, action in
+            switch action {
+            case .updateInitialPageInList:
+                waitExpectation.fulfill()
+
+            case .fetchInitialPageInList,
+                 .search:
+                break
+
+            default:
+                XCTFail("unexpected action: \(action)")
+            }
+        }
+
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
+            Future<[ListModel], Error> { promise in
+                promise(.success(
+                    (0..<pageLength - 1).map { index in
+                        let details = searchText ?? "unknown"
+                        return .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: details)
+                    }
+                ))
+            }.eraseToAnyPublisher()
+        }
+
+        // Act
+
+        store.dispatch(.search(searchText: "foobar"))
+        store.dispatch(.fetchInitialPageInList)
+        wait(for: [waitExpectation], timeout: 1)
+
+        // Assert
+
+        let expectedState: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: true,
+            loadingState: .idle,
+            data: (0..<environment.pageLength - 1).map { index in
+                .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "foobar")
+            },
+            searchText: "foobar",
+            selectedMailID: nil
+        )
+        XCTAssertEqualWithDiff(store.state, expectedState)
+        XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
+    }
+
+    func testMultipleFetchPage() throws {
+        // TODO: Fix race condition with AnyCancellable.cancel() and Future
+        XCTFail("Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'API violation - multiple calls made to -[XCTestExpectation fulfill] for updateInitialPageInList.'")
+
+        // Arrange
+
+        let listRepository = ListRepositoryProtocolMock()
+        let listModuleOutput = ListModuleOutputMock()
+
+        let state: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: false,
+            loadingState: .idle,
+            data: [],
+            searchText: nil,
+            selectedMailID: nil
+        )
+
+        let environment: ListEnvironment = .init(
+            listRepository: listRepository,
+            moduleOutput: listModuleOutput
+        )
+        var actionHandler: ((MailState.List, ListAction) -> Void)!
+
+        let store = configure(
+            state: state,
+            middleware: ListFeature.getPageLoadingMiddleware(environment: environment),
+            actionHandler: { state, action in
+                actionHandler(state, action)
+            }
+        )
+
+        let getPageDidCancelExpectation = expectation(description: "getPageDidCancel")
+        let updateInitialPageInListExpectation = expectation(description: "updateInitialPageInList")
+
+        actionHandler = { state, action in
+            switch action {
+            case .getPageDidCancel:
+                getPageDidCancelExpectation.fulfill()
+
+            case .updateInitialPageInList:
+                updateInitialPageInListExpectation.fulfill()
+
+            case .fetchInitialPageInList:
+                break
+
+            default:
+                XCTFail("unexpected action: \(action)")
+            }
+        }
+
+        listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
+            Deferred {
+                Future<[ListModel], Error>({ promise in
+                    DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 0.5) {
+                        promise(.success(
+                            (0..<pageLength - 1).map { index in
+                                .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+                            }
+                        ))
+                    }
+                }).eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
+        }
+
+        // Act
+
+        store.dispatch(.fetchInitialPageInList)
+        store.dispatch(.fetchInitialPageInList)
+        wait(for: [getPageDidCancelExpectation, updateInitialPageInListExpectation], timeout: 20)
+
+        // Assert
+
+        let expectedState: MailState.List = .init(
+            currentPage: 0,
+            isListEnded: true,
+            loadingState: .idle,
+            data: (0..<environment.pageLength - 1).map { index in
+                .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
+            },
+            searchText: nil,
+            selectedMailID: nil
+        )
+        XCTAssertEqualWithDiff(expectedState, store.state)
+        XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 }
 

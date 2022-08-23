@@ -13,6 +13,7 @@ target 'InfiniteScroll' do
     # Pods for testing
     pod 'Sourcery', :subspecs => ['CLI-Only']
     pod 'SnapshotTesting', :inhibit_warnings => true
+    pod 'KIF', :configurations => ['Debug'], :inhibit_warnings => true
 
     pod 'Difference'
   end
