@@ -71,9 +71,6 @@ class MiddlewareTests: XCTestCase {
 
         let finalExpectation = expectation(description: "final")
 
-        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, getState, action, env in
-            dispatch(.second)
-        }
         let store = Store<CounterState, Action>(
             reducer: .init({ state, action in
                 switch action {
@@ -92,7 +89,11 @@ class MiddlewareTests: XCTestCase {
             state: CounterState(),
             initialAction: .initial,
             middleware: [
-                createThunkMiddleware(thunk: thunk, action: .first),
+                createMiddleware({ dispatch, getState, action in
+                    if action == .first {
+                        dispatch(.second)
+                    }
+                }),
                 createMiddleware({ dispatch, getState, action in
                     if action == .second {
                         finalExpectation.fulfill()
@@ -119,10 +120,6 @@ class MiddlewareTests: XCTestCase {
 
         let finalExpectation = expectation(description: "final")
 
-        let thunk: Thunk<CounterState, Action, Void> = Thunk { dispatch, getState, action, env in
-            guard action == .first else { return }
-            dispatch(.second)
-        }
         let store = Store<CounterState, Action>(
             reducer: .init({ state, action in
                 switch action {
@@ -141,7 +138,10 @@ class MiddlewareTests: XCTestCase {
             state: CounterState(),
             initialAction: .initial,
             middleware: [
-                createThunkMiddleware(thunk: thunk),
+                createMiddleware({ dispatch, getState, action in
+                    guard action == .first else { return }
+                    dispatch(.second)
+                }),
                 createMiddleware({ dispatch, getState, action in
                     if action == .second {
                         finalExpectation.fulfill()
