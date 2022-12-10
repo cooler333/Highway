@@ -43,7 +43,12 @@ enum RootFeature {
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
                         .boolData(.init(id: UUID().uuidString, isOn: false, state: .normal)),
-                        .segmentData(.init(id: UUID().uuidString, segments: ["foo", "bar", "baz"], selectedIndex: 2, state: .normal)),
+                        .segmentData(.init(
+                            id: UUID().uuidString,
+                            segments: ["foo", "bar", "baz"],
+                            selectedIndex: 2,
+                            state: .normal
+                        )),
                     ]),
                 ]
                 return state

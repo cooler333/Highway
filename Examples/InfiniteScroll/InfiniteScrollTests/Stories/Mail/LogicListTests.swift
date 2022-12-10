@@ -11,6 +11,7 @@ import XCTest
 
 @testable import InfiniteScroll
 
+// swiftlint:disable:next type_body_length
 class IntegrationListTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -137,7 +138,7 @@ class IntegrationListTests: XCTestCase {
 
         listRepository.getListsWithPageLengthSearchTextClosure = { currentPage, pageLength, searchText in
             Future<[ListModel], Error> { promise in
-                promise(.failure(URLError.init(.timedOut)))
+                promise(.failure(URLError(.timedOut)))
             }.eraseToAnyPublisher()
         }
 
@@ -160,6 +161,7 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
+    // swiftlint:disable:next function_body_length
     func testFetchInitialPageLessThanPageLength() throws {
         // Arrange
 
@@ -235,6 +237,7 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
+    // swiftlint:disable:next function_body_length
     func testFetchInitialPageMoreThanPageLength() throws {
         // Arrange
 
@@ -310,6 +313,7 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
+    // swiftlint:disable:next function_body_length
     func testFetchNextLastPage() throws {
         // Arrange
 
@@ -405,6 +409,7 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
+    // swiftlint:disable:next function_body_length
     func testNextPageError() throws {
         // Arrange
 
@@ -465,7 +470,7 @@ class IntegrationListTests: XCTestCase {
                     }
                     promise(.success(data))
                 } else {
-                    promise(.failure(URLError.init(.timedOut)))
+                    promise(.failure(URLError(.timedOut)))
                 }
             }.eraseToAnyPublisher()
         }
@@ -498,6 +503,7 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
+    // swiftlint:disable:next function_body_length
     func testFetchNextNotLastPage() throws {
         // Arrange
 
@@ -579,8 +585,22 @@ class IntegrationListTests: XCTestCase {
         // Assert
 
         let expectedStates: [MailState.List] = [
-            .init(currentPage: 0, isListEnded: false, loadingState: .idle, data: [], searchText: nil, selectedMailID: nil),
-            .init(currentPage: 0, isListEnded: false, loadingState: .refresh, data: [], searchText: nil, selectedMailID: nil),
+            .init(
+                currentPage: 0,
+                isListEnded: false,
+                loadingState: .idle,
+                data: [],
+                searchText: nil,
+                selectedMailID: nil
+            ),
+            .init(
+                currentPage: 0,
+                isListEnded: false,
+                loadingState: .refresh,
+                data: [],
+                searchText: nil,
+                selectedMailID: nil
+            ),
             .init(
                 currentPage: 1,
                 isListEnded: false,
@@ -609,13 +629,13 @@ class IntegrationListTests: XCTestCase {
                 },
                 searchText: nil,
                 selectedMailID: nil
-
-            )
+            ),
         ]
         XCTAssertEqualWithDiff(states, expectedStates)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 2)
     }
 
+    // swiftlint:disable:next function_body_length
     func testNextPageErrorAndSuccessRefresh() throws {
         // Arrange
 
@@ -691,7 +711,7 @@ class IntegrationListTests: XCTestCase {
                     promise(.success(data))
                 } else {
                     if isError {
-                        promise(.failure(URLError.init(.timedOut)))
+                        promise(.failure(URLError(.timedOut)))
                     } else {
                         let data: [ListModel] = (startIndex..<startIndex + count).map { index in
                             .init(title: "Foo\(index)", subtitle: "Bar", id: "foobar\(index)", details: "barfoo")
@@ -729,8 +749,22 @@ class IntegrationListTests: XCTestCase {
         // Assert
 
         let expectedStates: [MailState.List] = [
-            .init(currentPage: 0, isListEnded: false, loadingState: .idle, data: [], searchText: nil, selectedMailID: nil),
-            .init(currentPage: 0, isListEnded: false, loadingState: .refresh, data: [], searchText: nil, selectedMailID: nil),
+            .init(
+                currentPage: 0,
+                isListEnded: false,
+                loadingState: .idle,
+                data: [],
+                searchText: nil,
+                selectedMailID: nil
+            ),
+            .init(
+                currentPage: 0,
+                isListEnded: false,
+                loadingState: .refresh,
+                data: [],
+                searchText: nil,
+                selectedMailID: nil
+            ),
             .init(
                 currentPage: 1,
                 isListEnded: false,
@@ -779,12 +813,13 @@ class IntegrationListTests: XCTestCase {
                 },
                 searchText: nil,
                 selectedMailID: nil
-            )
+            ),
         ]
         XCTAssertEqualWithDiff(states, expectedStates)
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 3)
     }
 
+    // swiftlint:disable:next function_body_length
     func testSearch() throws {
         // Arrange
 
@@ -863,8 +898,10 @@ class IntegrationListTests: XCTestCase {
         XCTAssertEqual(listRepository.getListsWithPageLengthSearchTextCallsCount, 1)
     }
 
+    // swiftlint:disable:next function_body_length
     func testMultipleFetchPage() throws {
         // TODO: Fix race condition with AnyCancellable.cancel() and Future
+        // swiftlint:disable:next line_length
         XCTFail("Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'API violation - multiple calls made to -[XCTestExpectation fulfill] for updateInitialPageInList.'")
 
         // Arrange
@@ -970,4 +1007,5 @@ extension IntegrationListTests {
 
         return store
     }
+    // swiftlint:disable:next file_length
 }

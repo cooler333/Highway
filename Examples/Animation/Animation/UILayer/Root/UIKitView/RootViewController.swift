@@ -174,6 +174,7 @@ extension RootViewController: UITableViewDelegate {
 }
 
 private extension RootViewController {
+    // swiftlint:disable:next line_length
     /// [apple reference example](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/updating_collection_views_using_diffable_data_sources)
     func reconfigure(
         previousSnapshot: NSDiffableDataSourceSnapshot<ContentSectionIdentifier, ContentIdentifier>,

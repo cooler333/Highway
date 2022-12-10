@@ -27,6 +27,7 @@ extension XCTestCase {
             completionQueue: .main,
             completion: { success in
                 if !success {
+                    // swiftlint:disable:next line_length
                     XCTFail("Asynchronous wait failed: Exceeded timeout of \(seconds) seconds, with unfulfilled expectation")
                 }
                 completion()
@@ -54,7 +55,7 @@ extension XCTestCase {
             return
         }
 
-        completionQueue.asyncAfter(deadline: .now() + 0.01, execute: {
+        completionQueue.asyncAfter(deadline: .now() + 0.01) {
             self.wait(
                 forPrecondition: precondition,
                 iteration: iteration + 1,
@@ -62,6 +63,6 @@ extension XCTestCase {
                 completionQueue: completionQueue,
                 completion: completion
             )
-        })
+        }
     }
 }

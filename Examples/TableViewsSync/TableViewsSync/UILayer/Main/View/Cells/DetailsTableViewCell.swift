@@ -19,7 +19,6 @@ class DetailsTableViewCell: UITableViewCell {
     private var rightButton: UIButton!
     private var rightButtonAction: (() -> Void)!
 
-    // swiftlint:disable:next function_body_length
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 

@@ -107,7 +107,6 @@ class MainViewController: UIViewController {
         self.dataSource = dataSource
     }
 
-    // swiftlint:disable:next function_body_length
     private func getCell(
         for tableView: UITableView,
         indexPath: IndexPath,

@@ -60,7 +60,12 @@ struct RootView_Previews: PreviewProvider {
                             value: "Foo",
                             data: [
                                 .headerData(.init(id: "foo", title: "foo")),
-                                .segmentData(.init(id: "bar", segments: ["foo", "bar"], selectedIndex: 0, state: .normal)),
+                                .segmentData(.init(
+                                    id: "bar",
+                                    segments: ["foo", "bar"],
+                                    selectedIndex: 0,
+                                    state: .normal
+                                )),
                                 .boolData(.init(id: "baz", isOn: true, state: .normal)),
                             ]
                         ),

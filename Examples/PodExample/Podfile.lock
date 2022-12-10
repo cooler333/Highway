@@ -1,8 +1,8 @@
 PODS:
-  - Highway (0.17.0)
-  - Highway/HighwayTests (0.17.0)
-  - SwiftFormat/CLI (0.49.14)
-  - SwiftLint (0.48.0)
+  - Highway (0.18.0)
+  - Highway/HighwayTests (0.18.0)
+  - SwiftFormat/CLI (0.50.6)
+  - SwiftLint (0.50.3)
 
 DEPENDENCIES:
   - Highway (from `../../`)
@@ -20,9 +20,9 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Highway: a50af30994a79e20f4e9ec719413b6013927758b
-  SwiftFormat: 09cc5eb67ae49356c4ad9a2be6a0d5a4212b61bb
-  SwiftLint: 284cea64b6187c5d6bd83e9a548a64104d546447
+  Highway: 9a1733631e879cf2b614cc2180a9bd73b728d114
+  SwiftFormat: d89e201c4e121554de347f764e4ed780526b5173
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
 
 PODFILE CHECKSUM: d23771fdb60fa9a8daba2f13c2b8fa64c869130e
 

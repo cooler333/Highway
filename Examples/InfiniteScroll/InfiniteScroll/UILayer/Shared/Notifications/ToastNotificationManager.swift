@@ -41,7 +41,6 @@ final class ToastNotificationManager: ToastNotificationManagerProtocol {
         return window ?? nil
     }
 
-    // swiftlint:disable:next function_body_length
     func showNotification(with type: ToastNotificationType) {
         switch type {
         case let .success(message):
