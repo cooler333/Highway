@@ -103,9 +103,11 @@ extension ListFeature {
                 // TODO: Check Combine: works like magic without store(&cancellable), but shouldn't`
                 let item = state.data[index]
                 _ = Future<ListAction, Never> { promise in
-                    environment.moduleOutput?.listModuleWantsToOpenDetails(
-                        with: item.id
-                    )
+                    DispatchQueue.main.async {
+                        environment.moduleOutput?.listModuleWantsToOpenDetails(
+                            with: item.id
+                        )
+                    }
                     promise(.success(.screenDidOpen))
                 }
                 .subscribe(on: environment.mainQueue)

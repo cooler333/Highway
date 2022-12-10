@@ -1,6 +1,6 @@
 PODS:
   - Difference (1.0.0)
-  - Highway (0.17.0)
+  - Highway (0.18.0)
   - KIF (3.8.7):
     - KIF/Core (= 3.8.7)
   - KIF/Core (3.8.7)
@@ -35,7 +35,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Difference: 2f1f5040078df5cd5077cff308834510261ad7ad
-  Highway: a50af30994a79e20f4e9ec719413b6013927758b
+  Highway: 9a1733631e879cf2b614cc2180a9bd73b728d114
   KIF: 779cdbca106633b94ecee7b036537490ebdbd9de
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
   Sourcery: ad4aba88367fbaf0c1ae6ec4ba3282db1b571624

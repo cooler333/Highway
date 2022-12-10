@@ -122,6 +122,8 @@ Also you can integrate framework as SPM package
 1. Improve readme
 1. Collapsable UITableView (?)
 1. Modern CollectionView (?)
+1. Selectors to observe nested values
+1. Selectors to map state values 
 
 ## Author
 
