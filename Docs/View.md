@@ -8,6 +8,8 @@ import Highway
 ```
 3. Add Store as a property and initializer
 ```swift
+// ...
+
 final class MainViewController: UIViewController {
     private let store: Store<MainFeature.State, MainFeature.Action>
 
