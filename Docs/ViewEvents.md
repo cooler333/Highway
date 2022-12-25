@@ -29,7 +29,7 @@ override func viewDidLoad() {
     // ...
 }
 ```
-3. Update subscribe closure to update button text
+3. Change subscribe closure to update button text
 ```swift
 store.subscribe { state in
     DispatchQueue.main.async { [weak self] in
@@ -43,5 +43,7 @@ store.subscribe { state in
     }
 }
 ```
+4. Run app and tap "Start" button. Then the label will increase value every second.
+5. That's it!
 
 [Go to home page](https://github.com/cooler333/Highway)
