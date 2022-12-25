@@ -1,4 +1,4 @@
-## Mobule builder
+## Module builder
 
 1. Create empty MainModuleBuilder.swift file
 2. Implement build function
@@ -23,3 +23,6 @@ final class MainModuleBuilder {
 let mainViewController = MainBuilder().build()
 otherViewController.present(viewController, animated: true)
 ```
+4. Run app and tap on plus sign button. Label will update from 0 to 1
+
+[Next: Middleware and asyncronious logic](Middleware.md)

@@ -86,4 +86,4 @@ override func viewDidLoad() {
 }
 ```
 
-[Next](ModuleBuilder.md)
+[Next: Module builder](ModuleBuilder.md)

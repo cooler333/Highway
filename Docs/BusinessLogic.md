@@ -6,13 +6,13 @@
 import Foundation
 import Highway
 ```
-3. Add namespace
+3. Add namespace for your module
 ```swift
 // ...
 
 enum MainFeature {}
 ```
-4. Add state
+4. Add state data
 ```swift
 // ...
 
@@ -22,7 +22,7 @@ extension MainFeature {
     }
 }
 ```
-5. Add actions 
+5. Add actions/events
 ```swift
 // ...
 
@@ -33,7 +33,7 @@ extension MainFeature {
     }
 }
 ```
-6. Add reducer and business logic
+6. Add reducer and business logic for state mutation
 ```swift
 // ...
 
@@ -48,7 +48,7 @@ extension MainFeature {
 
             case .decrement:
                 var state = state
-                state.count += 1
+                state.count -= 1
                 return state
             }
         }
@@ -56,4 +56,4 @@ extension MainFeature {
 }
 ```
 
-[Next](View.md)
+[Next: View](View.md)
