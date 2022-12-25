@@ -1,6 +1,6 @@
 ## Implement business logic
 
-1. Create empty MainFeature.swift file
+1. Create empty MainFeature.swift file inside exmpl/Main folder in exmpl project
 2. Add imports
 ```swift
 import Foundation
