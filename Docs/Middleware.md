@@ -1,6 +1,6 @@
 ## Add middleware
 
-1. Add middleware builder function to MainFeature.swift
+1. Add middleware builder function to `MainFeature.swift`
 ```swift
 // ...
 
