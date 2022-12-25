@@ -1,6 +1,6 @@
 ## Create view
 
-1. Create empty MainViewController.swift file
+1. Create empty `MainViewController.swift` file
 2. Add imports
 ```swift
 import UIKit
