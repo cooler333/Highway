@@ -8,10 +8,11 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 ## Table of contents
 
 - [Features](#features)
-- [Schemes](#schemes)
+- [Tutorials](#tutorials)
 - [Examples](#examples)
 - [Requirements](#requirements)
 - [Installation (Cocoapods / SPM)](#installation-cocoapods--spm)
+- [Schemes](#schemes)
 - [Alternatives](#alternatives)
 - [Tools used in project](#tools-used-in-project)
 - [Author](#author)
@@ -28,29 +29,8 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - Support structs & classes for state (structs preferred)
 - Thread safe
 
-## Schemes
-
-#### Simple unidirectional data flow
-
-<img src="Resources/arch_animation.gif" alt="General" width="600"/>
-
-1. UI generate Action
-1. Action goes to Store
-1. Store mutate State (if needed)
-1. new State goes to UI
-1. Action goes to Middleware
-1. Middleware generate new action (if needed)
-1. new Action from Middleware goes to Store
-1. Store mutate State (if needed)
-1. new State goes to UI
-
-#### Single shared state
-
-<img src="Resources/ChildStoreScheme.png" alt="Child" width="400"/>
-
-- Multiple Stores share single State
-- State not copied for each new SubStore
-- State mutation goes down to parent store
+## Tutorials
+[Basic step by step guide](Docs/Tutorial.md)
 
 ## Examples
 
@@ -93,6 +73,30 @@ pod 'Highway'
 ```
 
 Also you can integrate framework as SPM package
+
+## Schemes
+
+#### Simple unidirectional data flow
+
+<img src="Resources/arch_animation.gif" alt="General" width="600"/>
+
+1. UI generate Action
+1. Action goes to Store
+1. Store mutate State (if needed)
+1. new State goes to UI
+1. Action goes to Middleware
+1. Middleware generate new action (if needed)
+1. new Action from Middleware goes to Store
+1. Store mutate State (if needed)
+1. new State goes to UI
+
+#### Single shared state
+
+<img src="Resources/ChildStoreScheme.png" alt="Child" width="400"/>
+
+- Multiple Stores share single State
+- State not copied for each new SubStore
+- State mutation goes down to parent store
 
 ## Alternatives
 
