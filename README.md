@@ -30,7 +30,7 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - Thread safe
 
 ## Tutorials
-[Basic step by step guide](Docs/Tutorial.md)
+[Basic step by step guide](Docs/BusinessLogic.md)
 
 ## Examples
 
