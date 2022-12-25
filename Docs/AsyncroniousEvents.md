@@ -21,7 +21,8 @@ extension MainFeature {
     enum Action: Equatable {
         case increment
         case decrement
-        case autoIncrement
+        case startAutoIncrement
+        case stopAutoIncrement
     }
 }
 ```
