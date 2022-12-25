@@ -7,7 +7,7 @@ Final project
 
 ### Let's begin!
 
-1. [Download starter project](Starter.zip)
+1. [Download starter project](Project.zip)
 2. Run `pod install` inside Starter folder
 3. Open `exmpl.xcworkspace` via Xcode
 4. [Go to first step!](BusinessLogic.md)
