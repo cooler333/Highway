@@ -1,6 +1,6 @@
 ## Add module builder
 
-1. Create empty MainModuleBuilder.swift file
+1. Create empty `MainModuleBuilder.swift` file inside `exmpl/Main` folder in `exmpl` project
 2. Implement build function
 ```swift
 import Foundation
