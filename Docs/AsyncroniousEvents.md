@@ -15,7 +15,7 @@ extension MainFeature {
     }
 }
 ```
-3. Add new case to Action
+3. Add new cases to Action
 ```swift
 extension MainFeature {
     enum Action: Equatable {
