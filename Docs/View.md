@@ -1,4 +1,4 @@
-## View
+## Create view
 
 1. Create empty MainViewController.swift file
 2. Add imports
@@ -55,16 +55,16 @@ override func viewDidLoad() {
 5. Add label property
 ```swift
 final class MainViewController: UIViewController {
-	// ...
+    // ...
 
     private var label: UILabel!
 ```
 6. Add label
 ```swift
 override func viewDidLoad() {
-	// ...
+    // ...
 
-	let label = UILabel()
+    let label = UILabel()
     label.text = "\(store.state.count)"
     label.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(label)
@@ -76,7 +76,7 @@ override func viewDidLoad() {
 7. Subscribe to store updates
 ```swift
 override func viewDidLoad() {
-	// ...
+    // ...
 
     store.subscribe { state in
         DispatchQueue.main.async { [weak self] in

@@ -1,4 +1,4 @@
-## Business logic
+## Implement business logic
 
 1. Create empty MainFeature.swift file
 2. Add imports

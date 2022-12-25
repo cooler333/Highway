@@ -1,4 +1,4 @@
-## Middleware
+## Add middleware
 
 1. Add middleware builder function to MainFeature.swift
 ```swift
@@ -36,7 +36,7 @@ final class MainBuilder {
     }
 }
 ```
-3. Run app and tap on plus sign button. The next output will be printed to console
+3. Run app and tap on "plus" button. The next output will be printed to console
 ```
 > Increment action is called
 ```

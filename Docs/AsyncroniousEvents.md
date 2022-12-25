@@ -1,4 +1,4 @@
-## Asyncronious events
+## Call Asyncronious action
 
 1. Import Combine framework
 ```swift
@@ -33,21 +33,26 @@ extension MainFeature {
             switch action {
             // ...
 
-	        case .decrement:
-	            var state = state
-	            state.count -= 1
-	            return state
+            case .decrement:
+                var state = state
+                state.count -= 1
+                return state
 
-	        case .autoIncrement:
-	            var state = state
-	            state.isAutoIncrementEnabled = !state.isAutoIncrementEnabled
-	            return state
-			}
+            case .startAutoIncrement:
+                var state = state
+                state.isAutoIncrementEnabled = true
+                return state
+
+            case .stopAutoIncrement:
+                var state = state
+                state.isAutoIncrementEnabled = false
+                return state
+            }
         }
     }
 }
 ```
-5. Add middleware with Timer. Do not forget handle new case in previous middleware.
+5. Add middleware with Timer. Do not forget to handle new case in previous middleware.
 ```swift
 extension MainFeature {
     static func middleware() -> [Middleware<MainFeature.State, MainFeature.Action>] {
@@ -62,22 +67,25 @@ extension MainFeature {
                     print("Increment action is called")
 
                 case .autoIncrement:
-                	break
+                    break
                 }
             }),
             createMiddleware({ dispatch, getState, action in
-                guard action == .autoIncrement else { return }
-                guard let state = getState() else { return }
-                if state.isAutoIncrementEnabled {
+                switch action {
+                case .startAutoIncrement:
                     Timer.publish(every: 1, on: .main, in: .default)
                         .autoconnect()
                         .sink { _ in
                             dispatch(.increment)
                         }
                         .store(in: &timerCancellable)
-                } else {
+
+                case .stopAutoIncrement:
                     timerCancellable.forEach({ $0.cancel() })
                     timerCancellable.removeAll()
+
+                default:
+                    break
                 }
             })
         ]
@@ -85,3 +93,5 @@ extension MainFeature {
 }
 ```
 Async actions called via `dispatch()`
+
+[Next: View events](ViewEvents.md)
