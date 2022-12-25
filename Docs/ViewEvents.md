@@ -1,6 +1,6 @@
 ## Update view
 
-1. Add autoIncrementButton property
+1. Open `MainViewController.swift` and add `autoIncrementButton` property
 ```swift
 private var autoIncrementButton: UIButton!
 ```
