@@ -32,22 +32,22 @@ override func viewDidLoad() {
     let incrementButton = UIButton(primaryAction: UIAction(handler: { [weak self] _ in
         self?.store.dispatch(.increment)
     }))
-    incrementButton.setTitle("+", for: .normal)
-    incrementButton.titleLabel?.font = .systemFont(ofSize: 30)
-    view.addSubview(incrementButton)
     incrementButton.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(incrementButton)
     incrementButton.leftAnchor.constraint(equalTo: view.centerXAnchor, constant: 20).isActive = true
     incrementButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 20).isActive = true
+    incrementButton.setTitle("+", for: .normal)
+    incrementButton.titleLabel?.font = .systemFont(ofSize: 30)
 
     let decrementButton = UIButton(primaryAction: UIAction(handler: { [weak self] _ in
         self?.store.dispatch(.decrement)
     }))
-    decrementButton.setTitle("-", for: .normal)
-    decrementButton.titleLabel?.font = .systemFont(ofSize: 30)
-    view.addSubview(decrementButton)
     decrementButton.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(decrementButton)
     decrementButton.rightAnchor.constraint(equalTo: view.centerXAnchor, constant: -20).isActive = true
     decrementButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 20).isActive = true
+    decrementButton.setTitle("-", for: .normal)
+    decrementButton.titleLabel?.font = .systemFont(ofSize: 30)
 }
 
 // ...
