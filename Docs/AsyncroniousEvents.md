@@ -67,7 +67,7 @@ extension MainFeature {
                 case .increment:
                     print("Increment action is called")
 
-                case .autoIncrement:
+                case .startAutoIncrement, .stopAutoIncrement:
                     break
                 }
             }),
