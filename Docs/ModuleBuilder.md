@@ -1,7 +1,7 @@
 ## Mobule builder
 
 1. Create empty MainModuleBuilder.swift file
-1. Implement build function
+2. Implement build function
 ```swift
 import Foundation
 import Highway
@@ -18,7 +18,7 @@ final class MainModuleBuilder {
     }
 }
 ```
-1. Build and show view controller
+3. Build and show view controller
 ```swift
 let mainViewController = MainBuilder().build()
 otherViewController.present(viewController, animated: true)

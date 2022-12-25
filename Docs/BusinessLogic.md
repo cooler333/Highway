@@ -1,18 +1,18 @@
 ## Business logic
 
 1. Create empty MainFeature.swift file
-1. Add imports
+2. Add imports
 ```swift
 import Foundation
 import Highway
 ```
-1. Add namespace
+3. Add namespace
 ```swift
 // ...
 
 enum MainFeature {}
 ```
-1. Add state
+4. Add state
 ```swift
 // ...
 
@@ -22,7 +22,7 @@ extension MainFeature {
     }
 }
 ```
-1. Add actions 
+5. Add actions 
 ```swift
 // ...
 
@@ -33,7 +33,7 @@ extension MainFeature {
     }
 }
 ```
-1. Add reducer and business logic
+6. Add reducer and business logic
 ```swift
 // ...
 

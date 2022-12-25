@@ -1,12 +1,12 @@
 ## View
 
 1. Create empty MainViewController.swift file
-1. Add imports
+2. Add imports
 ```swift
 import UIKit
 import Highway
 ```
-1. Add Store as a property and initializer
+3. Add Store as a property and initializer
 ```swift
 final class MainViewController: UIViewController {
     private let store: Store<MainFeature.State, MainFeature.Action>
@@ -21,7 +21,7 @@ final class MainViewController: UIViewController {
     }
 }
 ```
-1. Add increment/decrement buttons
+4. Add increment/decrement buttons
 ```swift
 // ...
 
@@ -52,14 +52,14 @@ override func viewDidLoad() {
 
 // ...
 ```
-1. Add label property
+5. Add label property
 ```swift
 final class MainViewController: UIViewController {
 	// ...
 
     private var label: UILabel!
 ```
-1. Add label
+6. Add label
 ```swift
 override func viewDidLoad() {
 	// ...
@@ -73,7 +73,7 @@ override func viewDidLoad() {
     self.label = label
 }
 ```
-1. Subscribe to store updates
+7. Subscribe to store updates
 ```swift
 override func viewDidLoad() {
 	// ...
