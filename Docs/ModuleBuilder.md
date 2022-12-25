@@ -1,6 +1,6 @@
 ## Add module builder
 
-1. Create empty MainModuleBuilder.swift file
+1. Create empty `MainModuleBuilder.swift` file inside `exmpl/Main` folder in `exmpl` project
 2. Implement build function
 ```swift
 import Foundation
@@ -18,10 +18,15 @@ final class MainModuleBuilder {
     }
 }
 ```
-3. Build and show view controller
+3. Open `SceneDelegate.swift`, call build function and present `MainViewController`
 ```swift
-let mainViewController = MainBuilder().build()
-otherViewController.present(viewController, animated: true)
+func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    // ...
+    window.makeKeyAndVisible()
+
+    let mainViewController = MainModuleBuilder().build()
+    otherViewController.present(mainViewController, animated: true)
+}
 ```
 4. Run app and tap on "plus" button. Label will update from 0 to 1
 

@@ -1,6 +1,6 @@
 ## Create view
 
-1. Create empty MainViewController.swift file
+1. Create empty `MainViewController.swift` file inside `exmpl/Main` folder in `exmpl` project
 2. Add imports
 ```swift
 import UIKit
@@ -8,6 +8,8 @@ import Highway
 ```
 3. Add Store as a property and initializer
 ```swift
+// ...
+
 final class MainViewController: UIViewController {
     private let store: Store<MainFeature.State, MainFeature.Action>
 

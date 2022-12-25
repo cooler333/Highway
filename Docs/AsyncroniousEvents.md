@@ -1,6 +1,6 @@
 ## Call Asyncronious action
 
-1. Import Combine framework
+1. Open `MainFeature.swift` and import Combine framework
 ```swift
 import Foundation
 import Highway
@@ -15,13 +15,14 @@ extension MainFeature {
     }
 }
 ```
-3. Add new case to Action
+3. Add new cases to Action
 ```swift
 extension MainFeature {
     enum Action: Equatable {
         case increment
         case decrement
-        case autoIncrement
+        case startAutoIncrement
+        case stopAutoIncrement
     }
 }
 ```
@@ -66,7 +67,7 @@ extension MainFeature {
                 case .increment:
                     print("Increment action is called")
 
-                case .autoIncrement:
+                case .startAutoIncrement, .stopAutoIncrement:
                     break
                 }
             }),

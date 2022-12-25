@@ -1,6 +1,6 @@
 ## Add middleware
 
-1. Add middleware builder function to MainFeature.swift
+1. Add middleware builder function to `MainFeature.swift`
 ```swift
 // ...
 
@@ -22,7 +22,7 @@ extension MainFeature {
 ```
 2. Add middleware to store initializer
 ```swift
-final class MainBuilder {
+final class MainModuleBuilder {
     func build() -> UIViewController {
         let store = Store<MainFeature.State, MainFeature.Action>(
             reducer: MainFeature.reducer(),
