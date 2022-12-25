@@ -1,6 +1,6 @@
 ## Call Asyncronious action
 
-1. Import Combine framework
+1. Open `MainFeature.swift` and import Combine framework
 ```swift
 import Foundation
 import Highway
