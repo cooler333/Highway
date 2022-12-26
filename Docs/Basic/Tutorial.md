@@ -1,9 +1,6 @@
-## Step by step guide
+## Basic: Crate simple counter app wiht asycnronuous actions
 
 In this guide we will create simple counter app.
-
-Starter project
-Final project
 
 ### Let's begin!
 
