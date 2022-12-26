@@ -77,4 +77,4 @@ extension MainFlowCoordinator: MainModuleOutput {
 }
 ```
 
-[Next: Share state](ShareState.md)
+[Next: Present second module](SecondModule.md)

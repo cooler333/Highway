@@ -15,5 +15,6 @@ Let's improve counter app.
 ## Overview
 
 1. [Upgrade routing](FlowCoordinator.md)
-2. [Add module output][ModuleOutput.md]
-3. [Present second module][SecondModule.md]
+2. [Add module output](ModuleOutput.md)
+3. [Present second module](SecondModule.md)
+4. [Share state](ShareState.md)
