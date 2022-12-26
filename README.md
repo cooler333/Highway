@@ -8,7 +8,7 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 ## Table of contents
 
 - [Features](#features)
-- [Tutorials](#tutorials)
+- [Tutorials](#Tutorials--Step-by-step-guide)
 - [Examples](#examples)
 - [Requirements](#requirements)
 - [Installation (Cocoapods / SPM)](#installation-cocoapods--spm)
