@@ -2,6 +2,9 @@
 
 In this guide we will create simple counter app.
 
+Starter project
+Final project
+
 ### Let's begin!
 
 1. [Download starter project](Project.zip)
