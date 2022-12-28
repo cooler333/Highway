@@ -7,8 +7,11 @@ Let's improve counter app.
 1. [Download starter project](Project.zip)
 2. Open Terminal app
 3. Go to Starter folder
-4. Run `bundle install`
-5. Run `bundle exec pod install`
+4. Install [Bundler](https://bundler.io) (Ruby gems version manager)
+    1. Update gems `gem update --system`
+    2. Run `gem install bundler`
+4. Install dependencies `bundle install`
+5. Install Pods `bundle exec pod install`
 6. Open `exmpl.xcworkspace` via Xcode
 7. [Go to first step!](FlowCoordinator.md)
 
