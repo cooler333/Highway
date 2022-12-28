@@ -9,6 +9,9 @@ import Foundation
 import Highway
 import Swinject
 import UIKit
+import List
+import Details
+import Domain
 
 final class RootContainer {
     private let assembler: Assembler

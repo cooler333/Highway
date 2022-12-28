@@ -5,6 +5,10 @@ target 'InfiniteScroll' do
 
   pod 'Highway', path: '../../'
 
+  pod 'Domain', path: 'LocalPods/Domain'
+  pod 'Details', path: 'LocalPods/Details'
+  pod 'List', path: 'LocalPods/List'
+
   pod 'Swinject'
   pod 'SwiftMessages', :inhibit_warnings => true
 

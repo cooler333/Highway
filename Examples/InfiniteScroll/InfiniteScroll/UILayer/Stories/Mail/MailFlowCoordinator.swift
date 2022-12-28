@@ -8,6 +8,9 @@
 import Foundation
 import Swinject
 import UIKit
+import Domain
+import List
+import Details
 
 final class MailFlowCoordinator: FlowCoordinatorProtocol {
     private weak var window: UIWindow!

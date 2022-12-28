@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Domain
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
