@@ -4,7 +4,7 @@ Let's improve counter app.
 
 ### Let's begin!
 
-1. [Download starter project](Project.zip)
+1. [Download starter project](https://github.com/cooler333/Highway/raw/main/Docs/Advanced/Project.zip)
 2. Open Terminal app
 3. Go to Starter folder
 4. Run `bundle install`
