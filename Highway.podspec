@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Highway"
-  s.version          = "0.18.0"
+  s.version          = "1.0.0"
   s.summary          = "Fast Multi-store Redux-like architecture framework for iOS/OSX applications"
   s.description      = <<-DESC
                         Fast Multi-store Redux-like architecture framework for iOS/OSX applications.
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.author           = {
     "Dmitrii Cooler" => "collerov333@gmail.com"
   }
-  # s.documentation_url = "https://highway.github.io/Highway/"
-  # s.social_media_url  = "https://twitter.com/cooler333"
+  s.documentation_url = "https://github.com/cooler333/Highway"
+
   s.source            = {
     :git => "https://github.com/cooler333/Highway.git",
     :tag => s.version.to_s
@@ -34,5 +34,5 @@ Pod::Spec.new do |s|
   end
 
   s.source_files     = 'Sources/Highway/**/*.swift'
-  s.swift_versions   = ["5.6", "5.5", "5.4"]
+  s.swift_versions   = ["5.7", "5.6", "5.5", "5.4"]
 end
