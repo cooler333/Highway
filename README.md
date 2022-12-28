@@ -122,13 +122,12 @@ Also you can integrate framework as SPM package
 ## TODO
 
 1. App tests examples (UI test using KIF)
-1. UIView modules (separated frameworks)
-1. Add pros and cons to alternatives
-1. Improve readme
-1. Collapsable UITableView (?)
-1. Modern CollectionView (?)
-1. Selectors to observe nested values
-1. Selectors to map state values 
+2. UIView modules (separated frameworks)
+3. Add pros and cons to alternatives
+4. Collapsable UITableView (?)
+5. Modern CollectionView (?)
+6. Selectors to observe nested values
+7. Selectors to map state values 
 
 ## Author
 
