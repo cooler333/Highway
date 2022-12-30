@@ -1,4 +1,4 @@
-## Basic: Crate simple counter app with asycnronuous actions
+## Basic: Create simple counter app with asycnronuous actions
 
 In this guide we will create simple counter app.
 
