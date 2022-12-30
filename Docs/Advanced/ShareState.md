@@ -16,7 +16,7 @@ static func middleware(environment: Environment) -> [Middleware<MainFeature.Stat
     var timerCancellable: [AnyCancellable] = []
     return [
         // ...
-        }),
+        // Add following to the end of array
         createMiddleware(environment: environment, { dispatch, getState, action, environment in
             guard action == .random else { return }
             DispatchQueue.main.async { [weak environment] in
