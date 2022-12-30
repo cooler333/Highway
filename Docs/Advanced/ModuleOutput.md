@@ -25,7 +25,7 @@ import Highway
 4. Add store property
 ```swift
 final class MainFlowCoordinator {
-	// ...
+    // ...
 
     private var store: Store<MainFeature.State, MainFeature.Action>!
 ```
@@ -64,7 +64,7 @@ extension MainFeature {
 ```
 extension MainFeature {
     static func middleware(environment: Environment) -> [Middleware<MainFeature.State, MainFeature.Action>] {
-    // ...
+        // ...
     }
 }
 ```
