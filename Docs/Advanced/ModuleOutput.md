@@ -61,7 +61,7 @@ extension MainFeature {
 }
 ```
 8. Add environment argument to `middleware` func
-```
+```swift
 extension MainFeature {
     static func middleware(environment: Environment) -> [Middleware<MainFeature.State, MainFeature.Action>] {
         // ...
