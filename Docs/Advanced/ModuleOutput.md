@@ -68,7 +68,7 @@ extension MainFeature {
     }
 }
 ```
-9. Go to the `MainFlowCoordinator.swift` and add folling to the end of file
+9. Go to the `MainFlowCoordinator.swift` and add following to the end of file
 ```swift
 extension MainFlowCoordinator: MainModuleOutput {
     func mainModuleDidTapRandomButton() {
