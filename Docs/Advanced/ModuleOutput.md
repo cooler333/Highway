@@ -25,7 +25,7 @@ import Highway
 4. Add store property
 ```swift
 final class MainFlowCoordinator {
-	// ...
+    // ...
 
     private var store: Store<MainFeature.State, MainFeature.Action>!
 ```
@@ -48,7 +48,7 @@ func start() {
 }
 ```
 6. Go to `MainFeature.swift`
-7. Add following to the end of file
+7. Add following to the end of the file
 ```swift
 extension MainFeature {
     final class Environment {
@@ -60,15 +60,15 @@ extension MainFeature {
     }
 }
 ```
-8. Add environment argument to `middleware` func
-```
+8. Add an environment argument to the `middleware` func
+```swift
 extension MainFeature {
     static func middleware(environment: Environment) -> [Middleware<MainFeature.State, MainFeature.Action>] {
-    // ...
+        // ...
     }
 }
 ```
-9. Go to `MainFlowCoordinator.swift` and add folling to the end of file
+9. Go to the `MainFlowCoordinator.swift` and add following to the end of file
 ```swift
 extension MainFlowCoordinator: MainModuleOutput {
     func mainModuleDidTapRandomButton() {
