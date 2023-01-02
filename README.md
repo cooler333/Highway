@@ -28,6 +28,18 @@ Highway is an Redux-like architecture pattern implementation with Swift.
 - Can be used with SwiftUI
 - Support structs & classes for state (structs preferred)
 - Thread safe
+- Can be used with async/await
+```swift
+createMiddleware({ dispatch, getState, action in
+    switch action {
+    case .randomize:
+        Task.init {
+            let rand = await generateRandomValue()
+            dispatch(.receiveRandomValue(Int(rand)))
+        }
+    }
+})
+```
 
 ## Tutorials (Step by step guide)
 - [Basic: Create simple counter app with asycnronuous actions](Docs/Basic/Tutorial.md)
