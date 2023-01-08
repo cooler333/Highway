@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Highway"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "Fast Multi-store Redux-like architecture framework for iOS/OSX applications"
   s.description      = <<-DESC
                         Fast Multi-store Redux-like architecture framework for iOS/OSX applications.
