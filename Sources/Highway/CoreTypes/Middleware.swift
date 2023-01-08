@@ -32,12 +32,12 @@ public struct Middleware<State, Action> {
 
 public func createMiddleware<State, Action, Environment>(
     environment: Environment,
-    _ body: @escaping ((
+    _ body: @escaping (
         _ dispatch: @escaping Dispatch<Action>,
         _ getState: @escaping () -> State?,
         _ action: Action,
         _ environment: Environment
-    ) -> Void)
+    ) -> Void
 ) -> Middleware<State, Action> {
     return .init(body: body, environment: environment)
 }
