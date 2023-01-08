@@ -42,12 +42,12 @@ public func createMiddleware<State, Action, Environment>(
     return .init(body: body, environment: environment)
 }
 
-//public func createMiddleware<State, Action>(
-//    _ body: @escaping (
-//        _ dispatch: @escaping Dispatch<Action>,
-//        _ getState: @escaping () -> State?,
-//        _ action: Action
-//    ) -> Void
-//) -> Middleware<State, Action> {
-//    return .init(body: body, environment: environment)
-//}
+public func createMiddleware<State, Action>(
+    _ body: @escaping (
+        _ dispatch: @escaping Dispatch<Action>,
+        _ getState: @escaping () -> State?,
+        _ action: Action
+    ) -> Void
+) -> Middleware<State, Action> {
+    return .init(body: body)
+}
