@@ -154,7 +154,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
                 return self.state
             }
             self.middleware.forEach { middleware in
-                middleware(middlewareDispatch, getState, action)
+                middleware.run(dispatch: middlewareDispatch, getState: getState, action: action)
             }
         }
     }
