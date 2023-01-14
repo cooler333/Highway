@@ -31,7 +31,7 @@ override func viewDidLoad() {
 ```
 3. Change subscribe closure to update button text
 ```swift
-store.subscribe { state in
+store.subscribe { [weak self] state in
     DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
         self.label.text = "\(state.count)"

@@ -80,7 +80,7 @@ override func viewDidLoad() {
 override func viewDidLoad() {
     // ...
 
-    store.subscribe { state in
+    store.subscribe { [weak self] state in
         DispatchQueue.main.async { [weak self] in
             self?.label.text = "\(state.count)"
         }
