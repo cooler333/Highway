@@ -5,8 +5,8 @@
 //  Created by Dmitrii Coolerov on 05.05.2022.
 //
 
-import UIKit
 import Domain
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

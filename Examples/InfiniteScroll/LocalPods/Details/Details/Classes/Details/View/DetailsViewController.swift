@@ -6,9 +6,9 @@
 //
 
 import Combine
+import Domain
 import Highway
 import UIKit
-import Domain
 
 public class DetailsViewController: UIViewController {
     private let store: Store<MailState.List, String>
@@ -30,7 +30,7 @@ public class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .cyan

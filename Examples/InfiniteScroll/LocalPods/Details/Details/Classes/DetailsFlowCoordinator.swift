@@ -5,10 +5,10 @@
 //  Created by Dmitrii Coolerov on 03.07.2022.
 //
 
+import Domain
 import Foundation
 import Swinject
 import UIKit
-import Domain
 
 public final class DetailsFlowCoordinator: FlowCoordinatorProtocol {
     private weak var parentViewController: UISplitViewController!

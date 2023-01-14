@@ -6,10 +6,10 @@
 //
 
 import Combine
+import Domain
 import Foundation
 import Highway
 import UIKit
-import Domain
 
 struct ListViewModel: Equatable {
     let title: String
@@ -94,7 +94,7 @@ public final class ListViewController: UIViewController {
     }
 
     // swiftlint:disable:next function_body_length
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 

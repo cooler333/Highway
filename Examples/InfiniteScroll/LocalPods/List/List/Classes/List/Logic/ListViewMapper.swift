@@ -5,15 +5,15 @@
 //  Created by Dmitrii Cooler on 10.08.2022.
 //
 
-import Foundation
 import Domain
+import Foundation
 
-extension ListFeature {
-    public static func getActionMapper(action: ListAction) -> ListAction {
+public extension ListFeature {
+    static func getActionMapper(action: ListAction) -> ListAction {
         action
     }
 
-    public static func getStateMapper(state: MailState.List) -> MailState.List {
+    static func getStateMapper(state: MailState.List) -> MailState.List {
         state
     }
 }

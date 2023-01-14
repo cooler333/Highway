@@ -5,12 +5,12 @@
 //  Created by Dmitrii Coolerov on 03.07.2022.
 //
 
+import Details
+import Domain
 import Foundation
+import List
 import Swinject
 import UIKit
-import Domain
-import List
-import Details
 
 final class MailFlowCoordinator: FlowCoordinatorProtocol {
     private weak var window: UIWindow!

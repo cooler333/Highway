@@ -5,13 +5,13 @@
 //  Created by Dmitrii Coolerov on 29.06.2022.
 //
 
+import Domain
 import Foundation
 import Highway
-import Domain
 
-extension ListFeature {
+public extension ListFeature {
     // swiftlint:disable:next cyclomatic_complexity function_body_length
-    public static func getReducer() -> Reducer<MailState.List, ListAction> {
+    static func getReducer() -> Reducer<MailState.List, ListAction> {
         return Reducer<MailState.List, ListAction> { state, action in
             switch action {
             case .fetchInitialPageInList:

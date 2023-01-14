@@ -6,9 +6,9 @@
 //
 
 import Combine
+import Domain
 import Foundation
 import Highway
-import Domain
 
 public enum ListAction: Equatable {
     case initial

@@ -6,15 +6,15 @@
 //
 
 import Combine
-import Foundation
 import Domain
+import Foundation
 
 public final class ListRepositoryMock {
     public init() {}
 }
 
-extension ListRepositoryMock: ListRepositoryProtocol {
-    public func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
+public extension ListRepositoryMock: ListRepositoryProtocol {
+    func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
         let pageLengthRandom = Int.random(in: 0...4)
         let internalPageLength = pageLengthRandom != 0 ? pageLength : Int(round(Double(pageLength / 2)))
 

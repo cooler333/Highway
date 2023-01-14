@@ -6,12 +6,12 @@
 //
 
 import Combine
+import Domain
 import Foundation
 import Highway
-import Domain
 
-extension ListFeature {
-    public static func getMiddlewares(
+public extension ListFeature {
+    static func getMiddlewares(
         environment: ListEnvironment
     ) -> [Middleware<MailState.List, ListAction>] {
         return [
@@ -22,9 +22,9 @@ extension ListFeature {
     }
 }
 
-extension ListFeature {
+public extension ListFeature {
     // swiftlint:disable:next function_body_length
-    public static func getPageLoadingMiddleware(
+    static func getPageLoadingMiddleware(
         environment: ListEnvironment
     ) -> Middleware<MailState.List, ListAction> {
         return createMiddleware(

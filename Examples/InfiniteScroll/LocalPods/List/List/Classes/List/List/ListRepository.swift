@@ -6,8 +6,8 @@
 //
 
 import Combine
-import Foundation
 import Domain
+import Foundation
 
 public protocol ListRepositoryProtocol: AnyObject {
     func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error>

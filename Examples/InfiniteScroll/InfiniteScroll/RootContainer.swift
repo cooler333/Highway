@@ -5,13 +5,13 @@
 //  Created by Dmitrii Coolerov on 05.05.2022.
 //
 
-import Foundation
-import Highway
-import Swinject
-import UIKit
-import List
 import Details
 import Domain
+import Foundation
+import Highway
+import List
+import Swinject
+import UIKit
 
 final class RootContainer {
     private let assembler: Assembler

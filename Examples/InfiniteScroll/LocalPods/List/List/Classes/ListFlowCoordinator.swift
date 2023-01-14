@@ -5,10 +5,10 @@
 //  Created by Dmitrii Coolerov on 01.02.2022.
 //
 
+import Domain
 import Foundation
 import Swinject
 import UIKit
-import Domain
 
 protocol ListFlowCoordinatorOutput: AnyObject {
     func listFlowCoordinatorWantsToOpenDetails(with id: String)

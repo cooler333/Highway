@@ -5,8 +5,8 @@
 //  Created by Dmitrii Coolerov on 17.04.2022.
 //
 
-import Foundation
 import Domain
+import Foundation
 
 public protocol ListModelParserProtocol {
     func parse(responseData: [ListResponseData]) -> [ListModel]
