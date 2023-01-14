@@ -116,46 +116,46 @@ public final class Store<State: Equatable, Action>: StoreCreator {
     }
 
     public func innerDispatch(action: Action) {
-        guard !isDispatching.value else {
-            fatalError(
-                """
-                Action has been dispatched while a previous action is being processed.
-                A reducer is dispatching an action in a concurrent context (e.g. from multiple threads).
-                Action: \(action)
-                """
-            )
-        }
-
-        isDispatching.value { $0 = true }
         let newState = reducer.reduce(state, action)
-        isDispatching.value { $0 = false }
-
         if state != newState {
             state = newState
+        }
+
+        let middlewareDispatch: (Action) -> Void = { [weak self] middlewareAction in
+            guard let self = self else {
+                debugPrint("dispatch() called after Store deinit")
+                return
+            }
+            self.innerDispatch(action: middlewareAction)
+        }
+        let getState: () -> State? = { [weak self] in
+            guard let self = self else {
+                debugPrint("getState() called after Store deinit")
+                return nil
+            }
+            return self.state
+        }
+        middleware.forEach { middleware in
+            middleware.run(dispatch: middlewareDispatch, getState: getState, action: action)
         }
     }
 
     public func dispatch(_ action: Action) {
         internalQueue.async { [weak self] in
             guard let self = self else { return }
+            guard !self.isDispatching.value else {
+                fatalError(
+                    """
+                    Action has been dispatched while a previous action is being processed.
+                    A reducer is dispatching an action in a concurrent context (e.g. from multiple threads).
+                    Action: \(action)
+                    """
+                )
+            }
+
+            self.isDispatching.value { $0 = true }
             self.innerDispatch(action: action)
-            let middlewareDispatch: (Action) -> Void = { [weak self] in
-                guard let self = self else {
-                    debugPrint("dispatch() called after Store deinit")
-                    return
-                }
-                self.dispatch($0)
-            }
-            let getState: () -> State? = { [weak self] in
-                guard let self = self else {
-                    debugPrint("getState() called after Store deinit")
-                    return nil
-                }
-                return self.state
-            }
-            self.middleware.forEach { middleware in
-                middleware.run(dispatch: middlewareDispatch, getState: getState, action: action)
-            }
+            self.isDispatching.value { $0 = false }
         }
     }
 
