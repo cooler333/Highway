@@ -134,6 +134,7 @@ Also you can integrate framework as SPM package
 ## TODO
 
 - Add pros and cons to alternatives
+- Add area of responsibility for Highway types
 
 ## Author
 
