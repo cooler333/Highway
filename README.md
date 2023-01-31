@@ -42,7 +42,7 @@ createMiddleware({ dispatch, getState, action in
 ```
 
 ## Tutorials (Step by step guide)
-- [Basic: Create simple counter app with asycnronuous actions](Docs/Basic/Tutorial.md)
+- [Basic: Create simple counter app with asynchronous actions](Docs/Basic/Tutorial.md)
 - [Advanced: Share state between modules](Docs/Advanced/Tutorial.md)
 
 ## Examples
@@ -62,7 +62,7 @@ createMiddleware({ dispatch, getState, action in
 #### Light/Small Apps
 - [Counter](https://github.com/cooler333/Highway/tree/main/Examples/Counter): Lighweight multi store app (Single view controller with multiple child view controller)
 - [SocketPingPong](https://github.com/cooler333/Highway/tree/main/Examples/SocketPingPong): An app with stream of events (like web socket or server side events)
-- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and simmilar example using ViewStore
+- [ReusableViewControllers](https://github.com/cooler333/Highway/tree/main/Examples/ReusableViewControllers): Reuse view controller or view which was written with imperative style and similar example using ViewStore
 - [Animation](https://github.com/cooler333/Highway/tree/main/Examples/Animation): Animation inside TableView cells using DiffableDataSource & SwiftUI List views(items)
 - [TableViewsSync](https://github.com/cooler333/Highway/tree/main/Examples/TableViewsSync): TableView with animations (deletions/insertions) and syncronisation
 
@@ -128,7 +128,7 @@ Also you can integrate framework as SPM package
 ## Tools used in project
 
 - [rbenv](https://github.com/rbenv/rbenv): Manage your app's Ruby environment (quote from rbenv github web page)
-- [Bundler](https://bundler.io): The best way to manage a Ruby application's gems (quote form Bundler web page)
+- [Bundler](https://bundler.io): The best way to manage a Ruby application's gems (quote from Bundler web page)
 - [Git LFS](https://git-lfs.github.com): An open source Git extension for versioning large files (quote from git-lfs web page)
 
 ## TODO
@@ -146,7 +146,7 @@ The following people gave feedback on the library at its early stages and helped
 
 Special thanks to:
 
-- [Aleksey Alekseev](https://github.com/joyalex) who helped me to imporve library peformance
+- [Aleksey Alekseev](https://github.com/joyalex) who helped me to improve library performance
 - [Dmitii Bobrov](https://github.com/dimabobrov) with major feedback on early concepts 
 
 ## License
