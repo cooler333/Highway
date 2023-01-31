@@ -10,10 +10,13 @@ Let's improve counter app.
 4. Install [Bundler](https://bundler.io) (Ruby gems version manager)
     1. Update gems `gem update --system`
     2. Run `gem install bundler`
-4. Install dependencies `bundle install`
-5. Install Pods `bundle exec pod install`
-6. Open `exmpl.xcworkspace` via Xcode
-7. [Go to first step!](FlowCoordinator.md)
+5. Install dependencies `bundle install`
+6. Install [git-lfs](https://git-lfs.com/) if needed
+    1. `brew install git-lfs`
+    2. `git lfs install`
+7. Install Pods `bundle exec pod install`
+8. Open `exmpl.xcworkspace` via Xcode
+9. [Go to first step!](FlowCoordinator.md)
 
 ## Overview
 
