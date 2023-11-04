@@ -11,7 +11,7 @@ override func viewDidLoad() {
     decrementButton.titleLabel?.font = .systemFont(ofSize: 30)
 
     let autoIncrementButton = UIButton(primaryAction: UIAction(handler: { [weak self] _ in
-        guard let self = self else { return }
+        guard let self else { return }
         if self.store.state.isAutoIncrementEnabled {
             self.store.dispatch(.stopAutoIncrement)
         } else {
@@ -33,7 +33,7 @@ override func viewDidLoad() {
 ```swift
 store.subscribe { [weak self] state in
     DispatchQueue.main.async { [weak self] in
-        guard let self = self else { return }
+        guard let self else { return }
         self.label.text = "\(state.count)"
         if state.isAutoIncrementEnabled {
             self.autoIncrementButton.setTitle("Stop", for: .normal)

@@ -1,4 +1,4 @@
-Copyright (c) 2022 Dmitrii Coolerov <utm4@mail.ru>
+Copyright (c) 2022 Dmitrii Cooler <utm4@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

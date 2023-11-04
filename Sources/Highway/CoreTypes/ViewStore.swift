@@ -2,7 +2,7 @@
 //  ViewStore.swift
 //  Highway
 //
-//  Created by Dmitrii Coolerov on 13.07.2022.
+//  Created by Dmitrii Cooler on 13.07.2022.
 //
 
 import Foundation

@@ -122,14 +122,14 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         }
 
         let middlewareDispatch: (Action) -> Void = { [weak self] middlewareAction in
-            guard let self = self else {
+            guard let self else {
                 debugPrint("dispatch() called after Store deinit")
                 return
             }
             self.innerDispatch(action: middlewareAction)
         }
         let getState: () -> State? = { [weak self] in
-            guard let self = self else {
+            guard let self else {
                 debugPrint("getState() called after Store deinit")
                 return nil
             }
@@ -142,7 +142,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     public func dispatch(_ action: Action) {
         internalQueue.async { [weak self] in
-            guard let self = self else { return }
+            guard let self else { return }
             guard !self.isDispatching.value else {
                 fatalError(
                     """
