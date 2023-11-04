@@ -1,0 +1,42 @@
+{
+  "configurations" : [
+    {
+      "id" : "3FE8F589-B27C-4130-A51A-1ABB159CB56B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:InfiniteScroll.xcodeproj",
+          "identifier" : "1C6E51FF28242F3800218661",
+          "name" : "InfiniteScroll"
+        },
+        {
+          "containerPath" : "container:Pods\/Pods.xcodeproj",
+          "identifier" : "0AF6AC84F2496C5483262E49CAA2522F",
+          "name" : "Highway"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:InfiniteScroll.xcodeproj",
+      "identifier" : "1C6E51FF28242F3800218661",
+      "name" : "InfiniteScroll"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:InfiniteScroll.xcodeproj",
+        "identifier" : "1C6E521528242F3900218661",
+        "name" : "InfiniteScrollTests"
+      }
+    }
+  ],
+  "version" : 1
+}
