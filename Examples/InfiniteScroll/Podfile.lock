@@ -6,7 +6,7 @@ PODS:
   - Difference (1.0.0)
   - Domain (0.1.0):
     - SwiftMessages
-  - Highway (0.18.0)
+  - Highway (1.1.1)
   - KIF (3.8.7):
     - KIF/Core (= 3.8.7)
   - KIF/Core (3.8.7)
@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   Details: 78fb5d40bf630695a85f4f83cec5b07c0a4471b0
   Difference: 2f1f5040078df5cd5077cff308834510261ad7ad
   Domain: 0e66ff44d51d9a06638cc4a7d174b0ed7c635cf8
-  Highway: 9a1733631e879cf2b614cc2180a9bd73b728d114
+  Highway: 5f43f1ce494171728c61970721e7e7dd2091bd96
   KIF: 779cdbca106633b94ecee7b036537490ebdbd9de
   List: 89837c93bab1c78f76438235d331f52a5ab99bc3
   SnapshotTesting: 6141c48b6aa76ead61431ca665c14ab9a066c53b
@@ -66,4 +66,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b9218a06901c6ba496a2abeeae8831bafcd7b200
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.2
