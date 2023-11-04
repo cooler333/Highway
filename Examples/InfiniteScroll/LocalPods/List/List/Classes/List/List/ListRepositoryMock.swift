@@ -13,8 +13,8 @@ public final class ListRepositoryMock {
     public init() {}
 }
 
-public extension ListRepositoryMock: ListRepositoryProtocol {
-    func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
+extension ListRepositoryMock: ListRepositoryProtocol {
+    public func getLists(with currentPage: Int, pageLength: Int, searchText: String?) -> AnyPublisher<[ListModel], Error> {
         let pageLengthRandom = Int.random(in: 0...4)
         let internalPageLength = pageLengthRandom != 0 ? pageLength : Int(round(Double(pageLength / 2)))
 

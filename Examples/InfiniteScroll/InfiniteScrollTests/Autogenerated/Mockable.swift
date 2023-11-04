@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import List
+import Domain
 
 @testable import InfiniteScroll
 

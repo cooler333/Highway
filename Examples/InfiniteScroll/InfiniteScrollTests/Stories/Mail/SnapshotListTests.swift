@@ -10,6 +10,8 @@ import Highway
 import SnapshotTesting
 import Swinject
 import XCTest
+import Domain
+import List
 
 @testable import InfiniteScroll
 

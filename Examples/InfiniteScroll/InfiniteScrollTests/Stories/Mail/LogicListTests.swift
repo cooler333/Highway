@@ -8,6 +8,8 @@
 import Combine
 import Highway
 import XCTest
+@testable import Domain
+@testable import List
 
 @testable import InfiniteScroll
 
@@ -991,7 +993,7 @@ class IntegrationListTests: XCTestCase {
 extension IntegrationListTests {
     private func configure(
         state: MailState.List,
-        middleware: @escaping Middleware<MailState.List, ListAction>,
+        middleware: Middleware<MailState.List, ListAction>,
         actionHandler: @escaping (MailState.List, ListAction) -> Void
     ) -> Store<MailState.List, ListAction> {
         let testMiddleware: Middleware<MailState.List, ListAction> = createMiddleware { dispatch, getState, action in
