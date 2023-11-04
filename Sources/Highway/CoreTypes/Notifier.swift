@@ -1,5 +1,5 @@
 //
-//  Nofifier.swift
+//  Notifier.swift
 //  Highway
 //
 //  Created by Dmitrii Cooler on 02.07.2022.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public final class Nofifier<Value> {
+public final class Notifier<Value> {
     private var subscriptions: [Subscription<Value>]
 
     public init() {
-        self.subscriptions = []
+        subscriptions = []
     }
 
     public init(subscriptions: [Subscription<Value>]) {

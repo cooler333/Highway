@@ -46,14 +46,12 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     private var _state: State! {
         didSet {
-            subscriptions.forEach { subscription in
-                subscription.listener(_state)
-            }
+            notifier.publish(newValue: _state)
         }
     }
 
     private var reducer: Reducer<State, Action>
-    private var subscriptions: [Subscription<State>] = []
+    private let notifier: Notifier<State> = .init()
     private var isDispatching = Synchronized<Bool>(false)
     private let middleware: [Middleware<State, Action>]
 
@@ -104,15 +102,11 @@ public final class Store<State: Equatable, Action>: StoreCreator {
 
     @discardableResult
     public func subscribe(listener: @escaping (State) -> Void) -> Subscription<State> {
-        let subscription = Subscription<State>(listener: listener)
-        subscriptions.append(subscription)
-        return subscription
+        return notifier.subscribe(listener: listener)
     }
 
     public func unsubscribe(_ subscription: Subscription<State>) {
-        if let index = subscriptions.firstIndex(of: subscription) {
-            subscriptions.remove(at: index)
-        }
+        notifier.unsubscribe(subscription)
     }
 
     public func innerDispatch(action: Action) {
@@ -175,9 +169,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         )
         subscribe(listener: { [weak childStore] state in
             guard let childStore = childStore else { return }
-            childStore.subscriptions.forEach { subscription in
-                subscription.listener(state[keyPath: keyPath])
-            }
+            childStore.notifier.publish(newValue: state[keyPath: keyPath])
         })
         return childStore
     }
@@ -210,9 +202,7 @@ public final class Store<State: Equatable, Action>: StoreCreator {
         )
         subscribe(listener: { [weak childStore] state in
             guard let childStore = childStore else { return }
-            childStore.subscriptions.forEach { subscription in
-                subscription.listener(state)
-            }
+            childStore.notifier.publish(newValue: state)
         })
         return childStore
     }

@@ -5,9 +5,9 @@
 //  Created by Dmitrii Coolerov on 12.05.2022.
 //
 
+import Domain
 import Foundation
 import List
-import Domain
 
 @testable import InfiniteScroll
 

@@ -6,12 +6,12 @@
 //
 
 import Combine
+import Domain
 import Highway
+import List
 import SnapshotTesting
 import Swinject
 import XCTest
-import Domain
-import List
 
 @testable import InfiniteScroll
 

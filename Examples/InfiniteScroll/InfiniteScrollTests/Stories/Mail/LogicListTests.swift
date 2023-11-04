@@ -8,10 +8,10 @@
 import Combine
 import Highway
 import XCTest
-@testable import Domain
-@testable import List
 
+@testable import Domain
 @testable import InfiniteScroll
+@testable import List
 
 // swiftlint:disable:next type_body_length
 class IntegrationListTests: XCTestCase {

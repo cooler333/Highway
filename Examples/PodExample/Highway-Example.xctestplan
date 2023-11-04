@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "22AF11EF-8127-497A-9C36-49A166C94245",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Pods\/Pods.xcodeproj",
+          "identifier" : "0AF6AC84F2496C5483262E49CAA2522F",
+          "name" : "Highway"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Highway.xcodeproj",
+      "identifier" : "607FACCF1AFB9204008FA782",
+      "name" : "Highway_Example"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Highway.xcodeproj",
+        "identifier" : "607FACE41AFB9204008FA782",
+        "name" : "Highway_Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Pods\/Pods.xcodeproj",
+        "identifier" : "AE46171B9EE6EE81105AE5E20293FD1C",
+        "name" : "Highway-Unit-HighwayTests"
+      }
+    }
+  ],
+  "version" : 1
+}
